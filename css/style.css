@@ -1,0 +1,207 @@
+
+.ci-après,.personne{
+    color: darkslategray;
+    font-size: 11px;
+    text-align: -moz-left;
+}
+.personneCenter{
+    color: darkslategray;
+    font-size: 11px;
+    text-align: center;
+}
+.gras{
+    color: black;
+    font-weight: bold;
+    font-size: 11px;
+}
+.blue{
+    color: steelblue;
+    font-size: 11px;
+}
+.black{
+    color: black;
+    font-size: 13px;
+    font-weight: bold;
+}
+.Important{
+    color: steelblue;
+
+    font-size: 14px;
+    text-align: center;
+    text-decoration: underline steelblue solid ;
+}
+.normal{
+    font-size: 11px;
+    color: black;
+    font-family:  Arial, Verdana, sans-serif;
+}
+.petit{
+    font-size: 8px;
+    color: black;
+    font-family:  Arial, Verdana, sans-serif;
+}
+.bas_de_pages{
+    text-align: center;
+    font-size: 10px;
+    color: gray;
+    font-family: Arial, Verdana, sans-serif;
+}
+.bas_de_pages_num{
+    text-align: center;
+    font-size: 11px;
+    color: black;
+    font-family: Arial, Verdana, sans-serif;
+}
+h2
+{
+    color: black;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+}
+.decaler{
+    color: black;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    margin-left:20px;
+
+}
+
+.Introduction{
+    text-align: center;
+    font-family:  Arial, Verdana, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    border-width:3px;
+    border-style: solid;
+    border-color:black;
+    padding:3px;
+    color: mediumblue;
+
+}
+.Résidences{
+    font-size: 12px;
+    font-family:  Arial, Verdana, sans-serif;
+}
+.main{
+    background: white;
+    position: relative;
+    width: 1000px;
+    height: 70px;
+
+    display: table;
+    color: white;
+}
+.main2{
+    background: white;
+    position: relative;
+    width: 900px;
+    min-height: 50px;
+    max-height: 70px;
+    display: table;
+    color: white;
+}
+.main3{
+
+    background: white;
+    margin-left: 830px;
+
+    color: white;
+}
+.contentMain3{
+    color: black;
+    padding: 11px;
+    font-size: 12px;
+    display: table-cell;
+    vertical-align: center;
+    text-align: left;
+    font-weight: bold;
+}
+.contentleft{
+    color : black;
+    padding: 11px;
+    font-size: 11px;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+}
+.contentright{
+    color: black;
+    padding: 11px;
+    font-size: 11px;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+
+}
+.imagegauche{
+    color : white;
+    padding: 11px;
+    font-size: 11px;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+
+
+}
+.imageDroite{
+    color: white;
+    padding: 11px;
+    font-size: 11px;
+    width: 280px;
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+    border-width:3px;
+    border-style: solid;
+    border-color:black;
+}
+.image, .salutations
+ {
+     color: green;
+     font-size: 14px;
+     font-family:  Arial, Verdana, sans-serif;
+     font-style: italic;
+     border-width:3px;
+     border-style: solid;
+     border-color:black;
+ }
+
+body, html{height:100%;
+    margin:10px;
+
+    padding:0;
+
+}
+
+#contenuprincipal {
+    height: 100%; /*pousse le pied de page vers le bas*/
+}
+
+#pieddepage {
+    height: 50px; /*pour ajuster l'hauteur du pied de page*/
+    margin-top: -50px;/*ces chiffres doivent être opposés*/
+}
+.tableauBackground{
+    background: steelblue;
+
+}
+
+td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+    padding: 15px;
+}
+table
+
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+}
+img{
+   height: 70px;width: 250px;
+
+
+}
+
+
