@@ -7,7 +7,7 @@ Celle application posséde fonctionnalités suivantes:
 * Enregistrement et suppression d'une location, d'un locataire, d'un garant,...
 * Generation de documents sous format PDF (contrats de location, relance d'impayés,...).
 
-Le développement et le suivi de ce jet ont nécessité l'installation et l'administration d'un serveur Git Lab.
+Le développement et le suivi de ce projet ont nécessité l'installation et l'administration d'un serveur Git Lab.
 Je me suis chargé de:
 
 * l'installation d'un serveur GitLab sur un Rapsberry Pi 3-modèle b+,
