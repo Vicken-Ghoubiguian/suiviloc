@@ -146,7 +146,7 @@
                 $mail_de_recuperation_de_mot_de_passe->Username = "nom_de_l_application_nom_de_la_residence_locative@nom_de_domaine.com";
 
                 //
-                $mail_de_recuperation_de_mot_de_passe->Password = "Res*1007";
+                $mail_de_recuperation_de_mot_de_passe->Password = "mot_de_passe_du_compte_de_l_application";
 
                 //
                 $mail_de_recuperation_de_mot_de_passe->setFrom("nom_de_l_application_nom_de_la_residence_locative@nom_de_domaine.com", "nom_de_l_application");

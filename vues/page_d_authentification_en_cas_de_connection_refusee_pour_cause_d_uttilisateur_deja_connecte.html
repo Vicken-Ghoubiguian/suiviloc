@@ -24,9 +24,9 @@
 <div id='dialog_d_indication_de_connexion_refusee_pour_cause_d_uttilisateur_deja_connecte' title='Erreur survenue'>
     Connexion refusée: l'utilisateur renseigné est déjà connecté à l'application. Veuillez recommencer ultérieurement.
 </div>
-<div>
+<div class='center-block taille_du_formulaire_d_authentification'>
     <form action='authentification.php' method='post'>
-        <table>
+        <table cellspacing='50'>
             <tr>
                 <th>
                     <label for='identifiant_pour_authentification' class='text-warning'>
@@ -44,17 +44,17 @@
                     </label>
                 </th>
                 <th>
-                    <input class='text-danger' type='password' id='mot_de_passe_pour_authentification' name='champ_password_pour_mot_de_passe_pour_authentification' title='Entrez votre mot de passe dans ce champ; Vous pourrez modifier celui-ci avec un autre de votre choix, une fois connecté' required>
+                    <input class='marge_de_separation_des_elements text-danger' type='password' id='mot_de_passe_pour_authentification' name='champ_password_pour_mot_de_passe_pour_authentification' title='Entrez votre mot de passe dans ce champ; Vous pourrez modifier celui-ci avec un autre de votre choix, une fois connecté' required>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <div><input class='ui-button ui-corner-all ui-widget' type='submit' name='soumission_du_formulaire_d_authentification' value='Connectez-vous'></div>
+                    <div><input class='marge_de_separation_des_elements ui-button ui-corner-all ui-widget' type='submit' name='soumission_du_formulaire_d_authentification' value='Connectez-vous'></div>
                 </th>
             </tr>
             <tr>
                 <th>
-                    <div><button id='bouton_d_oublis_de_mot_de_passe' class='ui-button ui-corner-all ui-widget'>Mot de passe oublié</button></div>
+                    <div><button id='bouton_d_oublis_de_mot_de_passe' class='ui-button ui-corner-all ui-widget marge_de_separation_des_elements'>Mot de passe oublié</button></div>
                 </th>
             </tr>
         </table>

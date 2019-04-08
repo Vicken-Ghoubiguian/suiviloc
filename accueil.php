@@ -25,7 +25,7 @@
                 require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
                 //
-                $corps_de_la_page_html = "<body><div id='tabs_des_fonctionnalites'>
+                $corps_de_la_page_html = "<body><div id='tabs_des_fonctionnalites' class='center-block taille_du_bloc_des_fonctionnalites'>
                                         <ul>
                                             <li><a href='#bienvenue'>Bienvenue</a></li>
                                             <li><a href='#gestion_du_parc_locatif'>Gestion du parc locatif</a></li>
@@ -58,34 +58,85 @@
                                                 
                                             </div>
                                             <div id='contrat_de_location'>
-                                                <h3 class='sous-menu'>Consulter les contrats de location</h3>
-                                                <h3 class='sous-menu'>Generer des contrats de location</h3>
-                                                <h3 class='sous-menu'>Lire les contrats de location</h3>
-                                                <h3 class='sous-menu'>Envoyer des contrats de location</h3>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Consulter les contrats de location</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Generer des contrats de location</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Lire les contrats de location</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des contrats de location</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
                                             </div>
                                             <div id='attestation'>
-                                                <h3 class='sous-menu'>Consulter les attestations</h3>
-                                                <h3 class='sous-menu'>Generer des attestations</h3>
-                                                <h3 class='sous-menu'>Lire les attestations</h3>
-                                                <h3 class='sous-menu'>Envoyer des attestations</h3>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Consulter les attestations</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Generer des attestations</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Lire les attestations</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des attestations</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
                                             </div>
                                             <div id='relance_impayee'>
-                                                <h3 class='sous-menu'>Consulter les relances impayées</h3>
-                                                <h3 class='sous-menu'>Generer des relances impayées</h3>
-                                                <h3 class='sous-menu'>Lire les relances impayées</h3>
-                                                <h3 class='sous-menu'>Envoyer des relances impayées</h3>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Consulter les relances impayées</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Generer des relances impayées</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Lire les relances impayées</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des relances impayées</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
                                             </div>
                                             <div id='expiration_de_contrat_de_location'>
                                                 
                                             </div>
                                             <div id='accuses_de_reception'>
-                                                <h3 class='sous-menu'>Consulter les accusés de récéption</h3>
-                                                <h3 class='sous-menu'>Generer des accusés de récéption</h3>
-                                                <h3 class='sous-menu'>Lire les accusés de récéption</h3>
-                                                <h3 class='sous-menu'>Envoyer des accusés de récéption</h3>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Consulter les accusés de récéption</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Generer des accusés de récéption</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Lire les accusés de récéption</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
+                                                <div class='panel panel-default'>
+                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des accusés de récéption</div>
+                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                </div>
                                             </div>
                                             <div>
                                                 Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le ". date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
+                                            </div>
+                                            <div>
+                                                &copy; 2019 residence locative - adresse de la résidence locative
                                             </div>
                                         </div>
                                         <div id='fenetre_de_deconnexion' title='Déconnexion'>
@@ -94,7 +145,6 @@
 
             //
             $pied_de_la_page_html = "<footer>
-                                        &copy; 2019 residence locative - adresse de la résidence locative
                                     </footer>
                                 </body>
                             </html>";
@@ -123,46 +173,63 @@
             session_unset();
 
             //
-            $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET est_connecte = 0 WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
+            try {
 
-            //
-            $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET est_connecte = 0 WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
 
-            //
-            $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":nom", $nom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
 
-            //
-            $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":nom", $nom_de_l_uttilisateur_courant);
 
-            //
-            $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->execute();
+                //
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
 
-            //
-            $nouvelle_date_et_heure_de_derniere_connexion = new DateTime("now");
+                //
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->execute();
 
-            //
-            $nouvelle_date_et_heure_de_derniere_connexion = $nouvelle_date_et_heure_de_derniere_connexion->format("Y-m-d H:i:sP");
+                //
+                $nouvelle_date_et_heure_de_derniere_connexion = new DateTime("now");
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET date_et_heure_de_derniere_connexion = :date_et_heure_de_derniere_connexion WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
+                //
+                $nouvelle_date_et_heure_de_derniere_connexion = $nouvelle_date_et_heure_de_derniere_connexion->format("Y-m-d H:i:sP");
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET date_et_heure_de_derniere_connexion = :date_et_heure_de_derniere_connexion WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":nom", $nom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":nom", $nom_de_l_uttilisateur_courant);
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam("date_et_heure_de_derniere_connexion", $nouvelle_date_et_heure_de_derniere_connexion);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
 
-            //
-            $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->execute();
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam("date_et_heure_de_derniere_connexion", $nouvelle_date_et_heure_de_derniere_connexion);
 
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->execute();
+
+                //
+                require("vues/page_de_deconnexion_suite_au_depassement_du_temps_d_expiration.html");
+            }
             //
-            require("vues/page_de_deconnexion_suite_au_depassement_du_temps_d_expiration.html");
+            catch(Exception $exception_de_connexion)
+            {
+
+                //
+                $smarty = new Smarty();
+
+                //
+                $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_de_connexion->getMessage()));
+
+                //
+                $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
+            }
 
         }
 

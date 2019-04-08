@@ -2,3 +2,19 @@
 {
     text-align: left;
 }
+
+.marge_de_separation_des_elements
+{
+    margin-top: 5px;
+}
+
+.taille_du_formulaire_d_authentification
+{
+    width:300px;
+    color: white;
+}
+
+.taille_du_bloc_des_fonctionnalites
+{
+    width: 1500px;
+}
