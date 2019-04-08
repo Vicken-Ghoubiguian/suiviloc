@@ -15,20 +15,6 @@
     //
     if(isset($_POST['soumission_du_formulaire_d_authentification']))
     {
-        //Cette chaine de caractères contient le nom du serveur pour connexion à la base de données d'authentification des uttilisateurs
-        $nom_du_serveur_pour_connection_a_l_application = "localhost";
-
-        //Cette chaine de caractères contient le nom de la base de données pour authentification des uttilisateurs
-        $nom_de_la_base_de_donnees_pour_connection_a_l_application = "gestion_de_parc_locatif";
-
-        //Cette chaine de caractères contient le nom de l'uttilisateur pour connexion à la base de données d'authentification des uttilisateurs
-        $nom_de_l_uttilisateur_pour_connection_a_l_application = "root";
-
-        //Cette chaine de caractères contient le mot de passe pour le nom de l'uttilisateur renseigné ci-dessus pour connexion à la base de données d'authentification des uttilisateurs
-        $mot_de_passe_de_l_uttilisateur_pour_connection_a_l_application = "";
-
-        //Cette chaine de caractère contient tous les paramétres permettant la connexion à la base de données
-        $chaine_de_connection = "mysql:host=$nom_du_serveur_pour_connection_a_l_application;dbname=$nom_de_la_base_de_donnees_pour_connection_a_l_application";
 
         //
         try

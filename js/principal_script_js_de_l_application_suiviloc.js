@@ -230,4 +230,18 @@ $(document).ready(function(){
             }
         }
     });
+
+    $('#erreur_de_connexion_PDO_dans_le_process_en_cours').dialog({
+        close: function (event, ui) {
+
+            //
+            $(this).dialog('close');
+
+            //
+            document.location.href = 'index.php';
+        },
+        width: 600,
+        modal: true,
+        resizable: false
+    });
 });

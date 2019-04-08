@@ -38,7 +38,7 @@
                                         <div id='bienvenue'>
                                             <h1>Bienvenue sur Suiviloc</h1>
                                             <br>
-                                            <p>Logiciel de gestion du parc locatif</p>
+                                            <p>Logiciel de gestion de parc locatif</p>
                                             <br>
                                             <ul>
                                                 <li>Gérez le parc locatif</li>

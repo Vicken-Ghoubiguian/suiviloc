@@ -1,7 +1,7 @@
 -- CREATION DE L'UTTILISATEUR residence_locative --
 CREATE USER 'residence_locative'@'localhost' IDENTIFIED BY 'mot_de_passe_de_l_uttilisateur_residence_locative';
 
--- ACCORD DE TOUS LES PRIVILEGES A L'UTTILISATEUR residence_locative --
+-- ACCORD DE TOUS LES PRIVILEGES A L'UTTILISATEUR residence_locative SUR LA TABLE gestion_de_parc_locatif --
 GRANT ALL PRIVILEGES ON gestion_de_parc_locatif.* TO 'residence_locative'@'localhost';
 
 -- CREATION DE TOUTES LES TABLES NECESSAIRES DANS LE MODELE --

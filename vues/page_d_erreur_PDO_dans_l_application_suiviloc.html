@@ -21,10 +21,7 @@
     <link href='css/feuille_de_style_principale_de_l_application_suiviloc.css' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id='erreur_lors_de_l_envoi_de_lien_de_reconfiguration_via_mail' title='Lien de configuration non envoyé'>
-    <p>Le lien de configuration de votre mot de passe n'a pas été envoyé avec succès.</p>
-    <p>Une erreur s'est produite. La voici: {$exception_generee_lors_de_l_envoi_du_mail}.</p>
-    <p>Si vous voulez vous retourner à la page d'accueil, cliquez sur le bouton 'Retourner à la page d'accueil'.</p>
-    <p>Si vous voulez quitter l'application, cliquez sur le bouton 'Quitter l'application'.</p>
+<div id='erreur_de_connexion_PDO_dans_le_process_en_cours' title='Echec de connexion à la base de données'>
+    <p>Erreur de connexion à la base de données, la voici: {$message_d_erreur_de_connexion_a_la_base_de_donnees}.</p>
 </div>
 </body></html>
