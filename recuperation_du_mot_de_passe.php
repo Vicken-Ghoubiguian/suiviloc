@@ -117,6 +117,7 @@
                                                 <link rel='stylesheet' href='css/jquery-ui.theme.min.css'>
                                                 <link rel='stylesheet' href='css/jquery-ui.structure.min.css'>
                                                 <link rel='stylesheet' href='css/jquery-ui.min.css'>
+                                                <link href='css/feuille_de_style_principale_de_l_application_suiviloc.css' rel='stylesheet' type='text/css'>
                                                 <script>
                                                     $( function() {
                                                         $('#information_de_refus_de_changement_de_mot_de_passe').dialog({
