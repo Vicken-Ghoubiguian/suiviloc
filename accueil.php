@@ -38,7 +38,7 @@
                                         <div id='bienvenue'>
                                             <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
                                             <br>
-                                            <p class='sous-titre_de_bienvenue'>Logiciel de gestion de parc locatif</p>
+                                            <p class='sous-titre_de_bienvenue'>Logiciel de gestion du parc locatif de l'agence Residis de Perpignan</p>
                                             <br>
                                             <div class='enumeration_des_fonctionnalites'>
                                                 <ul>
@@ -62,78 +62,91 @@
                                                 
                                             </div>
                                             <div id='contrat_de_location'>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Consulter les contrats de location</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Generer des contrats de location</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Lire les contrats de location</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des contrats de location</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
+                                                <div class='menu_en_accordeon'>
+                                                    <h3>Consulter les contrats de location</h3>
+                                                    <div>
+                                                        <p>ddd</p>
+                                                    </div>
+                                                    <h3>Générer des contrats de location</h3>
+                                                    <div>
+                                                        <p>44554</p>
+                                                    </div>
+                                                    <h3>Lire les contrats de location</h3>
+                                                    <div>
+                                                        <p>ddddd</p>
+                                                    </div>
+                                                    <h3>Envoyer des contrats de location</h3>
+                                                    <div>
+                                                        <p>45545</p>
+                                                    </div>
+                                                 </div>
                                             </div>
                                             <div id='attestation'>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Consulter les attestations</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Generer des attestations</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Lire les attestations</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des attestations</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                <div class='menu_en_accordeon'>
+                                                    <h3>Consulter les attestations</h3>
+                                                    <div>
+                                                        <p>ddd</p>
+                                                    </div>
+                                                    <h3>Generer des attestations</h3>
+                                                    <div>
+                                                        <p>44554</p>
+                                                    </div>
+                                                    <h3>Lire les attestations</h3>
+                                                    <div>
+                                                        <p>ddddd</p>
+                                                    </div>
+                                                    <h3>Envoyer des attestations</h3>
+                                                    <div>
+                                                        <p>45545</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div id='relance_impayee'>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Consulter les relances impayées</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Generer des relances impayées</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Lire les relances impayées</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des relances impayées</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                <div class='menu_en_accordeon'>
+                                                    <h3>Consulter les relances impayées</h3>
+                                                    <div>
+                                                        <p>ddd</p>
+                                                    </div>
+                                                    <h3>Generer des relances impayées</h3>
+                                                    <div>
+                                                        <p>44554</p>
+                                                    </div>
+                                                    <h3>Lire les relances impayées</h3>
+                                                    <div>
+                                                        <p>ddddd</p>
+                                                    </div>
+                                                    <h3>Envoyer des relances impayées</h3>
+                                                    <div>
+                                                        <p>45545</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div id='expiration_de_contrat_de_location'>
                                                 
                                             </div>
                                             <div id='accuses_de_reception'>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Consulter les accusés de récéption</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Generer des accusés de récéption</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Lire les accusés de récéption</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
-                                                </div>
-                                                <div class='panel panel-default'>
-                                                    <div class='panel-heading ui-tabs-panel'>Envoyer des accusés de récéption</div>
-                                                    <div class='panel-body ui-tabs-panel'></div>
+                                                <div class='menu_en_accordeon'>
+                                                    <h3>Consulter les accusés de récéption</h3>
+                                                    <div>
+                                                        <p>ddd</p>
+                                                    </div>
+                                                    <h3>Generer des accusés de récéption</h3>
+                                                    <div>
+                                                        <p>445dsqfqdsfsdfdsqfdsqfsdqf
+                                                        sdfdsqfdsqfdsfdsq
+                                                        dsqfdsqfdsqfdsqfdsq
+                                                        qsfsdqfdsqfdsqfdsq
+                                                        qsfddsqfdsqfdsqfdsq
+                                                        qfdsqdqsfdqsfsdq54</p>
+                                                    </div>
+                                                    <h3>Lire les accusés de récéption</h3>
+                                                    <div>
+                                                        <p>ddddd</p>
+                                                    </div>
+                                                    <h3>Envoyer des accusés de récéption</h3>
+                                                    <div>
+                                                        <p>45545</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p class='pied_de_div_des_informations_de_connexion'>

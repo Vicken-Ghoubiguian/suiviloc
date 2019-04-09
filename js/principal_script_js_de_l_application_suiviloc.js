@@ -244,4 +244,6 @@ $(document).ready(function(){
         modal: true,
         resizable: false
     });
+
+    $('.menu_en_accordeon').accordion({heightStyle: 'fill'});
 });
