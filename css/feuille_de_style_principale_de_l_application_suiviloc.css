@@ -89,3 +89,9 @@
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
+table
+{
+    border-spacing : 50px;
+    border-collapse : collapse;
+}
