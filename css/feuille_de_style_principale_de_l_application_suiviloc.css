@@ -1,3 +1,14 @@
+.corps_de_la_page_d_authentification
+{
+    background: no-repeat url('../images/logo_residence_locative.png');
+}
+
+.titre_du_formulaire
+{
+    margin-bottom: 10px;
+    font-size: 1vw;
+}
+
 .sous-menu
 {
     text-align: left;
