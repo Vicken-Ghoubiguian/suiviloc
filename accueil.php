@@ -69,7 +69,31 @@
                                                     </div>
                                                     <h3>Générer des contrats de location</h3>
                                                     <div>
-                                                        <p>44554</p>
+                                                        <p>
+                                                            <form action='generation_d_un_document_PDF.php' method='post'>
+                                                                <input type='hidden' value='contrat_de_location'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Le prochain contrat de location concerne</p>
+                                                                <p>Celui-ci occupera le studio <select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' required>
+                                                                    <option value='1'>1</option>
+                                                                    <option value='2'>2</option>
+                                                                </select>.</p>
+                                                                <p>Son contrat de location débuttera le <input type='text' name='date_de_debut_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> et se terminera le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>, et sous les conditions suivantes 
+                                                                <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' required>
+                                                                    <option value='1'>1</option>
+                                                                    <option value='2'>2</option>
+                                                                </select>.</p>
+                                                                <p>C'est un <select class='text-warning ui-corner-all' name='type_du_contrat_de_location' required>
+                                                                    <option value='1'>contrat 0 - 3 mois</option>
+                                                                    <option value='2'>contrat à l'année</option>
+                                                                </select>.</p>
+                                                                <p>Le montant de la location se chiffre à <input type='number' class='text-warning ui-corner-all' step='0.001' required> euros toutes charges comprises.</p>
+                                                                <p>Le montant du dépot de garantie se chiffre à <input type='number' class='text-warning ui-corner-all' step='0.001' required>.</p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire' value='cliquez ici'></p>
+                                                                <p>Bonne journée,</p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
+                                                        </p>
                                                     </div>
                                                     <h3>Lire les contrats de location</h3>
                                                     <div>
