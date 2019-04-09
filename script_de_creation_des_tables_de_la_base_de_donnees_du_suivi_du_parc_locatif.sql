@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS Locataire(
         date_d_arrivee DATE NOT NULL,
         adresse_mail VARCHAR(100),
         date_de_naissance DATE NOT NULL,
+        numero_de_telephone VARCHAR(100),
 	PRIMARY KEY(id),
         FOREIGN KEY (type_de_public) REFERENCES Type_de_public(id)
 );
