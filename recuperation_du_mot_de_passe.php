@@ -299,7 +299,7 @@
                                                                         <label for='premiere_saisie_du_mot_de_passe' class='text-warning'>Premiére saisie du mot de passe: </label>    
                                                                     </th>
                                                                     <th>
-                                                                        <input class='text-danger' type='password' id='premiere_saisie_du_mot_de_passe' name='mot_de_passe_premiere_saisie' title='Saisissez une première fois votre nouveau mot de passe dans ce champs' required>
+                                                                        <input class='text-danger ui-corner-all' type='password' id='premiere_saisie_du_mot_de_passe' name='mot_de_passe_premiere_saisie' title='Saisissez une première fois votre nouveau mot de passe dans ce champs' required>
                                                                     </th>
                                                                 </p>
                                                             </tr>
@@ -309,7 +309,7 @@
                                                                         <label for='seconde_saisie_du_mot_de_passe' class='text-warning'>Seconde saisie du mot de passe: </label>
                                                                     </th>
                                                                     <th>
-                                                                        <input class='text-danger' type='password' id='seconde_saisie_du_mot_de_passe' name='mot_de_passe_seconde_saisie' title='Saisissez une seconde fois votre nouveau mot de passe dans ce champs' required>
+                                                                        <input class='text-danger ui-corner-all' type='password' id='seconde_saisie_du_mot_de_passe' name='mot_de_passe_seconde_saisie' title='Saisissez une seconde fois votre nouveau mot de passe dans ce champs' required>
                                                                     </th>
                                                                 </p>
                                                             </tr>

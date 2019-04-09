@@ -246,4 +246,8 @@ $(document).ready(function(){
     });
 
     $('.menu_en_accordeon').accordion({heightStyle: 'fill'});
+
+    $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+
+    $('.calendrier_pour_faire_un_choix_de_date').datepicker();
 });
