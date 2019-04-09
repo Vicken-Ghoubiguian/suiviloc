@@ -76,7 +76,7 @@
                 require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
                 //
-                $corps_de_la_page_html = "<body>
+                $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'>
                                                 <div id='message_d_indication_de_deconnexion' title='déconnexion pour " . $nom_de_l_uttilisateur_courant . " " . $prenom_de_l_uttilisateur_courant . " (" . $username_de_l_uttilisateur_courant . ")'>
                                                     <p>Vous vous êtes déconnectés avec succès.</p>
                                                     <p>Si vous voulez vous authentifier de nouveau, cliquez sur le bouton 'Se réauthentifier'.</p>

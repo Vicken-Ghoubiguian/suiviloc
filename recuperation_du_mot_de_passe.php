@@ -147,7 +147,7 @@
                                             </head>";
 
                 //
-                $corps_de_la_page_html = "<body>
+                $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'>
                                                 <div id='information_de_refus_de_changement_de_mot_de_passe' title='Changement de mot de passe refusé'>
                                                     <p>Le changement de mot de passe vous a été refusé</p>
                                                     <p>La raison est que la premiére saisie du mot de passe est différente de la seconde.</p>
@@ -280,7 +280,7 @@
                                 require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
                                 //
-                                $corps_de_la_page_html = "<body><div id='formulaire_de_changement_du_mot_de_passe' title='mot de passe oublié ?'>
+                                $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'><div id='formulaire_de_changement_du_mot_de_passe' title='mot de passe oublié ?'>
                                                     <form action='recuperation_du_mot_de_passe.php' method='post'>
                                                         <input type='hidden' name='identifiant_de_l_uttilisateur_demandant_a_recuperer_son_mot_de_passe' id='identifiant_de_l_uttilisateur_demandant_a_recuperer_son_mot_de_passe' value='" . $id_de_l_uttilisateur_demandant_a_recuperer_son_mot_de_passe . "'>
                                                         <input type='hidden' name='nom_de_l_uttilisateur' id='nom_de_l_uttilisateur_demandant_a_recuperer_son_mot_de_passe' value='" . $nom_de_l_uttilisateur_demandant_a_recuperer_son_mot_de_passe . "'>
