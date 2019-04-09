@@ -25,7 +25,7 @@
                 require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
                 //
-                $corps_de_la_page_html = "<body><div id='tabs_des_fonctionnalites' class='bloc_des_fonctionnalites'>
+                $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'><div id='tabs_des_fonctionnalites' class='bloc_des_fonctionnalites'>
                                         <ul>
                                             <li><a href='#bienvenue'>Bienvenue</a></li>
                                             <li><a href='#gestion_du_parc_locatif'>Gestion du parc locatif</a></li>
