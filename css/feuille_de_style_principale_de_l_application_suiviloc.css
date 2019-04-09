@@ -8,13 +8,73 @@
     margin-top: 5px;
 }
 
-.taille_du_formulaire_d_authentification
+.formulaire_d_authentification
 {
-    width:300px;
+    position: fixed;
+    left: 37%;
+    bottom: 37%;
+    top: 37%;
+    right: 37%;
     color: white;
 }
 
-.taille_du_bloc_des_fonctionnalites
+.bloc_des_fonctionnalites
 {
-    width: 1500px;
+    position: fixed;
+    left: 15%;
+    bottom: 15%;
+    right: 15%;
+    top: 15%;
+}
+
+.titre_de_bienvenue
+{
+    float: left;
+    margin-bottom: 5%;
+}
+
+.sous-titre_de_bienvenue
+{
+    font-size: 1.2vw;
+    position: absolute;
+    float: left;
+    margin-top: 5%;
+    margin-bottom: 0%;
+}
+
+.enumeration_des_fonctionnalites
+{
+    font-size: 1.1vw;
+    margin-top: 7%;
+    margin-bottom: 3%;
+    margin-left: 0%;
+}
+
+.texte
+{
+    font-size: 4vw;
+}
+
+.pied_de_div_des_informations_de_connexion
+{
+    font-size: 1vw;
+    margin-bottom: 10%;
+    position: absolute;
+    float: left;
+}
+
+.pied_de_div_des_fonctionnalites
+{
+    font-size: 1vw;
+    bottom: 0;
+    position: absolute;
+    float: left;
+}
+
+.bouton_pour_deconnexion_de_l_application_suiviloc
+{
+    position: absolute;
+    float: none;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }

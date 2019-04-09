@@ -25,7 +25,7 @@
                 require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
                 //
-                $corps_de_la_page_html = "<body><div id='tabs_des_fonctionnalites' class='center-block taille_du_bloc_des_fonctionnalites'>
+                $corps_de_la_page_html = "<body><div id='tabs_des_fonctionnalites' class='bloc_des_fonctionnalites'>
                                         <ul>
                                             <li><a href='#bienvenue'>Bienvenue</a></li>
                                             <li><a href='#gestion_du_parc_locatif'>Gestion du parc locatif</a></li>
@@ -36,24 +36,28 @@
                                             <li><a href='#accuses_de_reception'>Accusés de réception</a></li>
                                         </ul>
                                         <div id='bienvenue'>
-                                            <h1>Bienvenue sur Suiviloc</h1>
+                                            <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
                                             <br>
-                                            <p>Logiciel de gestion de parc locatif</p>
+                                            <p class='sous-titre_de_bienvenue'>Logiciel de gestion de parc locatif</p>
                                             <br>
-                                            <ul>
-                                                <li>Gérez le parc locatif</li>
-                                                <li>Gérez les locations</li>
-                                                <li>Voyez les locations à venir</li>
-                                                <li>Générez des contrats de location</li>
-                                                <li>Générez des attestations</li>
-                                                <li>Gérez les expirations des contrats de location</li>
-                                                <li>Générez des relances d'impayées</li>
-                                                <li>Générez des lettres d'expiration de contrat de location</li>
-                                                <li>Générez des accusés de réception quand des gens envoient leurs préavis de départ</li>
-                                            </ul>
-                                            <br>
-                                            <button class='ui-button ui-corner-all ui-widget' id='bouton_de_deconnexion'>Déconnectez-vous</button>
+                                            <div class='enumeration_des_fonctionnalites'>
+                                                <ul>
+                                                    <li>Gérez le parc locatif</li>
+                                                    <li>Gérez les locations</li>
+                                                    <li>Voyez les locations à venir</li>
+                                                    <li>Générez des contrats de location</li>
+                                                    <li>Générez des attestations</li>
+                                                    <li>Gérez les expirations des contrats de location</li>
+                                                    <li>Générez des relances d'impayées</li>
+                                                    <li>Générez des lettres d'expiration de contrat de location</li>
+                                                    <li>Générez des accusés de réception quand des gens envoient leurs préavis de départ</li>
+                                                </ul>
                                             </div>
+                                            <br>
+                                            <div class='bouton_pour_deconnexion_de_l_application_suiviloc'>
+                                                <button class='ui-button ui-corner-all ui-widget' id='bouton_de_deconnexion'>Déconnectez-vous</button>
+                                            </div>
+                                        </div>
                                             <div id='gestion_du_parc_locatif'>
                                                 
                                             </div>
@@ -132,10 +136,10 @@
                                                     <div class='panel-body ui-tabs-panel'></div>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <p class='pied_de_div_des_informations_de_connexion'>
                                                 Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le ". date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
-                                            </div>
-                                            <div>
+                                            </p>
+                                            <div class='pied_de_div_des_fonctionnalites'>
                                                 &copy; 2019 residence locative - adresse de la résidence locative
                                             </div>
                                         </div>
