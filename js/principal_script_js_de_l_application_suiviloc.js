@@ -245,6 +245,18 @@ $(document).ready(function(){
         resizable: false
     });
 
+    $('#confirmation_de_generation_de_document_PDF').dialog({
+        width: 600,
+        modal: true,
+        resizable: false,
+        buttons: {
+            'Retourner à l\'application': function () {
+                $(this).dialog('close');
+                document.location.href = 'index.php';
+            }
+        }
+    });
+
     $('.menu_en_accordeon').accordion({heightStyle: 'fill'});
 
     //$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );

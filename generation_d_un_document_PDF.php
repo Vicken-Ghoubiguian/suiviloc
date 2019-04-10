@@ -44,7 +44,14 @@
         if($_POST['type_de_document'] == 'contrat_de_location')
         {
 
+            //
+            $smarty = new Smarty();
 
+            //
+            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+            //
+            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
 
         }
         //Sinon...
