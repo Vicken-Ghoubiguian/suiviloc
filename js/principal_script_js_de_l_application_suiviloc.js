@@ -247,7 +247,45 @@ $(document).ready(function(){
 
     $('.menu_en_accordeon').accordion({heightStyle: 'fill'});
 
+    //$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
+
     $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
 
     $('.calendrier_pour_faire_un_choix_de_date').datepicker();
+
+    function choix_du_type_de_contrat_de_location()
+    {
+        var type_de_public_choisi = $("select#type_de_public_choisi").children("option:selected").val();
+
+        if(type_de_public_choisi == 1 || type_de_public_choisi == 2)
+        {
+            $('#type_de_contrat_choisi option[value=2]').attr('disabled','disabled');
+        }
+        else
+        {
+            $('#type_de_contrat_choisi option[value=2]').removeAttr('disabled');
+        }
+    }
+
+    function choix_de_l_ensemble_des_conditions_du_contrat_de_location()
+    {
+        var type_de_contrat_de_location_choisi = $("select#type_de_contrat_choisi").children("option:selected").val();
+
+        if(type_de_contrat_de_location_choisi == 2)
+        {
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=2]').attr('disabled','disabled');
+        }
+        else
+        {
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=2]').removeAttr('disabled');
+        }
+    }
+
+    $("#type_de_public_choisi").change(choix_du_type_de_contrat_de_location);
+
+    $("#type_de_contrat_choisi").change(choix_de_l_ensemble_des_conditions_du_contrat_de_location);
+
+    choix_du_type_de_contrat_de_location();
+
+    choix_de_l_ensemble_des_conditions_du_contrat_de_location();
 });
