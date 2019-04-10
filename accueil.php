@@ -155,7 +155,7 @@
                                                                         <option value='2'>Non</option>
                                                                     </select>.
                                                                 </p>
-                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire' value='cliquez ici'></p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                 <p>Bonne journée,</p>
                                                                 <p>Suiviloc</p>
                                                             </form>
