@@ -40,7 +40,7 @@ class Contrat
     private $inclusion_charges_immeuble;
 
     //
-    public function __construct($libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble)
+    public function __construct($libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble)
     {
 
         //
