@@ -251,7 +251,10 @@ $(document).ready(function(){
 
     $.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );
 
-    $('.calendrier_pour_faire_un_choix_de_date').datepicker();
+    $('.calendrier_pour_faire_un_choix_de_date').datepicker({
+        changeYear: true,
+        changeMonth: true
+    });
 
     function choix_du_type_de_contrat_de_location()
     {
