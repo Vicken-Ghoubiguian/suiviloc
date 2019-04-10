@@ -243,7 +243,7 @@
                                                 Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le ". date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                             </p>
                                             <div class='pied_de_div_des_fonctionnalites'>
-                                                &copy; 2019 Residis - 58 Avenue de Wagram 75017 Paris
+                                                &copy; 2019 residence locative - adresse de la résidence locative
                                             </div>
                                         </div>
                                         <div id='fenetre_de_deconnexion' title='Déconnexion'>
