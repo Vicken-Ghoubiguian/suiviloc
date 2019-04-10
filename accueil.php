@@ -74,7 +74,7 @@
                                                                 <input type='hidden' name='type_de_document' value='contrat_de_location'>
                                                                 <p>Bonjour,</p>
                                                                 <p>Le prochain contrat de location concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>, né le <input type='text' name='date_de_naissance_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required></p>
-                                                                <p>Celui-ci réside à cette adresse postale: <input type='text' name='adresse_postale_de_residence_du_locataire' class='ui-corner-all text-warning'>.</p>
+                                                                <p>Celui-ci réside à cette adresse postale: <input type='text' name='adresse_postale_de_residence_du_locataire' class='ui-corner-all text-warning' size='73'>.</p>
                                                                 <p>Le locataire est joignable au <input type='tel' name='numero_de_telephone_du_locataire' class='ui-corner-all text-warning' required>, et un email peut lui être écrit à l'adresse suivante: <input type='email' name='adresse_email_du_locataire' class='ui-corner-all text-warning' required>.</p>
                                                                 <p>Celui-ci arrivera le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
                                                                 <p>Le client occupera le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
@@ -243,7 +243,7 @@
                                                 Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le ". date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                             </p>
                                             <div class='pied_de_div_des_fonctionnalites'>
-                                                &copy; 2019 residence locative - adresse de la résidence locative
+                                                &copy; 2019 Residis - 58 Avenue de Wagram 75017 Paris
                                             </div>
                                         </div>
                                         <div id='fenetre_de_deconnexion' title='Déconnexion'>
