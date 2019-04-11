@@ -77,7 +77,19 @@
             $ensemble_des_conditions_choisi_pour_le_contrat_du_locataire = htmlspecialchars($_POST['ensemble_des_conditions_du_contrat_de_location']);
 
             //
+            $montant_de_la_location_pour_le_locataire = htmlspecialchars($_POST['montant_de_la_location']);
 
+            //
+            $montant_du_depot_de_garanti_pour_le_locataire = htmlspecialchars($_POST['montant_du_depot_de_garanti']);
+
+            //
+            $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire = htmlspecialchars($_POST['choix_d_encaissement_du_depot_de_garanti']);
+
+            //
+            $date_de_debut_du_contrat_pour_le_locataire = htmlspecialchars($_POST['date_de_debut_du_contrat_de_location']);
+
+            //
+            $date_de_fin_du_contrat_pour_le_locataire = htmlspecialchars($_POST['date_de_fin_du_contrat_de_location']);
 
             //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))

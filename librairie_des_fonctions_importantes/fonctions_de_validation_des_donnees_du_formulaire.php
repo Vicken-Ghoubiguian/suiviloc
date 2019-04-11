@@ -61,3 +61,48 @@
 
         return $variable_de_retour;
     }
+
+    //
+    function verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_passee_en_parametre)
+    {
+
+        $variable_de_retour = True;
+
+        for($incrementeur_pour_la_date = 0; $incrementeur_pour_la_date < strlen($date_passee_en_parametre); $incrementeur_pour_la_date++)
+        {
+            if(!($date_passee_en_parametre[$incrementeur_pour_la_date] == "/" || ctype_digit($date_passee_en_parametre[$incrementeur_pour_la_date])))
+            {
+
+                $variable_de_retour = False;
+
+            }
+        }
+
+        return $variable_de_retour;
+    }
+
+    //
+    function verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_passee_en_parametre)
+    {
+
+        $variable_de_retour = True;
+
+        $date_passee_en_parametre_sous_forme_de_tableau = explode("/",$date_passee_en_parametre);
+
+        if(sizeof($date_passee_en_parametre_sous_forme_de_tableau) != 3)
+        {
+            $variable_de_retour = False;
+        }
+
+        if($date_passee_en_parametre_sous_forme_de_tableau[0] > 12 || $date_passee_en_parametre_sous_forme_de_tableau[0] < 1)
+        {
+            $variable_de_retour = False;
+        }
+
+        if($date_passee_en_parametre_sous_forme_de_tableau[1] > 31 || $date_passee_en_parametre_sous_forme_de_tableau[1] < 1)
+        {
+
+        }
+
+        return $variable_de_retour;
+    }
