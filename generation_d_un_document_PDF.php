@@ -65,9 +65,6 @@
             $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
 
             //
-            $numero_de_telephone_du_locataire = htmlspecialchars($_POST['numero_de_telephone_du_locataire']);
-
-            //
             $type_de_public_choisi_pour_le_locataire = htmlspecialchars($_POST['type_de_public_choisi']);
 
             //
@@ -174,8 +171,11 @@
                                                     if (($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp <= $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp)) {
 
                                                         //
-                                                        if(verification_de_la_validite_d_un_numero_de_telephone_portable($numero_du_studio_pour_le_locataire))
+                                                        if(verification_de_la_validite_d_un_numero_de_telephone_portable($_POST['numero_de_telephone_du_locataire']))
                                                         {
+
+                                                            //
+                                                            $numero_de_telephone_du_locataire = htmlspecialchars($_POST['numero_de_telephone_du_locataire']);
 
                                                             //
                                                             $smarty = new Smarty();
