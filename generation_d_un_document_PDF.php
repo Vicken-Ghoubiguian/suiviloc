@@ -100,13 +100,125 @@
                 {
 
                     //
-                    $smarty = new Smarty();
+                    if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_naissance_du_locataire))
+                    {
 
-                    //
-                    $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+                        //
+                        if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_naissance_du_locataire))
+                        {
 
-                    //
-                    $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                            //
+                            if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_debut_du_contrat_pour_le_locataire))
+                            {
+
+                                //
+                                if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_debut_du_contrat_pour_le_locataire))
+                                {
+
+                                    //
+                                    if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_fin_du_contrat_pour_le_locataire))
+                                    {
+
+                                        //
+                                        if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_fin_du_contrat_pour_le_locataire))
+                                        {
+
+                                            //
+                                            $date_de_naissance_du_locataire_sous_forme_de_tableau = explode("/",$date_de_naissance_du_locataire);
+
+                                            //
+                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/",$date_de_debut_du_contrat_pour_le_locataire);
+
+                                            //
+                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/",$date_de_fin_du_contrat_pour_le_locataire);
+
+                                            //
+                                            $date_de_naissance_du_locataire_sous_forme_de_DateTime = new DateTime($date_de_naissance_du_locataire_sous_forme_de_tableau[2]."-".$date_de_naissance_du_locataire_sous_forme_de_tableau[0]."-".$date_de_naissance_du_locataire_sous_forme_de_tableau[1]);
+
+                                            //
+                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]."-".$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[0]."-".$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+
+                                            //
+                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]."-".$date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0]."-".$date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+
+                                            //
+                                            $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                            //
+                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                            //
+                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                            //
+                                            if(($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp))
+                                            {
+
+                                                //
+                                                $smarty = new Smarty();
+
+                                                //
+                                                $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+                                                //
+                                                $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                                            }
+                                            else
+                                            {
+
+                                                echo("7");
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+
+                                            echo("6");
+
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        echo("5");
+
+
+                                    }
+
+                                }
+                                else
+                                {
+
+                                    echo("4");
+
+
+                                }
+
+                            }
+                            else
+                            {
+
+                                echo("3");
+
+                            }
+
+                        }
+                        else
+                        {
+
+                            echo("2");
+
+                        }
+
+                    }
+                    else
+                    {
+
+                        echo("1");
+
+                    }
 
                 }
                 else {
