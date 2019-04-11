@@ -195,7 +195,7 @@
                                                             $smarty = new Smarty();
 
                                                             //
-                                                            $smarty->assign(array("inititule_de_l_erreur" => "Le numéro de téléphone renseigné n'est pas valide",
+                                                            $smarty->assign(array("intitule_de_l_erreur" => "Le numéro de téléphone renseigné n'est pas valide",
                                                                 "description_de_l_erreur" => "Un numéro de téléphone est entiérement composé de 10 chiffres, commençant par 0 et sans espace"));
 
                                                             //
@@ -212,7 +212,7 @@
                                                         $smarty = new Smarty();
 
                                                         //
-                                                        $smarty->assign(array("inititule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
+                                                        $smarty->assign(array("intitule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
                                                             "description_de_l_erreur" => "La date de naissance du locataire est strictement inférieure à la date de début de son contrat de location.
                                                                                             Sa date d'arrivée dans la résidence est supérieur ou égal à la date de début de son contrat de location.
                                                                                             Et la date de début de son contrat de location est strictement inférieur à la date de début de son contrat de location"));
@@ -231,7 +231,7 @@
                                                     $smarty = new Smarty();
 
                                                     //
-                                                    $smarty->assign(array("inititule_de_l_erreur" => "La date de fin du contrat du locataire que vous avez entré n'est pas valide",
+                                                    $smarty->assign(array("intitule_de_l_erreur" => "La date de fin du contrat du locataire que vous avez entré n'est pas valide",
                                                         "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
 
                                                     //
@@ -248,7 +248,7 @@
                                                 $smarty = new Smarty();
 
                                                 //
-                                                $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de fin du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                                $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de fin du contrat du locataire, ce n'est pas une date que vous avez entré",
                                                     "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                                                 //
@@ -265,7 +265,7 @@
                                             $smarty = new Smarty();
 
                                             //
-                                            $smarty->assign(array("inititule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
+                                            $smarty->assign(array("intitule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
                                                 "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
 
                                             //
@@ -282,7 +282,7 @@
                                         $smarty = new Smarty();
 
                                         //
-                                        $smarty->assign(array("inititule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
+                                        $smarty->assign(array("intitule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
                                             "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                                         //
@@ -299,7 +299,7 @@
                                     $smarty = new Smarty();
 
                                     //
-                                    $smarty->assign(array("inititule_de_l_erreur" => "La date de debut du contrat du locataire que vous avez entré n'est pas valide",
+                                    $smarty->assign(array("intitule_de_l_erreur" => "La date de debut du contrat du locataire que vous avez entré n'est pas valide",
                                         "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
 
                                     //
@@ -316,7 +316,7 @@
                                 $smarty = new Smarty();
 
                                 //
-                                $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de debut du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de debut du contrat du locataire, ce n'est pas une date que vous avez entré",
                                     "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                                 //
@@ -333,7 +333,7 @@
                             $smarty = new Smarty();
 
                             //
-                            $smarty->assign(array("inititule_de_l_erreur" => "La date de naissance du locataire que vous avez entré n'est pas valide",
+                            $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du locataire que vous avez entré n'est pas valide",
                                 "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
 
                             //
@@ -350,7 +350,7 @@
                         $smarty = new Smarty();
 
                         //
-                        $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de naissance du locataire, ce n'est pas une date que vous avez entré",
+                        $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de naissance du locataire, ce n'est pas une date que vous avez entré",
                             "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                         //
@@ -366,7 +366,7 @@
                     $smarty = new Smarty();
 
                     //
-                    $smarty->assign(array("inititule_de_l_erreur" => "L'adresse postale entrée est invalide",
+                    $smarty->assign(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
                                         "description_de_l_erreur" => "L'adresse d'habitation du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
 
                     //
@@ -382,11 +382,132 @@
                 $smarty = new Smarty();
 
                 //
-                $smarty->assign(array("inititule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
                     "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
 
                 //
                 $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+            }
+        }
+        //
+        elseif($_POST['type_de_document'] == 'attestation')
+        {
+
+            //
+            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
+
+            //
+            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
+
+            //
+            $date_d_arrivee_du_locataire_dans_son_studio = htmlspecialchars($_POST['date_d_arrivee_du_locataire_dans_son_studio']);
+
+            //
+            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
+
+            //
+            if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
+            {
+
+                //
+                if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_d_arrivee_du_locataire_dans_son_studio))
+                {
+
+                    //
+                    if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_d_arrivee_du_locataire_dans_son_studio))
+                    {
+
+                        //
+                        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau = explode("/", $date_d_arrivee_du_locataire_dans_son_studio);
+
+                        //
+                        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = new DateTime($date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[2] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[0] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[1]);
+
+                        //
+                        $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->getTimestamp();
+
+                        //
+                        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL = date("Y-m-d H:i:sP", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                        //
+                        if(verification_de_la_pertinance_des_donnees_renseignees($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $numero_du_studio_pour_le_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL))
+                        {
+
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Attestation"));
+
+                            //
+                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                        }
+                        //Sinon...
+                        else
+                        {
+
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("intitule_de_l_erreur" => "Les informations que vous avez renseignés sont incohérentes",
+                                "description_de_l_erreur" => "Aucun locataire et/ou aucun contrat de location ne correspondent aux informations données: Veuillez les vérifier"));
+
+                            //
+                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                        }
+
+                    }
+                    //Sinon...
+                    else
+                    {
+
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("intitule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
+                            "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                        //
+                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                    }
+
+                }
+                //Sinon...
+                else
+                {
+
+                    //
+                    $smarty = new Smarty();
+
+                    //
+                    $smarty->assign(array("intitule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
+                        "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
+
+                    //
+                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                }
+
+            }
+            //Sinon...
+            else
+            {
+
+                //
+                $smarty = new Smarty();
+
+                //
+                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
+
+                //
+                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
             }
         }
         //Sinon...
@@ -394,7 +515,6 @@
         {
 
         }
-
     }
     //
     else

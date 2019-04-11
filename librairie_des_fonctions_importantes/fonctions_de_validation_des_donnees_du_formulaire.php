@@ -1,6 +1,27 @@
 <?php
 
     //
+    require_once('classes_du_modele/connexion_a_la_base_de_donnees_via_PDO.php');
+
+    //
+    function contient_l_element_passe_en_parametre($chaine_de_caractere_dans_lequel_trouver_l_element, $element_a_trouver)
+    {
+
+        $variable_de_retour = False;
+
+        for($incrementeur = 0; $incrementeur < strlen($chaine_de_caractere_dans_lequel_trouver_l_element); $incrementeur++)
+        {
+            if($chaine_de_caractere_dans_lequel_trouver_l_element[$incrementeur] == $element_a_trouver)
+            {
+                $variable_de_retour = True;
+            }
+        }
+
+        return $variable_de_retour;
+
+    }
+
+    //
     function verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_passe_en_parametre, $prenom_passe_en_parametre)
     {
 
@@ -76,6 +97,13 @@
                 $variable_de_retour = False;
 
             }
+
+            if(!contient_l_element_passe_en_parametre($date_passee_en_parametre,"/"))
+            {
+
+                $variable_de_retour = False;
+
+            }
         }
 
         return $variable_de_retour;
@@ -137,4 +165,57 @@
         }
 
         return $variable_de_retour;
+    }
+
+    //
+    function verification_de_la_pertinance_des_donnees_renseignees($nom_de_famille_du_locataire, $prenom_du_locataire, $numero_de_studio_du_locataire, $date_d_arrivee_sous_forme_de_datetime_SQL)
+    {
+
+        $variable_de_retour = True;
+
+        $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Locataire.id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire AND Locataire.date_d_arrivee = :date_d_arrivee");
+
+        $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
+
+        $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->bindParam(":prenom_du_locataire", $prenom_du_locataire);
+
+        $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->bindParam(":date_d_arrivee", $date_d_arrivee_sous_forme_de_datetime_SQL);
+
+        $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->execute();
+
+        $nombre_de_resultats_concernant_la_requete = $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->rowCount();
+
+        $resultat_de_la_requete_de_selection_de_l_id_du_locataire = $requete_de_selection_de_l_id_du_locataire_a_partir_de_son_nom_de_famille_et_de_son_prenom->fetchAll(PDO::FETCH_BOTH);
+
+        if($nombre_de_resultats_concernant_la_requete != 1)
+        {
+
+            $variable_de_retour = False;
+        }
+        else
+        {
+
+            $id_du_locataire = $resultat_de_la_requete_de_selection_de_l_id_du_locataire[0][0];
+
+            $requete_de_selection_du_contrat_de_location_correspondant_aux_informations_donnees = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.id FROM Contrat WHERE Contrat.studio = :numero_de_studio_du_locataire AND Contrat.locataire = :id_du_locataire");
+
+            $requete_de_selection_du_contrat_de_location_correspondant_aux_informations_donnees->bindParam(":numero_de_studio_du_locataire", $numero_de_studio_du_locataire);
+
+            $requete_de_selection_du_contrat_de_location_correspondant_aux_informations_donnees->bindParam(":id_du_locataire", $id_du_locataire);
+
+            $requete_de_selection_du_contrat_de_location_correspondant_aux_informations_donnees->execute();
+
+            $nombre_de_resultats_concernant_la_requete = $requete_de_selection_du_contrat_de_location_correspondant_aux_informations_donnees->rowCount();
+
+            if($nombre_de_resultats_concernant_la_requete != 1)
+            {
+
+                $variable_de_retour = False;
+
+            }
+
+        }
+
+        return $variable_de_retour;
+
     }
