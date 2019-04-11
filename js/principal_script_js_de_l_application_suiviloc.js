@@ -257,6 +257,30 @@ $(document).ready(function(){
         }
     });
 
+    $('#erreur_survenue_dans_la_soumission_des_donnees').dialog({
+        close: function(event, ui){
+
+            //
+            $(this).dialog('close');
+
+            //
+            document.location.href = 'index.php';
+        },
+        width: 600,
+        modal: true,
+        resizable: false,
+        buttons:{
+            'Retourner à la page d\'accueil': function(){
+                $(this).dialog('close');
+                document.location.href = 'index.php';
+            },
+            'Quitter l\'application': function(){
+                $(this).dialog('close');
+                document.location.href = 'https://www.google.com/';
+            }
+        }
+    });
+
     $('.menu_en_accordeon').accordion({heightStyle: 'fill'});
 
     //$.datepicker.setDefaults( $.datepicker.regional[ "fr" ] );

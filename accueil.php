@@ -38,7 +38,7 @@
                                         <div id='bienvenue'>
                                             <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
                                             <br>
-                                            <p class='sous-titre_de_bienvenue'>Logiciel de gestion du parc locatif de l'agence Residis de Perpignan</p>
+                                            <p class='sous-titre_de_bienvenue'>Logiciel de gestion de parc locatif</p>
                                             <br>
                                             <div class='enumeration_des_fonctionnalites'>
                                                 <ul>
@@ -148,8 +148,8 @@
                                                                     <option value='1'>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
                                                                     <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
                                                                 </select>.</p>
-                                                                <p>Le montant de la location se chiffre à <input type='number' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
-                                                                <p>Le montant du dépot de garantie se chiffre à <input type='number' class='text-warning ui-corner-all' step='0.001' min='0' required> euros. Sera-t'il encaissé ?
+                                                                <p>Le montant de la location se chiffre à <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
+                                                                <p>Le montant du dépot de garantie se chiffre à <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros. Sera-t'il encaissé ?
                                                                     <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti'>
                                                                         <option value='1'>Oui</option>
                                                                         <option value='2'>Non</option>
