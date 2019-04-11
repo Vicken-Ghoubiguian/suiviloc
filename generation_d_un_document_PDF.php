@@ -174,15 +174,37 @@
                                                     if (($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp <= $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp)) {
 
                                                         //
-                                                        $smarty = new Smarty();
+                                                        if(verification_de_la_validite_d_un_numero_de_telephone_portable($numero_du_studio_pour_le_locataire))
+                                                        {
 
-                                                        //
-                                                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+                                                            //
+                                                            $smarty = new Smarty();
 
-                                                        //
-                                                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                                                            //
+                                                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+                                                            //
+                                                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                                                        }
+                                                        //Sinon...
+                                                        else
+                                                        {
+
+                                                            //
+                                                            $smarty = new Smarty();
+
+                                                            //
+                                                            $smarty->assign(array("inititule_de_l_erreur" => "Le numéro de téléphone renseigné n'est pas valide",
+                                                                "description_de_l_erreur" => "Un numéro de téléphone est entiérement composé de 10 chiffres, commençant par 0 et sans espace"));
+
+                                                            //
+                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                        }
 
                                                     }
+                                                    //Sinon...
                                                     else
                                                         {
 
@@ -193,7 +215,7 @@
                                                         $smarty->assign(array("inititule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
                                                             "description_de_l_erreur" => "La date de naissance du locataire est strictement inférieure à la date de début de son contrat de location.
                                                                                             Sa date d'arrivée dans la résidence est supérieur ou égal à la date de début de son contrat de location.
-                                                                                            Et la date de début de son contrat de location est strictement inférieur à la date de début de son contrat de location."));
+                                                                                            Et la date de début de son contrat de location est strictement inférieur à la date de début de son contrat de location"));
 
                                                         //
                                                         $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
@@ -201,6 +223,7 @@
                                                     }
 
                                                 }
+                                                //Sinon...
                                                 else
                                                     {
 
@@ -217,6 +240,7 @@
                                                 }
 
                                             }
+                                            //Sinon...
                                             else
                                                 {
 
@@ -233,6 +257,7 @@
                                             }
 
                                         }
+                                        //Sinon...
                                         else
                                         {
 
@@ -249,6 +274,7 @@
                                         }
 
                                     }
+                                    //Sinon...
                                     else
                                     {
 
@@ -265,6 +291,7 @@
                                     }
 
                                 }
+                                //Sinon...
                                 else
                                 {
 
@@ -281,6 +308,7 @@
                                 }
 
                             }
+                            //Sinon...
                             else
                             {
 
@@ -297,6 +325,7 @@
                             }
 
                         }
+                        //Sinon...
                         else
                         {
 
@@ -313,6 +342,7 @@
                         }
 
                     }
+                    //Sinon...
                     else
                     {
 
@@ -329,6 +359,7 @@
                     }
 
                 }
+                //Sinon...
                 else {
 
                     //
@@ -344,6 +375,7 @@
                 }
 
             }
+            //Sinon...
             else {
 
                 //

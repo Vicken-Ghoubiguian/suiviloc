@@ -106,3 +106,35 @@
 
         return $variable_de_retour;
     }
+
+    //
+    function verification_de_la_validite_d_un_numero_de_telephone_portable($numero_de_telephone_passe_en_parametre)
+    {
+
+        $variable_de_retour = True;
+
+        if(strlen($numero_de_telephone_passe_en_parametre) == 10)
+        {
+
+            for($incrementeur = 0; $incrementeur < 10; $incrementeur++)
+            {
+
+                if(!ctype_digit($numero_de_telephone_passe_en_parametre[$incrementeur]))
+                {
+
+                    $variable_de_retour = False;
+
+                }
+
+            }
+
+        }
+        else
+        {
+
+            $variable_de_retour = False;
+
+        }
+
+        return $variable_de_retour;
+    }
