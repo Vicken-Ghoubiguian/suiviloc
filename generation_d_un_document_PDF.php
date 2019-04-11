@@ -92,6 +92,9 @@
             $date_de_fin_du_contrat_pour_le_locataire = htmlspecialchars($_POST['date_de_fin_du_contrat_de_location']);
 
             //
+            $date_d_arrivee_du_locataire_dans_son_studio = htmlspecialchars($_POST['date_d_arrivee_du_locataire_dans_son_studio']);
+
+            //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
             {
 
@@ -116,58 +119,116 @@
                                 {
 
                                     //
-                                    if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_fin_du_contrat_pour_le_locataire))
+                                    if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_d_arrivee_du_locataire_dans_son_studio))
                                     {
 
                                         //
-                                        if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_fin_du_contrat_pour_le_locataire))
+                                        if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_d_arrivee_du_locataire_dans_son_studio))
                                         {
 
                                             //
-                                            $date_de_naissance_du_locataire_sous_forme_de_tableau = explode("/",$date_de_naissance_du_locataire);
-
-                                            //
-                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/",$date_de_debut_du_contrat_pour_le_locataire);
-
-                                            //
-                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/",$date_de_fin_du_contrat_pour_le_locataire);
-
-                                            //
-                                            $date_de_naissance_du_locataire_sous_forme_de_DateTime = new DateTime($date_de_naissance_du_locataire_sous_forme_de_tableau[2]."-".$date_de_naissance_du_locataire_sous_forme_de_tableau[0]."-".$date_de_naissance_du_locataire_sous_forme_de_tableau[1]);
-
-                                            //
-                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]."-".$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[0]."-".$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
-
-                                            //
-                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]."-".$date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0]."-".$date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
-
-                                            //
-                                            $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_forme_de_DateTime->getTimestamp();
-
-                                            //
-                                            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
-
-                                            //
-                                            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
-
-                                            //
-                                            if(($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp))
+                                            if (verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_fin_du_contrat_pour_le_locataire))
                                             {
+
+                                                //
+                                                if (verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_fin_du_contrat_pour_le_locataire))
+                                                {
+
+                                                    //
+                                                    $date_de_naissance_du_locataire_sous_forme_de_tableau = explode("/", $date_de_naissance_du_locataire);
+
+                                                    //
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau = explode("/", $date_d_arrivee_du_locataire_dans_son_studio);
+
+                                                    //
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_debut_du_contrat_pour_le_locataire);
+
+                                                    //
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_fin_du_contrat_pour_le_locataire);
+
+                                                    //
+                                                    $date_de_naissance_du_locataire_sous_forme_de_DateTime = new DateTime($date_de_naissance_du_locataire_sous_forme_de_tableau[2] . "-" . $date_de_naissance_du_locataire_sous_forme_de_tableau[0] . "-" . $date_de_naissance_du_locataire_sous_forme_de_tableau[1]);
+
+                                                    //
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = new DateTime($date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[2] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[0] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[1]);
+
+                                                    //
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+
+                                                    //
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+
+                                                    //
+                                                    $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                                    //
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->getTimestamp();
+
+                                                    //
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                                    //
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                                                    //
+                                                    if (($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp <= $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp)) {
+
+                                                        //
+                                                        $smarty = new Smarty();
+
+                                                        //
+                                                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+                                                        //
+                                                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                                                    }
+                                                    else
+                                                        {
+
+                                                        //
+                                                        $smarty = new Smarty();
+
+                                                        //
+                                                        $smarty->assign(array("inititule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
+                                                            "description_de_l_erreur" => "La date de naissance du locataire est strictement inférieure à la date de début de son contrat de location.
+                                                                                            Sa date d'arrivée dans la résidence est supérieur ou égal à la date de début de son contrat de location.
+                                                                                            Et la date de début de son contrat de location est strictement inférieur à la date de début de son contrat de location."));
+
+                                                        //
+                                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                    }
+
+                                                }
+                                                else
+                                                    {
+
+                                                    //
+                                                    $smarty = new Smarty();
+
+                                                    //
+                                                    $smarty->assign(array("inititule_de_l_erreur" => "La date de fin du contrat du locataire que vous avez entré n'est pas valide",
+                                                        "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                                                    //
+                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                }
+
+                                            }
+                                            else
+                                                {
 
                                                 //
                                                 $smarty = new Smarty();
 
                                                 //
-                                                $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+                                                $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de fin du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                                    "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                                                 //
-                                                $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
-
-                                            }
-                                            else
-                                            {
-
-                                                echo("7");
+                                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                             }
 
@@ -175,15 +236,31 @@
                                         else
                                         {
 
-                                            echo("6");
+                                            //
+                                            $smarty = new Smarty();
+
+                                            //
+                                            $smarty->assign(array("inititule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
+                                                "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                                            //
+                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                         }
 
                                     }
                                     else
                                     {
-                                        echo("5");
 
+                                        //
+                                        $smarty = new Smarty();
+
+                                        //
+                                        $smarty->assign(array("inititule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
+                                            "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
+
+                                        //
+                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                     }
 
@@ -191,8 +268,15 @@
                                 else
                                 {
 
-                                    echo("4");
+                                    //
+                                    $smarty = new Smarty();
 
+                                    //
+                                    $smarty->assign(array("inititule_de_l_erreur" => "La date de debut du contrat du locataire que vous avez entré n'est pas valide",
+                                        "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                                    //
+                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                 }
 
@@ -200,7 +284,15 @@
                             else
                             {
 
-                                echo("3");
+                                //
+                                $smarty = new Smarty();
+
+                                //
+                                $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de debut du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                    "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
+
+                                //
+                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                             }
 
@@ -208,7 +300,15 @@
                         else
                         {
 
-                            echo("2");
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("inititule_de_l_erreur" => "La date de naissance du locataire que vous avez entré n'est pas valide",
+                                "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                            //
+                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                         }
 
@@ -216,7 +316,15 @@
                     else
                     {
 
-                        echo("1");
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("inititule_de_l_erreur" => "Pour la date de naissance du locataire, ce n'est pas une date que vous avez entré",
+                            "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
+
+                        //
+                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                     }
 
@@ -228,7 +336,7 @@
 
                     //
                     $smarty->assign(array("inititule_de_l_erreur" => "L'adresse postale entrée est invalide",
-                                        "description_de_l_erreur" => "L'adresse d'habitation du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets."));
+                                        "description_de_l_erreur" => "L'adresse d'habitation du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
 
                     //
                     $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
@@ -243,7 +351,7 @@
 
                 //
                 $smarty->assign(array("inititule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
-                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets."));
+                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
 
                 //
                 $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
