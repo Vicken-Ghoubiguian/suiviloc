@@ -218,7 +218,22 @@
                                                         </div>
                                                         <h3>Lire les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
-                                                            <p>ddddd</p>
+                                                            <form action='' method='post'>
+                                                                <input type='hidden' name='consultation_de_documents' value='Contrat_de_location'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Choisissez le contrat de location ou le document d'expiration à consulter <select name='contrat_de_location_ou_expiration_choisi' class='text-warning ui-corner-all' id='contrat_de_location_ou_expiration_choisi' required>
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                   </select></p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                                <p>Bonne journée, </p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
+                                                            <p>
+                                                                <iframe src='https://www.journaldunet.fr/web-tech/dictionnaire-du-webmastering/1203289-iframe-definition/' width='1100' height='500'>
+                                                                    
+                                                                </iframe>
+                                                            </p>
                                                         </div>
                                                      </div>
                                                 </div>
@@ -292,12 +307,23 @@
                                                                                                                         </div>
                                                                                                                         <h3>Lire les attestations</h3>
                                                                                                                         <div>
-                                                                                                                            <p>ddddd</p>
+                                                                                                                            <form action='' method='post'>
+                                                                                                                                <input type='hidden' name='consultation_de_documents' value='attestation'>
+                                                                                                                                <p>Bonjour,</p>
+                                                                                                                                <p>Choisissez l'attestation à consulter <select name='attestation_choisie' class='text-warning ui-corner-all' id='attestation_choisie' required>
+                                                                                                                                    <option>1</option>
+                                                                                                                                    <option>2</option>
+                                                                                                                                   </select></p>
+                                                                                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                                                                                                <p>Bonne journée, </p>
+                                                                                                                                <p>Suiviloc</p>
+                                                                                                                            </form>
+                                                                                                                            <p>
+                                                                                                                                <iframe src='https://www.journaldunet.fr/web-tech/dictionnaire-du-webmastering/1203289-iframe-definition/' width='1100' height='500'>
+                                                                                                                                    
+                                                                                                                                </iframe>
+                                                                                                                            </p>
                                                                                                                         </div>
-                                                                                                                        <!--<h3>Envoyer des attestations</h3>
-                                                                                                                        <div>
-                                                                                                                            <p>45545</p>
-                                                                                                                        </div>-->
                                                                                                                     </div>
                                                                                                                 </div>
                                                                                                                 <div id='relance_impayee'>
@@ -369,7 +395,22 @@
                                                         </div>
                                                         <h3>Lire les relances impayées</h3>
                                                         <div>
-                                                            <p>ddddd</p>
+                                                            <form action='' method='post'>
+                                                                <input type='hidden' name='consultation_de_documents' value='relance_d_impaye'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Choisissez la relance d'impayé à consulter <select name='relance_d_impaye_choisie' class='text-warning ui-corner-all' id='relance_d_impaye_choisie' required>
+                                                                    <option>1</option>
+                                                                    <option>2</option>
+                                                                </select></p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                                <p>Bonne journée, </p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
+                                                            <p>
+                                                                <iframe src='https://www.journaldunet.fr/web-tech/dictionnaire-du-webmastering/1203289-iframe-definition/' width='1100' height='500'>
+                                                                                                                                    
+                                                                </iframe>
+                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
