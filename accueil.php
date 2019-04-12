@@ -61,7 +61,7 @@
                                                 </div>
                                                 <div id='contrat_de_location'>
                                                     <div class='menu_en_accordeon'>
-                                                        <h3>Consulter les contrats de location</h3>
+                                                        <h3>Gérer les contrats de location</h3>
                                                         <div>
                                                             <p>ddd</p>
                                                         </div>
@@ -216,19 +216,15 @@
                                                                 </form>
                                                             </p>
                                                         </div>
-                                                        <h3>Lire les contrats de location</h3>
+                                                        <h3>Lire les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
                                                             <p>ddddd</p>
-                                                        </div>
-                                                        <h3>Envoyer des contrats de location</h3>
-                                                        <div>
-                                                            <p>45545</p>
                                                         </div>
                                                      </div>
                                                 </div>
                                                 <div id='attestation'>
                                                     <div class='menu_en_accordeon'>
-                                                        <h3>Consulter les attestations</h3>
+                                                        <h3>Gérer les attestations</h3>
                                                         <div>
                                                             <p>ddd</p>
                                                         </div>
@@ -298,15 +294,15 @@
                                                                                                                         <div>
                                                                                                                             <p>ddddd</p>
                                                                                                                         </div>
-                                                                                                                        <h3>Envoyer des attestations</h3>
+                                                                                                                        <!--<h3>Envoyer des attestations</h3>
                                                                                                                         <div>
                                                                                                                             <p>45545</p>
-                                                                                                                        </div>
+                                                                                                                        </div>-->
                                                                                                                     </div>
                                                                                                                 </div>
                                                                                                                 <div id='relance_impayee'>
                                                                                                                     <div class='menu_en_accordeon'>
-                                                                                                                        <h3>Consulter les relances impayées</h3>
+                                                                                                                        <h3>Gérer les relances impayées</h3>
                                                                                                                         <div>
                                                                                                                             <p>ddd</p>
                                                                                                                         </div>
@@ -375,15 +371,11 @@
                                                         <div>
                                                             <p>ddddd</p>
                                                         </div>
-                                                        <h3>Envoyer des relances impayées</h3>
-                                                        <div>
-                                                            <p>45545</p>
-                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div id='accuses_de_reception'>
                                                     <div class='menu_en_accordeon'>
-                                                        <h3>Consulter les accusés de récéption</h3>
+                                                        <h3>Gérer les accusés de récéption</h3>
                                                         <div>
                                                             <p>ddd</p>
                                                         </div>
@@ -399,10 +391,6 @@
                                                         <h3>Lire les accusés de récéption</h3>
                                                         <div>
                                                             <p>ddddd</p>
-                                                        </div>
-                                                        <h3>Envoyer des accusés de récéption</h3>
-                                                        <div>
-                                                            <p>45545</p>
                                                         </div>
                                                     </div>
                                                 </div>
