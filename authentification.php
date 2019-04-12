@@ -157,7 +157,7 @@
     else {
 
         //Si une session existe...
-        if (isset($_SESSION)) {
+        if (isset($_SESSION) && !empty($_SESSION)) {
 
             //
             header("Location: index.php");

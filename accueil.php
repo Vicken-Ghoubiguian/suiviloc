@@ -7,39 +7,25 @@
     session_start();
 
     //
-    if(isset($_SESSION)) {
+    if(isset($_SESSION) && !empty($_SESSION)) {
 
         //
-        if(empty($_SESSION))
-        {
+        $date_et_heure_au_moment_du_chargement_de_la_page = time();
 
-            //L'uttilisateur est redirigé vers la page d'accueil
-            header("Location: index.php");
-
-            //
-            exit;
-
-        }
         //
-        else {
+        $date_et_heure_de_derniere_connexion = new DateTime($_SESSION["date_et_heure_de_derniere_connexion"]);
+
+        //
+        $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp = $date_et_heure_de_derniere_connexion->getTimestamp();
+
+        //
+        if ($_SESSION["date_et_heure_d_expiration_de_la_session"] > $date_et_heure_au_moment_du_chargement_de_la_page) {
 
             //
-            $date_et_heure_au_moment_du_chargement_de_la_page = time();
+            require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
 
             //
-            $date_et_heure_de_derniere_connexion = new DateTime($_SESSION["date_et_heure_de_derniere_connexion"]);
-
-            //
-            $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp = $date_et_heure_de_derniere_connexion->getTimestamp();
-
-            //
-            if ($_SESSION["date_et_heure_d_expiration_de_la_session"] > $date_et_heure_au_moment_du_chargement_de_la_page) {
-
-                //
-                require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
-
-                //
-                $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'><div id='tabs_des_fonctionnalites' class='bloc_des_fonctionnalites'>
+            $corps_de_la_page_html = "<body class='corps_de_la_page_d_authentification'><div id='tabs_des_fonctionnalites' class='bloc_des_fonctionnalites'>
                                             <ul>
                                                 <li><a href='#bienvenue'>Bienvenue</a></li>
                                                 <li><a href='#gestion_du_parc_locatif'>Gestion du parc locatif</a></li>
@@ -93,52 +79,52 @@
                                                                     <p>Celui-ci arrivera le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
                                                                     <p>Le client occupera le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
+            //
+            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+
                 //
-                for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                if ($incrementeur_des_surfaces == 1) {
 
-                    //
-                    if ($incrementeur_des_surfaces == 1) {
+                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                        $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                } else {
 
-                    } else {
-
-                        $corps_de_la_page_html .= "<optgroup label='18m2'>";
-
-                    }
-
-                    //
-                    //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
-
-                    //
-                    $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
-
-                    //
-                    $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
-
-                    //
-                    for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
-
-                        //
-                        $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
-
-                    }
-
-                    //
-                    $corps_de_la_page_html .= "</optgroup>";
+                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
                 }
 
-                $corps_de_la_page_html .= "</select>.</p>
+                //
+                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+
+                //
+                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+
+                //
+                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+
+                    //
+                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+
+                }
+
+                //
+                $corps_de_la_page_html .= "</optgroup>";
+
+            }
+
+            $corps_de_la_page_html .= "</select>.</p>
                                                                     <p>Et il sera accueilli sous le type de public
                                                                         <select class='text-warning ui-corner-all' name='type_de_public_choisi' id='type_de_public_choisi' required>
                                                                             <option value='1'>SOCIAL (337.00€)</option>
@@ -198,52 +184,52 @@
                                                                         La prochaine attestation concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>
                                                                         qui occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
+            //
+            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+
                 //
-                for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                if ($incrementeur_des_surfaces == 1) {
 
-                    //
-                    if ($incrementeur_des_surfaces == 1) {
+                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                        $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                } else {
 
-                    } else {
-
-                        $corps_de_la_page_html .= "<optgroup label='18m2'>";
-
-                    }
-
-                    //
-                    //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\"SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface\");
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
-
-                    //
-                    $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
-
-                    //
-                    $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
-
-                    //
-                    for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
-
-                        //
-                        $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
-
-                    }
-
-                    //
-                    $corps_de_la_page_html .= "</optgroup>";
+                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
                 }
 
-                $corps_de_la_page_html .= "</select> depuis le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                //
+                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\"SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface\");
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+
+                //
+                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+
+                //
+                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+
+                    //
+                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+
+                }
+
+                //
+                $corps_de_la_page_html .= "</optgroup>";
+
+            }
+
+            $corps_de_la_page_html .= "</select> depuis le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                     <p>Bonne journée,</p>
                                                                     <p>Suiviloc</p>
@@ -275,52 +261,52 @@
                                                                     <p>Cette relance de loyer impayé concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning' required> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning' required>.</p>
                                                                     <p>Celui-ci occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
+            //
+            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+
                 //
-                for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                if ($incrementeur_des_surfaces == 1) {
 
-                    //
-                    if ($incrementeur_des_surfaces == 1) {
+                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                        $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                } else {
 
-                    } else {
-
-                        $corps_de_la_page_html .= "<optgroup label='18m2'>";
-
-                    }
-
-                    //
-                    //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\\"SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface\\");
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
-
-                    //
-                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
-
-                    //
-                    $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
-
-                    //
-                    $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
-
-                    //
-                    for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
-
-                        //
-                        $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
-
-                    }
-
-                    //
-                    $corps_de_la_page_html .= "</optgroup>";
+                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
                 }
 
-                $corps_de_la_page_html .= "</select>, et présente un solde débiteur de <input type='number' name='montant_du_loyer_impaye' class='ui-corner-all text-warning' step='0.001' min='0' required> euros.</p>
+                //
+                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\\"SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface\\");
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+
+                //
+                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+
+                //
+                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+
+                //
+                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+
+                    //
+                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+
+                }
+
+                //
+                $corps_de_la_page_html .= "</optgroup>";
+
+            }
+
+            $corps_de_la_page_html .= "</select>, et présente un solde débiteur de <input type='number' name='montant_du_loyer_impaye' class='ui-corner-all text-warning' step='0.001' min='0' required> euros.</p>
                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                     <p>Bonne journée,</p>
                                                                     <p>Suiviloc</p>
@@ -376,94 +362,91 @@
                                                 <p>Voulez-vous vous déconnecter de l'application ?</p>
                                             </div>";
 
-                //
-                $pied_de_la_page_html = "<footer>
+            //
+            $pied_de_la_page_html = "<footer>
                                         </footer>
                                     </body>
                                 </html>";
 
-                //La page d'accueil, comprenant toutes les fonctionnalités de l'application, est affichée
-                echo $corps_de_la_page_html . $pied_de_la_page_html;
+            //La page d'accueil, comprenant toutes les fonctionnalités de l'application, est affichée
+            echo $corps_de_la_page_html . $pied_de_la_page_html;
 
-            } //Sinon...
-            else {
+        } //Sinon...
+        else {
+
+            //
+            $nom_de_l_uttilisateur_courant = $_SESSION["nom"];
+
+            //
+            $prenom_de_l_uttilisateur_courant = $_SESSION["prenom"];
+
+            //
+            $username_de_l_uttilisateur_courant = $_SESSION["username"];
+
+            //
+            session_destroy();
+
+            //
+            session_unset();
+
+            //
+            try {
 
                 //
-                $nom_de_l_uttilisateur_courant = $_SESSION["nom"];
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET est_connecte = 0 WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
 
                 //
-                $prenom_de_l_uttilisateur_courant = $_SESSION["prenom"];
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
 
                 //
-                $username_de_l_uttilisateur_courant = $_SESSION["username"];
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":nom", $nom_de_l_uttilisateur_courant);
 
                 //
-                session_destroy();
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
 
                 //
-                session_unset();
+                $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->execute();
 
                 //
-                try {
+                $nouvelle_date_et_heure_de_derniere_connexion = new DateTime("now");
 
-                    //
-                    $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET est_connecte = 0 WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
+                //
+                $nouvelle_date_et_heure_de_derniere_connexion = $nouvelle_date_et_heure_de_derniere_connexion->format("Y-m-d H:i:sP");
 
-                    //
-                    $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET date_et_heure_de_derniere_connexion = :date_et_heure_de_derniere_connexion WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
 
-                    //
-                    $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":nom", $nom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
 
-                    //
-                    $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":nom", $nom_de_l_uttilisateur_courant);
 
-                    //
-                    $requete_preparee_pour_indiquer_dans_la_base_que_l_uttilisateur_est_deconnecte->execute();
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
 
-                    //
-                    $nouvelle_date_et_heure_de_derniere_connexion = new DateTime("now");
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam("date_et_heure_de_derniere_connexion", $nouvelle_date_et_heure_de_derniere_connexion);
 
-                    //
-                    $nouvelle_date_et_heure_de_derniere_connexion = $nouvelle_date_et_heure_de_derniere_connexion->format("Y-m-d H:i:sP");
+                //
+                $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->execute();
 
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET date_et_heure_de_derniere_connexion = :date_et_heure_de_derniere_connexion WHERE username = :uttilisateur and nom = :nom and prenom = :prenom");
+                //
+                require("vues/page_de_deconnexion_suite_au_depassement_du_temps_d_expiration.html");
+            } //
+            catch (Exception $exception_de_connexion) {
 
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":uttilisateur", $username_de_l_uttilisateur_courant);
+                //
+                $smarty = new Smarty();
 
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":nom", $nom_de_l_uttilisateur_courant);
+                //
+                $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_de_connexion->getMessage()));
 
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam(":prenom", $prenom_de_l_uttilisateur_courant);
-
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->bindParam("date_et_heure_de_derniere_connexion", $nouvelle_date_et_heure_de_derniere_connexion);
-
-                    //
-                    $requete_preparee_de_mise_a_jour_de_la_derniere_connexion_de_l_uttilisateur->execute();
-
-                    //
-                    require("vues/page_de_deconnexion_suite_au_depassement_du_temps_d_expiration.html");
-                } //
-                catch (Exception $exception_de_connexion) {
-
-                    //
-                    $smarty = new Smarty();
-
-                    //
-                    $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_de_connexion->getMessage()));
-
-                    //
-                    $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
-                }
-
+                //
+                $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
             }
 
         }
-
     }
     //Sinon...
     else
