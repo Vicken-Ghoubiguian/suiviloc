@@ -77,137 +77,137 @@
                                                                     <p>Celui-ci arrivera le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
                                                                     <p>Le client occupera le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
-            //
-            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                                                                            //
+                                                                            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
 
-                //
-                if ($incrementeur_des_surfaces == 1) {
+                                                                                //
+                                                                                if ($incrementeur_des_surfaces == 1) {
 
-                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                } else {
+                                                                                } else {
 
-                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
-                }
+                                                                                }
 
-                //
-                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
+                                                                                //
+                                                                                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
 
-                //
-                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+                                                                                //
+                                                                                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
 
-                //
-                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+                                                                                //
+                                                                                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
 
-                //
-                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+                                                                                //
+                                                                                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
 
-                    //
-                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
 
-                }
+                                                                                }
 
-                //
-                $corps_de_la_page_html .= "</optgroup>";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "</optgroup>";
 
-            }
+                                                                            }
 
-            $corps_de_la_page_html .= "</select>.</p>
-                                                                    <p>Et il sera accueilli sous le type de public
-                                                                        <select class='text-warning ui-corner-all' name='type_de_public_choisi' id='type_de_public_choisi' required>
-                                                                            <option value='1'>SOCIAL (337.00€)</option>
-                                                                            <option value='2'>MLJ (378.00€)</option>
-                                                                            <option value='3'>ETUDIANTS (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>
-                                                                            <option value='4'>AUTRES (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>    
-                                                                        </select>.
-                                                                    </p>
-                                                                    <p>Son contrat de location débuttera le <input type='text' name='date_de_debut_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> et se terminera le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
-                                                                     <p>Le contrat de location choisi sera un 
-                                                                        <select class='text-warning ui-corner-all' name='type_de_contrat_choisi' id='type_de_contrat_choisi' required>
-                                                                            <option value='1'>contrat 0 - 3 mois</option>
-                                                                            <option value='2'>contrat à l'année</option>
-                                                                        </select>.
-                                                                    </p>
-                                                                    <p>Celui-ci comporte les conditions suivantes:
-                                                                    <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' id='ensemble_des_conditions_du_contrat_de_location' required>
-                                                                        <option value='1'>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                        <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                    </select>.</p>
-                                                                    <p>Le montant de la location se chiffre à <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
-                                                                    <p>Le montant du dépot de garantie se chiffre à <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros. Sera-t'il encaissé ?
-                                                                        <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti'>
-                                                                            <option value='1'>Oui</option>
-                                                                            <option value='2'>Non</option>
-                                                                        </select>.
-                                                                    </p>
-                                                                    <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
-                                                                    <p>Bonne journée,</p>
-                                                                    <p>Suiviloc</p>
-                                                                </form>
-                                                            </p>
-                                                        </div>
-                                                        <h3>Expiration de contrat de location</h3>
-                                                        <div>
-                                                            <p>
-                                                                <form action='generation_d_un_document_PDF.php' method='post'>
-                                                                    <input type='hidden' name='type_de_document' value='expiration_de_contrat_de_location'>
-                                                                    <p>Bonjour,</p>
-                                                                    <p>Le contrat de location de <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>, occupant le studio n°<select name='numero_du_studio_du_locataire' class='text-warning ui-corner-all' id='numero_du_studio_du_locataire' required>";
+                                                                            $corps_de_la_page_html .= "</select>.</p>
+                                                                                                                                    <p>Et il sera accueilli sous le type de public
+                                                                                                                                        <select class='text-warning ui-corner-all' name='type_de_public_choisi' id='type_de_public_choisi' required>
+                                                                                                                                            <option value='1'>SOCIAL (337.00€)</option>
+                                                                                                                                            <option value='2'>MLJ (378.00€)</option>
+                                                                                                                                            <option value='3'>ETUDIANTS (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>
+                                                                                                                                            <option value='4'>AUTRES (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>    
+                                                                                                                                        </select>.
+                                                                                                                                    </p>
+                                                                                                                                    <p>Son contrat de location débuttera le <input type='text' name='date_de_debut_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> et se terminera le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                                                                                     <p>Le contrat de location choisi sera un 
+                                                                                                                                        <select class='text-warning ui-corner-all' name='type_de_contrat_choisi' id='type_de_contrat_choisi' required>
+                                                                                                                                            <option value='1'>contrat 0 - 3 mois</option>
+                                                                                                                                            <option value='2'>contrat à l'année</option>
+                                                                                                                                        </select>.
+                                                                                                                                    </p>
+                                                                                                                                    <p>Celui-ci comporte les conditions suivantes:
+                                                                                                                                    <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' id='ensemble_des_conditions_du_contrat_de_location' required>
+                                                                                                                                        <option value='1'>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                        <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                    </select>.</p>
+                                                                                                                                    <p>Le montant de la location se chiffre à <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
+                                                                                                                                    <p>Le montant du dépot de garantie se chiffre à <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros. Sera-t'il encaissé ?
+                                                                                                                                        <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti'>
+                                                                                                                                            <option value='1'>Oui</option>
+                                                                                                                                            <option value='2'>Non</option>
+                                                                                                                                        </select>.
+                                                                                                                                    </p>
+                                                                                                                                    <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
+                                                                                                                                    <p>Bonne journée,</p>
+                                                                                                                                    <p>Suiviloc</p>
+                                                                                                                                </form>
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                        <h3>Expiration de contrat de location</h3>
+                                                                                                                        <div>
+                                                                                                                            <p>
+                                                                                                                                <form action='generation_d_un_document_PDF.php' method='post'>
+                                                                                                                                    <input type='hidden' name='type_de_document' value='expiration_de_contrat_de_location'>
+                                                                                                                                    <p>Bonjour,</p>
+                                                                                                                                    <p>Le contrat de location de <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>, occupant le studio n°<select name='numero_du_studio_du_locataire' class='text-warning ui-corner-all' id='numero_du_studio_du_locataire' required>";
 
-            //
-            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                                                                            //
+                                                                            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
 
-                //
-                if ($incrementeur_des_surfaces == 1) {
+                                                                                //
+                                                                                if ($incrementeur_des_surfaces == 1) {
 
-                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                } else {
+                                                                                } else {
 
-                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
-                }
+                                                                                }
 
-                //
-                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
+                                                                                //
+                                                                                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(":id_de_la_surface", $incrementeur_des_surfaces);
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
 
-                //
-                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+                                                                                //
+                                                                                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
 
-                //
-                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+                                                                                //
+                                                                                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
 
-                //
-                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+                                                                                //
+                                                                                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
 
-                    //
-                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
 
-                }
+                                                                                }
 
-                //
-                $corps_de_la_page_html .= "</optgroup>";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "</optgroup>";
 
-            }
+                                                                            }
 
             $corps_de_la_page_html .= "</select>, se termine le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
@@ -242,127 +242,127 @@
                                                                         La prochaine attestation concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>
                                                                         qui occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
-            //
-            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                                                                            //
+                                                                            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
 
-                //
-                if ($incrementeur_des_surfaces == 1) {
+                                                                                //
+                                                                                if ($incrementeur_des_surfaces == 1) {
 
-                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                } else {
+                                                                                } else {
 
-                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
-                }
+                                                                                }
 
-                //
-                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\"SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface\");
+                                                                                //
+                                                                                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\"SELECT Studio.numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat.studio WHERE Contrat.studio != Studio.id AND Studio.surface = :id_de_la_surface\");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
 
-                //
-                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+                                                                                //
+                                                                                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
 
-                //
-                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+                                                                                //
+                                                                                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
 
-                //
-                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+                                                                                //
+                                                                                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
 
-                    //
-                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
 
-                }
+                                                                                }
 
-                //
-                $corps_de_la_page_html .= "</optgroup>";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "</optgroup>";
 
-            }
+                                                                            }
 
-            $corps_de_la_page_html .= "</select> depuis le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
-                                                                    <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
-                                                                    <p>Bonne journée,</p>
-                                                                    <p>Suiviloc</p>
-                                                                  </form>
-                                                            </p>
-                                                        </div>
-                                                        <h3>Lire les attestations</h3>
-                                                        <div>
-                                                            <p>ddddd</p>
-                                                        </div>
-                                                        <h3>Envoyer des attestations</h3>
-                                                        <div>
-                                                            <p>45545</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id='relance_impayee'>
-                                                    <div class='menu_en_accordeon'>
-                                                        <h3>Consulter les relances impayées</h3>
-                                                        <div>
-                                                            <p>ddd</p>
-                                                        </div>
-                                                        <h3>Generer des relances impayées</h3>
-                                                        <div>
-                                                            <p>
-                                                                <form action='generation_d_un_document_PDF.php' method='post'>
-                                                                    <input type='hidden' name='type_de_document' value='relance_loyer_impaye'>
-                                                                    <p>Bonjour,</p>
-                                                                    <p>Cette relance de loyer impayé concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning' required> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning' required>.</p>
-                                                                    <p>Celui-ci occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
+                                                                            $corps_de_la_page_html .= "</select> depuis le <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                                                                                    <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
+                                                                                                                                    <p>Bonne journée,</p>
+                                                                                                                                    <p>Suiviloc</p>
+                                                                                                                                  </form>
+                                                                                                                            </p>
+                                                                                                                        </div>
+                                                                                                                        <h3>Lire les attestations</h3>
+                                                                                                                        <div>
+                                                                                                                            <p>ddddd</p>
+                                                                                                                        </div>
+                                                                                                                        <h3>Envoyer des attestations</h3>
+                                                                                                                        <div>
+                                                                                                                            <p>45545</p>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                                <div id='relance_impayee'>
+                                                                                                                    <div class='menu_en_accordeon'>
+                                                                                                                        <h3>Consulter les relances impayées</h3>
+                                                                                                                        <div>
+                                                                                                                            <p>ddd</p>
+                                                                                                                        </div>
+                                                                                                                        <h3>Generer des relances impayées</h3>
+                                                                                                                        <div>
+                                                                                                                            <p>
+                                                                                                                                <form action='generation_d_un_document_PDF.php' method='post'>
+                                                                                                                                    <input type='hidden' name='type_de_document' value='relance_loyer_impaye'>
+                                                                                                                                    <p>Bonjour,</p>
+                                                                                                                                    <p>Cette relance de loyer impayé concerne <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning' required> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning' required>.</p>
+                                                                                                                                    <p>Celui-ci occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
-            //
-            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+                                                                            //
+                                                                            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
 
-                //
-                if ($incrementeur_des_surfaces == 1) {
+                                                                                //
+                                                                                if ($incrementeur_des_surfaces == 1) {
 
-                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
 
-                } else {
+                                                                                } else {
 
-                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
+                                                                                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
 
-                }
+                                                                                }
 
-                //
-                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\\"SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface\\");
+                                                                                //
+                                                                                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\\"SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface\\");
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
 
-                //
-                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
 
-                //
-                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+                                                                                //
+                                                                                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
 
-                //
-                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+                                                                                //
+                                                                                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
 
-                //
-                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+                                                                                //
+                                                                                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
 
-                    //
-                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
 
-                }
+                                                                                }
 
-                //
-                $corps_de_la_page_html .= "</optgroup>";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "</optgroup>";
 
-            }
+                                                                            }
 
             $corps_de_la_page_html .= "</select>, et présente un solde débiteur de <input type='number' name='montant_du_loyer_impaye' class='ui-corner-all text-warning' step='0.001' min='0' required> euros.</p>
                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
