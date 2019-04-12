@@ -13,6 +13,9 @@
     require_once("smarty/libs/Smarty.class.php");
 
     //
+    session_start();
+
+    //
     if(isset($_POST['soumission_du_formulaire_d_authentification']))
     {
 
@@ -151,9 +154,23 @@
             $smarty->display("vues/page_d_authentification_en_cas_d_erreur_PDO.html");
         }
     }
-    else
-    {
+    else {
 
-        //
-        require("vues/page_d_authentification.html");
+        //Si une session existe...
+        if (isset($_SESSION)) {
+
+            //
+            header("Location: index.php");
+
+            //
+            exit;
+
+        }
+        //Sinon...
+        else
+        {
+
+            //
+            require("vues/page_d_authentification.html");
+        }
     }
