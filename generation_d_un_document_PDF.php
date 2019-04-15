@@ -707,7 +707,7 @@
                 $resultat_de_la_requete_de_recuperation_de_l_id_d_identification_du_locataire_renseigne = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->fetchAll(PDO::FETCH_BOTH);
 
                 //
-                $id_d_identification_du_locataire_renseigne = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom[0][0];
+                $id_d_identification_du_locataire_renseigne = $resultat_de_la_requete_de_recuperation_de_l_id_d_identification_du_locataire_renseigne[0][0];
 
                 //
                 if($nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_du_locataire == 1)
