@@ -19,15 +19,6 @@
     require_once("librairie_des_fonctions_importantes/fonctions_de_validation_des_donnees_du_formulaire.php");
 
     //
-    require_once("PHPMailer/src/PHPMailer.php");
-
-    //
-    require_once("PHPMailer/src/SMTP.php");
-
-    //
-    require_once("PHPMailer/src/Exception.php");
-
-    //
     require_once("smarty/libs/Smarty.class.php");
 
     //
@@ -390,6 +381,137 @@
             }
         }
         //
+        elseif($_POST['type_de_document'] == 'expiration_de_contrat_de_location')
+        {
+
+            //
+            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
+
+            //
+            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
+
+            //
+            $date_de_fin_du_contrat_pour_le_locataire = htmlspecialchars($_POST['date_de_fin_du_contrat_de_location']);
+
+            //
+            if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
+            {
+
+                //
+                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_fin_du_contrat_pour_le_locataire);
+
+                //
+                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+
+                //
+                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Locataire.id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire");
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->bindParam(":prenom_du_locataire", $prenom_du_locataire);
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->execute();
+
+                //
+                $nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->rowCount();
+
+                //
+                $resultat_de_la_requete_de_recuperation_de_l_id_d_identification_du_locataire_renseigne = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                if($nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_du_locataire == 1)
+                {
+                    //
+                    $id_d_identification_du_locataire_renseigne = $resultat_de_la_requete_de_recuperation_de_l_id_d_identification_du_locataire_renseigne[0][0];
+
+                    //
+                    $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.date_de_fin_du_contrat FROM Contrat WHERE Contrat.locataire = :id_du_locataire_concerne");
+
+                    //
+                    $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->bindParam(":id_du_locataire_concerne", $id_d_identification_du_locataire_renseigne);
+
+                    //
+                    $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->execute();
+
+                    //
+                    $date_de_fin_du_contrat_pour_le_locataire_concernee_recuperee_depuis_la_base_de_donnees = $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->fetchAll(PDO::FETCH_BOTH);
+
+                    //
+                    $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_concernee_recuperee_depuis_la_base_de_donnees[0][0]);
+
+                    //
+                    $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_DateTime->getTimestamp();
+
+                    //
+                    if($date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_timestamp == $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp)
+                    {
+
+                        //
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "L'expiration de contrat de location"));
+
+                        //
+                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                    }
+                    //Sinon...
+                    else
+                    {
+
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("intitule_de_l_erreur" => "Le locataire en question n'a pas de contrat de location identifié",
+                            "description_de_l_erreur" => "Le locataire en question n'a pas de contrat de location identifié, veuillez recommencer la saisie et bien vérifier vos informations"));
+
+                        //
+                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                    }
+                }
+                //Sinon...
+                else
+                {
+
+                    //
+                    $smarty = new Smarty();
+
+                    //
+                    $smarty->assign(array("intitule_de_l_erreur" => "Le locataire en question n'a pas été trouvé",
+                        "description_de_l_erreur" => "Le locataire en question n'a pas été trouvé, veuillez recommencer la saisie"));
+
+                    //
+                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                }
+            }
+            //
+            else
+            {
+
+                //
+                $smarty = new Smarty();
+
+                //
+                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
+
+                //
+                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+            }
+        }
+        //
         elseif($_POST['type_de_document'] == 'attestation')
         {
 
@@ -510,9 +632,18 @@
 
             }
         }
+        //
+        elseif($_POST['type_de_document'] == 'relance_loyer_impaye')
+        {
+
+        }
         //Sinon...
         else
         {
+
+            //
+            header("Location: index.php");
+            exit;
 
         }
     }
