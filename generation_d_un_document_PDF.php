@@ -394,6 +394,9 @@
             $date_de_fin_du_contrat_pour_le_locataire = htmlspecialchars($_POST['date_de_fin_du_contrat_de_location']);
 
             //
+            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_du_locataire']);
+
+            //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
             {
 
@@ -453,14 +456,47 @@
                     {
 
                         //
-                        //
-                        $smarty = new Smarty();
+                        $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.id FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :numero_du_studio");
 
                         //
-                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "L'expiration de contrat de location"));
+                        $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->bindParam(":id_du_locataire", $id_d_identification_du_locataire_renseigne);
 
                         //
-                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                        $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->bindParam(":numero_du_studio", $numero_du_studio_pour_le_locataire);
+
+                        //
+                        $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->execute();
+
+                        //
+                        $nombre_de_resultats_de_la_requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire = $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->rowCount();
+
+                        //
+                        if($nombre_de_resultats_de_la_requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire == 1)
+                        {
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "L'expiration de contrat de location"));
+
+                            //
+                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                        }
+                        //Sinon...
+                        else
+                        {
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("intitule_de_l_erreur" => "Les informations que vous avez renseignés sont incohérentes",
+                                "description_de_l_erreur" => "Aucun locataire et/ou aucun contrat de location ne correspondent aux informations données: Veuillez les vérifier"));
+
+                            //
+                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                        }
 
                     }
                     //Sinon...
@@ -635,6 +671,123 @@
         //
         elseif($_POST['type_de_document'] == 'relance_loyer_impaye')
         {
+
+            //
+            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
+
+            //
+            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
+
+            //
+            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
+
+            //
+            $montant_du_loyer_impaye_pour_le_locataire = htmlspecialchars($_POST['montant_du_loyer_impaye']);
+
+            //
+            if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
+            {
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Locataire.id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire");
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->bindParam(":prenom_du_locataire", $prenom_du_locataire);
+
+                //
+                $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->execute();
+
+                //
+                $nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->rowCount();
+
+                //
+                $resultat_de_la_requete_de_recuperation_de_l_id_d_identification_du_locataire_renseigne = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $id_d_identification_du_locataire_renseigne = $requete_preparee_pour_la_recuperation_de_l_id_du_locataire_en_fonction_de_son_nom_de_famille_et_de_son_prenom[0][0];
+
+                //
+                if($nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_du_locataire == 1)
+                {
+
+                    //
+                    $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.id FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :numero_du_studio");
+
+                    //
+                    $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->bindParam(":id_du_locataire", $id_d_identification_du_locataire_renseigne);
+
+                    //
+                    $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->bindParam(":numero_du_studio", $numero_du_studio_pour_le_locataire);
+
+                    //
+                    $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->execute();
+
+                    //
+                    $nombre_de_resultats_de_la_requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire = $requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire->rowCount();
+
+                    //
+                    if($nombre_de_resultats_de_la_requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire == 1)
+                    {
+
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Relance impayé"));
+
+                        //
+                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                    }
+                    //Sinon...
+                    else
+                    {
+                        //
+                        $smarty = new Smarty();
+
+                        //
+                        $smarty->assign(array("intitule_de_l_erreur" => "Les informations que vous avez renseignés sont incohérentes",
+                            "description_de_l_erreur" => "Aucun locataire et/ou aucun contrat de location ne correspondent aux informations données: Veuillez les vérifier"));
+
+                        //
+                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                    }
+
+                }
+                //Sinon...
+                else
+                {
+
+                    //
+                    $smarty = new Smarty();
+
+                    //
+                    $smarty->assign(array("intitule_de_l_erreur" => "Le locataire en question n'a pas été trouvé",
+                        "description_de_l_erreur" => "Le locataire en question n'a pas été trouvé, veuillez recommencer la saisie"));
+
+                    //
+                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                }
+            }
+            //Sinon...
+            else
+            {
+                //
+                $smarty = new Smarty();
+
+                //
+                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
+
+                //
+                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+            }
 
         }
         //Sinon...
