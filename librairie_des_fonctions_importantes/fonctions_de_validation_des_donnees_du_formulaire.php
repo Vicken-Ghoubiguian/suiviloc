@@ -322,6 +322,46 @@ function mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($e
     return $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif;
 }
 
+//
+function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_libre($id_du_locataire_concerne, $id_du_studio_concerne)
+{
+    $variable_de_retour = 0;
+
+    $requete_de_verification_de_l_occupation_du_studio_par_un_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.studio = :id_du_studio");
+
+    $requete_de_verification_de_l_occupation_du_studio_par_un_locataire->bindParam(":id_du_studio", $id_du_studio_concerne);
+
+    $requete_de_verification_de_l_occupation_du_studio_par_un_locataire->execute();
+
+    $nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_un_locataire = $requete_de_verification_de_l_occupation_du_studio_par_un_locataire->rowCount();
+
+    if($nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_un_locataire == 0)
+    {
+        $variable_de_retour = 1;
+
+    }
+    elseif($nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_un_locataire == 1)
+    {
+        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.studio = :numero_du_studio AND Contrat.locataire = :id_du_locataire");
+
+        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne->bindParam(":id_du_studio", $id_du_studio_concerne);
+
+        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne->bindParam(":id_du_locataire", $id_du_locataire_concerne);
+
+        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne->execute();
+
+        $nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne = $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne->rowCount();
+
+        if($nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne == 1)
+        {
+            $variable_de_retour = 1;
+
+        }
+    }
+
+    return $variable_de_retour;
+}
+
     //
     function recuperation_de_l_id_d_un_element_passe_en_parametre($element_dont_on_veut_trouver_son_id)
     {
