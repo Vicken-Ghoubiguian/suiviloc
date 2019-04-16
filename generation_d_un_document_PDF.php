@@ -181,6 +181,9 @@
                                                                     //
                                                                     insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
 
+                                                                    //
+                                                                    $identifiant_du_locataire = recuperation_de_l_id_d_un_element_passe_en_parametre($locataire_courant);
+
                                                                 }
                                                                 //
                                                                 catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
@@ -199,7 +202,34 @@
                                                             }
 
                                                             //
-                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio);
+                                                            $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire = mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
+
+                                                            //
+                                                            $libelle_du_type_de_contrat_choisi = recuperation_du_libelle_du_type_du_contrat_de_location_a_partir_des_donnees_renseignees_dans_le_formulaire($type_de_contrat_choisi_pour_le_locataire, $ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
+
+                                                            //
+                                                            $id_du_type_de_contrat = recuperation_de_l_id_de_type_de_contrat_a_partir_de_son_libelle($libelle_du_type_de_contrat_choisi);
+
+                                                            //
+                                                            $inclusion_EDF = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_edf"];
+
+                                                            //
+                                                            $inclusion_eau = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_eau"];
+
+                                                            //
+                                                            $inclusion_internet = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_internet"];
+
+                                                            //
+                                                            $inclusion_assurance_locative = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_assurance_locative"];
+
+                                                            //
+                                                            $inclusion_charges_immeuble = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_charges_immeuble"];
+
+                                                            //
+                                                            $chemin_du_fichier_genere = "0";
+
+                                                            //
+                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire);
 
                                                             //
                                                             try

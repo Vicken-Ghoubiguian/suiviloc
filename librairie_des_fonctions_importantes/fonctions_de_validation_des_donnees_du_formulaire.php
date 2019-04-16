@@ -222,6 +222,233 @@
     }
 
     //
+    function recuperation_du_libelle_du_type_du_contrat_de_location_a_partir_des_donnees_renseignees_dans_le_formulaire($type_de_contrat_choisi_sous_forme_d_id, $ensemble_des_conditions_choisies_pour_le_contrat_de_location)
+    {
+
+        $libelle_du_type_de_contrat = "";
+
+        if($type_de_contrat_choisi_sous_forme_d_id == 1)
+        {
+            $libelle_du_type_de_contrat .= "0-3 mois ";
+
+            if($ensemble_des_conditions_choisies_pour_le_contrat_de_location == 1)
+            {
+                $libelle_du_type_de_contrat .= "avec EDF";
+
+            }
+            elseif($ensemble_des_conditions_choisies_pour_le_contrat_de_location == 2)
+            {
+                $libelle_du_type_de_contrat .= "sans EDF";
+
+            }
+        }
+        elseif($ensemble_des_conditions_choisies_pour_le_contrat_de_location == 2)
+        {
+            $libelle_du_type_de_contrat .= "A l'année";
+
+        }
+
+        return $libelle_du_type_de_contrat;
+    }
+
+    //
+    function recuperation_de_l_id_de_type_de_contrat_a_partir_de_son_libelle($libelle_du_type_de_contrat)
+    {
+
+        $requete_re_recuperation_de_l_id_de_type_de_contrat = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Type_de_contrat WHERE Type_de_contrat.libelle_du_type_de_contrat = :libelle_du_type_de_contrat");
+
+        $requete_re_recuperation_de_l_id_de_type_de_contrat->bindParam(":libelle_du_type_de_contrat", $libelle_du_type_de_contrat);
+
+        $requete_re_recuperation_de_l_id_de_type_de_contrat->execute();
+
+        $resultat_de_la_requete_re_recuperation_de_l_id_de_type_de_contrat = $requete_re_recuperation_de_l_id_de_type_de_contrat->fetchAll(PDO::FETCH_BOTH);
+
+        return $resultat_de_la_requete_re_recuperation_de_l_id_de_type_de_contrat[0][0];
+    }
+
+//
+function mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire)
+{
+    $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif = array(
+        'inclusion_edf' => 0,
+        'inclusion_eau' => 0,
+        'inclusion_internet' => 0,
+        'inclusion_assurance_locative' => 0,
+        'inclusion_charges_immeuble' => 0,
+        'tom_en_sus' => 0
+    );
+
+    if($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire == 1)
+    {
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_edf'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_eau'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_internet'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_assurance_locative'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_charges_immeuble'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['tom_en_sus'] = 1;
+
+    }
+    elseif($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire == 2)
+    {
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_eau'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_internet'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_assurance_locative'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_charges_immeuble'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['tom_en_sus'] = 1;
+
+    }
+    elseif($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire == 3)
+    {
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_eau'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_internet'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['inclusion_charges_immeuble'] = 1;
+
+        $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif['tom_en_sus'] = 1;
+
+    }
+
+    return $ensemble_des_conditions_du_contrat_de_location_sous_forme_de_tableau_associatif;
+}
+
+    //
+    function recuperation_de_l_id_d_un_element_passe_en_parametre($element_dont_on_veut_trouver_son_id)
+    {
+
+        $id_de_l_element_en_question = 0;
+
+        if(is_a($element_dont_on_veut_trouver_son_id,'Locataire'))
+        {
+
+            $nom_de_famille_du_locataire = $element_dont_on_veut_trouver_son_id->getNom_du_locataire();
+
+            $prenom_du_locataire = $element_dont_on_veut_trouver_son_id->getPrenom_du_locataire();
+
+            $date_d_arriver_du_locataire = $element_dont_on_veut_trouver_son_id->getDate_d_arriver();
+
+            $date_de_naissance_du_locataire = $element_dont_on_veut_trouver_son_id->getDate_de_naissance();
+
+            $adresse_d_habitation_du_locataire = $element_dont_on_veut_trouver_son_id->getAdresse_d_habitation();
+
+            $type_de_public_du_locataire = $element_dont_on_veut_trouver_son_id->getType_de_public();
+
+            $numero_de_telephone_du_locataire = $element_dont_on_veut_trouver_son_id->getNumero_de_telephone();
+
+            $date_d_arriver_du_locataire_sous_forme_de_String = $date_d_arriver_du_locataire->format("Y-m-d");
+
+            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire->format("Y-m-d");
+
+            $requete_preparee_pour_la_recuperation_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire AND Locataire.adresse_d_habitation = :adresse_d_habitation_du_locataire AND Locataire.type_de_public = :type_de_public_du_locataire AND Locataire.date_d_arrivee = :date_d_arrivee_du_locataire AND Locataire.date_de_naissance = :date_de_naissance_du_locataire AND Locataire.numero_de_telephone = :numero_de_telephone_du_locataire");
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":prenom_du_locataire", $prenom_du_locataire);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":adresse_d_habitation_du_locataire", $adresse_d_habitation_du_locataire);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":type_de_public_du_locataire", $type_de_public_du_locataire);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_d_arrivee_du_locataire", $date_d_arriver_du_locataire_sous_forme_de_String);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire_sous_forme_de_String);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":numero_de_telephone_du_locataire", $numero_de_telephone_du_locataire);
+
+            $requete_preparee_pour_la_recuperation_du_locataire->execute();
+
+            $nombre_de_resultats_compris_dans_la_requete = $requete_preparee_pour_la_recuperation_du_locataire->rowCount();
+
+            if($nombre_de_resultats_compris_dans_la_requete == 1)
+            {
+                $resultat_de_la_requete_preparee_pour_la_recuperation_du_locataire = $requete_preparee_pour_la_recuperation_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+                $id_de_l_element_en_question = $resultat_de_la_requete_preparee_pour_la_recuperation_du_locataire[0][0];
+
+            }
+
+        }
+        elseif(is_a($element_dont_on_veut_trouver_son_id, 'Contrat'))
+        {
+
+            $libelle_du_type_de_contrat = $element_dont_on_veut_trouver_son_id->getLibelle_du_type_de_contrat();
+
+            $date_de_debut_du_contrat = $element_dont_on_veut_trouver_son_id->getDate_de_debut();
+
+            $date_de_fin_du_contrat = $element_dont_on_veut_trouver_son_id->getDate_de_fin();
+
+            $montant_du_loyer = $element_dont_on_veut_trouver_son_id->getMontant_du_loyer();
+
+            $encaissement_du_depot_de_garantie = $element_dont_on_veut_trouver_son_id->getEncaissement_du_depot_de_garantie();
+
+            $inclusion_EDF = $element_dont_on_veut_trouver_son_id->getInclusion_EDF();
+
+            $inclusion_eau = $element_dont_on_veut_trouver_son_id->getInclusion_eau();
+
+            $inclusion_internet = $element_dont_on_veut_trouver_son_id->getInclusion_internet();
+
+            $inclusion_assurance_locative = $element_dont_on_veut_trouver_son_id->getInclusion_assurance_locative();
+
+            $inclusion_charges_immeuble = $element_dont_on_veut_trouver_son_id->getInclusion_charges_immeuble();
+
+            $chemin_du_fichier_genere = $element_dont_on_veut_trouver_son_id->getChemin_du_fichier_genere();
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Ensemble_des_conditions_du_contrat WHERE Ensemble_des_conditions_du_contrat.inclusion_edf = :inclusion_edf AND Ensemble_des_conditions_du_contrat.inclusion_eau = :inclusion_eau AND Ensemble_des_conditions_du_contrat.inclusion_internet = :inclusion_internet AND Ensemble_des_conditions_du_contrat.inclusion_assurance_locative = :inclusion_assurance_locative AND Ensemble_des_conditions_du_contrat.inclusion_charges_immeuble = :inclusion_charges_immeuble");
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->bindParam(":inclusion_edf", $inclusion_EDF);
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->bindParam(":inclusion_eau", $inclusion_eau);
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->bindParam(":inclusion_internet", $inclusion_internet);
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->bindParam(":inclusion_assurance_locative", $inclusion_assurance_locative);
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->bindParam(":inclusion_charges_immeuble", $inclusion_charges_immeuble);
+
+            $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->execute();
+
+            $nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_de_l_ensemble_des_conditions_du_contrat = $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->rowCount();
+
+            if($nombre_de_resultats_de_la_requete_de_recuperation_de_l_id_de_l_ensemble_des_conditions_du_contrat == 1)
+            {
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_de_l_ensemble_des_conditions_du_contrat = $requete_preparee_pour_la_recuperation_de_l_id_des_conditions->fetchAll(PDO::FETCH_BOTH);
+
+                $id_de_l_ensemble_des_conditions_du_contrat = $resultat_de_la_requete_de_recuperation_de_l_id_de_l_ensemble_des_conditions_du_contrat[0][0];
+
+                $requete_preparee_pour_la_recuperation_de_l_id_du_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("");
+
+            }
+
+        }
+        elseif(is_a($element_dont_on_veut_trouver_son_id,'Garant'))
+        {
+
+        }
+        elseif(is_a($element_dont_on_veut_trouver_son_id,'Studio'))
+        {
+
+        }
+        else
+        {
+            $id_de_l_element_en_question = 0;
+
+        }
+
+        return $id_de_l_element_en_question;
+    }
+
+    //
     function est_element_present_dans_la_base($element_qu_on_cherche_dans_la_base)
     {
 

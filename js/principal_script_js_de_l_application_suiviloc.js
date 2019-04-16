@@ -312,11 +312,19 @@ $(document).ready(function(){
 
         if(type_de_contrat_de_location_choisi == 2)
         {
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=1]').attr('disabled','disabled');
+
             $('#ensemble_des_conditions_du_contrat_de_location option[value=2]').attr('disabled','disabled');
+
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=3]').removeAttr('disabled');
         }
         else
         {
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=1]').removeAttr('disabled');
+
             $('#ensemble_des_conditions_du_contrat_de_location option[value=2]').removeAttr('disabled');
+
+            $('#ensemble_des_conditions_du_contrat_de_location option[value=3]').attr('disabled','disabled');
         }
     }
 
