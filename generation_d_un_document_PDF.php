@@ -199,7 +199,7 @@
                                                             }
 
                                                             //
-                                                            $contrat_courant = new Contrat($libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio);
+                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio);
 
                                                             //
                                                             try
