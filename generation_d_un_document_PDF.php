@@ -169,6 +169,60 @@
                                                             $numero_de_telephone_du_locataire = htmlspecialchars($_POST['numero_de_telephone_du_locataire']);
 
                                                             //
+                                                            $locataire_courant = new Locataire($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime, $adresse_email_du_locataire, $date_de_naissance_du_locataire_sous_forme_de_DateTime, $adresse_d_habitation_du_locataire, $type_de_public_choisi_pour_le_locataire, $numero_de_telephone_du_locataire);
+
+                                                            //
+                                                            if(est_element_present_dans_la_base($locataire_courant) == False)
+                                                            {
+
+                                                                //
+                                                                try
+                                                                {
+                                                                    //
+                                                                    insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                }
+                                                                //
+                                                                catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
+                                                                {
+                                                                    //
+                                                                    $smarty = new Smarty();
+
+                                                                    //
+                                                                    $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_concernant_l_enregistrement_du_locataire_dans_la_base->getMessage()));
+
+                                                                    //
+                                                                    $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
+
+                                                                }
+
+                                                            }
+
+                                                            //
+                                                            $contrat_courant = new Contrat($libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio);
+
+                                                            //
+                                                            try
+                                                            {
+                                                                //
+                                                                insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
+
+                                                            }
+                                                                //
+                                                            catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
+                                                            {
+                                                                //
+                                                                $smarty = new Smarty();
+
+                                                                //
+                                                                $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_concernant_l_enregistrement_du_locataire_dans_la_base->getMessage()));
+
+                                                                //
+                                                                $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
+
+                                                            }
+
+                                                            //
                                                             $smarty = new Smarty();
 
                                                             //

@@ -40,8 +40,23 @@ class Contrat
     private $inclusion_charges_immeuble;
 
     //
-    public function __construct($libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble)
+    private $chemin_du_fichier_genere;
+
+    //
+    private $identifiant_du_locataire;
+
+    //
+    private $identifiant_du_studio;
+
+    //
+    public function __construct($libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio)
     {
+
+        //
+        $this->identifiant_du_locataire = $identifiant_du_locataire;
+
+        //
+        $this->identifiant_du_studio = $identifiant_du_studio;
 
         //
         $this->libelle_du_type_de_contrat = $libelle_du_type_de_contrat;
@@ -72,6 +87,9 @@ class Contrat
 
         //
         $this->inclusion_charges_immeuble = $inclusion_charges_immeuble;
+
+        //
+        $this->chemin_du_fichier_genere;
     }
 
     //
@@ -145,6 +163,27 @@ class Contrat
     }
 
     //
+    public function getChemin_du_fichier_genere()
+    {
+        //
+        return $this->chemin_du_fichier_genere;
+    }
+
+    //
+    public function getIdentifiant_du_locataire()
+    {
+        //
+        return $this->identifiant_du_locataire;
+    }
+
+    //
+    public function getIdentifiant_du_studio()
+    {
+        //
+        return $this->identifiant_du_studio;
+    }
+
+    //
     public function setLibelle_du_type_de_contrat($nouveau_libelle_du_type_de_contrat)
     {
         //
@@ -212,5 +251,26 @@ class Contrat
     {
         //
         $this->inclusion_charges_immeuble = $inclusion_charges_immeuble;
+    }
+
+    //
+    public function setChemin_du_fichier_genere($chemin_du_fichier_genere)
+    {
+        //
+        $this->chemin_du_fichier_genere = $chemin_du_fichier_genere;
+    }
+
+    //
+    public function setIdentifiant_du_locataire($identifiant_du_locataire)
+    {
+        //
+        return $this->identifiant_du_locataire = $identifiant_du_locataire;
+    }
+
+    //
+    public function setIdentifiant_du_studio($identifiant_du_studio)
+    {
+        //
+        return $this->identifiant_du_studio = $identifiant_du_studio;
     }
 }

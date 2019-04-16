@@ -32,7 +32,10 @@ class Locataire
     private $type_de_public;
 
     //
-    public function __construct($nom, $prenom, $date_d_arriver, $adresse_mail, $date_de_naissance, $adresse_d_habitation, $type_de_public)
+    private $numero_de_telephone;
+
+    //
+    public function __construct($nom, $prenom, $date_d_arriver, $adresse_mail, $date_de_naissance, $adresse_d_habitation, $type_de_public, $numero_de_telephone)
     {
 
         //
@@ -55,6 +58,9 @@ class Locataire
 
         //
         $this->type_de_public = $type_de_public;
+
+        //
+        $this->numero_de_telephone = $numero_de_telephone;
     }
 
     //
@@ -107,6 +113,12 @@ class Locataire
     }
 
     //
+    public function setNumeroDeTelephone($numero_de_telephone)
+    {
+        $this->numero_de_telephone = $numero_de_telephone;
+    }
+
+    //
     public function getNom_du_locataire()
     {
         //
@@ -153,6 +165,13 @@ class Locataire
     {
         //
         return $this->type_de_public;
+    }
+
+    //
+    public function getNumero_de_telephone()
+    {
+        //
+        return $this->numero_de_telephone;
     }
 
 }
