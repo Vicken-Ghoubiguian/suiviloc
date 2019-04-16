@@ -62,7 +62,7 @@
             $type_de_contrat_choisi_pour_le_locataire = htmlspecialchars($_POST['type_de_contrat_choisi']);
 
             //
-            $ensemble_des_conditions_choisi_pour_le_contrat_du_locataire = htmlspecialchars($_POST['ensemble_des_conditions_du_contrat_de_location']);
+            $ensemble_des_conditions_choisies_pour_le_contrat_du_locataire = htmlspecialchars($_POST['ensemble_des_conditions_du_contrat_de_location']);
 
             //
             $montant_de_la_location_pour_le_locataire = htmlspecialchars($_POST['montant_de_la_location']);
