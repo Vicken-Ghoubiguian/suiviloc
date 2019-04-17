@@ -744,25 +744,9 @@ function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_lib
 
             $id_du_type_de_contrat = $element_a_inserer_dans_la_base_de_donnees->getId_du_type_de_contrat();
 
-            $libelle_du_type_de_contrat_choisi = $element_a_inserer_dans_la_base_de_donnees->getLibelle_du_type_de_contrat();
-
             $date_de_debut_du_contrat_pour_le_locataire = $element_a_inserer_dans_la_base_de_donnees->getDate_de_debut();
 
             $date_de_fin_du_contrat_pour_le_locataire = $element_a_inserer_dans_la_base_de_donnees->getDate_de_fin();
-
-            $montant_du_loyer = $element_a_inserer_dans_la_base_de_donnees->getMontant_du_loyer();
-
-            $encaissement_du_depot_de_garantie = $element_a_inserer_dans_la_base_de_donnees->getEncaissement_du_depot_de_garantie();
-
-            $inclusion_EDF = $element_a_inserer_dans_la_base_de_donnees->getInclusion_EDF();
-
-            $inclusion_eau = $element_a_inserer_dans_la_base_de_donnees->getInclusion_eau();
-
-            $inclusion_internet = $element_a_inserer_dans_la_base_de_donnees->getInclusion_internet();
-
-            $inclusion_assurance_locative = $element_a_inserer_dans_la_base_de_donnees->getInclusion_assurance_locative();
-
-            $inclusion_charges_immeuble = $element_a_inserer_dans_la_base_de_donnees->getInclusion_charges_immeuble();
 
             $identifiant_du_garant = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_garant();
 
@@ -776,9 +760,23 @@ function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_lib
 
             $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_fin_du_contrat_pour_le_locataire->format("Y-m-d");
 
-            $requete_preparee_d_insertion_du_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("");
+            $requete_preparee_d_insertion_du_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Contrat(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, montant_du_loyer, encaissement_du_depot_de_garantie, chemin_d_accee) VALUES(:id_du_locataire, :id_du_studio, :id_du_garant, :id_du_type_de_contrat, :date_de_debut_du_contrat, :date_de_fin_du_contrat, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
 
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":id_du_locataire", $identifiant_du_locataire);
 
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":id_du_studio", $identifiant_du_studio);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":id_du_garant", $identifiant_du_garant);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":id_du_type_de_contrat", $id_du_type_de_contrat);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":date_de_debut_du_contrat", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":date_de_fin_du_contrat", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->bindParam(":chemin_d_accee", $chemin_du_fichier_genere);
+
+            $requete_preparee_d_insertion_du_contrat_de_location->execute();
 
         }
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Garant"))
