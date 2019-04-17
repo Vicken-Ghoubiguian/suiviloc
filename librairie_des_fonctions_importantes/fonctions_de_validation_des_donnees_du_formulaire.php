@@ -762,7 +762,7 @@ function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_lib
 
             $inclusion_assurance_locative = $element_a_inserer_dans_la_base_de_donnees->getInclusion_assurance_locative();
 
-            $inclusion_charges_immeuble = $element_a_inserer_dans_la_base_de_donnees->getInclusion_charges_immeubles();
+            $inclusion_charges_immeuble = $element_a_inserer_dans_la_base_de_donnees->getInclusion_charges_immeuble();
 
             $identifiant_du_garant = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_garant();
 
