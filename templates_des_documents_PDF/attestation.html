@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title> Attestation </title>
+    <style>
+
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .bas_de_pages{
+            text-align: center;
+            font-size: 12px;
+            color: gray;
+            font-family: Arial, Verdana, sans-serif;
+        }
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        h2
+        {
+            color: black;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+        }
+
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+        .main3{
+            background: white;
+            margin-left: 370px;
+            text-align: justify;
+            text-justify: inter-word;
+            color: white;
+
+        }
+        .contentMain3{
+            margin-left: 30px;
+            color: black;
+            padding: 11px;
+            font-size: 13px;
+            vertical-align: center;
+            text-align: left;
+            font-weight: bold;
+
+        }
+
+        body, html{
+            height:100%;
+            width: 100%;
+            padding:0;
+        }
+
+        #contenuprincipal {
+            height: 95%%;
+        }
+
+        #pieddepage {
+            vertical-align: top;
+            position: absolute;
+            bottom: 1px;
+            margin-bottom: 20%;
+
+
+            page-break-after: auto;
+        }
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+        }
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+        }
+        img{
+            height: 70px;width: 250px;
+
+
+        }</style>
+
+
+
+
+</head>
+<body>
+
+
+
+<div  id="contenuprincipal">
+    <img style="margin-left: 67px" src="../images/logoresidis.JPG" alt="" />
+
+    <br>
+    <br>
+    <div   class="main3">
+
+        <div  class="contentMain3">
+            <a  class="gras" style="margin: 10px"> {$nom_du_locataire} {$prenom_du_locataire}<br></a>
+            <a  class ="gras" style ="margin: 10px">     300 Avenue Charles DEPERET<br></a>
+            <a  class ="gras" style="margin: 10px">      Bat C APPT {$numero_du_studio}<br></a>
+            <a  class="gras" style="margin: 10px">       66000 PERPIGNAN<br> <br></a>
+            <a class="gras" style="margin: 10px">        Perpignan, le {$date_du_jour}</a>
+        </div>
+
+
+
+    </div>
+    <p style ="margin-left:67px; margin-top: 15% " class="gras"><u>Objet :</u> Attestation</p>
+
+    <p style ="margin-left:67px" class="normal">Madame, Monsieur,</p>
+
+    <p  style =" margin-left:67px; margin-right: 70px" class="normal">Je soussignée, Marie-Noëlle SANCHEZ responsable de la résidence
+        les Portes d’Espagne 300 avenue Charles DEPERET 66000 PERPIGNAN, certifie sur l’honneur que {$nom_de_famille_du_locataire} {$prenom_du_locataire}
+        est bien locataire du studio {$numero_du_studio} sis LES PORTES D’Espagne 300 AVENUE CHARLES DEPERET B TIMENT C 66000 PERPIGNAN depuis le {$date_d_arrivee_dans_la_residence}.
+
+        Pour faire valoir ce que de droit.
+    </p>
+    <br>
+    <div  style="..." class="main3">
+
+        <div class="contentMain3"> <a  class="gras" style="margin: 10px">MME SANCHEZ M. Noëlle<br></a>
+            <a class="gras" style="margin: 10px"> Responsable de la résidence</a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div style="margin-bottom: 10px" id="pieddepage">
+    <p class="bas_de_pages">
+        <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS
+    </p>
+</div>
+
+</body>
+
+</html>

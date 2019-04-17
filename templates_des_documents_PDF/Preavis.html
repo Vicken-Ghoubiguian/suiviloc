@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Courier de Préavis</title>
+
+    <style>
+
+
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .bas_de_pages{
+            text-align: center;
+            font-size: 9pt;
+           
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+
+        .main3{
+            background: white;
+            margin-left: 410px;
+            color: white;
+            text-align: right;
+        }
+        .contentMain3{
+            margin-left: 50px;
+            color: black;
+            padding: 11px;
+            font-size: 11pt;
+            vertical-align: center;
+            text-align: left;
+            
+        }
+
+
+
+        body, html{
+            height:100%;
+            width: 100%;
+
+
+            padding:0;
+
+
+        }
+
+        .contenuprincipal {
+            top: 1px;
+            width: 100%;
+            height: 91%;
+        }
+
+        .pieddepage {
+            vertical-align: top;
+            text-align: center;
+            position: relative;
+            bottom: 1px;
+            width:100%;
+            height: 3%;
+            margin-bottom: 1px;
+
+            page-break-after: auto;
+        }
+
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+
+        }
+
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+        }
+        img{
+            height: 55px;width: 220px;
+
+
+        }
+        h2{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+      
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        
+
+    </style>
+</head>
+<body>
+
+    <div class="contenuprincipal">
+
+        <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px  " src="../images/logoresidis.JPG" alt="" />
+
+
+        <div   class="main3">
+            <div class="contentMain3">
+                <a  class="gras" style="margin: 10px">   {$nom_du_locataire} {$prenom_du_locataire}</a> <br>
+                <a  class="gras" style="margin: 10px">300 Avenue Charles DEPERET</a><br>
+                <a  class="gras" style="margin: 10px">Bat C APPT {$numero_du_studio}</a><br>
+                <a  class="gras" style="margin: 10px">       66000 PERPIGNAN<br> <br></a>
+                <a class="normal" style="margin: 10px">        Perpignan, le {$date_du_jour}</a>
+            </div>
+        </div>
+        
+        
+<p  style ="text-justify: auto; margin-left:40px; margin-right: 30px  ">
+    <a class="gras">Objet : </a><a class="normal"> Préavis</a><br><br>
+    <a class="gras">Nos Ref : </a><a class="normal"> Appt : {$numero_du_studio} </a><br><br>
+</p>
+        
+       <p  style="margin-left: 40px; margin-right: 70px; text-justify: auto" class="normal">
+            {$civilite_du_locataire},<br><br><br>
+
+            Nous revenons vers vous en notre qualité d’exploitant de votre logement numéro {$numero_du_studio} situé au 300 Av. Charles DEPERET Bat. C 66000 PERPIGNAN
+            et faisons suite à votre demande.
+            Conformément à votre contrat d’hébergement, <a class="gras"> nous vous précisons que nous enregistrons votre préavis pour un départ le {$date_de_depart_du_locataire}.<br><br>
+            <u>Je vous remercie de prendre rapidement contact avec moi afin de convenir d’un rendez-vous pour un état des lieux de sortie.</u></a><br><br>
+            Pour mémoire, et afin de simplifier l’état des lieux de sortie, nous vous rappelons que l’appartement devra être nettoyé par vos soins, vidé de tout objet personnel et encombrant. Afin de favoriser le bon déroulement du dit rendez-vous, nous vous invitons à prendre connaissance du décret 87-712 du 26/08/1987 relatif aux réparations locatives annexé à votre contrat d’hébergement.
+            Nous vous souhaitons bonne réception de la présente correspondance.
+            Veuillez agréer, {$civilite_du_locataire}, l’expression de nos sincères salutations.
+        
+        </p>
+
+        <div  style="..." class="main3">
+            <div class="contentMain3"> <a  class="normal" style="margin: 10px">MME SANCHEZ M. Noëlle<br><br></a>
+                <a class="normal" style="margin: 10px"> Responsable de la résidence</a>
+            </div>
+        </div>
+
+
+        <p style="margin-left: 40px; margin-right: 70px; text-justify: auto" >
+            <a class="gras"> <u>La pièce de vie :</u></a><br>
+
+            Le canapé/lit doit être déplié, la housse doit être lavée soit en machine à la résidence soit en pressing ainsi que l’alèse, les oreillers et la couverture (maxi 40°).<br><br>
+            Le rideau doit être lavé en machine (maxi 40°). <a style="color: red">TOUT LAVAGE NON EFFECTUE SERA FACTURE 50€.<br><br>
+        </a>
+            <a class="gras"><u>Le coin cuisine :</u></a><br>
+
+            Nettoyage de la bouche de ventilation<br><br>
+            Nettoyage de la plaque de cuissons avec produit adapté (il ne doit pas rester de brulures de cuissons)<br><br>
+        </p>
+
+    </div>
+
+    <div class="pieddepage">
+    <a class="bas_de_pages">
+        <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS
+    </a>
+    
+    
+    </div>
+
+    <div class="contenuprincipal">
+        <p style="margin-left: 40px; margin-right: 70px; text-justify: auto" >
+   
+           
+           
+            Nettoyage et dégraissage de la crédence<br><br>
+            Remplacement du filtre de la hotte<br><br>
+            Dégraissage des éléments haut et bas<br><br>
+            Le réfrigérateur doit être vidé et dégivré de la veille<br><br>
+            Le réfrigérateur doit être retiré de son logement afin de nettoyer la partie encastrée<br><br>
+            Les blocs de ventilation et grille d’aération situées au-dessus des fenêtres doivent être dégraissés<br><br>
+            Nettoyage de l’évier<br><br>
+            Nettoyage de la poubelle sous évier<br><br>
+
+            <a class="gras"><u>La salle d’eau :</u></a><br>
+
+        
+            La douche et la vasque doivent être nettoyées, les rangements vidés, la bouche de ventilation nettoyée<br><br>
+            Nettoyage des faïences et du miroir<br><br>
+            Le rideau de douche doit être lavé en machine ou remplacé<br><br>
+            Désinfection du WC, du bloc cuvette (détartrage)<br><br>
+
+
+            <a class="gras"><u>En règle générale :</u></a><br>
+           
+            Les traces sur les murs doivent être effacées à l’aide d’un tampon de type SCOCHT BRIT sec <br><br>
+            Les ampoules grillées doivent être remplacées <br><br>
+
+            L’évacuation des sanitaires (WC, douche, évier) doit être libre, (mettre un produit de débouchage si nécessaire)<br><br>
+            <a style="color: red">L’aspirateur doit avoir été passé dans le studio et plus particulièrement derrière les meubles ainsi que le dessus des plinthes</a> <br><br>
+            Les sols doivent être lavés et il ne doit pas y avoir de traces<br><br>
+            L’ameublement doit avoir été dépoussiéré, les vitres doivent être nettoyées<br><br>
+            Tous les matériels ayant servis au nettoyage doivent être enlevés (éponge, serpillière, balai, sac poubelle).<br><br>
+            
+        </p>
+        
+        
+    </div>
+    <div class="pieddepage">
+        <a class="bas_de_pages">
+            <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+            58 Av. de Wagram 75017 PARIS
+        </a>
+    </div>
+
+</body>
+</html>

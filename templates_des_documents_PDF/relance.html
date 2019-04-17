@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Relance Loyer Impayer</title>
+    <style>
+
+
+        .grandtitre{
+            color: black;
+            font-weight: bolder;
+            font-size: 25px;
+            background-color: red;
+            border: 1px solid;
+
+        }
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+
+
+
+        h2
+        {
+            color: black;
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+        .main3{
+
+            background: white;
+            margin-left: 400px;
+            text-align: right;
+            color: white;
+        }
+        .contentMain3{
+            margin-left: 50px;
+            color: black;
+            padding: 11px;
+            font-size: 15px;
+            vertical-align: center;
+            text-align: left;
+            font-weight: bold;
+
+        }
+
+        body, html{
+            height:100%;
+            width: 100%;
+
+
+            padding:0;
+
+
+        }
+
+        #contenuprincipal {
+            top: 1px;
+            width: 100%;
+            height: 90%;
+        }
+
+        #pieddepage {
+            vertical-align: top;
+
+            position: relative;
+            bottom: 1px;
+            width:100%;
+            height: 1%;
+            margin-bottom: 1px;
+
+            page-break-after: auto;
+        }
+        .bas_de_pages{
+              text-align: center;
+              font-size: 12px;
+              color: gray;
+              font-family: Arial, Verdana, sans-serif;
+          }
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+        }
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+
+        }
+        img{
+            height: 70px;width: 250px;
+
+
+        }</style>
+</head>
+
+<body>
+<div id="contenuprincipal">
+    <img style="margin-left: 70px" src="../images/logoresidis.JPG" alt="" />
+
+    <div  class="main3">
+        <div class="contentMain3">
+            <a  class="gras" style="margin: 10px">   ${nom_de_famille_du_locataire} ${prenom_du_locataire}</a> <br>
+            <a  class="gras" style="margin: 10px">300 Avenue Charles DEPERET</a><br>
+            <a  class="gras" style="margin: 10px">Bat C APPT ${numero_du_studio}</a><br>
+            <a  class="gras" style="margin: 10px">       66000 PERPIGNAN<br> <br></a>
+            <a class="gras" style="margin: 10px">        Perpignan, le ${date_du_jour}</a>
+        </div>
+    </div>
+
+    <br><br>
+    <p class="grandtitre" style=" text-align: center   " >RELANCE LOYER IMPAYÉ </p>
+    <p  style ="text-justify: auto; margin-left:70px; margin-right: 70px ; margin-top: 15%" class="gras">
+        <u>Objet :</u> Lettre de relance <br><br>
+
+        <a style ="margin: 40px" class="normal">Madame, Monsieur,<br> <br> </a>
+
+        Par la présente, nous vous informons que <u> votre compte locataire présente toujours un solde débiteur de ${montant_a_debiter_pour_le_loyer}.</u> <br>
+
+        En conséquence, <u>nous vous demandons de bien vouloir passer au plus vite au bureau afin de régulariser votre situation.</u> <br>
+
+        Dans le cas, ou le règlement croiserait ce courrier, veuillez ne pas tenir compte de celui-ci.<br><br>
+
+        Dans l’attente, veuillez agréer, Madame, Monsieur, nos sincères salutations.
+
+
+    </p>
+
+    <div  style="text-align: right; margin-top: 10%" class="main3">
+
+        <div class="contentMain3"> <a  class="gras" >MME SANCHEZ M. Noëlle<br></a>
+            <a class="gras">Responsable de la résidence</a>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+<div id="pieddepage"><p class="bas_de_pages">
+    <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+    58 Av. de Wagram 75017 PARIS
+</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,2289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrat_12_Mois</title>
+    <style>
+        .personne{
+            color: darkslategray;
+            font-size: 10pt;
+            text-align: -moz-left;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+        .ci-après{
+            color: darkslategray;
+            font-size: 10pt;
+
+            text-align: justify;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+        .blue{
+            color: steelblue;
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .Important{
+            color: steelblue;
+            font-family: Arial, sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            text-decoration: underline steelblue solid ;
+            font-weight: bold;
+        }
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+        .petit{
+            font-size: 7pt;
+            color: black;
+            font-family:  Arial, Verdana, sans-serif;
+        }
+        .bas_de_pages{
+            text-align: center;
+            font-size: 9pt;
+            color: gray;
+            font-family: Arial, Verdana, sans-serif;
+        }
+        .bas_de_pages_num{
+            text-align: center;
+            font-size: 9pt;
+            color: black;
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+
+
+        .Introduction{
+            text-align: center;
+            font-family:  Arial, Verdana, sans-serif;
+            font-size: 12pt;
+            font-style: normal;
+            font-weight: bold;
+            border-width:3px;
+            border-style: solid;
+            border-color:black;
+            padding:3px;
+            color: mediumblue;
+            margin-left: 100px;
+            margin-right: 100px;
+
+        }
+        .titre{
+            text-align: center;
+            font-family:  Arial, Verdana, sans-serif;
+            font-size: 12pt;
+            font-style: normal;
+            font-weight: bold;
+        }
+        .Résidences{
+            font-size: 10pt;
+
+            color: black;
+            font-family: Arial, sans-serif;
+            margin-left: 140px;
+            margin-right: 70px;
+        }
+        .main{
+            background: white;
+            position: relative;
+            width: 750px;
+            height: 70px;
+
+            display: table;
+            color: white;
+        }
+        .main2{
+            background: white;
+            position: relative;
+            width: 710px;
+            min-height: 50px;
+            max-height: 70px;
+            display: table;
+            color: white;
+        }
+
+        .contentleft{
+            color : black;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+
+        }
+        .contentright{
+            color: black;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+        }
+        .imagegauche{
+            color : white;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+        }
+        .imageDroite{
+            color: white;
+            margin-right: 70px;
+            width: 270px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            border-width:3px;
+            border-style: solid;
+            border-color:black;
+        }
+
+
+        body, html{
+            height:100%;
+            width: 100%;
+
+
+            padding:0;
+
+
+        }
+
+        .contenuprincipal {
+            top: 1px;
+            width: 100%;
+            height: 86%;
+        }
+
+        .pieddepage {
+            vertical-align: top;
+
+            position: relative;
+            bottom: 1px;
+            width:100%;
+
+            margin-bottom: 1px;
+
+            page-break-after: auto;
+        }
+        .tableauBackground{
+            /*background: steelblue;
+            max-height: 10px;*/
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+            font-weight: bold;
+            color: dodgerblue;
+        }
+
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+
+        }
+
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+
+
+        }
+        img{
+            height: 55px;width: 220px;
+
+
+        }
+        .img2{
+            height: 9pt;width: 9pt;
+
+        }
+        h2{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+        .classeh2{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+
+        }
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    </style>
+
+
+
+</head>
+<body>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p   class="Introduction" style ="text-justify: auto; color: black; text-align: center">CONTRAT DE LOCATION<br>
+        LOGEMENT MEUBLÉ A USAGE DE RESIDENCE PRINCIPALE<br>
+        DANS UNE RESIDENCE AVEC SERVICES PARA-HOTELIERS<br></p>
+
+    <p  style ="text-justify: auto; text-align: center" class="petit">
+        Soumis au titre 1er bis de la Loi n°89-462 du 6 juillet 1989 tendant à améliorer les rapports locatifs<br> et portant modification de la loi n°86-1290 du 23 décembre 1986
+    </p>
+
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a style="margin-left: 15px" class="classeh2"><u>I. DESIGNATION DES PARTIES</u></a><br>
+
+        <a style="margin-left: 15px" class="normal">Le présent contrat est conclu entre les soussignés :<br><br></a>
+
+        <a style="margin-left: 15px" class="classeh2"> RESIDIS</a> <br>
+        <a style="margin-left: 15px" class="normal">
+            Société par Actions Simplifiée à associé Unique au capital de 100 000,00 €<br></a>
+        <a style="margin-left: 15px" class="normal">   Siège social : 58 AVENUE DE WAGRAM 75017 PARIS<br></a>
+        <a style="margin-left: 15px" class="normal"> SIREN : 509 019 048<br></a>
+        <a style="margin-left: 15px" class="normal">  Représentée par,  MME SANCHEZ Marie-Noëlle, Manager de Résidence<br></a>
+        <a style="margin-left: 15px" class="gras">
+            Ci-après désigné sous la dénomination « le Bailleur »
+        </a>
+    </p>
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a style="margin-left: 15px"  class="classeh2"> Et, (1),<mark>{$civilité_du_locataire} {$nom_de_famille_du_locataire} {$prenom_du_locataire}</mark></a> <br><br>
+
+        <a style="margin-left: 15px" class="normal">  né(e) le <mark>{$date_de_naissance_du_locataire}</mark> (2)  </a><br><br>
+        <img style="margin-left: 100px; margin-right: 10px" class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto " class="normal">Ayant la qualité d'étudiant</a>
+        <img style="margin-left: 40px; margin-right: 10px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto; margin-right: 100px" class="normal">N'ayant pas la qualité d'étudiant</a>
+
+        <a style="margin-left: 15px" class="gras" >Adresse email : <mark>{$adresse_mail_du_locataire}</mark></a><br><br>
+
+        <a style="margin-left: 15px" class="gras">Ci-après désigné(s) sous la dénomination « le Locataire »</a><br><br>
+
+        <a style="margin-left: 15px" class="normal">Avec pour caution solidaire :<br></a>
+            <a style="margin-left: 15px" class="normal">   • <mark>{$civilité_du_garant} {$nom_de_famille_du_garant}</mark></a><a class="gras"><mark>{$prenom_du_garant}</mark>,  (1)</a><br> <br>
+            <a style="margin-left: 15px" class="normal">
+                né(e) le {$date_de_naissance_du_garant}  (2), demeurant :  <mark>{$adresse_du_locataire}</mark>
+        </a><br><br>
+
+        <a style="margin-left: 15px" class="gras">IL EST PREALABLEMENT RAPPELE:</a> <br><br>
+        <a style="margin-left: 15px" class="gras">RESIDIS</a><a class="normal">a pris par bail commercial des logements dépendant de l’ensemble immobilier<br></a>
+        <a style="margin-left: 15px" class="normal">avec services dénommé Résidence  LES PORTES D’ESPAGNE (3) . <br></a>
+        <a style="margin-left: 15px" class="normal">A ce titre, </a><a class="gras"> RESIDIS</a><a class="normal"> exerce dans cette résidence une activité d’exploitation à caractère para hôtelier<br> </a>
+        <a style="margin-left: 15px" class="normal"> consistant dans  la mise à  disposition de logements meublés pour des périodes de temps</a>
+        <a style="margin-left: 15px" class="normal">  déterminées, avec  la fourniture de différents services dont les modalités de tarification et les</a><br>
+        <a style="margin-left: 15px" class="normal"> conditions de réservation sont affichées dans la résidence.
+
+        </a>
+
+    </p>
+
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="gras">IL A ETE CONVENU CE QUI SUIT :</a><br><br>
+        <a class="classeh2"><u>II. OBJET DU CONTRAT</u></a><br><br>
+
+        <a class="normal">Le présent contrat a pour objet la location d’un logement ainsi déterminé :</a>
+
+
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>1/29</strong></a>
+    </p>
+
+</div>
+
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="normal"><u>A. Consistance du logement</u></a><br><br>
+        <a style="margin-left: 10px" class="gras">
+            • Localisation du logement :<br></a>
+        <a style="margin-left: 10px" class="normal">
+            RESIDIS met à disposition du Locataire, qui déclare y fixer sa résidence principale,</a><br>
+        <a style="margin-left: 10px" class="normal">    l’appartement meublé suivant :<br><br></a>
+        <a style="margin-left: 20px" class="normal">   Etage :<mark>{$numero_de_l_etage}</mark> , N° porte : <mark>{$numero_du_studio}</mark> <br></a>
+        <a style="margin-left: 20px" class="normal">   Adresse : Résidence LES PORTES D’ESPAGNE<br></a>
+        <a style="margin-left: 20px" class="normal">   300 AVENUE CHARLES DEPERET BAT. C<br></a>
+        <a style="margin-left: 20px" class="normal">    66000 PERPIGNAN</a><br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            • Type d’habitat :<br><br></a>
+        <img style="margin-left: 80px; margin-right: 10px" class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto " class="normal">Immeuble collectif (Appartement)</a>
+        <img style="margin-left: 40px; margin-right: 10px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto; margin-right: 80px" class="normal">Immeuble individuel (Maison)</a>
+<br><br>
+        <a style="margin-left: 10px" class="gras">
+            • Régime juridique de l'immeuble : </a><a  class="normal"> Monopropriété </a><br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            • Période de construction :</a> <a class="normal"> 01/07/2011 (à préciser)</a>   <br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            • Surface habitable : </a> <a class="normal"> <mark>{$surface_du_studio}</mark></a> <br><br>
+        <a style="margin-left: 10px" class="gras">
+            • Type de lot : </a> <a class="normal"> Studio M</a> <br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            • Nombre de pièces principales :</a>
+        <img style="margin-left: 30px; margin-right: 10px" class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto " class="normal">1</a>
+        <img style="margin-left: 40px; margin-right: 10px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto; " class="normal">2</a>
+        <img style="margin-left: 40px; margin-right: 10px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto ; margin-right: 100px " class="normal">3</a>
+        <br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            •  Eléments d’équipements du logement (4) :</a> <a class="normal"> Appartement de type studio, comprenant une entrée</a>
+        <a style="margin-left: 10px" class="normal">avec placard, une pièce de vie avec  une cuisine équipée (frigo, plaques électriques. micro-ondes,</a>
+        <a style="margin-left: 10px" class="normal">rangements, kit vaisselle), et une salle d’eau avec toilette.</a>   <br><br>
+
+        <a style="margin-left: 10px" class="gras">
+            • Modalité de production de chauffage :<br><br></a>
+        <img style="margin-left: 200px; margin-right: 10px" class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto " class="normal">Individuel</a>
+        <img style="margin-left: 40px; margin-right: 10px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto; margin-right: 200px" class="normal">Collectif (5)</a>
+        <br><br>
+
+        <a class="normal"><u>B. Destination des locaux :</u> à usage d’habitation dans une résidence services</a>
+        <br><br>
+        <a class="normal"><u>C. Locaux, parties, équipements et accessoires de l’immeuble à usage commun :</u> détails dans l’extrait de règlement de copropriété en annexe.</a>
+        <br><br>
+
+        <a class="normal"><u>D. Equipement d’accès aux technologies de l’information et de la communication :</u><br>
+            • Modalité de réception de télévision dans l’immeuble : Antenne terrestre<br>
+            • Modalité de raccordement internet : Technologie : ADSL – Diffusion : câble RJ45</a> <br><br>
+
+
+
+
+
+    </p>
+
+
+
+
+
+
+</div>
+
+
+<div class="pieddepage">
+
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>2/29</strong></a>
+    </p>
+</div>
+
+
+<div class="contenuprincipal">
+
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+
+        <a class="classeh2"><u>III. DATE DE PRISE D'EFFET ET DUREE DU CONTRAT</u></a><br><br>
+
+        <a class="normal"><u>A. Date de prise d’effet du contrat le :</u> <mark>{$date_debut_de_contrat}</mark> <br>
+            Condition suspensive : La prise de possession ou l’entrée en jouissance se fera à la date ci-dessus,<br>
+            sous réserve formelle du départ de l’occupant actuel, ou en cas de demande du locataire à une date postérieure.</a> <br><br>
+
+        <a class="normal"><u>B. Durée du contrat et modalités de résiliation :</u><br>
+            Le présent contrat est conclu pour une durée de </a> <a class="classeh2">1 AN RECONDUCTIBLE PAR TACITE RECONDUCTION </a><br>
+
+        <a class="normal">A l’exception des locations consenties à un étudiant pouvant avoir une durée réduite à neuf mois non reconductible, les contrats de location de logements meublés sont reconduits tacitement à leur terme pour une durée d’un an et dans les mêmes conditions.
+            Le Locataire peut mettre fin au bail à tout moment, après avoir donné congé par lettre recommandée avec accusé de réception, acte d’huissier ou remise en main propre contre émargement ou récépissé, moyennant un préavis d’un mois. Le Bailleur peut, quant à lui, mettre fin au bail à son échéance et après avoir donné congé dans les mêmes formes moyennant un préavis de trois mois avant le terme du contrat ou de chaque tacite reconduction, soit pour reprendre le logement en vue de l’occuper lui-même ou une personne de sa famille, soit pour le vendre, soit pour un motif sérieux et légitime.
+            Le délai de congé délivré par l’une ou l’autre des parties commence à compter du jour de la réception de la lettre recommandée ou de la notification de l’acte extrajudiciaire.
+            Dans le cas où le Locataire quitterait les lieux sans en avertir le Bailleur les travaux de remise en état consécutifs éventuels seraient mis obligatoirement à la charge du Locataire, sans préjudice des indemnités d’occupation, des charges et des dommages et intérêts.
+            En cas de réalisation d’un état des lieux de sortie par voie d’huissier, les frais seront partagés par moitié conformément à l’article 3-2 de la loi du 6 juillet 1989 modifiée.
+        </a>
+        <br><br>
+
+
+        <a class="classeh2"><u>IV. CONDITIONS FINANCIERES</u></a><br><br>
+
+        <a class="normal"> Les parties conviennent des conditions financières suivantes :</a><br><br>
+        <a class="normal"><u>A. Loyers : </u></a><br><br>
+        <a class="normal">
+            1/ Fixation du loyer initial<br></a>
+        <a style="margin-left: 20px" class="normal"> a) Montant du loyer mensuel Charges Comprises :<br></a>
+        <a style="margin-left: 38px" class="normal"> total mensuel TTC de : <mark>{$montant_du_loyer}</mark> €</a> <br><br><br>
+
+        <a class="normal" style="margin-left: 20px"> b) modalités particulières de la fixation initiale du loyer applicable dans certaines zones tendues :</a><br>
+        <a style="margin-left: 40px" class="normal">   - Le loyer du logement objet du présent contrat est soumis au décret fixant annuellement le</a><br>
+            <a style="margin-left: 40px" class="normal">    montant maximum d’évolution des loyers à la relocation : <b>Non</b>  </a><br>
+        <a style="margin-left: 40px" class="normal">   - Le loyer du logement objet du présent contrat est soumis au loyer de référence majoré fixé par</a><br>
+            <a style="margin-left: 40px" class="normal">    arrêté préfectoral : <b>Non</b> </a><br><br>
+
+        <a class="normal">Il est précisé que le dispositif d’encadrement des loyers prévu par les articles 17 et 25-9 de la loi du 6 juillet 1989 n’est pas applicable aux présentes,
+            s’agissant d’un logement meublé situé dans une résidence avec services gérée,
+            et ce conformément aux dispositions du c du 4ème de l’article 261D du Code Général des Impôts.</a><br><br>
+
+    </p>
+
+
+
+
+
+
+</div>
+
+
+
+<div class="pieddepage">
+<p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+    58 Av. de Wagram 75017 PARIS <br>
+    Tél. : 01.44.63.14.20<br>
+    <a class="bas_de_pages_num"><strong>3/29</strong></a>
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+        <a  class="normal">2/ Modalités de révision :</a><br>
+        <a style="margin-left: 20px" class="normal">a) Date de révision : Il est formellement convenu que le loyer et ses accessoires seront révisés de</a>
+        <a style="margin-left: 50px" class="normal">plein droit, et sans qu’il soit besoin d’une notification préalable,
+        à la date anniversaire du</a>
+        <a style="margin-left: 50px" class="normal">contrat.</a><br>
+        <a style="margin-left: 20px" class="normal">b) Trimestre de référence de l’IRL : L’indice à retenir est le dernier indice publié à la signature du</a>
+            <a style="margin-left: 50px" class="normal">    contrat. Le dernier indice publié étant celui de l’IRL-Trim1-Année2017 qui s’élève à 125,90 </a><br>
+        <a style="margin-left: 20px" class="normal">c) Tous nos tarifs sont exprimés TTC, en Euros. En cas de modification de la législation emportant</a>
+        <a style="margin-left: 50px" class="normal">une révision du taux de TVA applicable, celui-ci sera automatiquement appliqué en lieu et place </a>
+                <a style="margin-left: 50px" class="normal">du précédent dès l’entrée en vigueur du texte.</a><br><br>
+
+        <a class="normal"><u>B. Charges récupérables :</u></a><br>
+        <img style=" margin-right: 5px" class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto " class="normal">Eau Froide</a>
+        <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto" class="normal">Eau Chaude</a>
+        <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto" class="normal">Chauffage</a>
+        <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto" class="normal">Electricité</a>
+        <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /><a  style ="text-justify: auto" class="normal">Charges communes immeuble</a>
+        <br><br>
+
+        <a class="normal"> 1. Modalité de règlement des charges récupérables :</a>
+        <a class="normal">Les parties conviennent de la récupération des charges par le bailleur sous la forme
+            d’un forfait. Le montant de ce forfait, qui ne peut être disproportionné au regard des charges réelles, est fixé à (en toutes lettres) : QUINZE EUROS par mois.
+            Il sera acquitté en même temps que le loyer, et révisé chaque année aux mêmes conditions que celui-ci.
+            Ce forfait de charges ne couvre pas les taxes et impôts tels que prévus à l’article VIII D. (ce forfait est déjà compris dans le montant du loyer)</a><br><br>
+
+        <a class="normal">2. Modalités de révision du forfait des charges :<br></a>
+        <a class="normal">Le forfait de charge sera révisé de plein droit chaque année à la date anniversaire du bail.
+            L’indice qui sera retenu pour la révision sera calculée en fonction de la variation de l’indice de référence des loyers (IRL) publié par l’INSEE conformément
+            à l’article 9 de la loi n°2008-111 du 8 février 2008 ou de tout indice qui viendrait se substituer à celui-ci.
+            Indice de référence des loyers de l’IRL-Trim1-Année2017 (publié par l’INSEE) qui s’élève à 125,90</a><br><br>
+
+        <a class="normal"><u>C. Modalité de paiement du loyer et ses accessoires :</u></a><br>
+        <a style="margin-left: 50px" class="normal">- Périodicité du paiement : mensuel</a><br>
+        <a style="margin-left: 50px" class="normal">- Date de paiement : Terme à échoir le 1er de chaque mois</a><br>
+        <a style="margin-left: 50px" class="normal">- Lieu de paiement : portable au domicile de RESIDIS</a><br>
+        <a style="margin-left: 20px" class="normal"> La simple remise d’un chèque ou d’un ordre de virement ne vaut pas libération du débiteur tant que</a><br>
+        <a style="margin-left: 20px" class="normal"> RESIDIS n’a pas été créditée. Tout retard dans le paiement du loyer ou de ses accessoires aux </a><br>
+        <a style="margin-left: 20px" class="normal"> termes convenus entrainera une majoration de plein droit de 10% sur le montant des sommes dues, </a><br>
+        <a style="margin-left: 20px" class="normal">en dédommagement du préjudice subi par le Bailleur, et ce sans qu’une mise en demeure soit</a><br>
+        <a style="margin-left: 20px" class="normal"> nécessaire, par dérogation à l’article 1229 du Code Civil.</a><br><br>
+
+        <a class="classeh2"><u>V. TRAVAUX</u></a><br>
+
+        <a class="normal"><u>A. Si le logement est situé en zone tendue (7)</u><br></a>
+        <a style="margin-left: 20px" class="normal">- Des travaux d’amélioration ou de mise en conformité avec les caractéristiques de décence depuis</a>
+        <a style="margin-left: 20px" class="normal">    la fin du dernier contrat de location ou depuis le renouvellement : <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Oui <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" />  Non</a><br>
+        <a style="margin-left: 30px" class="normal">Si oui, précisez :<br></a>
+
+        <a class="normal" style="margin-left: 50px">o Montant des travaux :   _______________________________________________________ €</a><br>
+        <a class="normal" style="margin-left: 50px">o Nature des travaux :    ________________________________________________________</a><br>
+        <a class="normal" style="margin-left: 50px"> __________________________________________________________________________</a>
+    </p>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>4/29</strong></a>
+</div>
+
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+
+        <a style="margin-left: 20px" class="normal">- Des travaux d’amélioration au cours des six derniers mois : <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Oui <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" />  Non</a><br>
+        <a class="normal" style="margin-left: 30px">Si oui, précisez :</a><br>
+        <a class="normal" style="margin-left: 50px">o Montant des travaux : _______________________________________________________ €</a><br>
+        <a class="normal" style="margin-left: 50px">o Nature des travaux :  ________________________________________________________</a><br>
+        <a class="normal" style="margin-left: 50px">__________________________________________________________________________</a><br><br>
+
+
+        <a class="normal"><u>B. Le Bailleur prévoit de réaliser des travaux d’amélioration en cours de bail entraînant une majoration de loyer :</u>
+            <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Oui <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Non<br></a>
+        <a style="margin-left: 30px" class="normal">Si oui, indiquez :</a><br>
+        <a style="margin-left: 50px" class="normal">o Nature des travaux : _______________________________________________________</a><br>
+        <a style="margin-left: 50px" class="normal">o Modalités d’exécution :  _____________________________________________________</a><br>
+        <a style="margin-left: 50px" class="normal">o Délai de réalisation :  _______________________________________________________</a><br>
+        <a style="margin-left: 50px" class="normal">o Montant de la majoration du loyer : __________________________________________ € (8)</a><br><br>
+
+
+        <a class="normal"><u>C. Le Locataire prévoit de réaliser des travaux en cours de bail et le Bailleur propose en contrepartie de lui consentir une diminution de loyer :</u>
+            <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Oui <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Non</a> <br>
+        <a style="margin-left: 30px" class="normal">Si oui, indiquez :<br></a>
+        <a style="margin-left: 50px" class="normal">o Nature des travaux : _______________________________________________________<br></a>
+        <a style="margin-left: 50px" class="normal">o Montant du loyer minoré et durée du versement : _________________________________<br></a>
+        <a style="margin-left: 50px" class="normal">o En cas de départ anticipé du Locataire, modalités de son dédommagement sur justification</a>
+        <a style="margin-left: 50px" class="normal">    des dépenses effectuées : _______________________________________________________<br><br></a>
+
+        <a class="classeh2"><u>VI. GARANTIES</u></a><br>
+        <a class="gras">Montant du dépôt de garantie</a><br>
+        <a class="normal">A titre de garantie de l’entière exécution de ses obligations, le Locataire verse, ce jour, un dépôt de garantie
+            correspondant à (inférieure ou égal à deux mois de loyer hors charges) : <mark>{$montant_du_depot_de_garanti}</mark> euros<br>
+            Ce dépôt de garantie ne dispensera en aucun cas le Locataire du paiement du loyer et des charges aux dates fixées.<br>
+            Conformément aux dispositions légales, il ne fera l’objet d’aucune révision durant l’exécution du contrat. Il n’est pas productif<br>
+            <u><b>Délai et modalités de restitution du dépôt de garantie :</b></u> voire notice d’information rubrique 3.2.2.
+
+        </a><br><br>
+
+        <a class="classeh2"><u>VII. CLAUSE DE SOLIDARITE</u></a><br>
+        <a class="gras">Montant du dépôt de garantie</a><br>
+        <a class="normal">A titre de garantie de l’entière exécution de ses obligations, le Locataire verse, ce jour, un dépôt de garantie correspondant à (inférieure ou égal à deux mois de loyer hors charges) :  340,00 euros
+            Ce dépôt de garantie ne dispensera en aucun cas le Locataire du paiement du loyer et des charges aux dates fixées.<br>
+            Conformément aux dispositions légales, il ne fera l’objet d’aucune révision durant l’exécution du contrat. Il n’est pas productif<br>
+            <u><b>Délai et modalités de restitution du dépôt de garantie :</b></u> voire notice d’information rubrique 3.2.2.
+
+        </a><br><br>
+        <a class="classeh2"><u>VIII. CLAUSE RESOLUTOIRE</u></a><br>
+        <a class="normal">Modalités de résiliation de plein droit du contrat :<br>
+        Il est expressément convenu, par dérogation<br>
+        au dernier alinéa de l’article 1184 du Code Civil, que le présent contrat sera résilié immédiatement de plein droit par le bailleur dans les cas suivants :</a>
+
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>5/29</strong></a>
+
+</div>
+
+
+<div class="contenuprincipal">
+
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="normal">
+            - deux mois après un commandement de payer demeuré infructueux à défaut de paiement par le Locataire de tout ou partie de la redevance
+            ou des charges aux termes et conditions convenus entre les parties aux présentes, ou de versement du dépôt de garantie.
+            Le commandement de payer reproduit à peine de nullité les dispositions de l’article 24 de la loi du 6 juillet 1989 et des trois premiers alinéas
+            de l’article 6 de la loi n°90-449 du 31 mai 1990 visant la mise en œuvre du droit au logement, en mentionnant la faculté pour le Locataire de saisir le fonds
+            de solidarité pour le logement dont l’adresse de saisine est précisée. En présence d’une caution garantissant l’exécution des obligations nées du présent contrat,
+            Le commandement de payer devra lui être signifié dans un délai de 15 jours à compter de sa signification au Locataire.</a><br><br>
+        <a class="normal">
+            - à défaut de justification par le Locataire du respect de son obligation de souscrire une assurance
+            couvrant les risques locatifs, un mois après un commandement de produire une attestation d’assurance demeuré infructueux.<br>
+            - en cas de troubles de voisinage par le Locataire constatés par une décision de justice passée en force de chose jugée.</a><br><br>
+        <a class="normal">
+            Toute offre de paiement ou d’exécution après l’expiration du délai d’un ou deux mois susmentionné sera réputée nulle et non avenue
+            et ne pourra faire obstacle à l’application de la présente clause résiliant de plein droit le bail. Dès lors que le bénéfice de ladite clause sera acquis au Bailleur,
+            le Locataire devra quitter sans délai les locaux loués. Au cas où le Locataire ne s’exécuterait pas spontanément,
+            le Bailleur devra constater devant le juge des référés la résiliation du présent bail préalablement à l’expulsion du Locataire.</a><br><br>
+
+        <a class="gras"><u>Résiliation judiciaire :</u></a>
+        <a class="normal">
+            En cas d’inexécution par le Locataire de ses obligations, indépendamment de la mise en œuvre éventuelle de la clause de résiliation de plein droit ci-dessus,
+            le Bailleur, huit jours après sommation d’exécuter saisira le Tribunal du lieu de situation de l’immeuble,
+            en vue de voir résilier le bail, sans préjudice de tous dommages intérêts pouvant lui être dus.
+
+        </a><br><br>
+
+        <a class="classeh2"><u>IX. AUTRES CONDITIONS PARTICULIERES</u></a><br>
+        <a class="normal"><u>A. Assurance du logement</u><br>
+        Le Locataire est tenu de s’assurer contre les risques locatifs et d’en justifier à la remise des clés, puis chaque année à la demande du Bailleur
+            (Notice d’information rubrique 2.2).<br>
+            A défaut de la remise de l’attestation d’assurance et après un délai d’un mois à compter de la mise en demeure non suivi d’effet le Bailleur peut mettre en œuvre la
+            clause de résiliation de plein droit du bail pour défaut d’assurance.
+            En application de l’article 7 de la loi du 6 juillet 1989, le Bailleur peut également après mise en demeure restée infructueuse passé un délai d’un mois,
+            souscrire une assurance pour
+            le compte du Locataire. La cotisation d’assurance est récupérable par le Bailleur par douzième à chaque paiement de loyer.</a><br><br>
+        <a class="normal"><u>B. Occupation</u><br>
+        Le Locataire s’oblige à fixer son habitation principale dans le logement mis à sa disposition ainsi qu’à habiter les lieux personnellement
+        et à en user paisiblement et raisonnablement. Il s’interdit de les faire occuper, même temporairement, ou de céder à titre onéreux ou gratuit
+        les droits qu’il tient du présent engagement à d’autres personnes que son conjoint,
+        ses ascendants ou descendants à charge vivant habituellement à son foyer.</a>
+
+
+
+    </p>
+
+</div>
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>6/29</strong></a>
+
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="normal">Le Locataire respectera selon la nature de la location toutes les règles découlant de l’application des prescriptions du code civil,
+            du règlement intérieur de la Résidence,
+            du règlement de copropriété et du règlement sanitaire départemental, dont il reconnaît qu’un exemplaire lui a été remis.</a><br>
+        <a class="normal">Le Locataire ne devra nuire ni au repos et tranquillité des autres résidents ni à la bonne tenue de la résidence.
+            En cas de sinistre dans les lieux mis à disposition,
+            le Locataire en informera immédiatement RESIDIS même en l’absence de dégâts apparents.</a><br>
+        <a class="normal">Le Locataire devra permettre la visite des lieux loués par RESIDIS, rendez-vous préalablement pris,
+            sauf cas d’urgence et, notamment pour la visite annuelle au titre du contrat de maintenance du mobilier et du suivi technique du logement.</a><br>
+        <a class="normal">
+            Le Locataire informera RESIDIS des dispositions prises pour permettre l’accès aux lieux en son absence et en cas de nécessité ;
+            à défaut RESIDIS préalablement autorisé par le juge pourra faire ouvrir les lieux aux frais du Locataire.
+        </a><br><br>
+
+        <a class="normal"><u>C. Entrée en jouissance – Conservation de la chose louée – Restitution</u><br>
+            RESIDIS s’oblige à fournir le logement en bon état d’habitabilité et à effectuer les grosses réparations et le gros entretien ; toutefois
+            le Locataire supportera la charge de ces travaux s’ils ont été rendus nécessaires par son fait, sa négligence ou son imprudence.<br>
+            Le Locataire déclare prendre les lieux dans l’état où ils se trouvent lors de l’entrée en jouissance. Il dispose d’un délai de
+            10 jours à compter de la remise des clés pour faire connaître au Bailleur, par lettre recommandée avec accusé de réception, les anomalies
+            et les défauts de fonctionnement qui affecteraient les différents éléments d’équipement et qui résulteraient d’un vice apparent
+            ou caché dont il n’aurait pu se convaincre lors de la réalisation de son état des lieux d’entrée, afin de compléter ce dernier.<br>
+            Le Locataire s’oblige à effectuer les menues réparations y compris les remplacements d’éléments assimilables aux dites réparations et
+            l’entretien courant du logement. Il devra restituer, à l’expiration du contrat, les lieux conformes à leur composition initiale et
+            dans un état d’entretien et de propreté correspondant à un usage normal.</a><br><br>
+
+        <a class="normal"> Le Locataire répond de toutes les dégradations survenues pendant sa jouissance, à l’exclusion de celles résultant de la vétusté, de malfaçons, de vice de
+        construction ou de force majeure.<br>
+        Aucune transformation des locaux et équipements mis à disposition ne pourra être effectuée dans les lieux. Le Locataire ne pourra prétendre à aucune indemnité pour les travaux
+        d’embellissement et de décoration quelconque ou pour les installations, appareils qu’il laissera dans les lieux.<br>
+        Le Locataire souffrira sans indemnité sauf exception légale, l’exécution des travaux ou réparations
+        affectant les parties communes ou privatives, les travaux nécessaires au maintien en état et à l’entretien normal des lieux loués, que RESIDIS déciderait de faire exécuter.<br><br></a>
+
+
+        <a class="normal">RESIDIS devra informer préalablement à l’exécution des travaux le Locataire par lettre recommandée avec accusé de réception
+            ou remis en main propre de la nature et des modalités d’exécution des travaux.<br>
+            Si les travaux durent plus de 21 jours le montant de la redevance pourra être diminué à proportion du temps et de la partie du logement dont le Locataire est privé.<br><br></a>
+
+        <a class="normal"> Le Locataire supportera les frais d’abonnement, branchement et remplacement de compteur ou d’installations intérieures pouvant être exigés par
+            les compagnies distributrices de l’électricité ou chargées du chauffage s’il choisit un fournisseur spécifique.</a>
+
+    </p>
+
+
+
+</div>
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>7/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+    <a class="normal">Il prendra à sa charge les consommations individuelles des parties privatives ainsi que les taxes locatives.
+        Le Locataire devra informer immédiatement le Bailleur de l’apparition de dommages dont les travaux de réparation incomberaient au propriétaire, faute de quoi,
+        le coût et les conséquences de ces travaux resteraient à la charge du Locataire ; sa négligence entraînant dérogation aux règles d’imputation des réparations locatives.<br>
+        Un état des lieux contradictoire sera dressé à la libération des lieux par les parties.</a><br><br>
+
+        <a class="normal"><u>D. Prestations – Impôts – Taxes</u><br>
+            Le Locataire paiera ou remboursera à RESIDIS les prestations, impôts, taxes, (notamment la taxe
+            d’habitation et la redevance audiovisuelle), les fournitures individuelles et services para hôteliers
+            indépendamment des impôts et taxes qui pourraient être réclamés directement par l’administration
+            fiscale au Locataire.<br>
+
+            Concernant la taxe d’habitation, il est rappelé au Locataire que le logement, objet des présentes,
+            constituant sa résidence principale, cette imposition est due par le Locataire présent dans les lieux
+            au 1er janvier de l’année d’imposition.<br>
+
+            Il est également précisé que le Locataire, redevable de la taxe d’habitation, sera également
+            redevable du paiement de la redevance audiovisuelle et ce même si le logement meublé comprend
+            la fourniture d’un téléviseur, conformément aux dispositions de l’article 1605 du Code Général des
+            Impôts et du BOI n°6A-6-05 n°207 du 22 décembre 2005.<br><br>
+        </a>
+        <a class="normal"><u>E. Frais de dossier</u></a><br>
+        <a class="normal">Il est précisé que les dispositions du I de l’article 5 de la loi du 6 juillet 1989 alinéas 1 à 3 applicables
+            aux mandataires immobiliers, ne sont pas applicables aux présentes, dans la mesure où RESIDIS
+            intervient aux présentes en qualité de Bailleur et non de mandataire.<br>
+            Les frais administratifs recouvrant notamment la constitution, le suivi, les frais de conservation du
+            dossier, l’assistance et l’aide aux démarches d’emménagement du Locataire, sont fixés
+            forfaitairement à la somme de 00,00 €, seront facturés au Locataire avec le premier terme de
+            paiement, et seront dus une fois pour cette valeur.<br>
+            Cependant une somme forfaitaire de 20.00€ sera appliquée lors d’une tacite reconduction du contrat
+            de location.</a><br><br>
+
+        <a class="normal"><u>F. Substitution du Bailleur</u><br>
+            Le Locataire autorise expressément RESIDIS (le substituant) à se substituer toute personne de son
+            choix, physique ou morale, pour l’exécution du présent bail. Cette faculté de substitution pourra être
+            exercée à tout moment par RESIDIS. Elle ne produira toutefois ses effets vis-à-vis du Locataire qu’à
+            compter du moment où celui-ci aura été averti de la substitution par courriel à l’initiative du
+            substituant ou du nouveau bailleur.<br>
+
+
+            A compter de sa prise d’effets, RESIDIS est définitivement libérée à l’égard du Locataire de toutes
+            les obligations nouvelles naissant du contrat. Elle reste néanmoins tenue de toutes les obligations
+            nées à sa charge avant cette date. Réciproquement le nouveau bailleur n’est pas tenu envers le
+            Locataire des obligations contractuelles nées avant la prise d’effet de la substitution.<br>
+            Le substitué est tenu des obligations nées après cette date. Il est précisé que le dépôt de garantie
+            versé à RESIDIS par le Locataire au moment de la signature des présentes sera restitué à la fin de
+            l’exécution du présent bail, le cas échéant reconduit ou renouvelé, audit Locataire sous réserve
+            d’éventuelles déductions et dans les conditions légales par le bailleur substitué (nouveau bailleur). A
+            cet effet, au moment de la prise d’effet de la substitution, RESIDIS s’engage envers le substitué,
+            nouveau bailleur, à lui remettre le dépôt de garantie que le Locataire lui a versé lors de l’entrée dans
+            les lieux. Une fois la substitution opérée, la Caution au présent bail restera débiteur à l’égard du
+            bailleur substitué en cas de défaillance du Locataire et ce dans les conditions prévues qui
+            bénéficiaient à RESIDIS antérieurement à la prise d’effet de la substitution.
+
+        </a>
+
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>8/29</strong></a>
+
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="normal"><u>G. Diagnostics immobiliers</u><br>
+            RESIDIS fournit au Locataire un dossier de diagnostics techniques comportant les éléments
+            suivants, qui sont annexés au présent contrat :<br>
+            - Diagnostic de Performance énergétique.<br>
+            - L’état des risques naturels, miniers et technologiques : lorsque, conformément à l’article L. 125-5
+            du code de l’environnement, le bien est situé dans des zones couvertes par un plan de prévention
+            des risques technologiques ou par un plan de prévention des risques naturels prévisibles ou
+            miniers, prescrits ou approuvé, ou dans des zones de sismicité définies par décret en Conseil
+            d’Etat.<br><br>
+
+            - Diagnostic amiante : pour un logement dont le permis de construire a été délivré avant 1997, le
+            Bailleur tient à la disposition du Locataire, sur simple demande de sa part, le diagnostic amiante.
+            - Le cas échéant, un état de l’installation intérieure d’électricité et de gaz, dont l’objet est d’évaluer
+            les risques pouvant porter atteinte à la sécurité des personnes dans des conditions devant être
+            prévue ultérieurement par décret.<br>
+            - Un constat de risque d’exposition au plomb pour les immeubles construits avant le 1er janvier
+            1949.
+
+        </a><br><br>
+
+        <a class="classeh2"><u>X. ELECTION DE DOMICILE</u></a><br>
+        <a class="normal">Le Locataire fait élection de domicile dans les locaux mis à disposition pendant la durée de
+        l’occupation et à l’adresse qu’il aura communiquée après son départ, à défaut à la dernière adresse
+        connue et pour RESIDIS à l’adresse de son siège social, où toutes significations devront lui être
+            faites.</a><br><br>
+
+        <a class="classeh2"><u>XI. DONNEES PERSONELLES</u></a><br>
+        <a class="normal">Le Bailleur, responsable du traitement, met en œuvre des traitements de données à caractère
+            personnel pour la mise en œuvre des présentes. Les données collectées sont indispensables à ces
+            traitements et sont destinées aux services concernés de RESIDIS, et le cas échéant, à ses sous-
+            traitants et prestataires. Avec l’accord du Locataire, le Bailleur pourra lui envoyer des informations
+            commerciales et communiquer ses données à ses partenaires commerciaux dans le cadre
+            d’opérations commerciales et de marketing. En application de la loi Informatique et Libertés du 6
+            janvier 1978, le Locataire dispose d’un droit d’interrogation, d’accès, de rectification et d’opposition
+            pour motifs légitimes relativement à l’ensemble des données le concernant qui s’exercent par
+            courrier électronique adressé  à : contact@suitetudes.com ou par courrier postal à l’attention du
+            service clients, accompagné d&#39;une copie d’un titre d’identité.</a> <br><br>
+
+        <img style="margin-left: 15px; margin-right: 5px " class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" />
+        <a class="normal" >Si vous souhaitez recevoir des propositions commerciales de RESIDIS ou de ses
+        partenaires, merci de cocher la case ci-avant.<br><br></a>
+
+        <a class="classeh2"><u>XII. ANNEXES</u><br></a>
+        <a class="normal">Il est préalablement indiqué que la société RESIDIS soucieuse de contribuer à la préservation de
+        l’environnement a décidé de transmettre au Locataire, par voie de courrier électronique et
+            préalablement à la signature du présent contrat, certains documents.</a><br><br>
+
+        <a class="normal">Ainsi le Locataire reconnaît avoir reçu par courriel électronique en date du <mark>{$date_de_la_reception_des_documents}</mark> les
+        documents suivants dont il déclare en avoir pris connaissance préalablement à la signature des
+            présentes :</a><br>
+        <a class="normal" style="margin-left: 30px">- Un extrait du règlement de copropriété concernant la destination de l’immeuble, la jouissance et<br></a>
+        <a class="normal" style="margin-left: 30px">    l’usage des parties communes et privatives et précisant la quote-part afférente au lot loué dans<br></a>
+        <a class="normal" style="margin-left: 30px">   chacune des catégories de charges.</a><br>
+        <a class="normal" style="margin-left: 30px">- Un extrait du règlement intérieur de la Résidence.</a><br>
+        <a class="normal" style="margin-left: 30px">- La liste des réparations locatives </a>
+
+    </p>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>9/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+        <a class="normal">
+            Sont annexés au présent contrat :</a><br>
+            <img  class="img2"  src="dompdf/image/ballot-box-with-x_2612.png" alt="" /> Un dossier de diagnostic technique comprenant :<br>
+           <a class="normal" style="margin-left: 15px"> - un diagnostic de performance énergétique ;</a><br>
+            <a class="normal" style="margin-left: 15px">- un constat de risque d’exposition au plomb pour les immeubles construits avant le 1er
+                janvier 1949 ;</a><br>
+            <a class="normal" style="margin-left: 15px">- le cas échéant, une copie d’un état mentionnant l’absence ou la présence de matériaux ou
+                de produits de la construction contenant de l’amiante,</a><br>
+            <a class="normal" style="margin-left: 15px">- le cas échéant, un état de l’installation intérieur d’électricité et de gaz, dont l’objet est
+                d’évaluer les risques pouvant porter atteinte à la sécurité des personnes9,</a><br>
+            <a class="normal" style="margin-left: 15px">- le cas échéant, un état des risques naturels, miniers et technologiques lorsque l’immeuble
+        est situé dans une zone couverte par un plan de prévention des risques technologiques ou
+        par un plan de prévention des risques naturels prévisibles, prescrit et approuvé, ou dans
+                une zone de sismicité10</a><br>
+            <img  class="img2"  src="dompdf/image/ballot-box-with-x_2612.png" alt="" /> La notice d’information relative aux droits et obligations des locataires et des bailleurs établies par
+        l’arrêté du 29 mai 2015.<br>
+            <img  class="img2"  src="dompdf/image/ballot-box-with-x_2612.png" alt="" /> Un état des lieux, 11<br>
+            <img  class="img2"  src="dompdf/image/ballot-box-with-x_2612.png" alt="" />Un inventaire et un état détaillé du mobilier<br>
+            <img  class="img2"  src="dompdf/image/ballot-box-with-x_2612.png" alt="" /> Le cas échéant, le ou les actes de cautionnement<br>
+            <img  class="img2"  src="dompdf/image/cadreBlanc2.gif" alt="" /> Le cas échéant, une autorisation préalable de mise en location12<br><br>
+
+
+
+        <a class="normal">Fait à PERPIGNAN, le <mark>{$date_du_jour}</mark> <br>
+            en autant d’exemplaires originaux que de signataires dont un remis au(x) Locataire(s) et un
+            remis au(x) Caution(s)</a>
+    </p>
+        <table style="width: 100% ; margin-left: 55px; margin-right: 30px">
+            <tr>
+                <td style="border-bottom: hidden ; text-align: center; vertical-align: top; width: 33%">
+                            <a class="normal">Le(s) Locataire(s)  (13)</a>
+                </td>
+                <td style="border-bottom: hidden ; text-align: center; vertical-align: top; width: 33%">
+                    <a class="normal">Le(s) Caution(s)  (13)</a>
+                </td>
+                <td style="border-bottom: hidden ; text-align: center; vertical-align: top; width: 33%">
+                    <a class="normal">Le Bailleur</a>
+                </td>
+            </tr>
+            <tr> <td style="border-top: hidden; height: 20px">  </td>
+                <td style="border-top: hidden ; height: 20px"></td>
+                <td style="border-top: hidden ; height: 20px"></td>
+            </tr>
+
+        </table>
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a style="font-size: 9pt">1 Nom(s) et prénom(s) du ou des locataires<br></a>
+        <a style="font-size: 9pt">2 Date de naissance<br></a>
+        <a style="font-size: 9pt">3 Indication du nom de la Résidence + Adresse<br><br></a>
+
+        <a style="font-size: 9pt">4 Indiquez les équipements présents dans le logement<br></a>
+        <a style="font-size: 9pt">5 Dans ce cas précisez les modalités de répartition de la consommation du locataire : selon relevé d’index ou selon
+            tantièmes de copropriété</a><br>
+        <a style="font-size: 9pt">6 Dans ce cas précisez les modalités de répartition de la consommation du locataire : selon relevé d’index ou selon
+            tantièmes de copropriété</a><br><br>
+        <a style="font-size: 9pt">7 La liste des communes situées en zone tendue est disponible sur legifrance.gouv.fr</a><br>
+        <a style="font-size: 9pt">8 Cette majoration de loyer n’est possible qu’à la suite de travaux d’amélioration (ex : installation d’un ascenseur) et
+            non à la suite de travaux de mise en conformité aux caractéristiques de décence.</a><br>
+
+        <a style="font-size: 9pt">9 En date d’établissement de la présente convention (29/04/2016) le Décret d’application n’a pas encore été publié.</a><br>
+        <a style="font-size: 9pt">10 La liste des communes comprises dans ces zones est définie par arrêté préfectoral</a><br>
+
+        <a style="font-size: 9pt">11 L’état des lieux d’entrée est établi lors de la remise des clés, dont la date peut être ultérieure à celle de conclusion
+            du contrat.</a><br>
+        <a style="font-size: 9pt">12 Autorisation requise uniquement dans certains territoires présentant une proportion importante d’habitat
+            dégradé délimité localement par l’établissement public de coopération intercommunale compétente en matière
+            d’habitat ou à défaut le conseil municipal<br></a>
+        <a style="font-size: 9pt">13 Signature précédée de la mention manuscrite « Lu et approuvé – Bon pour Accord »</a>
+
+    </p>
+
+
+
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>10/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+
+    <p   class="titre" style ="text-justify: auto; color: black; text-align: center">Notice d’Information Relative aux Droits et<br>
+        Obligations des Locataires et des Bailleurs
+
+    <p  style ="text-justify: auto; text-align: center" class="normal">
+        (Arrêté du 29 mai 2015)
+    </p>
+
+
+
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+
+
+
+
+        <a class="normal">
+        Préambule.<br>
+        1. Etablissement du bail.<br>
+        1.1. Forme et contenu du contrat.<br>
+        1.2. Durée du contrat.<br>
+        1.3. Conditions financières de la location.<br>
+        1.3.1. Loyer.<br>
+        1.3.1.1. Fixation du loyer initial.<br>
+        1.3.1.2. Evolution du loyer en cours de contrat.<br>
+        1.3.1.2.1. Révision annuelle du loyer.<br>
+        1.3.1.2.2. Evolution du loyer consécutive à des travaux.<br>
+        1.3.1.3. Ajustement du loyer au renouvellement du bail.<br>
+        1.3.2. Charges locatives.<br>
+        1.3.3. Contribution du locataire au partage des économies de charges.<br>
+        1.3.4. Modalités de paiement.<br>
+        1.4. Garanties.<br>
+        1.4.1. Dépôt de garantie.<br>
+        1.4.2. Garantie autonome.<br>
+        1.4.3. Cautionnement.<br>
+        1.5. Etat des lieux.<br>
+        2. Droits et obligations des parties.<br>
+        2.1. Obligations générales du bailleur.<br>
+        2.2. Obligations générales du locataire.<br>
+        3. Fin de contrat et sortie du logement.<br>
+        3.1. Congés.<br>
+        3.1.1. Congé délivré par le locataire.<br>
+        3.1.2. Congé délivré par le bailleur.<br>
+        3.2. Sortie du logement.<br>
+        3.2.1. Etat des lieux de sortie.<br>
+        3.2.2. Restitution du dépôt de garantie.<br>
+        4. Règlement des litiges locatifs.<br>
+        4.1. Règles de prescriptions.<br>
+        4.2. Règlement amiable et conciliation.<br>
+        4.3. Action en justice.<br>
+        4.3.1. Généralités.<br>
+        4.3.2. Résiliation judiciaire et de plein droit.<br>
+        4.3.2.1. Mise en œuvre de la clause résolutoire de plein droit.<br>
+        4.3.2.2. Résiliation judicaire.<br>
+        4.3.2.3. Assignation aux fins de résiliation du bail et pouvoirs du juge.<br>
+        4.4. Prévention des expulsions.<br>
+        4.4.1. Le fonds de solidarité pour le logement.<br>
+        4.4.2. La commission de coordination des actions de prévention des expulsions locatives (CCAPEX).<br>
+        4.5. Procédure d’expulsion.<br>
+        5. Contacts utiles.<br></a>
+    </p>
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>11/29</strong></a>
+</div>
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+        <a class="normal">
+        Préambule<br>
+        Le régime de droit commun des baux d’habitation, applicable aux locations de logements constituant la
+        résidence principale des locataires, est défini principalement par la loi n° 89-462 du 6 juillet 1989
+        tendant à améliorer les rapports locatifs.<br>
+        La présente notice d’information rappelle les principaux droits et obligations des parties ainsi que
+        certaines des voies de conciliation et de recours possibles pour régler leurs litiges.<br>
+        Si la plupart des règles s’appliquent indifféremment à l’ensemble des locations, la loi prévoit certains
+        aménagements pour les locations meublées ou les colocations afin de prendre en compte les
+            spécificités attachées à ces catégories de location.<br>
+            Pour prétendre à la qualification de meublé, un logement doit être équipé d’un mobilier en nombre et
+            en qualité suffisants pour permettre au locataire d’y dormir, manger et vivre convenablement au regard
+            des exigences de la vie courante (titre 1er bis de la loi du 6 juillet 1989).<br>
+            Les colocations, définies comme la location d’un même logement par plusieurs locataires, sont
+            soumises au régime applicable le cas échéant aux locations nues ou meublées et aux règles
+            spécifiques prévues par la loi en matière de collocation (art. 8-1).<br>
+            1. Etablissement du bail<br>
+            1.1. Forme et contenu du contrat<br>
+            Le contrat de location est établi par écrit et respecte un bail type défini par décret.
+            Le bail peut être établi directement entre le bailleur et le locataire, éventuellement avec l’aide d’un
+            intermédiaire (agent immobilier, administrateur de biens, huissier, notaire...). Il doit être fait en autant
+            d’originaux que de parties et remis à chacune d’elles.<br>
+            Le contrat de location doit comporter certaines mentions et notamment l’identité des parties, la
+            description du logement, sa surface habitable et les conditions financières du contrat. Ainsi, en cas
+            d’inexactitude supérieure à 5 % de la surface habitable mentionnée au bail d’une location nue, le
+            locataire peut demander une diminution de loyer proportionnelle à l’écart constaté (art. 3 et 3-1).<br>
+            Certaines clauses sont interdites. Si elles figurent dans le contrat, elles sont alors considérées comme
+            étant inapplicables. Il s’agit notamment des clauses qui imposent comme mode de paiement du loyer
+            le prélèvement automatique, qui prévoient des pénalités en cas de retard dans le paiement du loyer,
+            qui interdisent au locataire d’héberger des personnes ne vivant pas habituellement avec lui, qui
+            prévoient des frais de délivrance ou d’envoi de quittance, etc. (art. 4).<br>
+            Le bailleur est tenu de remettre au locataire un certain nombre de documents lors de la signature du
+            contrat, et notamment un dossier de diagnostic technique (art. 3-3).<br>
+            1.2. Durée du contrat<br>
+            Location d’un logement nu :<br>
+            Le bail d’un logement nu est conclu pour une durée minimum de trois ans lorsque le bailleur est une
+            personne physique (par exemple, un particulier) ou une société civile immobilière familiale, et de six
+            ans lorsqu’il est une personne morale (par exemple, une société, une association).<br>
+            A la fin du bail et à défaut de congé donné par l’une ou l’autre des parties, le bail est renouvelé sur
+            proposition du bailleur ou reconduit automatiquement et dans les mêmes conditions pour trois ans
+            lorsque le bailleur est une personne physique ou une société civile immobilière familiale, et pour six
+            ans lorsqu’il est une personne morale (art. 10).<br>
+            Par exception, la durée peut être inférieure à trois ans, mais d’au minimum un an, si le bailleur
+            (personne physique, membre d’une société civile immobilière familiale ou d’une indivision) prévoit de
+            reprendre son logement pour des raisons familiales ou professionnelles. Les raisons et l’événement
+            invoqué pour justifier la reprise doivent impérativement figurer dans le bail. Le bailleur confirme au
+            locataire, par lettre recommandée avec avis de réception, au minimum deux mois avant la fin du bail
+            que l’événement est réalisé et qu’il reprendra le logement à la date prévue. Si la réalisation de
+            l’événement justifiant la reprise du logement est différée, le bailleur peut également proposer dans les
+            mêmes délais un ultime report du terme du contrat. Lorsque l’événement ne s’est pas produit ou n’a
+            pas été confirmé, le bail se poursuit jusqu’au délai de trois ans (art. 11).<br>
+            Location d’un logement meublé :<br>
+            Le contrat de location d’un logement meublé est conclu pour une durée d’au moins un an. A la fin du
+            bail et à défaut de congé donné par le bailleur ou le locataire ou de proposition de renouvellement, le
+            bail est reconduit automatiquement et dans les mêmes conditions pour un an.<br>
+
+        </a>
+    </p>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>12/29</strong></a>
+
+</div>
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p style ="text-justify: auto; margin-left:55px; margin-right: 30px">
+    <a class="normal">
+    Lorsque le locataire est un étudiant, les parties peuvent convenir d’un bail d’une durée de neuf mois
+    qui n’est pas reconductible tacitement. Dans ce cas, si les parties ne conviennent pas de la
+    reconduction du contrat, celui-ci prend fin à son terme (art. 25-7).<br>
+    1.3. Conditions financières de la location<br>
+    1.3.1. Loyer<br>
+    1.3.1.1. Fixation du loyer initial<br><br>
+
+        En principe, le loyer initial est fixé librement entre les parties au contrat. Cependant, dans certaines
+        zones où il existe un déséquilibre marqué entre l’offre et la demande de logements, entraînant des
+        difficultés sérieuses d’accès au logement, les loyers peuvent être encadrés par deux mécanismes
+        complémentaires au moment de la mise en location. La liste des communes comprises dans ces
+        zones de tension du marché locatif est fixée par décret.<br>
+        Logements situés dans des zones de tension du marché locatif (art. 18) :<br>
+        Pour l’ensemble des communes comprises dans ces zones, un décret fixe chaque année le montant
+        maximum d’évolution des loyers en cas de relocation d’un logement. Ainsi, au moment du changement
+        de locataire, le loyer d’un bien ne peut plus excéder le dernier loyer appliqué, revalorisé sur la base de
+        l’évolution de l’indice de référence des loyers (IRL). L’augmentation de loyer peut être supérieure dans
+        des cas particuliers : lorsque certains travaux d’amélioration ou de mise en conformité avec les
+        caractéristiques de décence sont réalisés par le bailleur ou lorsque le loyer est manifestement sous-évalué. Par ailleurs, les logements faisant l’objet d’une première location, les logements inoccupés par
+        un locataire depuis plus de dix-huit mois et les logements ayant fait l’objet, depuis moins de six mois,
+        de travaux d’amélioration d’un montant au moins égal à la dernière année de loyer, sont exclus du
+        champ de ce dispositif.<br>
+        Logements situés dans certaines zones de tension du marché locatif dotées d’un observatoire local
+        des loyers agréé (art. 17 et 25-9) :<br>
+        Un mécanisme complémentaire d’encadrement du niveau des loyers des logements mis en location
+        peut s’appliquer dans les communes qui sont dotées d’un observatoire local des loyers agréé par
+        l’Etat. Ce dispositif s’appuie sur des références de loyers déterminées à partir des données
+        représentatives des loyers du marché locatif local produites par les observatoires locaux des loyers
+        dans le respect de prescriptions méthodologiques définies par un conseil scientifique.<br>
+        A partir de ces données, les préfets concernés fixent annuellement par arrêté et pour chaque catégorie
+        de logement et secteur géographique donnés, des références de loyers (loyer de référence, loyer de
+        référence majoré et loyer de référence minoré) exprimées par un prix au mètre carré de surface
+        habitable.<br>
+        Dans les territoires où l’arrêté préfectoral est pris, le loyer au mètre carré des logements mis en
+        location ne peut pas excéder le loyer de référence majoré, ce dernier devant être mentionné dans le
+        contrat de location. Toutefois, lorsque le logement présente certaines caractéristiques, le bailleur peut
+        fixer un loyer supérieur au loyer de référence majoré en appliquant un complément de loyer au loyer
+        de base, lorsque celui-ci est égal au loyer de référence majoré correspondant au logement. Le
+        montant de ce complément de loyer et les caractéristiques le justifiant doivent être mentionnés dans le
+        contrat de location. Le locataire dispose d’un délai de trois mois pour contester ce complément de
+        loyer en saisissant d’abord la commission départementale de conciliation compétente, et, en l’absence
+        d’accord entre les parties, en ayant recours au juge.
+
+    </a>
+
+    </p>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>13/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+
+        1.3.1.2. Evolution du loyer en cours de contrat<br>
+        1.3.1.2.1. Révision annuelle du loyer (art. 17-1) :<br>
+        Lorsqu’une clause le prévoit, le loyer peut être révisé, une fois par an, à une date de révision indiquée
+        au bail ou, à défaut, à la date anniversaire du bail. Cette augmentation annuelle du loyer ne peut être
+        supérieure à la variation de l’indice de référence des loyers (IRL) publié par l’INSEE. Cet indice
+        correspond à la moyenne, sur les douze derniers mois, de l’évolution des prix à la consommation, hors
+        tabac et hors loyers.<br>
+        L’indice de référence à prendre en compte est celui du trimestre qui figure dans le bail ou, à défaut, le
+        dernier indice publié à la date de signature du contrat. Il est à comparer avec l’indice du même
+        trimestre connu à la date de révision.<br>
+        Le bailleur dispose d’un délai d’un an, à compter de la date de révision, pour en faire la demande. La
+        révision prend effet au jour de sa demande ; elle ne peut donc pas être rétroactive.
+        Passé ce délai, la révision du loyer pour l’année écoulée n’est plus possible.
+        Si le bail ne prévoit pas de clause de révision, le loyer reste le même pendant toute la durée de la
+        location.<br>
+        1.3.1.2.2. Evolution du loyer consécutive à des travaux (art. 6 et 17-1) :
+        Exceptionnellement, le loyer d’un logement répondant aux caractéristiques de décence peut être revu
+        à la hausse ou à la baisse en cours de bail lorsque le bailleur et le locataire ont convenu de travaux
+        que l’une ou l’autre des parties fera exécuter à ses frais durant l’exécution du contrat.<br>
+        La clause du contrat de location ou l’avenant qui prévoient cet accord doit fixer la majoration ou la
+        diminution de loyer applicable suite à la réalisation des travaux et, selon le cas, fixer ses modalités
+        d’application. Lorsqu’elle concerne des travaux à réaliser par le bailleur, cette clause ne peut porter
+        que sur des travaux d’amélioration.<br>
+        1.3.1.3. Ajustement du loyer au renouvellement du bail (art. 17-2 et 25-9)<br>
+        Hors zones de tension du marché locatif, le loyer ne fait l’objet d’aucune réévaluation au moment du
+        renouvellement du bail sauf s’il est manifestement sous-évalué. Ainsi, à l’expiration du bail, si le
+        bailleur considère que le loyer est manifestement sous-évalué, il peut proposer une augmentation de
+        loyer, en se référant aux loyers habituellement constatés dans le voisinage pour des logements
+        comparables.<br>
+        Il doit faire cette proposition au moins six mois avant le terme du contrat par lettre recommandée avec
+        accusé de réception, par acte d’huissier ou remis en main propre contre récépissé ou émargement.
+        Cette proposition doit reproduire intégralement, sous peine de nullité, les dispositions légales relatives à la réévaluation de
+        loyer (art. 17-2 [II]) et indiquer le montant du nouveau loyer proposé ainsi que la liste des références
+        de loyers ayant servi à le déterminer.<br>
+        En cas de désaccord ou à défaut de réponse du locataire quatre mois avant le terme du contrat, la
+        commission départementale de conciliation peut être saisie. Celle-ci s’efforce de concilier les parties et
+        en cas d’échec rend un avis pouvant être transmis au juge saisi par l’une ou l’autre des parties.
+        A défaut de conciliation, le bailleur peut alors saisir le juge d’instance qui fixera alors lui-même le loyer
+        applicable.
+
+
+    </p>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>14/29</strong></a>
+</div>
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+
+    Si, au terme du contrat, aucun accord n’est trouvé, ou si le juge d’instance n’est pas saisi, le contrat
+    est reconduit aux mêmes conditions de loyer (éventuellement révisé, si une clause le prévoit).
+    Lorsqu’une hausse de loyer a été convenue entre les parties ou fixée judiciairement, celle-ci s’applique
+    progressivement au cours du bail renouvelé :<br>
+    - lorsque la hausse est inférieure ou égale à 10 % de l’ancien loyer, l’augmentation est échelonnée par
+    tiers sur trois ans, si le bailleur est un particulier, ou par sixième sur six ans, s’il est une personne
+    morale. Cette hausse s’entend hors révision annuelle liée à la variation de l’indice de référence des
+    loyers ;<br>
+    - lorsque la hausse est supérieure à 10 % de l’ancien loyer, elle doit être, dans tous les cas, étalée par
+    sixième sur six ans. L’étalement par sixième s’applique même si le bail est renouvelé pour une durée
+    inférieure à six ans, par exemple pour trois ans. Dans ce cas, l’augmentation continue à s’échelonner
+    lors du renouvellement suivant.<br>
+    Enfin, sur certains territoires (cf. § 1.3.1.1), les modalités d’ajustement du loyer au renouvellement du
+    contrat connaissent certaines particularités :<br>
+    - dans l’ensemble des zones de tension du marché locatif , un décret limite la hausse de loyer
+    applicable au renouvellement de bail ;<br>
+    - dans les zones de tension du marché locatif dotées d’un observatoire local des loyers et pour
+    lesquelles un arrêté préfectoral fixe des références de loyers, deux procédures d’encadrement des
+    loyers au stade du renouvellement du bail sont ouvertes :<br>
+    - le locataire peut engager une action en diminution de loyer si le montant du loyer fixé au contrat (hors
+    montant du complément de loyer) s’avère supérieur au loyer de référence majoré publié par le préfet. Il
+    doit alors faire une proposition au bailleur, au moins cinq mois avant le terme du bail, par lettre
+    recommandée avec accusé de réception, par acte d’huissier ou remis en main propre contre récépissé
+    ou émargement ;<br>
+    - le bailleur peut engager une action en réévaluation du loyer dès lors que le loyer fixé au bail est
+    inférieur au loyer de référence minoré publié par le préfet. Il doit alors faire une proposition au
+    locataire, au moins six mois avant le terme du bail et dans les mêmes conditions de forme, qui ne peut
+    être supérieure au loyer de référence minoré.<br>
+    1.3.2. Charges locatives (art. 23)<br>
+    Les charges locatives, ou charges récupérables, correspondent à certaines catégories de dépenses
+    prises en charge par le bailleur, mais qui peuvent être récupérées auprès du locataire. Elles sont la
+    contrepartie de services rendus liés à la chose louée, de dépenses d’entretien courant et de menues
+    réparations relatives aux parties communes, et de certaines impositions liées à des services au
+    locataire.<br>
+    La liste des charges récupérables est limitativement énumérée par un décret (1) qui distingue huit
+    postes de charges.<br>
+    Le bailleur peut donc récupérer ces charges auprès des locataires de deux manières :<br>
+    - de manière ponctuelle en apportant les justificatifs des dépenses engagées ;<br>
+    - de manière régulière par versement périodique de provisions pour charges, par exemple tous les
+    mois ou tous les trimestres.<br>
+    Si les charges sont payées par provision, une régularisation doit être effectuée chaque année en
+    comparant le total des provisions versées par le locataire avec les dépenses effectives engagées par
+    le bailleur pendant l’année. Si les provisions sont supérieures aux dépenses réelles, celui-ci doit
+    reverser le trop-perçu au locataire ; dans le cas contraire, il peut exiger un complément.
+    Le montant des charges récupérées par le bailleur doit être dans tous les cas justifié.
+    C’est ainsi que le bailleur doit communiquer au locataire :<br>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>15/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+
+        <a class="normal">
+        - le décompte des charges locatives par nature de charges (électricité, eau chaude, eau froide,
+        ascenseur...) ;<br>
+        - le mode de répartition entre les locataires si le logement est situé dans un immeuble collectif ;
+        - une note d’information sur les modalités de calcul des charges de chauffage et de production d’eau
+        chaude sanitaire collectives.<br>
+        Dans les six mois suivant l’envoi du décompte, le bailleur doit tenir à la disposition du locataire
+        l’ensemble des pièces justificatives de charges complémentaires (factures, contrats de fournitures). A
+        compter du 1er septembre 2015, il doit transmettre le récapitulatif des charges du logement par voie
+        dématérialisée ou par voie postale dès lors que le locataire en fait la demande.<br>
+        Si la régularisation des charges n’a pas été effectuée dans l’année suivant leur exigibilité, le locataire
+        peut exiger un paiement échelonné sur douze mois (art. 23).<br>
+        Location de logement meublé et colocation (de logement nu ou meublé) :<br><br>
+
+        Les parties peuvent opter, lors de la conclusion du contrat, pour la récupération des charges, en
+        fonction des dépenses réellement engagées comme décrit précédemment, ou sous la forme d’un
+        forfait. Dans ce cas, le montant du forfait est fixé dès la conclusion du contrat et ne donne pas lieu à
+        régularisation.<br><br>
+
+        Ce montant, éventuellement révisé chaque année dans les mêmes conditions que le
+        loyer, ne doit pas être manifestement disproportionné au regard des charges dont le locataire se serait
+        acquitté sur justification des dépenses engagées par le bailleur (art. 8-1 et 25-10).<br><br>
+
+        Location de logement meublé et colocation (de logement nu ou meublé) :<br><br>
+
+        Les parties peuvent opter, lors de la conclusion du contrat, pour la récupération des charges, en
+        fonction des dépenses réellement engagées comme décrit précédemment, ou sous la forme d’un
+        forfait. Dans ce cas, le montant du forfait est fixé dès la conclusion du contrat et ne donne pas lieu à
+        régularisation. Ce montant, éventuellement révisé chaque année dans les mêmes conditions que le
+        loyer, ne doit pas être manifestement disproportionné au regard des charges dont le locataire se serait
+        acquitté sur justification des dépenses engagées par le bailleur (art. 8-1 et 25-10).<br>
+
+        (1) Décret n° 87-713 du 26 août 1987 pris en application de l’article 18 de la loi n° 86-1290 du 23
+        décembre 1986 tendant à favoriser l’investissement locatif, l’accession à la propriété de logements
+        sociaux et le développement de l’offre foncière et fixant la liste des charges récupérables.<br>
+        1.3.3. Contribution du locataire au partage des économies de charges (art. 23-1)<br>
+        Dans le cadre d’une location nue, une contribution financière peut être demandée au locataire en plus
+        du loyer et des charges lorsque le bailleur a réalisé dans les parties privatives d’un logement, ou dans
+        les parties communes de l’immeuble, des travaux d’économies d’énergie.<br>
+        Cette contribution, limitée au maximum à quinze années et dont le montant est fixe et non révisable,
+        peut être demandée au locataire au titre du partage des économies de charge à partir de la date
+        d’achèvement des travaux, dans des conditions strictement fixées par les textes.<br>
+
+            1.3.4. Modalités de paiement<br>
+            Le paiement du loyer et des charges doit être effectué à la date prévue au contrat.<br>
+            Le bailleur est tenu de transmettre gratuitement au locataire qui en fait la demande, une quittance, qui
+            indique le détail des sommes versées par le locataire en distinguant le loyer et les charges. Avec
+            l’accord du locataire, la quittance peut être transmise par voie dématérialisée. Aucuns frais liés à la
+            gestion de l’avis d’échéance ou de la quittance ne peuvent être facturés au locataire (art. 21).<br>
+        </a>
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>16/29</strong></a>
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+     <a class="normal">
+
+    1.4. Garanties<br>
+         Le contrat de location peut prévoir le paiement d’un dépôt de garantie qui sert à couvrir les éventuels
+         manquements du locataire à ses obligations locatives.<br>
+         Son montant doit obligatoirement figurer dans le bail. Il ne peut pas être supérieur à un mois de loyer,
+         hors charges, pour les locations nues et ne peut faire l’objet d’aucune révision en cours ou au
+         renouvellement du bail.<br>
+         Pour les locations meublées, le montant du dépôt est limité à deux mois de loyer (art. 25-6).
+         Au moment de la signature du bail, le dépôt de garantie est versé au bailleur directement par le
+         locataire ou par l’intermédiaire d’un tiers.<br>
+         Les modalités de restitution du dépôt de garantie à la fin du bail sont précisées dans la partie 3.2.2.
+         1.4.2. Garantie autonome (art. 22-1-1)<br>
+         Une garantie autonome peut être souscrite en lieu et place du dépôt de garantie, dans la limite du
+         montant de celui-ci. Appliquée au contrat de location, la garantie autonome est l’engagement par
+         lequel le garant s’oblige, en cas de non-respect par le locataire de ses obligations, à verser une
+         somme, soit à première demande, soit suivant des modalités convenues sans pouvoir opposer aucune
+         exception à l’obligation garantie.<br>
+         1.4.3. Cautionnement (art. 22-1)<br>
+         La caution est la personne qui, dans un document écrit appelé Acte de cautionnement , s’engage
+         envers le bailleur à payer les dettes locatives du locataire et à exécuter les obligations qui lui
+         incombent en cas de défaillance de sa part (ex. : loyers, charges, frais de remise en état du
+         logement...).<br>
+         Exigibilité :<br>
+         Le bailleur ne peut exiger de cautionnement, à peine de nullité, s’il a déjà souscrit une assurance, ou
+         toute autre forme de garantie, garantissant les obligations locatives (ex. : garantie des risques locatifs,
+         assurance privée) sauf si le logement est loué à un étudiant ou un apprenti.<br>
+         En principe, lorsque le bailleur est une personne morale, hors société immobilière familiale, une
+         caution ne peut être demandée que si le logement est loué à un étudiant qui ne bénéficie pas d’une
+         bourse de l’enseignement supérieur ou si elle est apportée par certains organismes.<br>
+         Le bailleur ne peut enfin pas refuser la caution présentée au motif qu’elle ne possède pas la nationalité
+         française ou qu’elle ne réside pas sur le territoire métropolitain.<br>
+         Forme et contenu de l’acte de cautionnement :<br>
+         L’engagement de caution doit être écrit. Le bailleur doit remettre un exemplaire du contrat de location
+         à la caution. L’engagement de caution doit obligatoirement comporter certaines informations, écrites
+         de la main de la caution.<br>
+         Durée de l’engagement :<br>
+         Engagement sans durée :<br>
+         Si aucune durée d’engagement ne figure dans l’acte, la caution peut mettre fin à son engagement à
+         tout moment par lettre recommandée avec avis de réception.<br><br>
+
+         Toutefois, la résiliation signifiée au bailleur ne prend effet qu’à l’expiration du bail en cours.
+         En pratique, la caution qui résilie son engagement reste donc tenue des dettes locatives jusqu’à la fin
+         du contrat de location en cours, elle n’en est plus tenue lorsque le bail est reconduit ou renouvelé.
+         Engagement à durée déterminée :<br>
+         Quand une durée précise est indiquée dans l’acte de cautionnement, la caution ne peut pas résilier
+         son engagement. Elle est tenue des dettes locatives jusqu’à la date initialement prévue.<br>
+         Colocation (de logement loué nu ou meublé) (art. 8-1) :<br><br>
+
+     </a>
+
+    </p>
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>17/29</strong></a>
+</div>
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+    Dans une colocation, les colocataires et les personnes qui se portent caution pour leur compte peuvent
+    être solidairement tenus responsables du paiement du loyer. Lorsqu’un des colocataires donne congé,
+    cette solidarité cesse lorsqu’un nouveau colocataire le remplace ou, à défaut de remplaçant, au bout
+    de six mois après la fin du délai de préavis du congé.<br>
+    Par ailleurs, l’engagement de la personne qui s’est portée caution pour le colocataire sortant cesse
+    dans les mêmes conditions. A cet effet, l’acte de cautionnement doit nécessairement identifier un des
+    colocataires.<br>
+    1.5. Etat des lieux (art. 3-2)<br>
+    Lors de la remise et de la restitution des clés, un état des lieux doit être établi. Ce document décrit
+    l’état du logement loué avec précision, ainsi que les équipements qu’il comporte. En comparant l’état
+    des lieux dressé à l’arrivée et au départ du locataire, le bailleur pourra demander réparation des
+    détériorations causées par le locataire. A défaut d’état des lieux d’entrée, le logement est présumé
+    avoir été délivré en bon état sauf si le locataire en apporte la preuve contraire ou si le bailleur a fait
+    obstacle à l’établissement de l’état des lieux.<br>
+    Il est établi par écrit contradictoirement et amiablement par le bailleur et le locataire ou par un tiers
+    mandaté par les deux parties. Un exemplaire doit être remis à chaque partie. L’état des lieux d’entrée
+    peut dans certains cas être complété ultérieurement à sa réalisation. Le locataire peut demander au
+    bailleur ou à son représentant de compléter l’état des lieux d’entrée dans les dix jours suivant sa date
+    de réalisation pour tout élément concernant le logement, ou durant le premier mois de la période de
+    chauffe concernant l’état des éléments de chauffage. Si le bailleur refuse de compléter l’état des lieux,
+    le locataire peut saisir la commission départementale de conciliation dont dépend le logement.<br>
+    Si les parties ne peuvent établir l’état des lieux de manière contradictoire et amiable (par exemple, si
+    l’une des parties ne se présente pas ou si les parties ne s’accordent pas sur le contenu de l’état des
+    lieux), le bailleur ou le locataire peut faire appel à un huissier pour l’établir. Ce dernier doit aviser les
+    parties au moins sept jours à l’avance par lettre recommandée avec avis de réception. Dans ce cas,
+    les frais d’huissier sont partagés par moitié entre le bailleur et le locataire, les tarifs sont fixes et
+    déterminés par décret (2).<br>
+    Location de logement meublé :<br>
+    Au-delà de l’état des lieux, un inventaire et un état détaillé du mobilier doivent également être établis,
+    sans que cela ne puisse donner lieu à une prise en charge financière supplémentaire du locataire (art.
+    25-5).<br>
+    (2) Décret n° 96-1080 du 12 décembre 1996 portant fixation du tarif des huissiers de justice en matière
+    civile et commerciale.<br>
+    2. Droits et obligations des parties<br>
+    Au-delà des conditions particulières prévues par le contrat de location, bailleurs et locataires sont
+    soumis à un certain nombre d’obligations prévues par la loi durant l’exécution du contrat.
+            2.1. Obligations générales du bailleur (art. 6)<br>
+            Délivrer un logement décent :<br>
+            Le bailleur est tenu de remettre au locataire un logement décent, ne laissant pas apparaître de risques
+            manifestes pouvant porter atteinte à la sécurité physique ou à la santé et doté des éléments de confort
+            le rendant conforme à l’usage d’habitation. Un décret (3) détermine les caractéristiques relatives à la
+            sécurité physique et à la santé des locataires, aux éléments d’équipements et de confort et à la
+            surface et au volume habitable que doit respecter un logement décent.<br>
+            Si le logement ne satisfait pas ces caractéristiques, le locataire peut demander au bailleur sa mise en
+            conformité. A défaut de réponse de celui-ci à la demande de mise en conformité dans un délai de deux
+            mois ou à défaut d’accord entre les parties, la commission départementale de conciliation peut être
+            saisie par l’une ou l’autre des parties. A défaut de saisine ou d’accord constaté par la commission, le
+            juge peut être saisi du litige aux fins de déterminer la nature des travaux à réaliser et le délai de leur
+            exécution.<br>
+
+
+        </a>
+    </p>
+</div>
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>18/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+    Délivrer un logement en bon état :<br>
+    Le bailleur est tenu de remettre au locataire un logement en bon état d’usage et de réparations, et doté
+    d’équipements en bon état de fonctionnement.<br>
+    Si le logement n’est pas en bon état, les parties peuvent convenir, par une clause expresse insérée
+    dans le bail, de travaux que le locataire exécutera ou fera exécuter en contrepartie d’une réduction de
+    loyer pendant une période déterminée (cf. § 1.3.1.2.2). Une telle clause ne peut concerner que des
+    logements répondant déjà aux caractéristiques de décence.<br>
+    Entretenir le logement :<br><br>
+
+            Le bailleur est tenu d’entretenir les locaux en état de servir à l’usage prévu par le contrat, et d’y faire
+            toutes les réparations nécessaires au maintien en état et à l’entretien normal des locaux loués, en
+            dehors de tout ce qui touche aux réparations locatives (menues réparations et entretien courant à la
+            charge du locataire, cf. partie 2.2).<br>
+            Aménagements réalisés par le locataire :<br>
+            Le bailleur ne peut s’opposer aux aménagements que son locataire souhaite réaliser dans le
+            logement, à condition qu’il ne s’agisse pas de travaux de transformation.<br>
+
+            A titre d’exemple, la modification du coloris des peintures ou la pose du papier peint pourraient être
+            considérés comme de simples aménagements du logement que le bailleur ne saurait interdire. En
+            revanche, le fait d’abattre une cloison ou de transformer une chambre en cuisine constituerait une
+            transformation nécessitant préalablement une autorisation écrite du bailleur.<br>
+            Usage du logement :<br>
+            Le bailleur doit assurer au locataire un usage paisible du logement. Le logement loué est le domicile
+            du locataire. A ce titre, il en a la jouissance exclusive et peut utiliser les lieux librement dans le respect
+            du contrat de location et, le cas échéant, d’un règlement intérieur à l’immeuble. Il peut aussi inviter ou
+            héberger les personnes de son choix. Dès lors, le bailleur n’a pas le droit d’imposer un droit de visite à
+            son locataire en dehors de certaines circonstances (vente du logement, départ du locataire...),
+            d’interdire l’accès au logement à des personnes autres que la famille du locataire, de pénétrer dans le
+            logement sans l’accord du locataire, de lui interdire d’avoir des animaux familiers, de lui interdire de
+            fumer, etc.<br>
+            En cas de troubles de voisinage causés par les personnes qui occupent ces locaux, le bailleur doit,
+            après leur avoir adressé une mise en demeure dûment motivée, utiliser les droits dont il dispose en
+            propre afin de faire cesser ces troubles de voisinage.<br>
+            (3) Décret n° 2002-120 du 30 janvier 2002 relatif aux caractéristiques du logement décent pris pour
+            l’application de l’article 187 de la loi n° 2000-1208 du 13 décembre 2000 relative à la solidarité et au
+            renouvellement urbains.<br>
+            2.2. Obligations générales du locataire (art. 7)<br>
+            Paiement du loyer et des charges :<br>
+            Le locataire doit payer le loyer et les charges à la date prévue au contrat.<br>
+            Le locataire ne doit en aucun cas cesser de payer de lui-même, sans autorisation d’un juge, tout ou
+            partie de son loyer sous prétexte que le bailleur ne respecte pas ses obligations.<br>
+            Utilisation du logement :<br>
+            Le locataire jouit librement de son logement pendant toute la durée de la location, mais il doit respecter
+            certaines obligations en la matière :<br>
+            - le locataire est tenu d’utiliser paisiblement son logement et dans le respect de la tranquillité du
+            voisinage ;<br>
+            - le locataire doit veiller à respecter le règlement intérieur à l’immeuble, lorsque ce logement est situé
+            dans un immeuble collectif (appartement). Ce règlement peut par exemple interdire certaines pratiques
+            (ex. : pose de jardinières, de linge aux fenêtres) ;
+
+        </a>
+
+
+    </p>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>19/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+
+
+            - le locataire doit respecter la destination prévue au sein du contrat de location. Par exemple, le local
+            peut être loué à usage d’habitation uniquement, dès lors le locataire ne peut y exercer une activité
+            commerciale ;<br>
+            - le locataire ne peut sous-louer tout ou partie de son logement sans l’accord écrit du bailleur. Dans
+            l’hypothèse où le bailleur donne son accord, le montant du loyer au mètre carré de surface habitable
+            appliqué au sous-locataire ne peut en aucun cas excéder celui payé par le locataire principal. Le
+            locataire est également tenu de transmettre au sous-locataire l’autorisation écrite du bailleur et la copie
+            du bail en cours.<br>
+            Travaux :<br>
+            - le locataire a le droit d’aménager librement le logement qu’il occupe (changement de moquette, pose
+            de papier peint, modification des peintures...). Il ne peut toutefois y faire de travaux de transformation
+            sans l’accord écrit du bailleur. A défaut, celui-ci peut, lors du départ du locataire, conserver le bénéfice
+            des transformations sans indemnisation. Il peut aussi exiger la remise immédiate en l’état des lieux
+            aux frais du locataire. En cas de litige, le caractère des travaux (simple aménagement ou
+            transformation) relève de l’appréciation du juge ;<br>
+            - le locataire doit laisser exécuter dans son logement certains travaux décidés par le bailleur : les
+            réparations urgentes, les travaux d’amélioration ou d’entretien du logement loué ou des parties
+            communes, les travaux d’amélioration de la performance énergétique et les travaux de mise aux
+            normes de décence. Avant le début des travaux, le bailleur est tenu de remettre au locataire une
+            notification de travaux, par lettre remise en main propre ou par courrier recommandé avec avis de
+            réception, précisant leur nature et les modalités de leur exécution. Pour la préparation et la réalisation
+            de ces travaux, le locataire est tenu de permettre l’accès à son logement tous les jours sauf les
+            samedis, dimanches et jours fériés (à moins qu’il ne donne son accord pour que les travaux soient
+            réalisés pendant ces jours).<br>
+            Si les travaux durent plus de vingt et un jours et affectent l’utilisation du logement, une réduction de
+            loyer peut être appliquée au profit du locataire. En cas d’abus (travaux à caractère vexatoire, ne
+            respectant pas les conditions prévues dans la notification de travaux, rendant l’utilisation du logement
+            impossible ou dangereuse), le locataire peut également saisir le juge pour interrompre ou interdire les
+            travaux.<br><br>
+
+            Entretien :<br>
+            Le locataire doit veiller à maintenir en l’état le logement qu’il occupe. A ce titre :<br>
+            - le locataire doit prendre en charge l’entretien courant, les menues réparations du logement et des
+            équipements mentionnés dans le contrat (ex. : maintien en état de propreté, remplacement
+            d’ampoules, etc.) ainsi que l’ensemble des réparations locatives dont la liste est définie par décret (4)
+            sauf si elles sont occasionnées par vétusté, malfaçon, vice de construction, cas fortuit ou force
+            majeure ;<br>
+            - le locataire est responsable des dégradations ou pertes qui pourraient survenir en cours de bail dans
+            le logement, à moins qu’il ne prouve qu’elles ont eu lieu par cas de force majeure, par la faute du
+            bailleur ou par la faute d’un tiers qu’il n’a pas introduit dans le logement.
+            Assurance :<br>
+            Le locataire est tenu de s’assurer contre les risques locatifs (principalement dégâts des eaux, incendie,
+            explosion) et de le justifier lors de la remise des clefs puis chaque année à la demande du bailleur, par
+            la remise d’une attestation. S’il ne le fait pas, le bailleur peut demander la résiliation du bail ou
+            souscrire une assurance à la place du locataire en lui répercutant le montant de la prime.
+            En cas de colocation, dans un logement nu ou meublé, les parties peuvent convenir dès la conclusion
+            du contrat de la souscription par le bailleur d’une assurance pour le compte des colocataires.
+            (4) Décret n° 87-712 du 26 août 1987 relatif aux réparations locatives.<br>
+            3. Fin de contrat et sortie du logement<br>
+            3.1. Congés (art. 15 et 25-8)<br>
+            Les parties peuvent unilatéralement, dans les conditions déterminées par la loi, mettre fin au contrat
+            de location et donner congé.<br>
+
+
+        </a>
+    </p>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>20/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+            3.1.1. Congé délivré par le locataire<br>
+            Motifs : le locataire peut donner congé à tout moment et sous réserve de respecter certaines
+            conditions de forme. Le congé est effectif à l’expiration d’un délai de préavis variable selon les
+            circonstances de son départ.<br>
+            Forme : le locataire qui souhaite quitter son logement doit notifier son congé au bailleur par lettre
+            recommandée avec avis de réception, acte d’huissier, ou remise en main propre contre émargement
+            ou récépissé.<br>
+            Effets : la réception de la lettre de congé par le bailleur fait courir un délai de préavis pendant lequel le
+            locataire reste tenu au paiement de son loyer, même s’il a déjà quitté le logement, sauf si, en accord
+            avec le locataire sortant, un nouveau locataire occupe le logement avant la fin du délai de préavis.
+            Durée du délai de préavis :<br>
+            Location nue :<br>
+            Le délai de préavis est en principe de trois mois. Ce délai est réduit à un mois lorsque le logement est
+            situé dans des zones de tension du marché locatif ou lorsque le locataire justifie d’une des situations
+            suivantes : obtention d’un premier emploi, de mutation, de perte d’emploi ou de nouvel emploi
+            consécutif à une perte d’emploi, état de santé justifiant un changement de domicile et constaté par un
+            certificat médical, bénéfice du revenu de solidarité active ou de l’allocation adulte handicapé,
+            attribution d’un logement social. Le locataire doit alors préciser le motif de son départ et le justifier à
+            l’occasion de la notification de congé. À défaut, le préavis de trois mois s’applique.<br>
+            Location meublée :<br>
+            Le délai de préavis est d’un mois.<br>
+            3.1.2. Congé délivré par le bailleur<br>
+            Motifs : le bailleur peut donner congé à son locataire à l’échéance du bail et dans trois cas :
+            1. Le bailleur souhaite reprendre le logement pour l’occuper, à titre de résidence principale, ou y loger
+            un proche (5).<br>
+            2. Le bailleur souhaite vendre le logement inoccupé. Le locataire est alors prioritaire pour acquérir le
+            logement. Le bailleur doit lui donner congé en lui indiquant le prix et les conditions de la vente. Cela
+            constitue une offre de vente.<br>
+            3. Le bailleur met fin au bail pour un motif légitime et sérieux : non-respect par le locataire de l’une de
+            ses obligations, retards répétés de paiement des loyers, défaut d’entretien du logement, troubles de
+            voisinage, etc.<br>
+
+            Des restrictions peuvent s’appliquer quant à la possibilité pour le bailleur de donner congé, notamment
+            en fonction du niveau de ressources et de l’âge du locataire ou, en location nue, lorsque le congé du
+            bailleur est consécutif à l’acquisition d’un logement occupé.<br>
+            Forme et délais :<br>
+            La notification du congé doit être adressée à chacun des Co titulaires du bail par lettre recommandée
+            avec avis de réception, acte d’huissier, ou remise en main propre contre récépissé. Le délai de préavis
+            court à compter de la réception du courrier ou du passage de l’huissier. La notification contient le motif
+            du congé et d’autres informations en fonction du motif invoqué.<br>
+            Location nue :<br>
+            Le préavis doit être délivré au moins six mois avant la fin du bail. Le bailleur doit joindre une notice
+            d’information définie par arrêté ministériel et relative à ses propres obligations et aux voies de recours
+            et d’indemnisation du locataire en cas de congé pour reprise ou vente.<br>
+            Effet : si le locataire quitte le logement avant l’expiration du préavis, le locataire n’est redevable du
+            loyer et des charges que pour le temps réel d’occupation du logement.<br>
+            Sanction du congé frauduleux : si le motif du congé ne correspond pas à la réalité, le locataire peut le
+            contester devant le juge. Par ailleurs, le bailleur qui délivre un congé pour vendre ou pour habiter
+            frauduleusement risque une amende pénale pouvant aller jusqu’à 6 000 € ou 30 000 € s’il s’agit d’une
+            personne morale.
+
+        </a>
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>21/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+
+            (5) Conjoint, partenaire de PACS, concubin notoire depuis au moins un an à la date du congé,
+            ascendants et descendants du bailleur ou de son conjoint, de son partenaire ou de son concubin
+            notoire.<br>
+            3.2. Sortie du logement<br>
+            3.2.1. Etat des lieux de sortie<br>
+            A la remise des clés par le locataire, un état des lieux de sortie doit être établi entre le bailleur et le
+            locataire. Les modalités d’établissement de l’état des lieux de sortie sont identiques à celles
+            applicables lors de l’état des lieux d’entrée.<br>
+            Cependant, dans le cadre d’un état des lieux amiable et lorsque le bailleur mandate un tiers pour le
+            représenter (par exemple, un professionnel de l’immobilier), aucuns frais ne peut être facturé au
+            locataire.<br>
+            3.2.2. Restitution du dépôt de garantie (art. 22)<br>
+            Délais : le dépôt de garantie doit être restitué dans un délai maximal de deux mois à compter de la
+            remise des clés par le locataire, déduction faite le cas échéant des sommes justifiées dues au titre des
+            loyers, charges, réparations locatives ou des dégradations dont il pourrait être tenu responsable. Le
+            délai s’apprécie à compter du jour de la restitution des clés par le locataire qui peut les remettre en
+            main propre ou par lettre recommandée avec demande d’avis de réception, au bailleur ou à son
+            mandataire. A cette occasion, le locataire indique au bailleur, ou à son mandataire, sa nouvelle
+            adresse.<br>
+            Dans certains cas particuliers, des aménagements sont prévus au délai de restitution du dépôt de
+            garantie :<br>
+            - si l’état des lieux de sortie est conforme à l’état des lieux d’entrée, le délai est réduit à un mois ;
+            - si le logement est situé dans un immeuble collectif, le bailleur peut conserver une provision maximale
+            de 20 % du dépôt de garantie jusqu’au mois suivant l’approbation des comptes annuels de l’immeuble.
+            Le bailleur est tenu de justifier la retenue qu’il opère sur le dépôt de garantie par la remise au locataire
+            de documents tels que l’état des lieux d’entrée et de sortie, des factures, devis, lettres de réclamation
+            des loyers impayés restées sans réponse, etc. ;<br>
+            - sanction de la restitution tardive du dépôt de garantie : à défaut de restitution du dépôt de garantie
+            dans les délais impartis, le montant dû au locataire est majoré d’une somme égale à 10 % du loyer
+            mensuel, pour chaque mois de retard commencé. Cette majoration n’est pas due lorsque l’origine du
+            défaut de restitution dans les délais résulte de l’absence de transmission par le locataire de sa
+            nouvelle adresse.<br>
+            4. Règlement des litiges locatifs<br>
+            En cas de conflit, les parties peuvent tenter de trouver une solution amiable. En cas d’échec, le tribunal
+            compétent peut être saisi pour trancher le litige.<br>
+            4.1. Règles de prescriptions (art. 7-1)<br>
+            En matière locative, la durée au-delà de laquelle une action en justice n’est plus recevable est en
+            principe de trois ans. Ainsi, sauf interruption ou suspension des délais, le bailleur peut récupérer
+            judiciairement les arriérés de charges et de loyer pendant trois ans à compter de leur exigibilité.
+            Il existe une exception à ce principe en matière d’action en révision de loyer, le bailleur ne disposant
+            que d’un délai d’un an pour demander en justice le paiement du différentiel de loyer issu de la révision.<br>
+
+            4.2. Règlement amiable et conciliation<br>
+            Lorsqu’il existe un litige, il est conseillé d’adresser un courrier recommandé avec accusé de réception
+            à l’autre partie relatant les faits le plus précisément possible, accompagné des arguments et preuves
+            relatifs aux faits litigieux (références juridiques, factures, photos, etc.).<br>
+            Ce courrier est une première étape préalable importante pour engager ensuite un recours éventuel
+            devant le juge. Si le litige n’est pas résolu à l’amiable, il peut être utile de saisir la commission
+            départementale de conciliation.<br>
+
+        </a>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>22/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+
+    Voies de conciliation : les commissions départementales de conciliation (art. 20) :<br>
+    Présentation : pour régler certains litiges entre le bailleur et le locataire, il est possible de faire appel
+    localement aux commissions départementales de conciliation (CDC), présentes dans chaque
+    département et placées auprès des services de l’Etat. Cette commission est composée à parts égales
+    de représentants des bailleurs et de représentants des locataires. Elle est compétente pour connaître
+    des litiges de nature individuelle et des difficultés de nature collective. Toute démarche devant la CDC
+    est gratuite.<br>
+    Rôle : la CDC s’efforce de concilier les parties en établissant un dialogue, afin d’éviter le recours au
+    juge. La CDC doit traiter les litiges qui lui sont soumis dans un délai de deux mois à compter de sa
+    saisine.<br>
+    Le champ de compétence de la CDC est large.<br>
+            La saisine de la CDC constitue une étape obligatoire avant toute saisine du juge pour les litiges relatifs
+            à l’ajustement des loyers au renouvellement du bail (cf. § 1.3.1.3), pour certains litiges relatifs à
+            l’encadrement des loyers (contestation du complément de loyer ou du loyer déterminé en application
+            du décret fixant annuellement le montant maximum d’évolution des loyers).<br>
+            Elle intervient aussi de manière facultative pour les litiges relatifs aux thèmes suivants : dépôt de
+            garantie, état des lieux, fixation et révision des loyers, charges locative, réparations, décence, congés.
+            Enfin, la CDC est compétent pour les différends de nature collective : application des accords collectifs
+            nationaux ou locaux, des plans de concertation locative, difficultés de fonctionnement d’un immeuble
+            ou d’un groupe d’immeubles.<br>
+            Modalités de saisine : la CDC peut être saisie par le bailleur ou le locataire concerné, lorsqu’il s’agit
+            d’un litige de nature individuelle et par le bailleur, plusieurs locataires ou une association
+            représentative des locataires, lorsqu’il s’agit d’une difficulté de nature collective.
+            La saisine de la commission doit être formulée en double exemplaire et adressée par lettre
+            recommandée avec avis de réception au secrétariat de la commission. La saisine doit indiquer les
+            noms, qualité et adresse du demandeur, ceux du défendeur ainsi que l’objet du litige ou de la difficulté.
+            Dans tous les cas, la lettre de saisine doit être accompagnée de la copie des pièces en lien avec le
+            litige (le bail, le courrier du bailleur proposant l’augmentation, etc.).<br>
+            Déroulement des séances : le bailleur et le locataire en conflit sont convoqués, en personne, par lettre
+            à une séance de conciliation au minimum quinze jours avant la séance.<br>
+            Ils peuvent se faire assister par une personne de leur choix ou se faire représenter par une personne
+            dûment mandatée. Si la demande a été introduite par une association ou par plusieurs locataires,
+            seuls sont convoqués à la séance leurs représentants (2 au maximum), dont les noms auront été
+            communiqués au préalable au secrétariat de la CDC.<br>
+
+
+            Chaque partie expose son point de vue et la CDC aide les parties à trouver une solution à leur
+            problème.<br>
+            Si un accord intervient, les termes de la conciliation font l’objet d’un document signé par chacune des
+            parties.<br>
+            En l’absence d’accord, la CDC rend un avis qui constate la situation et fait apparaître les points
+            essentiels de la position de chacun, ainsi que, le cas échéant, sa position.<br>
+            4.3. Action en justice<br>
+            4.3.1. Généralités<br>
+            Si le locataire ou le bailleur ne respecte pas ses obligations, l’autre partie peut exercer une action en
+            justice auprès du tribunal compétent pour l’obliger à exécuter son obligation, pour demander la
+            résiliation du contrat ou pour demander une indemnisation.<br>
+            Tout litige relatif à un bail d’habitation relève exclusivement du tribunal d’instance dans le ressort
+            duquel se situe le logement. Toutefois, le juge de proximité est compétent en matière de restitution du
+            dépôt de garantie si le litige porte sur un montant inférieur à 4 000 euros.<br>
+            Lorsqu’un ou plusieurs locataires ont avec un même bailleur un litige locatif ayant une origine
+            commune, ils peuvent donner par écrit mandat d’agir en justice en leur nom et pour leur compte à une
+            association siégeant à la Commission nationale de concertation.<br>
+
+        </a>
+    </p>
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>23/29</strong></a>
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+
+    Si le litige porte sur les caractéristiques du logement pour en faire un logement décent, ce mandat peut
+    être donné à une des associations précitées ou à une association compétente en matière d’insertion
+    ou de logement des personnes défavorisées, à une collectivité territoriale compétente en matière
+    d’habitat ou à un organisme payeur des aides au logement (CAF ou MSA).<br>
+
+            4.3.2. Résiliation judiciaire et de plein droit (art. 24)<br>
+            Des modalités particulières de résiliation du bail sont prévues par la loi lorsque le bailleur est à
+            l’initiative de la demande judiciaire de résiliation du bail.<br>
+            4.3.2.1. Mise en œuvre de la clause résolutoire de plein droit<br>
+            Une clause du contrat de location, appelée clause résolutoire, peut prévoir sa résiliation de plein droit
+            en cas d’inexécution des obligations du locataire, dans les quatre cas suivants :<br>
+            - défaut de paiement des loyers et des charges locatives au terme convenu ;<br>
+            - non-versement du dépôt de garantie ;<br>
+            - défaut d’assurance du locataire contre les risques locatifs ;<br>
+            - troubles de voisinage constatés par une décision de justice passée en force de chose jugée rendue
+            au profit d’un tiers.<br>
+            En pratique, le bailleur devra assigner le locataire devant le tribunal pour faire constater l’acquisition de
+            la clause résolutoire et la résiliation de plein droit du bail. Les modalités de mise en œuvre de cette
+            clause varient selon la nature de la faute imputée au locataire.<br>
+            Lorsque le bailleur souhaite mettre en œuvre la clause résolutoire pour défaut de paiement des loyers
+            et des charges ou pour non-versement du dépôt de garantie, il doit préalablement faire signifier au
+            locataire, par acte d’huissier, un commandement de payer, qui doit mentionner certaines informations
+            et notamment la faculté pour le locataire de saisir le fonds de solidarité pour le logement (cf. § 4.4.1).
+            De plus, pour les bailleurs personnes physiques ou les sociétés immobilières familiales, le
+            commandement de payer doit être signalé par l’huissier à la commission de coordination des
+            actions de prévention des expulsions locatives (cf. § 4.4.2) dès lors que l’un des seuils relatifs au
+            montant et à l’ancienneté de la dette, fixé par arrêté préfectoral, est atteint.<br>
+            Le locataire peut, à compter de la réception du commandement, régler sa dette, saisir le juge
+            d’instance pour demander des délais de paiement, voire demander ponctuellement une aide financière
+            à un fonds de solidarité pour le logement. Si le locataire ne s’est pas acquitté des sommes dues dans
+            les deux mois suivant la signification, le bailleur peut alors assigner le locataire en justice pour faire
+            constater la résiliation de plein droit du bail.<br>
+            En cas de défaut d’assurance, le bailleur ne peut assigner en justice le locataire pour faire constater
+            l’acquisition de la clause résolutoire qu’après un délai d’un mois après un commandement demeuré
+            infructueux.<br>
+            4.3.2.2. Résiliation judiciaire<br>
+            Si le bailleur renonce à la mise en œuvre de la clause résolutoire, ou si celle-ci n’est pas prévue au
+            bail ou si le litige a pour origine des motifs non couverts par la clause résolutoire, le bailleur peut saisir
+            directement le juge pour demander la résiliation judiciaire du bail. Le juge dispose alors d’un large
+            pouvoir pour apprécier si la faute du locataire est d’une gravité suffisante pour justifier la résiliation du
+            bail.<br>
+            4.3.2.3. Assignation aux fins de résiliation du bail et pouvoirs du juge<br>
+            L’assignation est la procédure obligatoire de saisine du juge. Il s’agit d’un acte établi et délivré par un
+            huissier de justice, par lequel le demandeur prévient la partie adverse qu’une procédure judiciaire est
+            ouverte contre lui.<br>
+            Le bailleur personne morale autre que les sociétés immobilières familiales ne peut assigner aux fins de
+            constat de résiliation du bail qu’après avoir saisi, au moins deux mois auparavant, la commission de
+            coordination des actions de prévention des expulsions locatives (cf. § 4.4.2). Cette saisine est réputée
+            constituée lorsqu’il y a eu signalement à la CAF/CMSA en vue d’assurer le maintien des aides au
+            logement.<br>
+            Quand l’assignation est fondée sur une dette locative, cette assignation doit être notifiée par huissier
+            au préfet de département deux mois avant l’audience.<br>
+        </a>
+    </p>
+</div>
+
+<div class="pieddepage">
+
+        <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+            58 Av. de Wagram 75017 PARIS <br>
+            Tél. : 01.44.63.14.20<br>
+            <a class="bas_de_pages_num"><strong>24/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+    Le juge peut alors :<br>
+    - soit accorder, même d’office, au locataire en situation de régler sa dette locative, des délais de
+    paiement, pouvant aller jusqu’à trois ans pour régler sa dette locative. Si le locataire se libère de sa
+    dette dans le délai et selon les modalités fixés par le juge, le bail n’est pas résilié ;
+    - soit ordonner l’expulsion assortie ou non d’un délai de grâce pour quitter les lieux (trois mois à trois
+    ans) (art. L. 412-1 et suivants du code des procédures civiles d’exécution).<br>
+    4.4. Prévention des expulsions<br>
+    Des dispositifs de prévention des expulsions ont été institués afin de traiter notamment le plus en
+    amont les situations d’impayés locatifs. Au sein des différentes actions mises en place sur le territoire
+    départemental, deux dispositifs sont susceptibles d’être mobilisés plus particulièrement.
+    4.4.1. Le fonds de solidarité pour le logement<br>
+    Le fonds de solidarité pour le logement (FSL) a été constitué dans chaque département afin d’accorder
+    des aides financières, sous forme de prêts, de subventions ou de garantie, aux personnes ayant de
+    faibles ressources qui rencontrent des difficultés pour assurer leurs dépenses de logement (factures,
+    loyers...).<br>
+    Les aides du FSL peuvent notamment permettre d’aider au paiement :<br>
+    - du dépôt de garantie, du premier loyer, de l’assurance du logement ;<br>
+    - des dettes de loyers et de charges en vue du maintien dans le logement ou en vue de faciliter l’accès
+    à un nouveau logement ;<br>
+    - des impayés de factures d’eau et d’énergie.<br>
+    Chaque département a ses propres critères d’attribution des aides. Il est notamment tenu compte des
+    ressources de toutes les personnes composant le foyer. Pour en bénéficier, il convient de s’adresser
+    aux services de son conseil départemental.<br>
+    4.4.2. La commission de coordination des actions de prévention des expulsions locatives (CCAPEX)
+    Dans chaque département, la CCAPEX a pour mission de délivrer des avis et des recommandations à
+    tout organisme ou personne susceptible de contribuer à la prévention de l’expulsion ainsi qu’aux
+    bailleurs et aux locataires concernés par une situation d’impayé ou de menace d’expulsion quel que
+    soit le motif. Elle émet également des avis et recommandations à l’attention des instances
+    compétentes pour l’attribution d’aides financières ou pour l’accompagnement social des personnes en
+    situation d’impayé.<br>
+    Pour exercer ses missions, elle est informée dès la délivrance du commandement de payer (cf. §
+    4.3.2.1). En outre, elle peut être saisie par les organismes payeurs des aides personnelles au
+    logement ou directement par le bailleur ou le locataire. Il convient de s’adresser à la préfecture de
+    département pour connaître les coordonnées et modalités de saisine.<br>
+    4.5. Procédure d’expulsion<br>
+    Validité de l’expulsion :<br>
+
+            Le locataire ne peut être expulsé que sur le fondement d’une décision de justice ou d’un procès-verbal
+            de conciliation exécutoire. Cette décision peut, notamment, faire suite au refus du locataire de quitter
+            les lieux après un congé délivré régulièrement par le bailleur, à la mise en œuvre de la clause
+            résolutoire ou à une résiliation judiciaire du contrat.<br>
+            Le bailleur ne doit en aucun cas agir sans décision de justice, même avec l’assistance d’un huissier.
+            Ainsi, le bailleur qui procède lui-même à l’expulsion d’un locataire indélicat est passible de trois ans de
+            prison et de 30 000 € d’amende.<br>
+            Par ailleurs, suite à la décision de justice, le bailleur est tenu de signifier au locataire, par un huissier de
+            justice, un commandement de quitter les lieux. L’expulsion ne peut avoir lieu qu’après un délai de deux
+            mois suivant le commandement, ce délai peut être modifié par le juge dans les conditions prévues
+            notamment à l’article L. 412-1 du code des procédures civiles d’exécution.<br>
+            L’Etat est tenu de prêter son concours à l’exécution des jugements à moins qu’un motif tiré de l’ordre
+            public ne l’autorise à refuser son concours.<br>
+        </a>
+    </p>
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>25/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+    <p style="margin-left: 55px; margin-right: 30px; text-justify: auto">
+        <a class="normal">
+
+            En cas de refus, ou à l’expiration du délai de deux mois suivant le dépôt de la demande de concours de
+            la force publique, le bailleur peut effectuer une demande gracieuse d’indemnisation auprès du préfet,
+            puis devant le tribunal administratif pour obtenir réparation du préjudice.<br>
+            Trêve hivernale :<br>
+            Durant la période dite de trêve hivernale, qui court du 1er novembre au 31 mars, les locataires sont
+            protégés et ne peuvent être expulsés. Ce délai supplémentaire doit être mis à profit pour activer tous
+            les dispositifs de relogement. Cette trêve signifie que tout jugement ordonnant l’expulsion d’un
+            locataire, passée en force de chose jugée, ne peut être exécuté de force pendant cette période de
+            grâce. Elle s’applique même si le juge a ordonné des délais pour exécuter l’expulsion et que ces délais
+            ont expiré, sauf si l’expulsion est engagée à l’encontre :<br>
+            - d’un locataire qui loue un logement dans un immeuble qui a fait l’objet d’un arrêté de péril ; ou
+            - d’un locataire dont l’expulsion est assortie d’un relogement correspondant à ses besoins familiaux (le
+            nombre de pièces doit correspondre au nombre d’occupants).<br>
+            En revanche, la trêve hivernale n’interdit pas aux bailleurs de demander et d’obtenir un jugement
+            d’expulsion, ni même de signifier au locataire le commandement de quitter les lieux. En effet, seules les
+            mesures d’exécution de l’expulsion avec le concours de la force publique sont suspendues.<br>
+            5. Contacts utiles<br>
+            Les ADIL : les agences départementales d’information sur le logement apportent au public un conseil
+            gratuit, neutre et personnalisé sur toutes les questions juridiques, financières et fiscales relatives au
+            logement et leur proposent des solutions adaptées à leur cas personnel. Les ADIL assurent ainsi de
+            nombreuses permanences sur l’ensemble du territoire (http://www.anil.org/votre-adil/).<br>
+            Les organismes payeurs des aides au logement :<br>
+            - Caisses d’allocations familiales (CAF) ;<br>
+            - Mutualité sociale agricole (MSA).<br>
+            Les associations représentatives des bailleurs et des locataires :<br>
+            Au plan local, il existe de nombreuses organisations ayant pour objet de représenter et de défendre
+            l’intérêt des locataires ou des bailleurs.<br>
+            Sont également considérées comme représentatives au niveau national les organisations
+            représentatives des locataires et des bailleurs suivantes, qui siègent à ce titre à la commission
+            nationale de concertation :<br>
+            - organisations nationales représentatives des bailleurs :<br>
+            - l’Association des propriétaires de logements intermédiaires (APLI) ;<br>
+            - la Fédération des sociétés immobilières et foncières (FSIF) ;<br>
+            - l’Union nationale de la propriété immobilière (UNPI) ;<br>
+            - organisations nationales représentatives des locataires :<br>
+            - la Confédération nationale du logement (CNL) ;<br>
+            - la Confédération générale du logement (CGL) ;<br>
+            - la Confédération syndicale des familles (CSF) ;<br>
+            - la Confédération de la consommation, du logement et du cadre de vie (CLCV) ;<br>
+            - l’Association force ouvrière consommateurs (AFOC).<br>
+            Maison de justice et du droit et point d’accès au droit : les maisons de justice et du droit et les points
+            d’accès au droit accueillent gratuitement et anonymement les personnes rencontrant un problème
+            juridique et/ou administratif. Le site http://www.annuaires.justice.gouv.fr/ vous permet de connaître, à
+            partir de votre code postal, le point d’accès au droit ou la maison de justice et du droit le plus proche de
+            votre domicile.<br>
+            Information administrative :<br>
+            - ministère du logement, de l’égalité des territoires et de la ruralité : http://www.territoires.gouv.fr ;
+            - site officiel de l’administration française : http://www.service-public.fr/ ;<br>
+            - numéro unique de renseignement des usagers Allo Service Public : 3939 (coût : 0,15 € la minute en
+            moyenne).<br>
+        </a>
+
+    </p>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>26/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+
+    <p   class="titre" style ="text-justify: auto; color: black; text-align: center ;  margin-left: 100px; margin-right: 100px;  border-width:3px;  border-style: solid;border-color:black" >ENGAGEMENT DE CAUTION</p>
+
+
+
+    <p  style ="text-justify: auto; text-align: center" class="normal">
+        (Arrêté du 29 mai 2015)
+    </p>
+
+
+    <p style="margin-left: 55px">
+        <a  class="classeh2">
+            IDENTITE DU PRENEUR :<br></a>
+            <a class="gras">
+            - <mark>{$nom_de_famille_du_locataire} {$prenom_du_locataire}</mark><br><br>
+
+        </a>
+        <a  class="normal">
+            né(e) le {$date_de_naissance_du_locataire}
+        </a>
+
+    </p>
+
+    <br>
+
+    <p style="margin-left: 55px">
+        <a class="classeh2">INFORMATIONS CONCERNANT LA CAUTION SOLIDAIRE :<br></a>
+        <a  class="gras">
+
+            - <mark>{$civilité_du_garant} {$nom_de_famille_du_garant}</mark><mark> {$prenom_du_garant}</mark><br>
+        </a>
+        <a class="normal">
+            né(e) le <mark>{$date_de_naissance_du_garant}</mark>, demeurant :<br>
+            <a class="normal" style="text-align: center; margin-left: 150px; margin-right: 150px">
+                <mark>{$adresse_du_garant}</mark>
+            </a>
+        </a>
+    </p>
+
+
+    <p style="margin-left: 55px" class="normal">
+        Références Bancaires : (nom de la banque et adresse)<br>
+        _____________________________________________________<br>
+        IBAN : _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _<br>
+        BIC : _ _ _ _ _ _ _ _<br>
+    </p>
+    <p class="classeh2" style="margin-left: 55px">
+        INFORMATIONS CONCERNANT LE LOGEMENT, OBJET DU CONTRAT DE
+        CAUTIONNEMENT :
+    </p>
+
+
+    <p style="margin-left: 65px" class="normal">
+        Etage : <mark>{$numero_etage}</mark>, N° porte : <mark>{$numero_du_studio}</mark><br>
+    Adresse : Résidence LES PORTES D’ESPAGNE<br>
+    300 AVENUE CHARLES DEPERET BAT. C<br>
+        66000 PERPIGNAN<br>
+    </p>
+
+    <p style="margin-left: 55px" class="gras">
+        <a class="gras"> Montant du loyer mensuel Charges Comprises :</a><br>
+        <a class="normal">total mensuel TTC de : <mark>{$montant_du_loyer}</mark> €</a>
+
+    </p><br>
+
+    <p style="margin-left: 55px">
+        <a class="classeh2">ENGAGEMENT DE CAUTIONNEMENT :</a><br><br>
+        <a class="gras">La caution reconnait avoir reçu un exemplaire de ce contrat et déclare avoir parfaitement
+            connaissance des obligations contractées par le preneur et de la situation financière de ce
+            dernier.<br>
+            Conformément aux dispositions de l’article 22-1 loi du 6 juillet 1989 (et des articles L341-2 et
+            L341-3 du code de la consommation) la Caution doit recopier intégralement à la main le texte suivant :</a>
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>27/29</strong></a>
+
+</div>
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p class="normal" style="margin-left: 55px; margin-right: 30px">
+        &quot; Je soussigné(e) [nom, prénom et date de naissance de la personne se portant caution] certifie
+        avoir pris connaissance du bail annexé à la présente et déclare me porter caution solidaire pour
+        [nom, prénom du locataire] au profit du bailleur Global Exploitation.<br><br>
+
+        J&#39;ai pris connaissance du montant du loyer de [montant du loyer en lettres] par mois. Il sera révisé
+        annuellement aux dates anniversaires du contrat et selon l&#39;indice de référence des loyers (IRL)
+        publié par l&#39;INSEE du IRL-Trim1-Année2017 qui s’élève à 125,90<br>
+        Je soussigné(e) [nom, prénom et date de naissance de la personne se portant caution] certifie avoir
+        pris connaissance du bail annexé à la présente et déclare me porter caution solidaire pour [nom,
+        prénom du locataire] au profit du bailleur Global Exploitation.<br>
+        Je m&#39;engage à rembourser sur mes revenus et sur mes biens personnels les sommes dues par le
+        locataire [nom et prénom] en cas de défaillance de ce dernier. Je confirme avoir une parfaite
+        connaissance de la nature et de l&#39;étendue de mon engagement.<br>
+        Cet engagement pour une caution solidaire est valable pour la durée déterminée du bail initial,
+        éventuellement reconduit ou renouvelé, dans la limite de 3 ans à compter de la signature du bail
+        initial, pour le paiement notamment des loyers éventuellement révisés, des charges récupérables,
+        des indemnités d&#39;occupation, des dégradations et réparations locatives et des frais de procédures,
+        indemnités, pénalités et dommages-intérêts.<br>
+        En renonçant au bénéfice de discussion défini à l’article 2298 du Code civil et en m’obligeant
+        solidairement avec le Preneur, je m’engage à rembourser le créancier Global Exploitation sans
+        pouvoir exiger qu’il poursuive préalablement le Preneur.<br>
+        Je reconnais également avoir pris connaissance de l&#39;avant-dernier alinéa de l&#39;article 22-1 de la loi du
+        6 juillet 1989 ainsi rédigé : &quot;Lorsque le cautionnement d&#39;obligations résultant d&#39;un contrat de location
+        conclu en application du présent titre ne comporte aucune indication de durée ou lorsque la durée
+        du cautionnement est stipulée indéterminée, la caution peut le résilier unilatéralement. La résiliation
+        prend effet au terme du contrat de location, qu&#39;il s&#39;agisse du contrat initial ou d&#39;un contrat reconduit
+        ou renouvelé au cours duquel le bailleur reçoit notification de la résiliation.&quot;
+
+    </p>
+    <p class="normal" style="margin-left: 55px; margin-right: 30px">   <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        Tél. : 01.44.63.14.20<br>
+        <a class="bas_de_pages_num"><strong>28/29</strong></a>
+
+</div>
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="dompdf/image/logoresidis.JPG" alt="" />
+
+    <p class="normal" style="margin-left: 55px; margin-right: 30px">
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+        __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+        <br><br>
+    __________________________________________________________________________________________
+
+    </p>
+    <p class="gras" style="text-align: center">Fait à _______________________, le _______________________<br>
+        Signature de la Caution</p>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <div class="pieddepage">
+        <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+            58 Av. de Wagram 75017 PARIS <br>
+            Tél. : 01.44.63.14.20<br>
+            <a class="bas_de_pages_num"><strong>29/29</strong></a>
+
+    </div>
+</div>
+
+</body>
+</html>

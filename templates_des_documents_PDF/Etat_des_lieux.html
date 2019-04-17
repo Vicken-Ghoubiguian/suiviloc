@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Etat des lieux de sorties anticipé</title>
+        <style>
+           .personne{
+                color: darkslategray;
+                font-size: 10pt;
+                text-align: -moz-left;
+                font-family: Arial, sans-serif;
+            }
+
+            .gras{
+                color: black;
+                font-weight: bold;
+                font-size: 10pt;
+                font-family: Arial, sans-serif;
+            }
+
+            h2
+            {
+                color: black;
+                font-size: 12pt;
+                font-family: Arial, sans-serif;
+            }
+
+
+
+
+            .main{
+                background: white;
+                position: relative;
+                width: 800px;
+                height: 70px;
+
+                display: table;
+                color: white;
+            }
+
+
+            .contentleft{
+                color : black;
+                padding: 11px;
+                font-size: 10pt;
+                display: table-cell;
+                vertical-align: top;
+                text-align: center;
+
+                font-family: Arial,sans-serif;
+            }
+            .contentright{
+                color: black;
+                padding: 11px;
+                font-size: 10pt;
+                display: table-cell;
+                vertical-align: top;
+                text-align: center;
+
+                font-family: Arial,sans-serif;
+
+            }
+            .main3{
+                background: white;
+                text-align: right;
+                color: white;
+            }
+            p{
+                text-align: justify;
+                text-justify: inter-word;
+            }
+            .contentMain3{
+                margin-left: 470px;
+                color: black;
+                padding: 11px;
+                font-size:10pt;
+                vertical-align: center;
+                text-align: left;
+
+
+            }
+
+
+
+            body, html{height:100%;
+
+                padding:0;
+
+            }
+           #contenuprincipal {
+               top: 5px;
+               height: 95%;
+
+           }
+
+           #pieddepage {
+               vertical-align: top;
+
+               position: absolute;
+               bottom: 1px;
+               width:100%;
+
+               margin-bottom: 1px;
+
+               page-break-after: auto;
+           }
+           .bas_de_pages{
+               text-align: center;
+               font-size: 9pt;
+               color: gray;
+               font-family: Arial, Verdana, sans-serif;
+           }
+
+
+            td /* Toutes les cellules des tableaux... */
+            {
+                border: 1px solid black; /* auront une bordure de 1px */
+                padding: 15px;
+
+            }
+            table
+
+            {
+                border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+                vertical-align: center;
+                text-align: center;
+            }
+            img{
+                height: 55px;width: 220px;
+
+
+            }
+        </style>
+</head>
+
+
+
+<body>
+<div  id="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px " src="../images/logoresidis.JPG" alt="" />
+
+    <h2  style ="text-justify: auto; margin-left:40px; margin-right: 30px " ><a>RÉSIDENCES LES PORTES D'ESPAGNE</a></h2>
+    <br>
+
+
+
+    <div   class="main3">
+
+        <div  class="contentMain3">
+            <a  class="gras" style="margin: 10px">       {$nom_de_famille_du_locataire} {$prenom_du_locataire}<br></a>
+            <a  class ="gras" style ="margin: 10px">     300 Avenue Charles DEPERET<br></a>
+            <a  class ="gras" style="margin: 10px">      Bat C APPT {$numero_du_studio}<br></a>
+            <a  class="gras" style="margin: 10px">       66000 PERPIGNAN<br> <br></a>
+            <a class="gras" style="margin: 10px">        Perpignan, le {$date_du_jour}</a>
+        </div>
+
+
+
+    </div>
+
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px; margin-top: 13% " class="gras"><u>Objet :</u>  Etat des lieux de sortie anticipé<br>
+        <a style="margin-left: 46px">Lettre remise en main propre contre décharge</a><br><br>
+    </p>
+
+    <p    style ="text-justify: auto; margin-left:40px; margin-right: 70px " class="personne">
+
+        {$civilite_du_locataire},<br><br>
+
+        Je soussignée {$nom_de_famille_du_locataire} {$prenom_du_locataire} locataire de l’appartement n°{$numero_du_studio} de la Résidence
+        LES PORTES D’Espagne sis 300 Avenue Charles DEPERET 66000 PERPIGNAN depuis le
+        {$date_d_arrivee_dans_la_residence}, atteste établir un état des lieux de sortie anticipé à la date de mon préavis
+        légal fixée au {$date_de_fin}.<br><br>
+
+        Par la présente, je m’engage à payer mon loyer jusqu'à la date de mon préavis légal.
+        Pour précision, je souhaite faire l'état des lieux de sortie le {$date_choisie_pour_l_etat_des_lieux} à {$heure_choisie_pour_l_etat_des_lieux}.<br><br>
+
+        Veuillez agréer, Madame, Monsieur, mes sincères salutations.<br><br>
+        Pour faire valoir ce que de droit.<br><br>
+        Fait à PERPIGNAN le {$date_du_jour}<br><br>
+        En 2 exemplaires,<br>
+    </p>
+
+
+
+
+
+        <div  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="main">
+            <div class="contentleft">MME SANCHEZ M.N<br><br>
+                Manager<br><br>
+                (Signature)
+            </div><div class="contentright">{$nom_de_famille_du_locataire} {$prenom_du_locataire}<br><br>
+                                    (Signature)
+        </div> </div>
+
+
+
+
+
+</div>
+
+<div id="pieddepage"><p class="bas_de_pages">
+    <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+    58 Av. de Wagram 75017 PARIS
+</p>
+</div>
+
+</body>
+</html>

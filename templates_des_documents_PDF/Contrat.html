@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>RÉSIDIS</title>
+    <style>
+        .personne{
+            color: darkslategray;
+            font-size: 10pt;
+            text-align: -moz-left;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+        .ci-après{
+            color: darkslategray;
+            font-size: 10pt;
+
+            text-align: justify;
+            font-family: Arial, sans-serif;
+            font-weight: normal;
+        }
+
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+        .blue{
+            color: steelblue;
+            font-size: 10pt;
+            font-family: Arial, sans-serif;
+        }
+
+        .Important{
+            color: steelblue;
+            font-family: Arial, sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            text-decoration: underline steelblue solid ;
+            font-weight: bold;
+        }
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family: Arial, sans-serif;
+
+        }
+        .petit{
+            font-size: 7pt;
+            color: black;
+            font-family:  Arial, Verdana, sans-serif;
+        }
+        .bas_de_pages{
+            text-align: center;
+            font-size: 9pt;
+            color: gray;
+            font-family: Arial, Verdana, sans-serif;
+        }
+        .bas_de_pages_num{
+            text-align: center;
+            font-size: 9pt;
+            color: black;
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+
+
+        .Introduction{
+            text-align: center;
+            font-family:  Arial, Verdana, sans-serif;
+            font-size: 12pt;
+            font-style: normal;
+            font-weight: bold;
+            border-width:3px;
+            border-style: solid;
+            border-color:black;
+            padding:3px;
+            color: mediumblue;
+
+        }
+        .Résidences{
+            font-size: 10pt;
+
+            color: black;
+            font-family: Arial, sans-serif;
+            margin-left: 140px;
+            margin-right: 70px;
+        }
+        .main{
+            background: white;
+            position: relative;
+            width: 750px;
+            height: 70px;
+
+            display: table;
+            color: white;
+        }
+        .main2{
+            background: white;
+            position: relative;
+            width: 710px;
+            min-height: 50px;
+            max-height: 70px;
+            display: table;
+            color: white;
+        }
+
+        .contentleft{
+            color : black;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+
+        }
+        .contentright{
+            color: black;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+        }
+        .imagegauche{
+            color : white;
+            padding: 11px;
+            font-size: 15px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+        }
+        .imageDroite{
+            color: white;
+            margin-right: 70px;
+            width: 270px;
+            display: table-cell;
+            vertical-align: top;
+            text-align: center;
+            border-width:3px;
+            border-style: solid;
+            border-color:black;
+        }
+
+
+        body, html{
+            height:100%;
+            width: 100%;
+
+
+            padding:0;
+
+
+        }
+
+        .contenuprincipal {
+            top: 1px;
+            width: 100%;
+            height: 85%;
+        }
+
+        .pieddepage {
+            vertical-align: top;
+
+            position: relative;
+            bottom: 1px;
+            width:100%;
+            height: 6%;
+            margin-bottom: 1px;
+
+            page-break-after: auto;
+        }
+        .tableauBackground{
+            /*background: steelblue;
+            max-height: 10px;*/
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+            font-weight: bold;
+            color: dodgerblue;
+        }
+
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+
+        }
+
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+
+
+        }
+        img{
+            height: 55px;width: 220px;
+
+
+        }
+        .img2{
+            height: 9pt;width: 9pt;
+
+        }
+        h2{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+        }
+        .classeh2{
+            font-size: 11pt;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+
+        }
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+    </style>
+
+
+
+
+
+</head>
+<body>
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="Introduction">CONTRAT DE SOUS-LOCATION DE LOGEMENTS MEUBLÉS {$type_de_contrat}</p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="classeh2" >ENTRE LES SOUSSIGNÉS</p><br>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+        <a  style ="text-justify: auto; margin-left:25px;" class="Résidences">-   La Résidence LES PORTES D'ESPAGNE ayant ses bureaux 300 Avenue Charles DEPERET Bat.C-66000</a>
+           PERPIGNAN, représentée par RESIDIS dont le siège social se situe au 58 Avenue de Wagram-75017
+         PARIS <br><br>
+        <a  class="normal"> Ci-après dénommé(e) «LE BAILLEUR» ou «L'EXPLOITANT» d'une part, </a>
+    </p>
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" >
+        <a  style ="text-justify: auto; margin-left:25px;" class="Résidences">-    {$nom_de_famille_du_locataire} {$prenom_du_locataire} demeurant {$adresse_d_habitation_du_locataire} </a> <br><br>
+        <a class="ci-après">Ci-après dénommé(s) et uniquement elle à l'exclusion de toutes autres «LE LOCATAIRE» ou «L'OCCUPANT» d'une part <br></a>
+    </p>
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+             <a  class="gras">Il est rappelé ce qui suit : <br> </a>
+
+        <a class="normal">
+            RESIDIS a pris par bail commercial des logements dépendant de l'ensemble immobilier avec services dénommés Résidence </a><a class = "blue">
+        LES PORTES D'ESPAGNE.</a><a class="normal">
+            A ce titre, RESIDIS exerce dans la Résidence LES PORTES D'ESPAGNE une activité d'exploitation à caractère para-hôtelier consistant en la sous-location de logements meublés
+            avec la fourniture de différents services et prestations.<br></a>
+
+
+    </p>
+    <p style ="text-justify: auto; margin-left:40px; margin-right: 30px "><a   class="gras">Il a été convenu et arrêté ce qui suit:</a><br>
+        <a   class="normal">RÉSIDIS sous loué par les présentes au LOCATAIRE qui accepte les locaux meublés ci-après désignés.</a></p>
+
+
+    <p   style ="text-justify: auto; text-align: center; text-decoration: underline " class="Important">OCCUPATION PERSONNELLE DES LOCAUX<br></p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+
+        <a  style =" text-align: left " class="normal">Les locaux, objet de la présente convention, seront occupés par le locataire et uniquement le locataire.
+            En aucun cas l’occupant ne pourra héberger dans les lieux loués une tierce personne. <br><br>
+            Qu'une occupation par une autre personne du fait du locataire sera considérée pour le bailleur d'une faute susceptible d'entraîner
+            la résiliation du présent contrat immédiat aux torts et griefs de l'occupant.
+        </a>
+
+    </p>
+    <p  style ="text-align: center; text-decoration: underline " class="Important"> DÉSIGNATION DES LOCAUX et ÉQUIPEMENTS<br>
+    </p>
+
+    <p  >
+
+        <a  style ="text-justify: auto;  margin-left:40px; margin-right: 30px " class="normal">
+            Appartement de type :<br></a>
+        <a  style ="text-justify: auto;  margin-left:40px; margin-right: 30px " class="normal">
+            <img class="img2"  src="../images/ballot-box-with-x_2612.png" alt="" />Studio N°{$numero_du_studio} <br></a><a  style ="text-justify: auto;  margin-left:40px; margin-right: 30px " class="normal">
+        <u>Superficie en m²</u> : {$surface_du_studio} m²<br></a>
+        <a  style ="text-justify: auto;  margin-left:40px; margin-right: 30px " class="normal">
+            <u>Adresse de la résidence</u> : 300 Avenue Charles DEPERET Bat. C 66000 PERPIGNAN.<br>
+        </a>
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>1/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px " src="../images/logoresidis.JPG" alt="" />
+
+
+    <p style ="text-justify: auto;  text-align: center; text-decoration: underline " class="Important">COMPOSITION DES LOCAUX LOUÉS</p><br>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+
+    <a  class="normal">Un appartement meublé, comprenant :<em> Appartement de type studio, comprenant une entrée avec placard, une cuisine équipée (frigo, plaques électriques, micro-ondes,
+        rangements, kit vaisselle), une pièce de vie et une salle d'eau avec toilette.</em> <br>
+
+        L'inventaire du mobilier est effectué lors de l'état des lieux d'entrée du locataire.</a>
+    </p>
+
+    <p  style ="text-justify: auto; text-align: center; text-decoration: underline " class="Important">SERVICES PARA HOTELIERS & EQUIPEMENT D’USAGE COMMUN</p><br>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+
+    <a  style ="text-justify: auto;" class="normal">L'ensemble des services para hôteliers et équipements à usage commun sont indiqués sur la grille tarifaire jointe aux présentes.
+        Le Bailleur s'engage par ailleurs à fournir les services mentionnés à l'article L 261 D 4°b du code général des impôts.</a>
+    </p>
+
+
+    <p style ="text-justify: auto; text-align: center; text-decoration: underline " class="Important">DESTINATION DES LIEUX</p><br>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+    <a  class="normal">Les lieux sont loués à usage exclusif d'hébergement provisoire. Le LOCATAIRE précise que le siège de ses intérêts familiaux ne se situe pas dans
+        les locaux loués au titre du présent contrat. Il indique sur ce point : déclarer ses impôts et exercer ses droits civiques à une autre adresse que celle figurant dans cet acte.
+        Il est rappelé que ces éléments constituent une condition substantielle du consentement du bailleur au présent hébergement.
+        Le LOCATAIRE déclare connaître parfaitement les locaux loués qu'il a entièrement visités en vue du présent contrat d'hébergement.
+        Il reconnaît en outre qu'ils sont en bon état d'usage et d'entretien et s'engage à les rendre comme tels en fin de jouissance.</a>
+    </p>
+
+    <p  style ="text-justify: auto; text-align: center; text-decoration: underline " class="Important">RÉGIME JURIDIQUE</p> <br>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" >
+
+    <a  class="normal">Le présent contrat est régi par les dispositions des articles 1714 à 1762 du Code Civil relatives aux baux d'immeubles à usage d'habitation ainsi que par les conditions prévues
+        aux pages suivantes. Conclu dans le cadre de l'une des exclusions prévues à l'article 2 de la loi n°89-462 du 6 Juillet 1989, il n'est soumis ni aux dispositions de cette loi,
+        ni à celles prévues par la loi n°48-1360 du 1.9.1948, ni aux articles L632-L et suivants du code de la construction et de l'habitation.
+        En conséquence, la durée du présent contrat ainsi que le montant du loyer sont librement fixés entre les parties. </a>
+
+    </p>
+
+
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>2/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+
+    <p class="Important"><b><u>CONDITIONS PARTICULIERES</u></b><br><br>
+        <b><u>DATE DE PRISE D’EFFET – DUREE DU CONTRAT</u></b>
+
+    </p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">D’une durée de 0 à  3 mois, le contrat d’hébergement prendra effet le {$date_de_debut_du_contrat_de_location}
+    pour terminer le {$date_de_fin_du_contrat_de_location}, date à laquelle ce contrat sera définitivement terminé.
+
+    </p>
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+    <a class="classeh2" ><u>CONDITION SUSPENSIVE</u></a><br>
+    <a  class="normal">La prise de possession ou l'entrée en jouissance se fera à la date ci-dessus fixée, sous réserve formelle du départ de l'occupant ou occupant actuel.</a>
+    </p>
+
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>LOYER INITIAL ET TERMES DU PAIEMENT</u></a><br>
+
+        <a class="normal">Le montant mensuel du loyer est fixé à la somme de {$montant_du_loyer_en_chiffres} Euros ({$montant_du_loyer_en_lettres}),
+            toutes charges comprises (options comprises), payable mensuellement et d’avance le premier de chaque mois au domicile du bailleur ou de son mandataire.<br>
+            Le loyer sera par ailleurs indexé chaque année conformément à la clause figurant aux conditions générales, dans l'hypothèse où la durée de la relation locative perdurerait au-delà d'un an.
+        </a>
+
+    </p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+    <a class="classeh2"><u>DÉPÔT DE GARANTIE</u>     </a><br>
+
+    <a  class="normal">Il est fixé à la somme de {$montant_du_depot_de_garantie_en_chiffre} euros ({$montant_du_depot_de_garantie_en_lettres}) – MONTANT FORFAITAIRE ({$encaissement_du_depot_de_garantie})</a>
+    </p>
+
+    <p  class="Important"><u><b>SOMME EN CHIFFRES</b></u></p>
+    <p   style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+    <a class="normal"><b>Le loyer est payable d'avance le premier de chaque mois au domicile du bailleur ou de son mandataire et stipuler toutes taxes et charges comprises*</b> </a><br>
+
+    <a  class="normal">Tous nos tarifs sont exprimés en T.T.C. et en Euros. En cas de modification de la législation important une réversion du taux de TVA applicable,
+        celui-ci sera automatiquement appliqué en lieu et place du précédent dès l'entrée en vigueur du texte.</a>
+    </p>
+
+
+    <table  style ="text-justify: auto; margin-left:18px; margin-right: 30px; width: 92%" class="normal">
+        <tr>
+            <td style="text-align: left"  ><img class="img2"  src="../images/carreNoir.jpg" alt="" /> Eau: OUI </td>                                            <td style="text-align: left"><img class="img2"  src="../images/carreNoir.jpg" alt="" /> Chauffage: {$inclusion_d_EDF_dans_le_contrat}</td></tr>
+        <tr><td style="text-align: left" ><img class="img2"  src="../images/carreNoir.jpg" alt="" /> Assurance locative: OUI </td>                         <td style="text-align: left">    <img class="img2"  src="../images/carreNoir.jpg" alt="" /> Change de lit quinzaine: NON </td></tr>
+        <tr> <td style="text-align: left"><img class="img2"  src="../images/carreNoir.jpg" alt="" /> Electricité**: {$inclusion_d_EDF_dans_le_contrat} </td>        <td style="text-align: left" >   <img class="img2"  src="../images/carreNoir.jpg" alt="" /> Autres: les charges communes de l’immeuble: OUI</td>
+        </tr>
+    </table>
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal"><b>* Charges non comprises :<br>
+        <img class="img2"  src="../images/ballot-box-with-x_2612.png" alt="" /> Provision sur taxe d’ordure ménagères en sus.
+    </b></p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="petit">
+        **Si OUI: La consommation électrique personnelle du locataire demeurera à sa charge, de sorte qu’une provision mensuelle comprise dans le loyer devra être réglée,
+            à savoir <mark>«25.00 euros/mois»</mark> (pour les studios).
+            A réception de facture le locataire sera redevable de la consommation et du montant de l’abonnement dépassant le montant de la provision.
+    </p>
+
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>3/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+
+
+<div class="contenuprincipal">
+    <img style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+    <p  style ="text-justify: auto;text-decoration: underline; margin-left:40px; margin-right: 30px" class="Important"><b><u>CLAUSE EXPRESSE</u></b></p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">Si le contrat est conclu avec plusieurs locataires, ils seront solidaires pour l’exécution de l’intégralité des obligations afférentes au présent bail.</p>
+
+    <p  style ="text-justify: auto; margin-left:40px; text-decoration: underline; margin-right: 30px" class="Important"><b> <u>PIÈCES ANNEXES</u></b></p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">L'état des lieux sera établi lors de la prise de possession, mentionnant l'ensemble des éléments mobiliers mis à la disposition du locataire.</p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">
+        <img class="img2"  src="../images/cadreBlanc2.gif" alt="" /> ACTE DE CAUTION SOLIDAIRE<br>
+        <img class="img2"  src="../images/ballot-box-with-x_2612.png" alt="" />  CLAUSES PARTICULIERES<br>
+        <img class="img2"  src="../images/ballot-box-with-x_2612.png" alt="" /> LISTE DE RÉPARATIONS LOCATIVES<br>
+        <img class="img2"  src="../images/ballot-box-with-x_2612.png" alt="" />  INVENTAIRE DU MOBILIER - VALEUR DU MOBILIER<br>
+    </p>
+
+
+
+    <p  style ="text-justify: auto;text-decoration: underline; margin-left:40px; margin-right: 30px" class="Important"><b>SIGNATURE DES PARTIES</b></p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">Contrat fait le {$date_de_debut_du_contrat_de_location} signé à <a class="blue"> PERPIGNAN</a> en 2 exemplaires dont un est remis à chacune des parties qui le reconnaissent.
+        Le locataire reconnaît avoir reçu un exemplaire de toutes les pièces annexes aux présentes conditions particulières
+        (les conditions générales et les clauses particulières ci-après) et s'engage à participer à l'établissement de l'état des
+        lieux lors de la prise de possession s'il n'est pas établi à ce jour.</p><br><br>
+    <h2  style ="text-justify: auto; margin-left:40px; margin-right: 30px"><b>Fait à PERPIGNAN</b></h2>
+    <h2  style ="text-justify: auto;font-weight: bold; margin-left:40px; margin-right: 30px">Le {$date_de_debut_du_contrat_de_location}</h2>
+
+
+
+    <div  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="main">
+        <div class="contentleft">
+            LE BAILLEUR <br>
+            Ou son représentant<br>
+            Signature précédée de la mention manuscrite<br>
+            « lu et approuvé »
+        </div><div class="contentright">LE(S) OCCUPANT(S)<br>
+        <br>
+        Signature précédée de la mention manuscrite<br>
+        « lu et approuvé »
+    </div> </div>
+
+
+
+    <div  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="main2">
+        <div class="imagegauche"></div>
+
+        <div class="imageDroite">
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>4/19</strong></a>
+    </p>
+
+</div>
+
+
+
+<div class="contenuprincipal">
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px"  class="Important"><b><u>CONDITIONS GÉNÉRALES</u></b></p>
+    <br>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>DURÉE DU CONTRAT</u></a><br>
+
+        <a  class="normal">
+            La date d’effet et la durée du présent bail sont fixées aux conditions particulières.<br>
+            <br>
+            Il est expressément convenu que le bail sera expiré à l’issu de la période contractuelle.
+        </a>
+
+
+    </p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px"  class="normal">En aucun cas, l'occupant ne pourra, à la survenance de la date d'expiration du présent contrat, se considérer comme titulaire d'un droit au maintien dans les lieux
+        et/ou d'un éventuel renouvellement du contrat, de même l'absence de toutes réactions du bailleur à la survenance des termes du contrat, ne pourra en aucun
+        cas être interprété en droit ou en fait comme le consentement du bailleur à un renouvellement et/ou un accord pour le maintien dans les lieux de l'occupant <br>
+        <br>
+        Par ailleurs, la perception d'une indemnité d'occupation à l'expiration du contrat, ne pourra être de même interprétée comme un éventuel accord du bailleur au maintien dans les lieux.<br>
+        <br>
+        Si, à l'expiration de la présente durée du bail, les parties conviennent de renouveler celui-ci, ce renouvellement se fera pour une période identique.<br>
+        <br>
+        Cette reconduction devra être en tout état de cause formalisée au moyen d’un avenant signé entre les parties.<br>
+    </p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">Les parties rappellent par ailleurs les dispositions de l’article L632-2 du Code de la Construction et de l’Habitation :</p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal"><em>« Lorsque le bailleur, propriétaire ou gérant du fonds doit, pour quelque motif que ce soit, cesser son activité, il en informe
+        les locataires titulaires du contrat mentionné à l'article L. 632-L trois mois au moins avant la date à laquelle la cessation d'activité est prévue.
+        Sauf cas de force majeure ou de mise en œuvre des procédures de sauvegarde ou de redressement judiciaire prévues par le Code de Commerce, la cessation d'activité ne peut
+        avoir lieu avant l'expiration des contrats en cours de validités ou avant le relogement des locataires titulaires desdits contrats. Si, en dépit de la cessation d'activité du bailleur,
+        les locaux gardent leur destination première, le contrat de bail est tacitement reconduit. Si, en revanche, la cessation d’activité est due à une opération d'urbanisme ou d'aménagement,
+        les occupants doivent être relogés aux frais de l'opérateur dans les conditions prévues aux articles L. 314-1 et L. 314-2 du code de l'urbanisme. »</em> <br><br>
+        <a  class="normal">Les délais de préavis de chacune des parties courent à partir de la date de réception de la lettre recommandée.</a>
+    </p>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>5/19</strong></a>
+    </p>
+
+</div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px"  src="../images/logoresidis.JPG" alt="" />
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="Important"><b>OBLIGATION DES PARTIES</b></p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px"  class="normal">Le bailleur et le locataire devront notamment observer les obligations suivantes :</p>
+
+    <p style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2" ><u>OBLIGATION DE L’EXPLOITANT </u></a><br>
+
+
+        <a  class="normal">L'exploitant est obligé :<br>
+            <br>
+            A/ De délivrer à L'occupant le logement en bon état d'usage et de réparation ainsi que les équipements mentionnés au contrat en bon état de fonctionnement.<br><br>
+
+            B/ D'assurer à l’occupant la jouissance paisible du logement et, sans préjudice des dispositions de l'article 1721 du Code Civil, de
+            le garantir des vices ou défauts de nature à y faire obstacle.<br>
+            C/ D'entretenir les locaux en état de servir à l'usage prévu par le contrat et d'y faire toutes les réparations, autres que locatives, nécessaires au maintien en état et à l'entretien normal des locaux loués.<br>
+
+        </a>
+
+
+    </p>
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2" ><u>OBLIGATION DE LOCATAIRE </u></a><br>
+
+
+        <a class="normal">L'occupant est obligé :<br><br>
+
+            A/ De payer le loyer et les charges aux termes convenus.<br><br>
+
+            B/ D'user paisiblement des locaux loués suivant la destination qui leur a été donné par le contrat d’hébergement.<br><br>
+
+            C/ De répondre des dégradations et pertes qui surviennent pendant la durée du contrat dans les locaux dont il a la jouissance exclusive
+            à moins qu’il ne prouve qu’elles ont eu lieu par cas de force majeure, par faute du bailleur qu’il n’a pas introduit dans le logement.<br><br>
+
+            D/ De laisser exécuter dans les lieux loués les travaux d'amélioration des parties communes ou des parties privatives du même immeuble,
+            ainsi que les travaux nécessaire au maintien en état et à l'entretien normal des locaux relevant le cas échéant de la responsabilité du bailleur;
+            les dispositions des deuxième et troisième alinéas de l'article 1724 du Code Civil sont applicables à ces travaux.<br><br>
+
+            E/ De ne pas transformer les locaux et équipements loués sans l’accord écrit du propriétaire ; à défaut de cet accord,
+            ce dernier pourra exiger de l'occupant, à son départ des lieux, la remise en état ou conserver à son bénéfice les
+            transformations effectuées sans
+            que l'occupant puisse réclamer une indemnisation des frais engagés; le bailleur aura toutefois la faculté d'exiger aux frais de l'occupant la remise immédiate
+            des lieux en l'état lorsque les transformations mettent en péril le bon fonctionnement des équipements ou la sécurité du local. <br><br>
+
+            F/ Le locataire ne pourra faire usage, dans les locaux loués, d'aucun appareil de chauffage à combustion lent ou continue,
+            en particulier d'aucun appareil utilisant le mazout ou le chauffage au gaz sans avoir obtenu préalablement l'accord et l'autorisation écrite du bailleur et
+            dans le cas où cette autorisation serait donnée, le locataire devrait prendre à sa charge les frais consécutifs aux aménagements préalables à réaliser
+            s'il y a lieu (modification ou adaptation des conduits ou cheminée d'évacuation, etc....).
+            Il reconnaît avoir été avisé de ce que la violation de cette interdiction le
+        </a>
+
+    </p>
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>6/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" class="normal">
+
+        rendrait responsable des dommages qui pourraient être causés. En conséquence, il ne pourrait réclamer aucune indemnité au bailleur en cas d'accident résultant
+        pour lui et les siens, de l’usage des engins sus énoncés et, en cas d'accidents causés à des tiers et autres locataires ou occupants, du fait de cet usage, il devrait garantir le
+        bailleur contre toutes réclamations et demandes d'indemnités.
+        Il serait en outre, tenu d'indemniser le bailleur pour les dégradations qui pourraient être causées, de ce fait, à l'immeuble.
+        Il devra prendre toutes précautions utiles contre le gel.<br><br>
+
+        G/ Le locataire devra jouir des lieux en bon père de famille, ne commettre aucun abus de jouissance susceptible de nuire soit à la solidité ou à
+        la bonne tenue de l'immeuble, susceptible d'engager la responsabilité du bailleur envers les autres occupants de l’immeuble, ou envers le voisinage.
+        En particulier, il ne pourra rien déposer sur les appuis de fenêtres, balcons et ouvertures quelconques sur rue ou sur cour, qui puisse présenter un danger
+        pour les autres occupants de l'immeuble, ou causer une gêne à ces occupants ou au voisinage, ou nuire à l'aspect dudit immeuble.
+        Il ne pourra notamment y étendre aucun linge, tapis, chiffons, y déposer aucun objet ménager, ustensile, outil quelconque, Il devra éviter tout bruit
+        de nature à gêner les autres habitants de l'immeuble; notamment régler tous appareils de radio, télévision, et tous appareils de reproduction des sons de telle
+        manière que le voisinage n'ait pas à s'en plaindre. Le locataire ne devra conserver dans les lieux loués aucun animal bruyant, malpropre ou malodorant susceptible
+        de causer des dégradations ou une gêne aux autres occupants de l'immeuble. Le locataire ne pourra déposer dans les cours, entrées, couloirs, escaliers, ni sur les
+        paliers et d'une manière générale dans aucune des parties communes, aucun objet quel qu'il soit, notamment bicyclettes, cycles à moteur et autres véhicules, voitures d'enfant et poussettes.<br><br>
+
+        H/ s'il existe un jardin, il s'entretiendra en parfait état ; la modification des plantations ne: pourra se faire qu'avec l'accord écrit du bailleur.
+        <br><br>I/ Il devra satisfaire à ses frais à toutes les charges et conditions d'hygiène, de ville, de police, ainsi qu'aux règlements de salubrité et d'hygiène,
+        et acquitter à leurs échéances toutes ses contributions personnelles, taxes d'habitation et autres, ainsi que toutes taxes assimilées, de telle façon que le
+        bailleur ne puisse être inquiété à ce sujet. En cas de départ, le locataire devra, avant de quitter les lieux : justifier au bailleur qu'il a acquitté toutes
+        impositions et taxes dont il serait redevable. Le locataire ne pourra ni céder le contrat, ni sous louer le logement sauf avec l'accord écrit du bailleur, y compris sur le prix du loyer.
+        En cas de cession du contrat principal, le sous occupant ne pourra se prévaloir d'aucun droit à l'encontre du bailleur, ni d'aucun titre d'occupation sauf en
+        cas d'application des dispositions de l'article L632-2 du Code de la Construction et de l'Habitation ci-dessus rappelé. L'occupant n'exercer dans les
+        lieux loués aucune activité commerciale, artisanale ou industrielle, ni aucune activité libérale ou professionnelle.<br><br>
+
+        J/ Un accueil est prévu dans la résidence suivant les jours et horaires indiqués sur place.<br><br>
+
+        K/ Le règlement intérieur de l'immeuble, annexé au présent contrat, doit être scrupuleusement respecté. Le non-respect du
+        règlement sera caractérisé par une attestation de l'employé de l'immeuble détaillant un comportement en contradiction avec une obligation
+        du règlement intérieur. Le bailleur pourra alors faire usage de la clause résolutoire ci-après inscrite. S'il est réitéré,
+        le contrat d'hébergement sera automatiquement résilié conformément à la clause résolutoire. La preuve de réitération ressort d'une autre attestation de l’employé de l'immeuble.
+    </p>
+
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>7/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+    <p    style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>DÉPÔT DE GARANTIE </u></a> <br>
+        <a class="normal">Pour garantir l‘exécution de ses obligations, l'occupant verse au bailleur un dépôt de garantie dont le montant est inscrit aux
+            <em>« conditions particulières »</em>. Ce versement sera restitué au locataire dans un délai maximal de deux mois à compter de la restitution de toutes les clefs
+            et dispositifs d'accès des lieux loués par l'occupant, déduction faite, le cas échéant, des sommes restant dues au bailleur et des sommes dont celui-ci pourrait être tenu,
+            au lieu et place de l'occupant,
+            sous réserve qu'elles soient dûment justifiées. Le montant de ce dépôt de garantie ne portera pas intérêt au bénéfice de l'occupant.</a><br><br>
+
+        <a class="classeh2"><u>CLAUSE RESOLUTOIRE </u></a> <br>
+        <a class="normal">Il est expressément convenu, comme condition essentielle des présentes, qu'à défaut de paiement exact à son échéance d'un seul terme de loyer ou de charges
+            ou d'inexécution d'une seule des clauses du contrat d'hébergement par l'occupant, le présent contrat sera résilié de plein droit, si bon semble au bailleur,
+            huit jours après un Commandement de payer ou d'exécuter demeuré infructueux contenant déclaration par le bailleur de son intention d'user de la présente clause.
+            Le délai du commandement est spécifiquement porté à huit jours pour le respect du règlement intérieur de l'immeuble.</a><br><br>
+        <a class="classeh2"><u>ETAT DES LIEUX </u></a><br>
+        <a class="normal">Un état des lieux sera établi contradictoirement par les parties lors de 'la remise et de la restitution des clefs ou;
+            à défaut, par huissier de justice à l’initiative de la partie la plus diligente et à frais partagés par moitié.
+            A défaut d'état des lieux, la présomption établie par l'article 1731 du Code Civil  ne pourra être invoquée par
+            celle des parties qui fait obstacle à l'établissement de l'état des lieux.
+        </a><br><br>
+        <a class="classeh2"><u>OBTENTION DES AIDES AU LOGEMENT </u></a><br>
+        <a class="normal">
+            L'obtention par les locataires des aides au logement ou d'autres aides de toutes natures relève de leur fait personnel.
+            Le bailleur ou son mandataire ne pourront en aucun cas être tenus pour responsables de la non constitution du dossier ou du refus d'octroi des aides au logement sollicitées
+            par les occupants. La conclusion du présent contrat ne peut être subordonnée à l'obtention desdites aides au logement,
+            leur sollicitation et leur octroi constituant des formalités indépendantes relevant de la seule diligence des occupants.
+        </a><br>
+    </p>
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>8/19</strong></a>
+    </p>
+
+</div>
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+    <p    style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+        <a class="classeh2"><u>DÉGRADATIONS ET SÉCURITÉ </u></a><br>
+        <a class="normal">Les parties reconnaissent que le bailleur ou ses représentants ne pourront être jugés responsables des dégradations ou vols tant dans les parties communes que privatives.<br><br>
+
+            Ces clauses font partie intégrante du contrat d'hébergement auquel le présent document est annexé et seront applicables à la date de prise d'effet du présent contrat. Par sa signature, le locataire reconnaît avoir pris connaissance de ces clauses et s'y soumettre.
+        </a><br>
+        <a class="classeh2"><b>Fait à PERPIGNAN</b></a><br>
+        <a class="classeh2"><b>Le {$date_de_debut_du_contrat_de_location}</b></a>
+
+    </p>
+
+
+
+    <div  class="main">
+        <div class="contentleft">
+            LE BAILLEUR <br>
+            Ou son représentant<br>
+            Signature précédée de la mention manuscrite<br>
+            « lu et approuvé »
+        </div><div class="contentright">LE(S) OCCUPANT(S)<br>
+        <br>
+        Signature précédée de la mention manuscrite<br>
+        « lu et approuvé »
+    </div> </div>
+    <div  class="main2">
+        <div class="imagegauche"></div>
+
+        <div class="imageDroite">
+            <br>
+            <br><br>
+        </div>
+    </div>
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>9/19</strong></a>
+    </p>
+
+</div>
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+    <p  class="Introduction">CLAUSES PARTICULIERES –<br>
+        Annexées au contrat du Logement n°{$numero_du_studio}<br>
+        Résidence LES PORTES D’ESPAGNE
+    </p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>VERSEMENT DES LOYERS : </u></a> <br>
+        <a class="normal">Le locataire s'engage à payer son loyer -charges comprises le premier
+            de chaque mois soit par chèque à l’ordre de RESIDIS, soit par virement automatique (RIB sur demande) soit par prélèvement (imprimé sur demande).</a><br><br>
+
+        <a class="classeh2"><u><b>RAPPEL DES</b> OBLIGATIONS DES OCCUPANTS </u><br></a>
+        <a class="normal">Règlement intérieur de la résidence - entretien courant des appartements (le règlement intérieur vous sera remis
+            le jour de l'état des lieux d'entrée) .Nous nous permettons d'attirer votre attention sur le présent RÈGLEMENT INTÉRIEUR
+            auquel nous vous demandons de bien vouloir vous conformer pour la bonne tenue de l'immeuble et la bonne harmonie entre les occupants.</a><br><br>
+        <a class="classeh2"><u>USAGE DES PARTIES PRIVATIVES : </u></a><br>
+        <a class="normal">Chaque occupant a le droit de jouir comme bon lui semble des parties privatives comprises dans son lot, à la condition de ne pas
+            nuire aux autres occupants et de ne rien faire qui puisse compromettre la solidité, la sécurité, la tranquillité de l'immeuble ou l'esthétique.</a><br><br>
+        <a class="classeh2"><u>USAGE DES PARTIES COMMUNES  </u></a> <br>
+        <a class="normal">Chaque occupant peut user librement des parties communes pour la jouissance de sa fraction divise,
+            suivant leur destination, à condition de ne pas faire obstacle aux droits des autres occupants.</a><br><br>
+        <a class="classeh2"><u><b>RESPONSABILITÉ</b> /DÉGRADATIONS/SALETÉS :</u></a><br>
+        <a class="normal">Chaque occupant est responsable des dégradations faites aux parties communes et de toutes conséquences dommageables résultant d'un usage abusif
+            que ce soit de son fait, des personnes ou des choses qu'il a sous sa garde, des personnes dont il a la responsabilité, tout occupant responsable de dégradations
+            (de lui-même, des personnes dont il a la responsabilité) se verra notifier la facture de réparation ou de nettoyage correspondante qu'il devra régler à réception.</a><br><br>
+
+        <a class="classeh2"><u>PARKINGS EXTÉRIEURS et SOUS-SOL (s'il y a lieu) :  </u></a><br>
+        <a class="normal">Le parking est réservé au seul usage de stationnement de véhicule. Les remorques, caravanes,
+            bateaux et tout autre moyen de locomotion ou de stockage sont interdits. Dans les sous-sols ainsi que sur les emplacements
+            de parkings et leur accès, il est interdit de faire tourner les moteurs autrement que pour manœuvrer d'entrée à sortie.
+            Il est expressément interdit de procéder à des travaux de mécanique ou à des opérations de vidange ou de lavage sur les emplacements de parkings ou
+            encore sur les voies de circulation. Les occupants doivent impérativement respecter la numérotation de leur place de parking. Il est strictement interdit de
+            laisser votre émetteur dans votre véhicule.
+            Tout émetteur perdu, cassé ou volé sera remplacé aux frais du locataire. Tout véhicule
+            qui paraîtra abandonné sera systématiquement enlevé par les services de la fourrière.</a>
+
+
+    </p>
+
+
+
+</div>
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>10/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+
+        <a class="classeh2"><u>ORDURES et EAUX USÉES : </u></a><br>
+        <a class="normal">Toutes les ordures doivent préalablement être enveloppées dans des sachets et descendues dans les containers situés dans les locaux prévus à cet effet.
+            Il est formellement interdit de les déposer dans les corbeilles à papier ou dans toute autre partie commune.</a><br><br>
+
+        <a class="classeh2"><u>LAVERIE (s'il y a lieu) :</u></a><br>
+        <a class="normal">La laverie est à la disposition exclusive des occupants.</a><br><br>
+
+        <a class="classeh2"><u>ANIMAUX :</u></a><br>
+        <a class="normal">Les occupants ne pourront avoir ou attirer aucun animal malfaisant, malodorant, malpropre ou criard.
+            Les chiens de petite taille et les chats sont tolérés, étant entendu que toutes dégradations causées par eux seront à la charge de leur propriétaire.
+            En aucun cas les animaux domestiques ne devront errer dans les parties communes, ils devront impérativement être portés ou tenus en laisse.
+            Les dégâts ou dégradations causées par un animal, quel qu'il soit, seront à la charge de son gardien. Il est interdit de laisser un animal seul enfermé dans un appartement.
+            Pensez à la grave responsabilité que vous encourez du fait des animaux sous votre garde en cas d'accident ou de dégradation. En cas de saletés (déjections.)
+            répétées et caractérisées faites par un animal il sera effectué un nettoyage ou une réparation de façon systématique,
+            les frais correspondant seront à la charge de l'occupant concerné, propriétaire de l’animal.</a><br><br>
+
+        <a class="classeh2"><u>PROPRETÉ :</u></a><br>
+        <a class="normal">Il est interdit de jeter dans les parties communes (entrées, escaliers, jardins...) des papiers,
+            des mégots et détritus qui enlaidissent l'immeuble et augmentent les charges d'entretien.</a><br><br>
+        <a class="classeh2"><u>BRUITS :</u></a><br>
+        <a class="normal">Les occupants devront veiller à ce que la tranquillité de l'immeuble ne soit à aucun moment troublée par leur fait,
+            celui des membres de leur famille, de leurs invités ou des personnes à leur service. Tout bruit, tapage nocturne et diurne, de quelque nature que ce soit,
+            susceptible de troubler la tranquillité des occupants, est formellement interdit,
+            alors même qu'il aurait lieu à l'intérieur des appartements et plus particulièrement entre 22hOO et 07h00.
+            L'usage de tous appareils radiophoniques, audiovisuels, HI-FI, est autorisé, sous réserve de l'observation des règlements de ville et de police,
+            et sous réserve également que le bruit en résultant ne constitue pas une gêne anormale, même temporaire pour les voisins.
+            Les machines à laver et autres appareils ménagers susceptibles de donner naissance à des vibrations devront être posés sur un dispositif empêchant la transmission de vibrations.
+            Les appareils électriques devront être antiparasites. Dans toutes les pièces carrelées, les tables et sièges devront être équipés d'éléments amortisseurs de bruits.</a><br><br>
+
+        <a class="classeh2"><u>JEUX :</u></a><br>
+        <a class="normal">Les jeux sont interdits dans les cages d'escalier, halls d'entrée et tous les espaces extérieurs (jardins, parkings.)</a><br><br>
+
+        <a class="classeh2"><u>ASCENSEUR (s'il y a lieu) :</u></a> <br>
+        <a class="normal">L’ascenseur ne devra pas être utilisé pour le transport de matériel lourd, ou encombrant. Il est strictement réservé au transport de personnes.</a><br><br>
+
+
+
+    </p>
+</div>
+
+
+
+
+
+
+    <div class="pieddepage">
+        <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+            58 Av. de Wagram 75017 PARIS <br>
+            <a class="bas_de_pages_num"><strong>11/19</strong></a>
+        </p>
+
+    </div>
+
+
+
+<div class="contenuprincipal">
+    <img   style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+        <a class="classeh2"><u>ENCOMBREMENT :  </u></a><br>
+        <a class="normal">Nul ne pourra, même temporairement, encombrer les parties communes ni y déposer quoi que ce soit,
+            ni les utiliser pour son usage personnel en dehors de leur destination normale sauf cas de
+
+            nécessité.<br><br> Les cours, passages, vestibules, escaliers, couloirs, entrées devront être libres en tout temps.
+            Notamment les entrées et couloirs ne pourront en aucun cas servir de garages à bicyclettes, motocyclettes, voitures d'enfants,
+            skis ou autres, qui dans le cas où des locaux seraient réservés à cet usage, devront y être garés ou entreposés. Les paillassons ne pourront,
+            en aucun cas, être déposés dans les couloirs, les occupants doivent les disposer à l'intérieur de leur appartement.
+        </a>
+        <br><br>
+
+        <a class="classeh2"><u>TERRASSES ET BALCONS :</u></a><br>
+        <a class="normal">Les occupants doivent veiller à ne pas laver à grande eau leur terrasse ou balcon. Ceci provoque des désagréments et des salissures sur les façades.<br>
+            Tout aménagement ou décoration pouvant porter atteinte à l'aspect ou à l'harmonie de l'immeuble est interdit. L'utilisation des balcons,
+            terrasses ou assimilés ne devra causer aucun trouble anormal. Aucun objet ne devra être déposé sur les bordures des balcons et terrasses si celui-ci dépasse la hauteur de la rampe.
+            Il est par exemple interdit de déposer ou installer du mobilier de rangement de type armoire ou étagère, ainsi que des éléments électroménagers de type machine à laver, réfrigérateur,
+            congélateur. Il est également interdit de fixer tout appareil ou objet sur les murs de la terrasse (tableau de décoration). Il est interdit d'y entreposer des matériaux, outillage ou matériel,
+            sauf le mobilier de jardin exclusivement, ni rien qui pourrait incommoder par la .vue, le bruit ou l'odeur. Plus particulièrement,
+            il est formellement interdit de réaliser aucun grill, barbecue ou installation similaire, ni d'en utiliser même mobiles ou électriques.
+        </a><br><br>
+
+        <a class="classeh2"><u>REPARATION-ACCÈS AUX OUVRIERS :</u></a><br>
+        <a class="normal">Les occupants devront souffrir sans indemnité l'exécution des réparations ou des travaux d'entretien qui seraient nécessaires aux parties communes quelle qu'en soit la durée,
+            et, si besoin est, livrer accès au syndic, aux architectes, entre locataires, techniciens et ouvriers chargés de surveiller, conduire ou d’exécuter ces travaux.
+        </a><br><br>
+
+        <a class="classeh2"><u>ENSEIGNES/PLAQUES/AUTOCOLLANTS :</u></a><br>
+        <a class="normal">Il n’est pas autorisé de poser des plaques, autocollants sur les portes palières ou sur les portes d'entrée de l'immeuble.
+            Les étiquettes des boîtes à lettres seront réalisées et posées par le syndic. Tous frais d'enlèvement, de nettoyage ou de réparation seront à la charge de l'occupant concerné.
+        </a><br><br>
+
+        <a class="classeh2"><u>LIBREACCES :</u></a><br>
+        <a class="normal">En cas d'absence prolongée, tout occupant devra laisser les clés de son appartement à une personne résidant effectivement dans la commune de la situation de l'immeuble.
+            L'adresse de cette personne devra être portée à la connaissance du gardien. Le détenteur des clés sera autorisé à pénétrer dans l'appartement en cas d'urgence.
+        </a><br><br>
+    </p>
+
+
+
+</div>
+
+    <div class="pieddepage">
+        <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+            58 Av. de Wagram 75017 PARIS <br>
+            <a class="bas_de_pages_num"><strong>12/19</strong></a>
+        </p>
+
+    </div>
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>HARMONIE et ASPECT :</u></a><br>
+        <a class="normal">Aucun aménagement extérieur ni aucune décoration ne peuvent être apportés aux balcons, fenêtres, terrasses et fermetures extérieures.
+            Les portes d'entrée des appartements ne pourront, même en ce qui concerne leur peinture, être modifiées extérieurement ou intérieurement individuellement.
+            Les tapis-brosses dans les parties communes devant l'entrée des appartements sont interdits. En outre, aucun objet, ni ustensile ne pourra être déposé momentanément sur les paliers d'étage
+        </a><br><br>
+
+        <a class="classeh2"><u>UTILISATION DES FENÊTRES :</u></a><br>
+        <a class="normal">Aucun objet ne pourra être déposé sur les bords des fenêtres sans être fixé. Les pots de fleurs devront reposer sur des dessous étanches et capables de conserver
+            l'excédent d'eau de manière à ne pas détériorer les murs ni incommoder les passants et les voisins. Les règlements de police devront être observés pour battre ou secouer
+            les tapis et chiffons de nettoyage. Il ne pourra être étendu de linge, ni exposé aucun objet aux fenêtres,
+            ni sur les rebords des balcons ou terrasses, et d'une façon générale en dehors des endroits qui pourraient être réservés à cet effet.
+        </a><br><br>
+
+        <a class="classeh2"><u>CHAUFFAGE :</u></a><br>
+        <a class="normal">Ne peuvent être utilisés que les appareils de chauffage individuels conformes à la réglementation et compatibles avec la contexture de l'immeuble.
+            Toutefois, l'utilisation des poêles à combustion lente est interdite.
+        </a><br><br>
+
+        <a class="classeh2"><u>LIVRAISONS :</u></a><br>
+        <a class="normal">Les livraisons dans l'immeuble de provisions, matières sales ou encombrantes devront être faites le matin avant dix heures.
+            Il ne devra être introduit dans l'immeuble aucune matière dangereuse, insalubre ou malodorante.
+        </a><br><br>
+
+        <a class="classeh2"><u>SECURITE-SALUBRITE :</u></a><br>
+        <a class="normal">Il ne pourra être introduit et conservé dans les locaux privatifs des matières dangereuses, insalubres et malodorantes, notamment le stockage
+            d'hydrocarbures et de tous produits ou matières volatiles ou inflammables. Les conduits, de quelque nature qu'ils soient, ne pourront être utilisés que pour l'usage auquel
+            ils ont été destinés. Il ne pourra être jeté dans les canalisations, et notamment dans celles conduisant aux égouts, des produits ou matières inflammables ou dangereux. Il est interdit d'utiliser les tuyaux d'évacuation exposés aux gelées lorsque celles-ci risquent de se produire. Les occupants devront prendre toutes mesures nécessaires ou utiles pour éviter
+            la prolifération des insectes nuisibles et des rongeurs, Ils devront en outre se conformer à toutes les directives qui leur seraient données à cet égard par le syndic.
+        </a><br><br>
+        <a class="classeh2"><u>ANTENNES ET PARABOLES :  </u></a><br>
+        <a class="normal">Les installations d'antennes ou de dispositifs particuliers extérieurs de réception de radiotélévision,
+            dans le souci de respecter l'aspect esthétique général de l'immeuble, sont interdites.
+        </a><br><br>
+
+        <a class="classeh2"><u>STORES ET GRILLAGES : </u></a><br>
+        <a class="normal">Le modèle des grillages et des stores doit être conforme à celui décrit par l'architecte. La pose de canisses est interdite.
+        </a><br><br>
+
+
+    </p>
+
+</div>
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>13/19</strong></a>
+    </p>
+
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+        <a class="classeh2"><u>VÉHICULE 2 ROUES (vélo, moto, poussette) :</u></a><br>
+        <a class="normal">Des emplacements réservés sont prévus dans la résidence. Ces emplacements doivent être systématiquement utilisés,
+            Tout véhicule de ce style déposé ailleurs que dans les emplacements réservés sera évacué.</a><br><br>
+
+        <a class="classeh2"><u>MACHINE A LAVER :</u></a><br>
+        <a class="normal">Il est strictement interdit d'installer une machine à laver dans les logements meublés faisant partie d'une résidence-services.
+        </a><br><br>
+
+        <a class="classeh2"><u>ETATS DES LIEUX :</u></a><br>
+        <a class="normal">Les clés du logement ne seront remises, lors de l'état des lieux d'entrée, qu'à la condition expresse que la totalité
+            des justificatifs de solvabilité soient remis au représentant de Voyages Services Plus.
+            Si, du fait de l'occupation des lieux, des dégradations sont constatées, les travaux de remise en état seront déduits du dépôt de garantie.
+        </a><br><br>
+
+        <a class="classeh2"><u>DÉGRADATION ET SÉCURITÉ :</u></a><br>
+        <a class="normal">Les parties reconnaissent que le bailleur ou ses représentants ne pourront être jugés responsables des dégradations ou vols tant dans les parties communes que privatives.
+        </a><br><br>
+
+        <a class="classeh2"><u>RÈGLEMENT DES SALLES ET ÉQUIPEMENTS COMMUNS (s'il y a lieu) :</u></a><br>
+        <a class="normal">La laverie, Il est interdit de fumer dans la laverie, Il est interdit de manger dans la laverie, s'adresser au gardien de la résidence
+            en cas de problème pendant ses heures de travail,
+            l'utilisation des lessives à main et à paillettes est formellement interdite. Elle engage la responsabilité de l'utilisateur.
+        </a><br><br>
+        <a class="classeh2"><u>HORAIRES SERVICES - SALLES COMMUNES – ÉQUIPEMENTS :</u></a><br>
+        <a class="normal">Ces horaires seront affichés sur la résidence. Ils pourront être modifiés suivant nécessité. Dans ce cas aucune réclamation ou compensation ne pourra être acceptée.
+        </a><br><br>
+    </p>
+
+</div>
+
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>14/19</strong></a>
+    </p>
+
+</div>
+
+
+
+
+
+
+
+<div class="contenuprincipal">
+
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+        <a class="classeh2"><u>REPARATION SALLES COMMUNES :</u></a><br>
+        <a class="normal">Si des réparations s'avèrent nécessaires et empêchent l'accès ou l'utilisation de ces services, il ne pourra être accepté aucune réclamation.
+            Les tarifs des prestations sont affichés sur place. Ces installations sont faites pour le confort de tous, nous comptons sur vous pour y prêter attention.
+        </a><br><br>
+        <a class="classeh2"><b>Fait à PERPIGNAN</b></a> <br>
+        <a class="classeh2"><b>Le {$date_de_debut_du_contrat_de_location}</b></a>
+    </p>
+    <div  class="main">
+        <div class="contentleft">
+            LE BAILLEUR <br>
+            Ou son représentant<br>
+            Signature précédée de la mention manuscrite<br>
+            « lu et approuvé »
+        </div><div class="contentright">LE(S) OCCUPANT(S)<br>
+        <br>
+        Signature précédée de la mention manuscrite<br>
+        « lu et approuvé »
+    </div>
+    </div>
+    <div  class="main2">
+        <div class="imagegauche"></div>
+
+        <div class="imageDroite">
+            <br>
+            <br><br>
+        </div>
+    </div>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px"></p>
+
+</div>
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>15/19</strong></a>
+    </p>
+
+</div>
+
+
+
+<div class="contenuprincipal">
+    <img   style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+    <p class="Introduction">
+        ANNEXE AU BAIL D'HÉBERGEMENT DU LOGEMENT N°{$numero_du_studio} <br>
+        Résidence LES PORTES D’ESPAGNE
+
+    </p>
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px" >
+        <a class="classeh2"><u>VERSEMENT DES LOYERS</u></a><br>
+        <a class="normal">Le locataire s'engage à payer son loyer -charges comprises/TTC- le premier de
+            chaque mois soit par chèque à l'ordre de Voyages Services Plus, soit par virement automatique (RIB sur demande) soit par prélèvement (imprimé sur demande).</a><br><br>
+        <a class="classeh2"><u>GRILLES DES RÉPARATIONS LOCATIVES</u></a><br><br>
+        <a class="normal">Descriptif type de logement :
+        </a>
+
+    </p>
+
+   <table  style="align-content: center ;width: 90%;height: 60%; margin-left: auto; margin-right: auto"   >
+
+        <tr  class="tableauBackground">
+            <td style="width:60%; height: 3%;"><a class="Important" > PIÈCES DE VIE</a></td>
+            <td > </td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Banquette CLIC CLAC</a> </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Mécanisme Banquette</a> </td>
+            <td> <a class="normal">450,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Matelas Banquette</a> </td>
+            <td> <a class="normal">160,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Bibliothèque</a> </td>
+            <td> <a class="normal">260,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Meuble TV</a> </td>
+            <td> <a class="normal">210,00 €</a></td>
+        </tr>
+        <tr>
+        <td style="width:60%; height: 8px;"><a class="normal">Bureau</a> </td>
+        <td> <a class="normal">210,00 €</a></td>
+    </tr>
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Table Repas</a> </td>
+            <td> <a class="normal">260,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Chaises / Fauteuil/ à l’unité</a> </td>
+            <td> <a class="normal">260,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Miroir / Porte manteaux</a> </td>
+            <td> <a class="normal">110,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Télévision</a> </td>
+            <td> <a class="normal">130,00 €</a></td>
+        </tr>
+
+
+
+
+    </table>
+
+
+    <p  style ="text-justify: auto; margin-left:40px; margin-right: 30px">
+
+
+
+
+
+    </p>
+</div>
+
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>16/19</strong></a>
+    </p>
+
+</div>
+
+<div class="contenuprincipal">
+    <img   style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+        <br><p></p>
+
+   <table   style="width: 90%;height: 60%; align-content: center ;  margin-left: auto; margin-right: auto"  >
+        <tr>
+        <td style="width:60%; height: 8px;"><a class="normal">Voilage</a> </td>
+        <td> <a class="normal">450,00 €</a></td>
+    </tr>
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Double Rideaux</a> </td>
+            <td> <a class="personne">150,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 8px;"><a class="normal">Table Basse</a> </td>
+            <td> <a class="normal">165,00 €</a></td>
+        </tr>
+
+        <tr class="tableauBackground">
+            <td style="width:60%; height: 3%;"><a class="Important" > CHAMBRE(S)</a></td>
+            <td > </td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Lit cassé 1 Place</a> </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Lit cassé 2 Places</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Matelas 1 Place</a> </td>
+            <td> <a class="normal">310,00 €</a></td>
+        </tr>
+
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Matelas 2 Places</a> </td>
+            <td> <a class="normal">450,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="..."><a class="normal">Sommier Lit 1 Place</a> </td>
+            <td> <a class="normal">120,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Sommier Lit 2 Places</a> </td>
+            <td> <a class="normal">220,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Table de Chevet</a> </td>
+            <td> <a class="normal">110,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Lampe de Chevet</a> </td>
+            <td> <a class="normal">110,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Oreillers à l’unité</a> </td>
+            <td> <a class="normal">50,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Couverture lit 1 Place</a> </td>
+            <td> <a class="normal">35,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Couverture lit 2 Places</a> </td>
+            <td> <a class="normal">55,00 €</a></td>
+        </tr>
+
+    </table>
+<p></p>
+
+</div>
+
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>17/19</strong></a>
+    </p>
+
+</div>
+
+
+<div class="contenuprincipal">
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+    <p></p><br>
+    <table  style="width: 90%;height: 60%; align-content: center ;  margin-left: auto; margin-right: auto"   >
+        <tr  class="tableauBackground">
+        <td style="width:60%; height: 3%;"><a class="Important" > CUISINE</a></td>
+        <td > </td>
+    </tr>
+        <tr>
+        <td style="width:60%; height: 13px;"><a class="normal">Plaques Electriques</a> </td>
+        <td> <a class="normal"></a></td>
+    </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Plaques Vitrocéramiques</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+        <tr>
+
+
+            <td style="width:60%; height: 13px;"><a class="normal">Micro-Ondes</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Réfrigérateur</a> </td>
+            <td> <a class="normal">240,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Portes sous évier</a> </td>
+            <td> <a class="normal">390,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Meubles Hauts</a> </td>
+            <td> <a class="normal">110,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Evier</a> </td>
+            <td> <a class="normal">205,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Robinet</a> </td>
+            <td> <a class="normal">90,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Kit Vaisselles</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+        <tr  class="tableauBackground">
+            <td style="width:60%; height: 3%;"><a class="Important" > SALLE DE BAIN - WC</a></td>
+            <td > </td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Meuble sous Vasque</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Vasque</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+
+
+
+
+        </table>
+
+
+
+<br><br>
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>18/19</strong></a>
+    </p>
+
+</div>
+
+<div class="contenuprincipal">
+    <br>
+    <img  style ="text-justify: auto; margin-left:40px; margin-right: 30px" src="../images/logoresidis.JPG" alt="" />
+
+    <p></p>
+    <br>
+    <table  style="width: 90%;height: 60%; align-content: center ;  margin-left: auto; margin-right: auto"  >
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Bac à Douche/Receveur</a> </td>
+            <td> <a class="normal"></a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Baignoire</a> </td>
+            <td> <a class="normal">340,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Robinet</a> </td>
+            <td> <a class="normal">350,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Rideau de douche</a> </td>
+            <td> <a class="normal">320,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Pare-Douche</a> </td>
+            <td> <a class="normal">350,00 €</a></td>
+        </tr>
+
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Pommeau Douche</a> </td>
+            <td> <a class="normal">95,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Flexible douche</a> </td>
+            <td> <a class="normal">30,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Miroir</a> </td>
+            <td> <a class="normal">280,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Dérouleur WC</a> </td>
+            <td> <a class="normal">40,00 €</a></td>
+        </tr>
+        <tr>
+            <td style="width:60%; height: 13px;"><a class="normal">Abattants WC</a> </td>
+            <td> <a class="normal">30,00 €</a></td>
+
+
+
+
+    </table>
+
+
+
+
+
+</div>
+
+
+<div class="pieddepage">
+    <p class="bas_de_pages"><em>RESIDIS SAS</em>  au capital de 100 000€ RCS : 509 019 048 <br>
+        58 Av. de Wagram 75017 PARIS <br>
+        <a class="bas_de_pages_num"><strong>19/19</strong></a>
+    </p>
+
+</div>
+
+
+
+</body>
+</html>

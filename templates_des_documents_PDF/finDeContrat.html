@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contrat de Location expiré</title>
+
+    <style>
+
+        .gras{
+            color: black;
+            font-weight: bold;
+            font-size: 10pt;
+        }
+        .normal{
+            font-size: 10pt;
+            color: black;
+            font-family:  Arial, Verdana, sans-serif;
+        }
+
+
+
+        h2
+        {
+            color: black;
+            font-size: 17px;
+            font-family: Arial, sans-serif;
+        }
+
+
+        body, html{height:100%;
+            width: 100%;
+            padding:0;
+        }
+
+        #contenuprincipal {
+            top: 5px;
+            height: 85%;
+
+        }
+        #pieddepage {
+            vertical-align: top;
+            position: relative;
+            bottom: 1px;
+            margin-bottom: 1px;
+
+            height: 3%;
+            page-break-after: auto;
+        }
+        .grandtitre{
+            color: black;
+            font-weight: bolder;
+            font-size: 25px;
+            background-color: red;
+            border: 1px solid;
+            text-align: center;
+
+        }
+        .bas_de_pages{
+            text-align: center;
+            font-size: 9pt;
+            color: gray;
+            font-family: Arial, Verdana, sans-serif;
+        }
+
+
+        td /* Toutes les cellules des tableaux... */
+        {
+            border: 1px solid black; /* auront une bordure de 1px */
+            padding: 15px;
+        }
+        table
+
+        {
+            border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+            vertical-align: center;
+            text-align: center;
+        }
+        p{
+            text-align: justify;
+            text-justify: inter-word;
+        }
+        img{
+            height: 70px;width: 250px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="contenuprincipal">
+    <p  class="grandtitre" >
+
+    CONTRAT DE LOCATION EXPIRÉ
+</p>
+    <p  style ="text-justify: auto; margin-left:70px; margin-right: 70px ; margin-top: 30%" class="normal">Bonjour {$prenom_du_locataire}<br><br><br>
+        <a class="gras" >
+        Votre contrat de location au studio n° {$numero_du_studio} chez RESIDIS-LES PORTES D'ESPAGNE a pris fin le {$date_de_la_fin_du_contrat_du_locataire}.
+    </a><br><br>
+        <a class="gras" style=" color: red">Merci de passer au plus vite au bureau pour signer votre nouveau contrat de
+            location.
+        </a><br><br>
+
+        <a class="normal">Cordialement,<br>
+            RESIDIS Perpignan
+        </a>
+    </p>
+
+</div>
+
+<div id="pieddepage"><p class="bas_de_pages">
+    <em>RESIDIS SAS</em> au capital de 100 000€ RCS : 509 019 048 <br>
+    58 Av. de Wagram 75017 PARIS
+</p>
+</div>
+</body>
+</html>
