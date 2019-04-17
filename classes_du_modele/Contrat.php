@@ -52,7 +52,10 @@ class Contrat
     private $identifiant_du_studio;
 
     //
-    public function __construct($id_du_type_de_contrat, $libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio)
+    private $identifiant_du_garant;
+
+    //
+    public function __construct($id_du_type_de_contrat, $libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio, $identifiant_du_garant)
     {
 
         //
@@ -96,6 +99,16 @@ class Contrat
 
         //
         $this->chemin_du_fichier_genere;
+
+        //
+        $this->identifiant_du_garant = $identifiant_du_garant;
+    }
+
+    //
+    public function getIdentifiant_du_garant()
+    {
+        //
+        return $this->identifiant_du_garant;
     }
 
     //
@@ -284,13 +297,20 @@ class Contrat
     public function setIdentifiant_du_locataire($identifiant_du_locataire)
     {
         //
-        return $this->identifiant_du_locataire = $identifiant_du_locataire;
+        $this->identifiant_du_locataire = $identifiant_du_locataire;
     }
 
     //
     public function setIdentifiant_du_studio($identifiant_du_studio)
     {
         //
-        return $this->identifiant_du_studio = $identifiant_du_studio;
+        $this->identifiant_du_studio = $identifiant_du_studio;
+    }
+
+    //
+    public function setIdentifiant_du_garant($identifiant_du_garant)
+    {
+        //
+        $this->identifiant_du_garant = $identifiant_du_garant;
     }
 }

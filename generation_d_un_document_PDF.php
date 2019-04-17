@@ -121,42 +121,41 @@
                                                 //
                                                 if (verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_fin_du_contrat_pour_le_locataire))
                                                 {
+                                                    //
+                                                    $date_de_naissance_du_locataire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_naissance_du_locataire);
 
                                                     //
-                                                    $date_de_naissance_du_locataire_sous_forme_de_tableau = explode("/", $date_de_naissance_du_locataire);
+                                                    $date_de_naissance_du_locataire_sous_forme_de_DateTime = $date_de_naissance_du_locataire_sous_toutes_ses_formes['datetime'];
 
                                                     //
-                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau = explode("/", $date_d_arrivee_du_locataire_dans_son_studio);
+                                                    $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_toutes_ses_formes['timestamp'];
 
                                                     //
-                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_debut_du_contrat_pour_le_locataire);
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_debut_du_contrat_pour_le_locataire);
 
                                                     //
-                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_fin_du_contrat_pour_le_locataire);
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes['datetime'];
 
                                                     //
-                                                    $date_de_naissance_du_locataire_sous_forme_de_DateTime = new DateTime($date_de_naissance_du_locataire_sous_forme_de_tableau[2] . "-" . $date_de_naissance_du_locataire_sous_forme_de_tableau[0] . "-" . $date_de_naissance_du_locataire_sous_forme_de_tableau[1]);
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes['timestamp'];
 
                                                     //
-                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = new DateTime($date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[2] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[0] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[1]);
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_d_arrivee_du_locataire_dans_son_studio);
 
                                                     //
-                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['datetime'];
 
                                                     //
-                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['timestamp'];
 
                                                     //
-                                                    $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_forme_de_DateTime->getTimestamp();
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_fin_du_contrat_pour_le_locataire);
 
                                                     //
-                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->getTimestamp();
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['datetime'];
 
                                                     //
-                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
-
-                                                    //
-                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['timestamp'];
 
                                                     //
                                                     if (($date_de_naissance_du_locataire_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp <= $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp) && ($date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp < $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp)) {
@@ -172,73 +171,257 @@
                                                             $locataire_courant = new Locataire($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime, $adresse_email_du_locataire, $date_de_naissance_du_locataire_sous_forme_de_DateTime, $adresse_d_habitation_du_locataire, $type_de_public_choisi_pour_le_locataire, $numero_de_telephone_du_locataire);
 
                                                             //
-                                                            if(est_element_present_dans_la_base($locataire_courant) == False)
+                                                            try
                                                             {
+                                                                //
+                                                                $identifiant_du_locataire = recuperation_de_l_id_d_un_element_passe_en_parametre($locataire_courant);
 
                                                                 //
-                                                                try
+                                                                $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire = mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
+
+                                                                //
+                                                                $libelle_du_type_de_contrat_choisi = recuperation_du_libelle_du_type_du_contrat_de_location_a_partir_des_donnees_renseignees_dans_le_formulaire($type_de_contrat_choisi_pour_le_locataire, $ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
+
+                                                                //
+                                                                $id_du_type_de_contrat = recuperation_de_l_id_de_type_de_contrat_a_partir_de_son_libelle($libelle_du_type_de_contrat_choisi);
+
+                                                                //
+                                                                $inclusion_EDF = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_edf"];
+
+                                                                //
+                                                                $inclusion_eau = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_eau"];
+
+                                                                //
+                                                                $inclusion_internet = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_internet"];
+
+                                                                //
+                                                                $inclusion_assurance_locative = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_assurance_locative"];
+
+                                                                //
+                                                                $inclusion_charges_immeuble = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_charges_immeuble"];
+
+                                                                //
+                                                                $id_du_studio_selectionne = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
+
+                                                                //
+                                                                if(verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_libre($identifiant_du_locataire, $id_du_studio_selectionne) == 1)
                                                                 {
-                                                                    //
-                                                                    insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                    //Processus de génération du fichier PDF
 
                                                                     //
-                                                                    $identifiant_du_locataire = recuperation_de_l_id_d_un_element_passe_en_parametre($locataire_courant);
+                                                                    $chemin_du_fichier_genere = "0";
 
+                                                                    //
+                                                                    $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF = new Smarty();
+
+                                                                    //
+                                                                    $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array(
+
+                                                                    ));
+
+                                                                    //
+                                                                    if($type_de_contrat_choisi_pour_le_locataire == 1)
+                                                                    {
+                                                                        //
+                                                                        $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array(
+
+                                                                        ));
+
+                                                                        //
+                                                                        $template_remplie_avec_tous_les_elements_renseignes_dans_le_formulaire = $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->fetch('templates_des_documents_PDF/Contrat.html');
+
+                                                                        //
+                                                                        if(est_element_present_dans_la_base($locataire_courant) == False)
+                                                                        {
+
+                                                                            insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                        }
+
+                                                                        //
+                                                                        $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, NULL);
+
+                                                                        //
+                                                                        insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
+
+                                                                        //
+                                                                        $smarty = new Smarty();
+
+                                                                        //
+                                                                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+                                                                        //
+                                                                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                                                                    }
+                                                                    elseif($type_de_contrat_choisi_pour_le_locataire == 2)
+                                                                    {
+                                                                        //
+                                                                        $nom_de_famille_du_garant_renseigne_dans_le_formulaire = $_POST['nom_de_famille_du_garant'];
+
+                                                                        //
+                                                                        $prenom_du_garant = $_POST['prenom_du_garant'];
+
+                                                                        //
+                                                                        $date_de_naissance_du_garant = $_POST['date_de_naissance_du_garant'];
+
+                                                                        //
+                                                                        $adresse_d_habitation_du_garant = $_POST['adresse_postale_de_residence_du_garant'];
+
+                                                                        //
+                                                                        if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_garant_renseigne_dans_le_formulaire, $prenom_du_garant))
+                                                                        {
+
+                                                                            //
+                                                                            if(verification_de_la_validite_de_l_adresse($adresse_d_habitation_du_garant))
+                                                                            {
+
+                                                                                //
+                                                                                if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_naissance_du_garant))
+                                                                                {
+
+                                                                                    //
+                                                                                    if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_naissance_du_garant))
+                                                                                    {
+                                                                                        //
+                                                                                        $date_de_naissance_du_garant_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_naissance_du_garant);
+
+                                                                                        //
+                                                                                        $date_de_naissance_du_garant_sous_forme_de_DateTime = $date_de_naissance_du_garant_sous_toutes_ses_formes['datetime'];
+
+                                                                                        //
+                                                                                        $date_de_naissance_du_garant_sous_forme_de_timestamp = $date_de_naissance_du_garant_sous_toutes_ses_formes['timestamp'];
+
+                                                                                        //
+                                                                                        if($date_de_naissance_du_garant_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp)
+                                                                                        {
+                                                                                            //
+                                                                                            $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array());
+
+                                                                                            //
+                                                                                            $template_remplie_avec_tous_les_elements_renseignes_dans_le_formulaire = $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->fetch('templates_des_documents_PDF/Contrat_12_mois.html');
+
+                                                                                            //
+                                                                                            if(est_element_present_dans_la_base($locataire_courant) == False)
+                                                                                            {
+
+                                                                                                insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                                            }
+
+                                                                                            //
+                                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, NULL);
+
+                                                                                            //Prccessus d'enregistrement du contrat de location et du garant dans la base
+
+                                                                                            //
+                                                                                            insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
+
+                                                                                            //
+                                                                                            $smarty = new Smarty();
+
+                                                                                            //
+                                                                                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
+
+                                                                                            //
+                                                                                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                                                                                        }
+                                                                                        //Sinon...
+                                                                                        else
+                                                                                        {
+                                                                                            //
+                                                                                            $smarty = new Smarty();
+
+                                                                                            //
+                                                                                            $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez renseigné est incohérente",
+                                                                                                "description_de_l_erreur" => "La date de naissance du garant du locataire est strictement inférieure à la date de début de son contrat de location."));
+
+                                                                                            //
+                                                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                                                        }
+                                                                                    }
+                                                                                    //Sinon...
+                                                                                    else
+                                                                                    {
+                                                                                        //
+                                                                                        $smarty = new Smarty();
+
+                                                                                        //
+                                                                                        $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez entré n'est pas valide",
+                                                                                            "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
+
+                                                                                        //
+                                                                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                                                    }
+                                                                                }
+                                                                                //Sinon...
+                                                                                else
+                                                                                {
+
+                                                                                    //
+                                                                                    $smarty = new Smarty();
+
+                                                                                    //
+                                                                                    $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de naissance du garant du locataire, ce n'est pas une date que vous avez entré",
+                                                                                        "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
+
+                                                                                    //
+                                                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                                                }
+                                                                            }
+                                                                            //Sinon...
+                                                                            else
+                                                                            {
+                                                                                //
+                                                                                $smarty = new Smarty();
+
+                                                                                //
+                                                                                $smarty->assign(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
+                                                                                    "description_de_l_erreur" => "L'adresse d'habitation du garant du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
+
+                                                                                //
+                                                                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                                            }
+                                                                        }
+                                                                        //Sinon...
+                                                                        else
+                                                                        {
+                                                                            //
+                                                                            $smarty = new Smarty();
+
+                                                                            //
+                                                                            $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                                                                                "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
+
+                                                                            //
+                                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+                                                                        }
+                                                                    }
                                                                 }
-                                                                //
-                                                                catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
+                                                                //Sinon...
+                                                                else
                                                                 {
                                                                     //
                                                                     $smarty = new Smarty();
 
                                                                     //
-                                                                    $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_concernant_l_enregistrement_du_locataire_dans_la_base->getMessage()));
+                                                                    $smarty->assign(array("intitule_de_l_erreur" => "La saisie du numéro de studio est incorrecte",
+                                                                        "description_de_l_erreur" => "Le numéro de studio renseigné n'est pas bon: Soit il n'est pas libre, soit il n'est pas occupé par le locataire"));
 
                                                                     //
-                                                                    $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
+                                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                 }
 
                                                             }
-
                                                             //
-                                                            $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire = mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
-
-                                                            //
-                                                            $libelle_du_type_de_contrat_choisi = recuperation_du_libelle_du_type_du_contrat_de_location_a_partir_des_donnees_renseignees_dans_le_formulaire($type_de_contrat_choisi_pour_le_locataire, $ensemble_des_conditions_choisies_pour_le_contrat_du_locataire);
-
-                                                            //
-                                                            $id_du_type_de_contrat = recuperation_de_l_id_de_type_de_contrat_a_partir_de_son_libelle($libelle_du_type_de_contrat_choisi);
-
-                                                            //
-                                                            $inclusion_EDF = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_edf"];
-
-                                                            //
-                                                            $inclusion_eau = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_eau"];
-
-                                                            //
-                                                            $inclusion_internet = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_internet"];
-
-                                                            //
-                                                            $inclusion_assurance_locative = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_assurance_locative"];
-
-                                                            //
-                                                            $inclusion_charges_immeuble = $tableau_associatif_de_l_ensemble_des_conditions_choisies_pour_le_contrat_du_locataire["inclusion_charges_immeuble"];
-
-                                                            //
-                                                            $chemin_du_fichier_genere = "0";
-
-                                                            //
-                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire);
-
-                                                            //
-                                                            try
-                                                            {
-                                                                //
-                                                                insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
-
-                                                            }
-                                                                //
                                                             catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
                                                             {
                                                                 //
@@ -251,15 +434,6 @@
                                                                 $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
 
                                                             }
-
-                                                            //
-                                                            $smarty = new Smarty();
-
-                                                            //
-                                                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
-
-                                                            //
-                                                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
 
                                                         }
                                                         //Sinon...

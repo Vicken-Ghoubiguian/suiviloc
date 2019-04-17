@@ -323,6 +323,41 @@ function mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($e
 }
 
 //
+function renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_passee_en_parametre)
+{
+    $date_passee_en_parametre_sous_forme_de_tableau = explode("/", $date_passee_en_parametre);
+
+    $date_passee_en_parametre_sous_forme_de_DateTime = new DateTime($date_passee_en_parametre_sous_forme_de_tableau[2] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[1]);
+
+    $date_passee_en_parametre_sous_forme_de_timestamp = $date_passee_en_parametre_sous_forme_de_DateTime->getTimestamp();
+
+    $renvoi_de_la_date = array(
+        "datetime" => $date_passee_en_parametre_sous_forme_de_DateTime,
+        "timestamp" => $date_passee_en_parametre_sous_forme_de_timestamp
+    );
+
+    return $renvoi_de_la_date;
+
+}
+
+//
+function extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_concerne)
+{
+    $requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Studio WHERE Studio.numero_du_studio = :numero_du_studio_concerne");
+
+    $requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero->bindParam(":numero_du_studio_concerne", $numero_du_studio_concerne);
+
+    $requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero->execute();
+
+    $resultat_de_la_requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero = $requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero->fetchAll(PDO::FETCH_BOTH);
+
+    $id_du_studio = $resultat_de_la_requete_de_renvoi_de_l_id_du_studio_a_partir_de_son_numero[0][0];
+
+    return $id_du_studio;
+
+}
+
+//
 function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_libre($id_du_locataire_concerne, $id_du_studio_concerne)
 {
     $variable_de_retour = 0;
