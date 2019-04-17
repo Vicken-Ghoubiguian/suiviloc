@@ -98,7 +98,7 @@ class Contrat
         $this->inclusion_charges_immeuble = $inclusion_charges_immeuble;
 
         //
-        $this->chemin_du_fichier_genere;
+        $this->chemin_du_fichier_genere = $chemin_du_fichier_genere;
 
         //
         $this->identifiant_du_garant = $identifiant_du_garant;

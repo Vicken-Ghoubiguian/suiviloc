@@ -17,7 +17,7 @@ class connexion_a_la_base_de_donnees_via_PDO
     private function __construct(){
 
         //
-        self::$cnxPDO = new PDO('mysql:host='.self::HOST.';dbname='.self::DB_NAME , self::USER, self::PWD);
+        self::$cnxPDO = new PDO('mysql:host='.self::HOST.';dbname='.self::DB_NAME , self::USER, self::PWD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'));
     }
 
     //

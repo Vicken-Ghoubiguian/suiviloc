@@ -22,6 +22,47 @@
     }
 
     //
+    function renvoi_de_l_id_du_garant_passe_en_parametre($garant_courant)
+    {
+
+        if(is_a($garant_courant, "Garant"))
+        {
+
+            $nom_du_garant = $garant_courant->getNom_du_garant();
+
+            $prenom_du_garant = $garant_courant->getPrenom_du_garant();
+
+            $date_de_naissance_du_garant = $garant_courant->getDate_de_naissance();
+
+            $adresse_d_habitation_du_garant = $garant_courant->getAdresse_d_habitation();
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Garant WHERE nom = :nom_de_famille_du_garant AND prenom = :prenom_du_garant AND adresse_d_habitation = :adresse_d_habitation_du_garant AND date_de_naissance = :date_de_naissance_du_garant");
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant->bindParam(":nom_de_famille_du_garant", $nom_du_garant);
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant->bindParam(":prenom_du_garant", $prenom_du_garant);
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant->bindParam(":adresse_d_habitation_du_garant", $adresse_d_habitation_du_garant);
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant->bindParam(":date_de_naissance_du_garant", $date_de_naissance_du_garant);
+
+            $requete_preparee_de_recuperation_de_l_id_du_garant->execute();
+
+            $resultat_de_la_requete_preparee_de_recuperation_de_l_id_du_garant = $requete_preparee_de_recuperation_de_l_id_du_garant->fetchAll(PDO::FETCH_BOTH);
+
+            return $resultat_de_la_requete_preparee_de_recuperation_de_l_id_du_garant[0][0];
+
+        }
+        else
+        {
+
+            return 0;
+
+        }
+
+    }
+
+    //
     function verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_passe_en_parametre, $prenom_passe_en_parametre)
     {
 
@@ -372,12 +413,13 @@ function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_lib
 
     if($nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_un_locataire == 0)
     {
+
         $variable_de_retour = 1;
 
     }
     elseif($nombre_de_resultats_de_la_requete_de_verification_de_l_occupation_du_studio_par_un_locataire == 1)
     {
-        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.studio = :numero_du_studio AND Contrat.locataire = :id_du_locataire");
+        $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.studio = :id_du_studio AND Contrat.locataire = :id_du_locataire");
 
         $requete_de_verification_de_l_occupation_du_studio_par_le_locataire_concerne->bindParam(":id_du_studio", $id_du_studio_concerne);
 
@@ -700,9 +742,69 @@ function verification_que_le_studio_est_occupe_par_le_locataire_ou_qu_il_est_lib
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Contrat"))
         {
 
+            $id_du_type_de_contrat = $element_a_inserer_dans_la_base_de_donnees->getId_du_type_de_contrat();
+
+            $libelle_du_type_de_contrat_choisi = $element_a_inserer_dans_la_base_de_donnees->getLibelle_du_type_de_contrat();
+
+            $date_de_debut_du_contrat_pour_le_locataire = $element_a_inserer_dans_la_base_de_donnees->getDate_de_debut();
+
+            $date_de_fin_du_contrat_pour_le_locataire = $element_a_inserer_dans_la_base_de_donnees->getDate_de_fin();
+
+            $montant_du_loyer = $element_a_inserer_dans_la_base_de_donnees->getMontant_du_loyer();
+
+            $encaissement_du_depot_de_garantie = $element_a_inserer_dans_la_base_de_donnees->getEncaissement_du_depot_de_garantie();
+
+            $inclusion_EDF = $element_a_inserer_dans_la_base_de_donnees->getInclusion_EDF();
+
+            $inclusion_eau = $element_a_inserer_dans_la_base_de_donnees->getInclusion_eau();
+
+            $inclusion_internet = $element_a_inserer_dans_la_base_de_donnees->getInclusion_internet();
+
+            $inclusion_assurance_locative = $element_a_inserer_dans_la_base_de_donnees->getInclusion_assurance_locative();
+
+            $inclusion_charges_immeuble = $element_a_inserer_dans_la_base_de_donnees->getInclusion_charges_immeubles();
+
+            $identifiant_du_garant = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_garant();
+
+            $identifiant_du_studio = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_studio();
+
+            $identifiant_du_locataire = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_locataire();
+
+            $chemin_du_fichier_genere = $element_a_inserer_dans_la_base_de_donnees->getChemin_du_fichier_genere();
+
+            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_debut_du_contrat_pour_le_locataire->format("Y-m-d");
+
+            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_fin_du_contrat_pour_le_locataire->format("Y-m-d");
+
+            $requete_preparee_d_insertion_du_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("");
+
+
+
         }
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Garant"))
         {
+
+            $nom_de_famille_du_garant = $element_a_inserer_dans_la_base_de_donnees->getNom_du_garant();
+
+            $prenom_du_garant = $element_a_inserer_dans_la_base_de_donnees->getPrenom_du_garant();
+
+            $adresse_d_habitation_du_garant = $element_a_inserer_dans_la_base_de_donnees->getAdresse_d_habitation();
+
+            $date_de_naissance_du_garant = $element_a_inserer_dans_la_base_de_donnees->getDate_de_naissance();
+
+            $date_de_naissance_du_garant_sous_forme_de_String = $date_de_naissance_du_garant->format("Y-m-d");
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Garant(nom, prenom, date_de_naissance, adresse_d_habitation) VALUES(:nom_de_famille_du_garant, :prenom_du_garant, :date_de_naissance_du_garant, :adresse_d_habitation_du_garant)");
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":nom_de_famille_du_garant", $nom_de_famille_du_garant);
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":prenom_du_garant", $prenom_du_garant);
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":adresse_d_habitation_du_garant", $adresse_d_habitation_du_garant);
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":date_de_naissance_du_garant", $date_de_naissance_du_garant_sous_forme_de_String);
+
+            $requete_preparee_d_insertion_du_garant_dans_la_base->execute();
 
         }
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Studio"))
