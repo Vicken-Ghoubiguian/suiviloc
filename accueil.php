@@ -148,7 +148,7 @@
                                                                                                                                     <p>Le montant du dépot de garantie se chiffre à <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros. Sera-t'il encaissé ?
                                                                                                                                         <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti'>
                                                                                                                                             <option value='1'>Oui</option>
-                                                                                                                                            <option value='2'>Non</option>
+                                                                                                                                            <option value='0'>Non</option>
                                                                                                                                         </select>.
                                                                                                                                     </p>
                                                                                                                                     <p>Le garant se nomme <input type='text' name='nom_de_famille_du_garant' class='ui-corner-all text-warning' id='nom_de_famille_du_garant'> <input type='text' name='prenom_du_garant' class='ui-corner-all text-warning' id='prenom_du_garant'>.</p>
