@@ -716,6 +716,20 @@
                         //
                         if($resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire == 1)
                         {
+
+                            //
+                            generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
+
+                                "prenom_du_locataire" => $prenom_du_locataire,
+
+                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+
+                                //"date_de_la_fin_du_contrat_du_locataire" => $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1] . "/" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]
+
+                                "date_de_la_fin_du_contrat_du_locataire" => "3"
+
+                            ));
+
                             //
                             $smarty = new Smarty();
 
