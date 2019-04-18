@@ -22,9 +22,6 @@
     require_once("smarty/libs/Smarty.class.php");
 
     //
-    require_once("dompdf/autoload.inc.php");
-
-    //
     use Dompdf\Dompdf;
 
     //
@@ -863,8 +860,23 @@
                         $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL = date("Y-m-d H:i:sP", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
 
                         //
-                        if(verification_de_la_pertinance_des_donnees_renseignees($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $numero_du_studio_pour_le_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL))
+                        if(verification_de_la_pertinance_des_donnees_renseignees_pour_la_generation_de_l_attestation($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $numero_du_studio_pour_le_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL))
                         {
+
+                            //
+                            generation_d_un_document_sous_format_PDF("attestation", array(
+
+                                "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
+
+                                "prenom_du_locataire" => $prenom_du_locataire,
+
+                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+
+                                "date_du_jour" => "3",
+
+                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL
+
+                            ));
 
                             //
                             $smarty = new Smarty();
@@ -1006,6 +1018,21 @@
                     //
                     if($nombre_de_resultats_de_la_requete_preparee_pour_la_verification_du_numero_du_studio_occupe_par_le_locataire == 1)
                     {
+
+                        //
+                        generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
+
+                            "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
+
+                            "prenom_du_locataire" => $prenom_du_locataire,
+
+                            "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+
+                            "date_du_jour" => "3",
+
+                            "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
+
+                        ));
 
                         //
                         $smarty = new Smarty();

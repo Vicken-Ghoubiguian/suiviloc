@@ -4,6 +4,74 @@
     require_once('classes_du_modele/connexion_a_la_base_de_donnees_via_PDO.php');
 
     //
+    require_once('dompdf/autoload.inc.php');
+
+    //
+    require_once('smarty/libs/Smarty.class.php');
+
+    //
+    function generation_d_un_document_sous_format_PDF($type_de_document_a_generer, $donnees_a_inserer_dans_le_futur_document_PDF)
+    {
+
+        $code_genere_pour_l_identification_du_document_PDF = 0;
+
+        for ($incrementeur = 0; $incrementeur < 10; $incrementeur++) {
+
+            $code_genere_pour_l_identification_du_document_PDF .= mt_rand(0, 9);
+
+        }
+
+        $heure_de_generation_du_document_PDF = time();
+
+        $chemin_de_telechargement_du_document_PDF_genere = "documents_generes_en_PDF/" . $type_de_document_a_generer . "_" . $code_genere_pour_l_identification_du_document_PDF . "_" . $heure_de_generation_du_document_PDF . ".pdf";
+
+        $smarty = new Smarty();
+
+        $smarty->assign($donnees_a_inserer_dans_le_futur_document_PDF);
+
+        if($type_de_document_a_generer == "relance_loyer_impaye")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/relance.html");
+
+        }
+        elseif($type_de_document_a_generer == "expiration_de_contrat_de_location")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/expiration_de_contrat_de_location.html");
+
+        }
+        elseif($type_de_document_a_generer == "attestation")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/attestation.html");
+
+        }
+        elseif($type_de_document_a_generer == "contrat_0-3_mois")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/contrat_0-3_mois.html");
+
+        }
+        elseif($type_de_document_a_generer == "contrat_12_mois")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/contrat_12_mois.html");
+
+        }
+
+        $dompdf = new \Dompdf\Dompdf();
+
+        $dompdf->loadHtml($template_nouvellement_genere);
+
+        $dompdf->setPaper('a4', 'portrait');
+
+        $dompdf->render();
+
+        file_put_contents($chemin_de_telechargement_du_document_PDF_genere, $dompdf->output());
+    }
+
+    //
     function contient_l_element_passe_en_parametre($chaine_de_caractere_dans_lequel_trouver_l_element, $element_a_trouver)
     {
 
@@ -210,7 +278,7 @@
     }
 
     //
-    function verification_de_la_pertinance_des_donnees_renseignees($nom_de_famille_du_locataire, $prenom_du_locataire, $numero_de_studio_du_locataire, $date_d_arrivee_sous_forme_de_datetime_SQL)
+    function verification_de_la_pertinance_des_donnees_renseignees_pour_la_generation_de_l_attestation($nom_de_famille_du_locataire, $prenom_du_locataire, $numero_de_studio_du_locataire, $date_d_arrivee_sous_forme_de_datetime_SQL)
     {
 
         $variable_de_retour = True;
