@@ -715,15 +715,19 @@
                         {
 
                             //
+                            setlocale(LC_TIME, "fr_FR");
+
+                            //
+                            $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_timestamp);
+
+                            //
                             generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
 
                                 "prenom_du_locataire" => $prenom_du_locataire,
 
                                 "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                                //"date_de_la_fin_du_contrat_du_locataire" => $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1] . "/" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2]
-
-                                "date_de_la_fin_du_contrat_du_locataire" => "3"
+                                "date_de_la_fin_du_contrat_du_locataire" => $date_de_la_fin_du_contrat_du_locataire_au_format_francophone
 
                             ));
 
@@ -843,6 +847,15 @@
                         {
 
                             //
+                            setlocale(LC_TIME, "fr_FR");
+
+                            //
+                            $date_du_jour = strftime("%A %d %B %Y");
+
+                            //
+                            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                            //
                             generation_d_un_document_sous_format_PDF("attestation", array(
 
                                 "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
@@ -851,9 +864,9 @@
 
                                 "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                                "date_du_jour" => "3",
+                                "date_du_jour" => $date_du_jour,
 
-                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL
+                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
 
                             ));
 
@@ -969,6 +982,12 @@
                     {
 
                         //
+                        setlocale(LC_TIME, "fr_FR");
+
+                        //
+                        $date_du_jour = strftime("%A %d %B %Y");
+
+                        //
                         generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
 
                             "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
@@ -977,7 +996,7 @@
 
                             "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                            "date_du_jour" => "3",
+                            "date_du_jour" => $date_du_jour,
 
                             "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
 

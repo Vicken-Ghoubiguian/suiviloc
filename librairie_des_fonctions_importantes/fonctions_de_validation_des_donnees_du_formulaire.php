@@ -442,13 +442,16 @@ function renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Time
 {
     $date_passee_en_parametre_sous_forme_de_tableau = explode("/", $date_passee_en_parametre);
 
+    $date_passee_en_parametre_sous_format_francophone = $date_passee_en_parametre_sous_forme_de_tableau[1] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[2];
+
     $date_passee_en_parametre_sous_forme_de_DateTime = new DateTime($date_passee_en_parametre_sous_forme_de_tableau[2] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[1]);
 
     $date_passee_en_parametre_sous_forme_de_timestamp = $date_passee_en_parametre_sous_forme_de_DateTime->getTimestamp();
 
     $renvoi_de_la_date = array(
         "datetime" => $date_passee_en_parametre_sous_forme_de_DateTime,
-        "timestamp" => $date_passee_en_parametre_sous_forme_de_timestamp
+        "timestamp" => $date_passee_en_parametre_sous_forme_de_timestamp,
+        "francophone" => $date_passee_en_parametre_sous_format_francophone
     );
 
     return $renvoi_de_la_date;
