@@ -673,13 +673,10 @@
             {
 
                 //
-                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau = explode("/", $date_de_fin_du_contrat_pour_le_locataire);
+                $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_fin_du_contrat_pour_le_locataire);
 
                 //
-                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[2] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[0] . "-" . $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_tableau[1]);
-
-                //
-                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->getTimestamp();
+                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['timestamp'];
 
                 //
                 $id_d_identification_du_locataire_renseigne = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
@@ -833,13 +830,10 @@
                     {
 
                         //
-                        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau = explode("/", $date_d_arrivee_du_locataire_dans_son_studio);
+                        $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_d_arrivee_du_locataire_dans_son_studio);
 
                         //
-                        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = new DateTime($date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[2] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[0] . "-" . $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_tableau[1]);
-
-                        //
-                        $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->getTimestamp();
+                        $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['timestamp'];
 
                         //
                         $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL = date("Y-m-d H:i:sP", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
