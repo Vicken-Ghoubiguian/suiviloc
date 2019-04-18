@@ -65,6 +65,12 @@
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/etiquette.html");
 
         }
+        elseif($type_de_document_a_generer == "etat_des_lieux_lors_de_sortie_anticipee")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/etat_des_lieux_lors_de_sortie_anticipee.html");
+
+        }
 
         $dompdf = new \Dompdf\Dompdf();
 
@@ -438,8 +444,19 @@ function mise_en_evidence_de_l_ensemble_des_conditions_du_contrat_de_location($e
 }
 
 //
+function formatage_date_du_format_de_DateTime_SQL_a_celui_de_calendar_jQuery_Ui($date_passee_en_parametre_pour_formatage)
+{
+
+    $date_passee_en_parametre_sous_forme_de_tableau = explode("-", $date_passee_en_parametre_pour_formatage);
+
+    return $date_passee_en_parametre_sous_forme_de_tableau[1] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[2] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[0];
+
+}
+
+//
 function renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_passee_en_parametre)
 {
+
     $date_passee_en_parametre_sous_forme_de_tableau = explode("/", $date_passee_en_parametre);
 
     $date_passee_en_parametre_sous_format_francophone = $date_passee_en_parametre_sous_forme_de_tableau[1] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "/" . $date_passee_en_parametre_sous_forme_de_tableau[2];

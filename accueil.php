@@ -487,7 +487,62 @@
                                                         </div>
                                                         <h3>Générer un état des lieux</h3>
                                                         <div>
-                                                            <p></p>
+                                                            <form action='generation_d_un_document_PDF.php' method='post'>
+                                                                <input type='hidden' name='type_de_document' value='etat_des_lieux_lors_d_un_depart_anticipe'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Le locataire <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'> qui occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
+
+                                                                                //
+                                                                                for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+
+                                                                                    //
+                                                                                    if ($incrementeur_des_surfaces == 1) {
+
+                                                                                        $corps_de_la_page_html .= "<optgroup label='15m2'>";
+
+                                                                                    } else {
+
+                                                                                        $corps_de_la_page_html .= "<optgroup label='18m2'>";
+
+                                                                                    }
+
+                                                                                    //
+                                                                                    //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface');
+
+                                                                                    //
+                                                                                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+
+                                                                                    //
+                                                                                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+
+                                                                                    //
+                                                                                    $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+
+                                                                                    //
+                                                                                    $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+
+                                                                                    //
+                                                                                    $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+
+                                                                                    //
+                                                                                    for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+
+                                                                                        //
+                                                                                        $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+
+                                                                                    }
+
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "</optgroup>";
+
+                                                                                }
+
+                $corps_de_la_page_html .= "</select> partira avant le <input type='text' name='date_de_depart_initial_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                <p>Un état des lieux sera donc éfféctué le <input type='text' name='date_choisie_pour_l_etat_des_lieux' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> à <input type='time' name='heure_choisie_pour_l_etat_des_lieux' class='text-warning ui-corner-all'>.</p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
+                                                                <p>Bonne journée,</p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
                                                         </div>
                                                         <h3>Générer un préavis</h3>
                                                         <div>
