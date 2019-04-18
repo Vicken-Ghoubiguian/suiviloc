@@ -33,6 +33,7 @@
                                                 <li><a href='#attestation'>Attestation</a></li>
                                                 <li><a href='#relance_impayee'>Relance impayée</a></li>
                                                 <li><a href='#accuses_de_reception'>Accusés de réception</a></li>
+                                                <li><a href='#autres_documents'>Autres documents</a></li>
                                             </ul>
                                             <div id='bienvenue'>
                                                 <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
@@ -420,6 +421,77 @@
                                                         <h3>Lire les accusés de récéption</h3>
                                                         <div>
                                                             <p>ddddd</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id='autres_documents'>
+                                                    <div class='menu_en_accordeon'>
+                                                        <h3>Génerer une étiquette</h3>
+                                                        <div>
+                                                            <form action='generation_d_un_document_PDF.php' method='post'>
+                                                                <input type='hidden' name='type_de_document' value='etiquette'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Cette étiquette est pour  <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning'> <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning'>.</p>
+                                                                <p>Celui-ci occupe le studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
+
+                                                                            //
+                                                                            for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
+
+                                                                                //
+                                                                                if ($incrementeur_des_surfaces == 1) {
+
+                                                                                    $corps_de_la_page_html .= "<optgroup label='15m2'>";
+
+                                                                                } else {
+
+                                                                                    $corps_de_la_page_html .= "<optgroup label='18m2'>";
+
+                                                                                }
+
+                                                                                //
+                                                                                //$requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare(\\\"SELECT Studio . numero_du_studio FROM Studio INNER JOIN Contrat ON Contrat . studio WHERE Contrat . studio != Studio . id AND Studio . surface = :id_de_la_surface\\\");
+
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare('SELECT Studio.numero_du_studio FROM Studio WHERE Studio.surface = :id_de_la_surface');
+
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->bindParam(':id_de_la_surface', $incrementeur_des_surfaces);
+
+                                                                                //
+                                                                                $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->execute();
+
+                                                                                //
+                                                                                $resultat_de_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->fetchAll(PDO::FETCH_BOTH);
+
+                                                                                //
+                                                                                $nombre_de_resultats_dans_la_requete = $requete_preparee_pour_afficher_pour_selection_les_studios_disponibles->rowCount();
+
+                                                                                //
+                                                                                for ($i = 0; $i < $nombre_de_resultats_dans_la_requete; $i++) {
+
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value='" . $resultat_de_la_requete[$i][0] . "'>" . $resultat_de_la_requete[$i][0] . "</option>";
+
+                                                                                }
+
+                                                                                //
+                                                                                $corps_de_la_page_html .= "</optgroup>";
+
+                                                                            }
+
+            $corps_de_la_page_html .= "</select>.</p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
+                                                                <p>Bonne journée,</p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
+                                                        </div>
+                                                        <h3>Générer un état des lieux</h3>
+                                                        <div>
+                                                            <p></p>
+                                                        </div>
+                                                        <h3>Générer un préavis</h3>
+                                                        <div>
+                                                            <p></p>
                                                         </div>
                                                     </div>
                                                 </div>
