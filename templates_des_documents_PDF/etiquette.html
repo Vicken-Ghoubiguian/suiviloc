@@ -18,8 +18,7 @@
 
 
         width: 400px;
-        min-height: 50px;
-        max-height: 70px;
+        height: 50px;
         display: table;
 
     }
@@ -27,7 +26,7 @@
         color: Black;
 
         width: 110px;
-        height: 100px;
+        height: 50px;
         display: table-cell;
 
         text-align: center;
@@ -37,31 +36,31 @@
     }
     .classemilieu{
         color: black;
-        margin-top: 30px;
+        margin-top: 10px;
         vertical-align: bottom;
         text-align: center;
     }
     .classeBasGauche{
         color: black;
-        margin-top: 55px;
+        margin-top: 20px;
         vertical-align: bottom;
-       margin-left: 15px;
+       margin-left: 10px;
     }
     .classeBasDroite{
         color: black;
-        margin-top: 55px;
+        margin-top: 20px;
         vertical-align: bottom;
-        margin-left: 70px;
+        margin-left: 60px;
     }
     .hautDroit{
          color: black;
-        margin-left: 150px;
+        margin-left: 140px;
 
      }
     img{
         vertical-align: bottom;
         margin-left: 10px;
-        height: 30px;width: 60px;
+        height: 30px;width: 50px;
 
         text-align: left;
 
@@ -90,14 +89,18 @@
 
 
         <div class="imageDroite" style="background-color: white">
+            <table border="hidden">
+                <tr>
+                    <td width="50%"> <img  src="dompdf/image/logoresidis.JPG" alt="" /></td>
+                    <td width="50%"><a class="hautDroit" style="font-size: 9pt" >Les Portes d'Espagne</a></td>
+                </tr>
+            </table>
+            <a class="classemilieu " style="font-size: 18pt ; font-weight: bold" >{$nom_de_famille_du_locataire} {$prenom_du_locataire}</a><br>
+            <p style="margin-top: 10px; font-size: 11pt">
+                <a class="classeBasGauche"  >ETAGE {$numero_de_l_etage_du_studio}</a>
+                <a class="classeBasDroite"  >LOGEMENT {$numero_du_studio}</a>
 
-            <img  src="../images/logoresidis.JPG" alt="" />
-
-            <a class="hautDroit" style="font-size: 8pt" >Les Portes d'Espagne</a>
-
-            <p class="classemilieu " style="font-size: 14pt" > {$nom_de_famille_du_locataire} {$prenom_du_locataire}</p>
-            <a class="classeBasGauche" style="font-size: 8pt" >Etage n°{$numero_de_l_etage_du_studio}</a>
-            <a class="classeBasDroite" style="font-size: 8pt" >Logement n°{$numero_du_studio}</a>
+            </p>
 
          </div>
 
