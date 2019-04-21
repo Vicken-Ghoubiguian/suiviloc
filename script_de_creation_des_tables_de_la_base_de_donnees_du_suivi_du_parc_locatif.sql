@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Locataire(
         date_d_arrivee DATE NOT NULL,
         adresse_mail VARCHAR(100),
         date_de_naissance DATE NOT NULL,
-        numero_de_telephone VARCHAR(100),
+        numero_de_telephone VARCHAR(100) NOT NULL,
 	PRIMARY KEY(id),
         FOREIGN KEY (type_de_public) REFERENCES Type_de_public(id)
 );
@@ -88,22 +88,6 @@ CREATE TABLE IF NOT EXISTS Type_de_contrat(
 	PRIMARY KEY(id)
 );
 
--- TABLE Contrat --
-CREATE TABLE IF NOT EXISTS Contrat(
-        id INTEGER NOT NULL AUTO_INCREMENT,
-        locataire INTEGER NOT NULL,
-        studio INTEGER NOT NULL,
-        type_de_contrat INTEGER NOT NULL,
-        date_de_debut_du_contrat DATE NOT NULL,
-        date_de_fin_du_contrat DATE NOT NULL,
-        montant_du_loyer INTEGER NOT NULL,
-        encaissement_du_depot_de_garantie BOOLEAN NOT NULL,
-        FOREIGN KEY (locataire) REFERENCES Locataire(id),
-        FOREIGN KEY (studio) REFERENCES Studio(id),
-	FOREIGN KEY (type_de_contrat) REFERENCES Type_de_contrat(id),
-	PRIMARY KEY(id)
-);
-
 -- TABLE Coute --
 CREATE TABLE IF NOT EXISTS Coute(
 	prix_du_tarif INTEGER NOT NULL,
@@ -121,14 +105,31 @@ CREATE TABLE IF NOT EXISTS Garant(
         prenom VARCHAR(100) NOT NULL,
 	date_de_naissance DATE NOT NULL,
 	adresse_d_habitation VARCHAR(100) NOT NULL,
-	contrat INTEGER NOT NULL,
-	FOREIGN KEY (contrat) REFERENCES Contrat(id),
+    PRIMARY KEY(id)
+);
+
+-- TABLE Contrat --
+CREATE TABLE IF NOT EXISTS Contrat(
+        id INTEGER NOT NULL AUTO_INCREMENT,
+        locataire INTEGER NOT NULL,
+        studio INTEGER NOT NULL,
+        garant INTEGER,
+        type_de_contrat INTEGER NOT NULL,
+        date_de_debut_du_contrat DATE NOT NULL,
+        date_de_fin_du_contrat DATE NOT NULL,
+        montant_du_loyer INTEGER NOT NULL,
+        encaissement_du_depot_de_garantie BOOLEAN NOT NULL,
+        chemin_d_accee VARCHAR(100) NOT NULL,
+        FOREIGN KEY (locataire) REFERENCES Locataire(id),
+        FOREIGN KEY (studio) REFERENCES Studio(id),
+        FOREIGN KEY (garant) REFERENCES Garant(id),
+	FOREIGN KEY (type_de_contrat) REFERENCES Type_de_contrat(id),
 	PRIMARY KEY(id)
 );
 
 -- INSERTION DES UTTILISATEURS ET DE LEURS MOTS DE PASSE RESPECTIFS DANS LA TABLE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif --
-INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('elaravel', SHA1('123'), 'Laravel', 'Eric', NOW(), FALSE, 'elaravel@nom_de_domaine.com');
-INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('mSymfony', SHA1('abc'), 'Symfony', 'Marie', NOW(), FALSE, 'msymfony@nom_de_domaine.com');
+INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('nlievens', SHA1('123'), 'Lievens', 'Nicolas', NOW(), FALSE, 'nlievens@gmail.com');
+INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('msanchez', SHA1('abc'), 'Sanchez', 'Marie', NOW(), FALSE, 'msanchez@gmail.com');
 
 -- INSERTION DES UTTILISATEURS POUR FAIRE ENTRER LE CODE DE RECUPERATION EN CAS D'OUBLIS DU MOT DE PASSE DANS LA TABLE Recuperation_du_mot_de_passe --
 INSERT INTO Recuperation_du_mot_de_passe(utilisateur, code_de_recuperation_du_mot_de_passe, temps_limite_pour_la_validite_du_code_de_recuperation) VALUES(1, NULL, NULL);
