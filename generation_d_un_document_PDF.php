@@ -242,7 +242,7 @@
                                                                         //
                                                                         //$contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, NULL);
 
-                                                                        $contrat_courant = new Contrat($id_du_type_de_contrat, 3, new DateTime("2019-04-01"), new DateTime("2019-04-30"), 366, True, True, True, True, True, True, '01222', $identifiant_du_locataire, '206', NULL);
+                                                                        $contrat_courant = new Contrat($id_du_type_de_contrat, 3, new DateTime("2019-04-01"), new DateTime("2019-04-30"), (new DateTime('now'))->format('Y-m-d'), True, True, True, True, True, True, '01222', $identifiant_du_locataire, '206', NULL);
 
                                                                         //
                                                                         insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
@@ -327,7 +327,7 @@
                                                                                             $identifiant_du_garant = renvoi_de_l_id_du_garant_passe_en_parametre($garant_courant);
 
                                                                                             //
-                                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, $identifiant_du_garant);
+                                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, (new DateTime('now'))->format('Y-m-d'), $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, $identifiant_du_garant);
 
                                                                                             //
                                                                                             insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);

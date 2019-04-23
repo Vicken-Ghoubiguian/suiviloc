@@ -22,6 +22,9 @@ class Contrat
     private $date_de_fin;
 
     //
+    private $date_du_jour;
+
+    //
     private $montant_du_loyer;
 
     //
@@ -55,7 +58,7 @@ class Contrat
     private $identifiant_du_garant;
 
     //
-    public function __construct($id_du_type_de_contrat, $libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio, $identifiant_du_garant)
+    public function __construct($id_du_type_de_contrat, $libelle_du_type_de_contrat, $date_de_debut, $date_de_fin, $date_du_jour, $montant_du_loyer, $encaissement_du_depot_de_garantie, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $identifiant_du_studio, $identifiant_du_garant)
     {
 
         //
@@ -75,6 +78,9 @@ class Contrat
 
         //
         $this->date_de_fin = $date_de_fin;
+
+        //
+        $this->date_du_jour = $date_du_jour;
 
         //
         $this->montant_du_loyer = $montant_du_loyer;
@@ -210,6 +216,13 @@ class Contrat
     }
 
     //
+    public function getDate_du_jour()
+    {
+        //
+        return $this->date_du_jour;
+    }
+
+    //
     public function setId_du_type_de_contrat($id_du_type_de_contrat)
     {
         //
@@ -312,5 +325,12 @@ class Contrat
     {
         //
         $this->identifiant_du_garant = $identifiant_du_garant;
+    }
+
+    //
+    public function setDate_du_jour($date_du_jour)
+    {
+        //
+        $this->date_du_jour = $date_du_jour;
     }
 }
