@@ -1,7 +1,7 @@
 <?php
 
 
-class Preavit
+class Preavis
 {
 
     //
