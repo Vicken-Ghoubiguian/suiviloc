@@ -1237,6 +1237,12 @@
                 $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
 
                 //
+                $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
+
+                //
+                $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire,$id_du_studio_pour_le_locataire);
+
+                //
                 if($id_du_locataire != 0)
                 {
 
@@ -1344,7 +1350,7 @@
                                             $date_du_jour = strftime("%A %d %B %Y");
 
                                             //
-                                            generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
+                                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
 
                                                 "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
 
@@ -1365,6 +1371,21 @@
                                                 "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
 
                                             ));
+
+                                            //
+                                            $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
+
+                                            //
+                                            $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
+
+                                            //
+                                            $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
+
+                                            //
+                                            $etat_des_lieux_courant = new Etat_des_lieux('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
+
+                                            //
+                                            insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
 
                                             //
                                             $smarty = new Smarty();
@@ -1513,19 +1534,19 @@
         {
 
             //
-            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = $_POST['nom_de_famille_du_locataire'];
+            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
 
             //
-            $prenom_du_locataire = $_POST['prenom_du_locataire'];
+            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
 
             //
-            $numero_du_studio_pour_le_locataire = $_POST['numero_du_studio_pour_a_choisir_pour_location'];
+            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
 
             //
             $id_du_studio = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
 
             //
-            $date_de_depart_du_locataire_entree_dans_le_formulaire = $_POST['date_de_depart_du_locataire'];
+            $date_de_depart_du_locataire_entree_dans_le_formulaire = htmlspecialchars($_POST['date_de_depart_du_locataire']);
 
             //
             $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);

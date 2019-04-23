@@ -173,6 +173,7 @@ CREATE TABLE IF NOT EXISTS Relance_loyer_impaye (
 CREATE TABLE IF NOT EXISTS Etat_des_lieux(
     id INTEGER NOT NULL AUTO_INCREMENT,
     date_du_jour DATE NOT NULL,
+    date_et_heure_programmees DATETIME NOT NULL,
     chemin_d_accee VARCHAR(100) NOT NULL,
     contrat INTEGER  NOT NULL,
     FOREIGN KEY (contrat) REFERENCES Contrat(id),
@@ -180,8 +181,8 @@ CREATE TABLE IF NOT EXISTS Etat_des_lieux(
 );
 
 -- INSERTION DES UTTILISATEURS ET DE LEURS MOTS DE PASSE RESPECTIFS DANS LA TABLE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif --
-INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('elaravel', SHA1('123'), 'Laravel', 'Eric', NOW(), FALSE, 'elaravel@nom_de_domaine.com');
-INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('msymfony', SHA1('abc'), 'Symfony', 'Marie', NOW(), FALSE, 'msymfony@nom_de_domaine.com');
+INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('nlievens', SHA1('123'), 'Lievens', 'Nicolas', NOW(), FALSE, 'nlievens@gmail.com');
+INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('msanchez', SHA1('abc'), 'Sanchez', 'Marie', NOW(), FALSE, 'msanchez@gmail.com');
 
 -- INSERTION DES UTTILISATEURS POUR FAIRE ENTRER LE CODE DE RECUPERATION EN CAS D'OUBLIS DU MOT DE PASSE DANS LA TABLE Recuperation_du_mot_de_passe --
 INSERT INTO Recuperation_du_mot_de_passe(utilisateur, code_de_recuperation_du_mot_de_passe, temps_limite_pour_la_validite_du_code_de_recuperation) VALUES(1, NULL, NULL);

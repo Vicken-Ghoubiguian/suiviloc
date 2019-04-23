@@ -14,7 +14,10 @@ class Etat_des_lieux
     private $id_du_contrat_de_location;
 
     //
-    public function __construct($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location)
+    private $date_et_heure_programmees;
+
+    //
+    public function __construct($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programmees)
     {
 
         //
@@ -25,6 +28,18 @@ class Etat_des_lieux
 
         //
         $this->id_du_contrat_de_location = $id_du_contrat_de_location;
+
+        //
+        $this->date_et_heure_programmees = $date_et_heure_programmees;
+
+    }
+
+    //
+    public function getDate_et_heure_programmees()
+    {
+
+        //
+        return $this->date_et_heure_programmees;
 
     }
 
@@ -69,6 +84,15 @@ class Etat_des_lieux
 
         //
         $this->date_du_jour = $date_du_jour;
+
+    }
+
+    //
+    public function setDate_et_heure_programmees($date_et_heure_programmees)
+    {
+
+        //
+        return $this->date_et_heure_programmees = $date_et_heure_programmees;
 
     }
 

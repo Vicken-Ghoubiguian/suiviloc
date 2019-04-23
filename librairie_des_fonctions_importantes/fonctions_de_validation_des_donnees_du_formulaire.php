@@ -487,12 +487,15 @@ function renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Time
 
     $date_passee_en_parametre_sous_forme_de_DateTime = new DateTime($date_passee_en_parametre_sous_forme_de_tableau[2] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[1]);
 
+    $date_passee_en_parametre_sous_forme_de_chaine_de_caracteres = $date_passee_en_parametre_sous_forme_de_tableau[2] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[0] . "-" . $date_passee_en_parametre_sous_forme_de_tableau[1];
+
     $date_passee_en_parametre_sous_forme_de_timestamp = $date_passee_en_parametre_sous_forme_de_DateTime->getTimestamp();
 
     $renvoi_de_la_date = array(
         "datetime" => $date_passee_en_parametre_sous_forme_de_DateTime,
         "timestamp" => $date_passee_en_parametre_sous_forme_de_timestamp,
-        "francophone" => $date_passee_en_parametre_sous_format_francophone
+        "francophone" => $date_passee_en_parametre_sous_format_francophone,
+        "chaine_de_caracteres" => $date_passee_en_parametre_sous_forme_de_chaine_de_caracteres
     );
 
     return $renvoi_de_la_date;
@@ -987,6 +990,30 @@ function verification_que_le_studio_est_libre($id_du_studio_concerne)
             $requete_preparee_d_insertion_de_l_attestation_dans_la_base->bindParam(":contrat_de_location", $contrat_de_location);
 
             $requete_preparee_d_insertion_de_l_attestation_dans_la_base->execute();
+
+        }
+        elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Etat_des_lieux"))
+        {
+
+            $chemin_du_fichier_genere = $element_a_inserer_dans_la_base_de_donnees->getChemin_du_fichier_genere();
+
+            $date_du_jour = $element_a_inserer_dans_la_base_de_donnees->getDate_du_jour();
+
+            $contrat_de_location = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_contrat_de_location();
+
+            $date_et_heure_programmees = $element_a_inserer_dans_la_base_de_donnees->getDate_et_heure_programmees();
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Etat_des_lieux(date_du_jour, chemin_d_accee, contrat, date_et_heure_programmees) VALUES(:date_du_jour, :chemin_d_accee, :contrat_de_location, :date_et_heure_programmees)");
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->bindParam(":date_du_jour", $date_du_jour);
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->bindParam(":chemin_d_accee", $chemin_du_fichier_genere);
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->bindParam(":contrat_de_location", $contrat_de_location);
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->bindParam(":date_et_heure_programmees", $date_et_heure_programmees);
+
+            $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->execute();
 
         }
         else
