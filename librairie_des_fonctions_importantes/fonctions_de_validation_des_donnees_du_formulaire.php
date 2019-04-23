@@ -71,6 +71,12 @@
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/etat_des_lieux_lors_de_sortie_anticipee.html");
 
         }
+        elseif($type_de_document_a_generer == "preavis")
+        {
+
+            $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/preavis.html");
+
+        }
 
         $dompdf = new \Dompdf\Dompdf();
 
