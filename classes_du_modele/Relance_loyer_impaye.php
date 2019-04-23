@@ -11,7 +11,7 @@ class Relance_loyer_impaye
     private $prenom_du_locataire;
 
     //
-    private $numero_du_studio;
+    private $identifiant_du_studio;
 
     //
     private $date_du_jour;
@@ -26,7 +26,7 @@ class Relance_loyer_impaye
     private $chemin_du_fichier_genere;
 
     //
-    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $numero_du_studio, $date_du_jour, $montant_du, $id_du_contrat, $chemin_du_fichier_genere)
+    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $identifiant_du_studio, $date_du_jour, $montant_du, $id_du_contrat, $chemin_du_fichier_genere)
     {
 
         //
@@ -36,7 +36,7 @@ class Relance_loyer_impaye
         $this->prenom_du_locataire = $prenom_du_locataire;
 
         //
-        $this->numero_du_studio = $numero_du_studio;
+        $this->identifiant_du_studio = $identifiant_du_studio;
 
         //
         $this->date_du_jour = $date_du_jour;
@@ -67,10 +67,10 @@ class Relance_loyer_impaye
     }
 
     //
-    public function getNumero_du_studio()
+    public function getIdentifiant_du_studio()
     {
         //
-        return $this->numero_du_studio;
+        return $this->identifiant_du_studio;
     }
 
     //
@@ -116,10 +116,10 @@ class Relance_loyer_impaye
     }
 
     //
-    public function setNumero_du_studio($numero_du_studio)
+    public function setIdentifiant_du_studio($identifiant_du_studio)
     {
         //
-        $this->numero_du_studio = $numero_du_studio;
+        $this->identifiant_du_studio = $identifiant_du_studio;
     }
 
     //

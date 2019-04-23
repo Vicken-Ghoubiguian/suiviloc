@@ -10,6 +10,22 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio)
+    {
+        $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :id_du_studio");
+
+        $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio->bindParam(":id_du_locataire", $id_du_locataire);
+
+        $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio->bindParam(":id_du_studio", $id_du_studio);
+
+        $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio->execute();
+
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio->fetchAll(PDO::FETCH_BOTH);
+
+        return $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio[0][0];
+    }
+
+    //
     function generation_d_un_document_sous_format_PDF($type_de_document_a_generer, $donnees_a_inserer_dans_le_futur_document_PDF)
     {
 
@@ -87,6 +103,8 @@
         $dompdf->render();
 
         file_put_contents($chemin_de_telechargement_du_document_PDF_genere, $dompdf->output());
+
+        return $chemin_de_telechargement_du_document_PDF_genere;
     }
 
     //
