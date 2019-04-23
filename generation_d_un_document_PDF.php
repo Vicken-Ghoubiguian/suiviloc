@@ -31,6 +31,9 @@
     require_once("classes_du_modele/Relance_loyer_impaye.php");
 
     //
+    require_once("classes_du_modele/Attestation.php");
+
+    //
     require_once("librairie_des_fonctions_importantes/fonctions_de_validation_des_donnees_du_formulaire.php");
 
     //
@@ -825,7 +828,7 @@
         {
 
             //
-            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
+            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = $_POST['nom_de_famille_du_locataire'];//htmlspecialchars($_POST['nom_de_famille_du_locataire']);
 
             //
             $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
@@ -835,6 +838,15 @@
 
             //
             $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
+
+            //
+            $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
+
+            //
+            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
+
+            //
+            $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio_pour_le_locataire);
 
             //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
@@ -862,38 +874,53 @@
                         {
 
                             //
-                            setlocale(LC_TIME, "fr_FR");
+                            try {
 
-                            //
-                            $date_du_jour = strftime("%A %d %B %Y");
+                                //
+                                setlocale(LC_TIME, "fr_FR");
 
-                            //
-                            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+                                //
+                                $date_du_jour = strftime("%A %d %B %Y");
 
-                            //
-                            generation_d_un_document_sous_format_PDF("attestation", array(
+                                //
+                                $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
 
-                                "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
+                                //
+                                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("attestation", array(
 
-                                "prenom_du_locataire" => $prenom_du_locataire,
+                                    "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
 
-                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                    "prenom_du_locataire" => $prenom_du_locataire,
 
-                                "date_du_jour" => $date_du_jour,
+                                    "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
+                                    "date_du_jour" => $date_du_jour,
 
-                            ));
+                                    "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
 
-                            //
-                            $smarty = new Smarty();
+                                ));
 
-                            //
-                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Attestation"));
+                                //
+                                $attestation_courante = new Attestation('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location);
 
-                            //
-                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                                //
+                                insertion_de_l_element_dans_la_base_de_donnees($attestation_courante);
 
+                                //
+                                $smarty = new Smarty();
+
+                                //
+                                $smarty->assign(array("nature_du_document_PDF_a_generer" => "Attestation"));
+
+                                //
+                                $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                            }
+                            catch(Exception $exception)
+                            {
+
+
+                            }
                         }
                         //Sinon...
                         else
