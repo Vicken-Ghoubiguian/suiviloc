@@ -14,7 +14,7 @@ class Etat_des_lieux
     private $id_du_contrat_de_location;
 
     //
-    public function __construct($id_de_l_attestation, $date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location)
+    public function __construct($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location)
     {
 
         //
