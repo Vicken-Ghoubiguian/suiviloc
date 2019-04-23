@@ -1335,67 +1335,77 @@
                                         {
 
                                             //
-                                            setlocale(LC_TIME, "fr_FR");
+                                            try {
 
+                                                //
+                                                setlocale(LC_TIME, "fr_FR");
+
+                                                //
+                                                $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
+
+                                                //
+                                                $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
+
+                                                //
+                                                $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_forme_de_timestamp);
+
+                                                //
+                                                $date_du_jour = strftime("%A %d %B %Y");
+
+                                                //
+                                                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
+
+                                                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
+
+                                                    "prenom_du_locataire" => $prenom_du_locataire,
+
+                                                    "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+
+                                                    "date_du_jour" => $date_du_jour,
+
+                                                    "civilite_du_locataire" => "Monsieur/Madame",
+
+                                                    "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
+
+                                                    "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
+
+                                                    "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone,
+
+                                                    "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
+
+                                                ));
+
+                                                //
+                                                $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
+
+                                                //
+                                                $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
+
+                                                //
+                                                $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
+
+                                                //
+                                                $etat_des_lieux_courant = new Etat_des_lieux('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
+
+                                                //
+                                                insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
+
+                                                //
+                                                $smarty = new Smarty();
+
+                                                //
+                                                $smarty->assign(array("nature_du_document_PDF_a_generer" => "Etat des lieux lors d'une sortie anticipée"));
+
+                                                //
+                                                $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                                            }
                                             //
-                                            $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
+                                            catch(Exception $exception)
+                                            {
 
-                                            //
-                                            $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
+                                                
 
-                                            //
-                                            $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_forme_de_timestamp);
-
-                                            //
-                                            $date_du_jour = strftime("%A %d %B %Y");
-
-                                            //
-                                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
-
-                                                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
-
-                                                "prenom_du_locataire" => $prenom_du_locataire,
-
-                                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
-
-                                                "date_du_jour" => $date_du_jour,
-
-                                                "civilite_du_locataire" => "Monsieur/Madame",
-
-                                                "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
-
-                                                "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
-
-                                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone,
-
-                                                "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
-
-                                            ));
-
-                                            //
-                                            $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
-
-                                            //
-                                            $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
-
-                                            //
-                                            $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
-
-                                            //
-                                            $etat_des_lieux_courant = new Etat_des_lieux('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
-
-                                            //
-                                            insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
-
-                                            //
-                                            $smarty = new Smarty();
-
-                                            //
-                                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Etat des lieux lors d'une sortie anticipée"));
-
-                                            //
-                                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
-
+                                            }
                                         }
                                         //Sinon...
                                         else
