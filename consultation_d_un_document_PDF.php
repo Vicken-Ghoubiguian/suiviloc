@@ -26,6 +26,21 @@
         elseif($_GET['type_de_document'] == 'attestation')
         {
 
+            //
+            require('vues/en_tete_du_code_HTML_de_l_application_suiviloc.html');
+
+            //
+            $chemin_d_accee_du_fichier_PDF_selectionne = $_GET['attestation_choisie'];
+
+            //
+            $corps_et_pied_de_la_page_HTML = "<body>
+                <div id='conteneur_de_la_balise_d_affichage'>
+                    <object id='balise_d_affichage' data='" . $chemin_d_accee_du_fichier_PDF_selectionne . "'></object>
+                </div>
+            </body>";
+
+            //
+            echo $corps_et_pied_de_la_page_HTML;
 
         }
         //Sinon si,
