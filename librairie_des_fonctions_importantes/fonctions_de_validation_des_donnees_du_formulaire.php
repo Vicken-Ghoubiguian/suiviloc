@@ -10,6 +10,27 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document)
+    {
+
+        //
+        $premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = explode("_", $chemin_du_document);
+
+        //
+        $seconde_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = explode(".", $premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp[7]);
+
+        //
+        $date_et_heure_de_la_generation_du_document_PDF_sous_forme_de_timestamp = $seconde_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp[0];
+
+        //
+        $date_et_heure_de_generation_du_document_PDF = date("d/m/Y à H:i:s", $date_et_heure_de_la_generation_du_document_PDF_sous_forme_de_timestamp);
+
+        //
+        return $date_et_heure_de_generation_du_document_PDF;
+
+    }
+
+    //
     function recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF($type_du_document)
     {
 

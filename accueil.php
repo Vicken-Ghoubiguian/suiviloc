@@ -408,10 +408,13 @@
                                                                     {
 
                                                                         //
-                                                                        if($tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur] != 0)
+                                                                        $chemin_du_document_PDF_courant = $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur];
+
+                                                                        //
+                                                                        if($chemin_du_document_PDF_courant != "0")
                                                                         {
                                                                             //
-                                                                            $corps_de_la_page_html .= "<option value = '" . $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur] . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur], "Relance_loyer_impaye") . " </option>";
+                                                                            $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Relance_loyer_impaye") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                         }
 
