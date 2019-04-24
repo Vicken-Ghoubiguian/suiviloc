@@ -225,8 +225,8 @@
                                                         </div>
                                                         <h3>Lire les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
-                                                            <form action='consultation_d_un_document_PDF.php' method='get'>
-                                                                <input type='hidden' name='consultation_de_documents' value='Contrat_de_location'>
+                                                            <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                <input type='hidden' name='type_de_document' value='contrat_de_location'>
                                                                 <p>Bonjour,</p>
                                                                 <p>Choisissez le contrat de location ou le document d'expiration à consulter <select name='contrat_de_location_ou_expiration_choisi' class='text-warning ui-corner-all' id='contrat_de_location_ou_expiration_choisi' required>
                                                                     <option>1</option>
@@ -309,8 +309,8 @@
                                                                                                                         </div>
                                                                                                                         <h3>Lire les attestations</h3>
                                                                                                                         <div>
-                                                                                                                            <form action='consultation_d_un_document_PDF.php' method='get'>
-                                                                                                                                <input type='hidden' name='consultation_de_documents' value='attestation'>
+                                                                                                                            <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                                                                                <input type='hidden' name='type_de_document' value='attestation'>
                                                                                                                                 <p>Bonjour,</p>
                                                                                                                                 <p>Choisissez l'attestation à consulter <select name='attestation_choisie' class='text-warning ui-corner-all' id='attestation_choisie' required>
                                                                                                                                     <option>1</option>
@@ -392,8 +392,8 @@
                                                         </div>
                                                         <h3>Lire les relances impayées</h3>
                                                         <div>
-                                                            <form action='consultation_d_un_document_PDF.php' method='get'>
-                                                                <input type='hidden' name='consultation_de_documents' value='relance_d_impaye'>
+                                                            <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                <input type='hidden' name='type_de_document' value='relance_loyer_impaye'>
                                                                 <p>Bonjour,</p>
                                                                 <p>Choisissez la relance d'impayé à consulter <select name='relance_d_impaye_choisie' class='text-warning ui-corner-all' id='relance_d_impaye_choisie' required>";
 
