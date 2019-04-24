@@ -753,7 +753,13 @@
                             ));
 
                             //
-                            $expiration_courante_de_contrat_de_location = new Expiration_de_contrat_de_location($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_DateTime, $chemin_du_fichier_genere, '2019-03-03', $id_d_identification_du_locataire_renseigne);
+                            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                            //
+                            $date_du_jour = date("Y-m-d");
+
+                            //
+                            $expiration_courante_de_contrat_de_location = new Expiration_de_contrat_de_location($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_DateTime, $chemin_du_fichier_genere, $date_du_jour, $id_d_identification_du_locataire_renseigne);
 
                             //
                             insertion_de_l_element_dans_la_base_de_donnees($expiration_courante_de_contrat_de_location);
@@ -889,7 +895,7 @@
                                 setlocale(LC_TIME, "fr_FR");
 
                                 //
-                                $date_du_jour = strftime("%A %d %B %Y");
+                                $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
 
                                 //
                                 $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
@@ -903,14 +909,20 @@
 
                                     "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                                    "date_du_jour" => $date_du_jour,
+                                    "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
 
                                     "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
 
                                 ));
 
                                 //
-                                $attestation_courante = new Attestation('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location);
+                                $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                                //
+                                $date_du_jour = date("Y-m-d");
+
+                                //
+                                $attestation_courante = new Attestation($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
 
                                 //
                                 insertion_de_l_element_dans_la_base_de_donnees($attestation_courante);
@@ -1063,7 +1075,13 @@
                             ));
 
                             //
-                            $relance_courante_pour_le_loyer_impaye = new Relance_loyer_impaye($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, '2019-03-03', $montant_du_loyer_impaye_pour_le_locataire, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+                            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                            //
+                            $date_du_jour = date("Y-m-d");
+
+                            //
+                            $relance_courante_pour_le_loyer_impaye = new Relance_loyer_impaye($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, $date_du_jour, $montant_du_loyer_impaye_pour_le_locataire, $chemin_du_fichier_genere, $id_du_contrat_de_location);
 
                             //
                             insertion_de_l_element_dans_la_base_de_donnees($relance_courante_pour_le_loyer_impaye);
@@ -1417,7 +1435,13 @@
                                                 $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
 
                                                 //
-                                                $etat_des_lieux_courant = new Etat_des_lieux('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
+                                                $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                                                //
+                                                $date_du_jour = date("Y-m-d");
+
+                                                //
+                                                $etat_des_lieux_courant = new Etat_des_lieux($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
 
                                                 //
                                                 insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
@@ -1662,7 +1686,13 @@
                                     $date_de_depart_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
 
                                     //
-                                    $date_du_jour = strftime("%A %d %B %Y");
+                                    $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
+
+                                    //
+                                    $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                                    //
+                                    $date_du_jour = date("Y-m-d");
 
                                     //
                                     $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
@@ -1673,7 +1703,7 @@
 
                                         "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                                        "date_du_jour" => $date_du_jour,
+                                        "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
 
                                         "civilite_du_locataire" => "Monsieur/Madame",
 
@@ -1682,7 +1712,7 @@
                                     ));
 
                                     //
-                                    $preavis_courant = new Preavis('2019-03-03', $chemin_du_fichier_genere, $id_du_contrat_de_location);
+                                    $preavis_courant = new Preavis($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
 
                                     //
                                     insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
