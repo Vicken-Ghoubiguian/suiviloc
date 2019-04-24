@@ -1016,6 +1016,30 @@ function verification_que_le_studio_est_libre($id_du_studio_concerne)
             $requete_preparee_d_insertion_de_l_etat_des_lieux_dans_la_base->execute();
 
         }
+        elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Relance_loyer_impaye"))
+        {
+
+            $date_du_jour = $element_a_inserer_dans_la_base_de_donnees->getDate_du_jour();
+
+            $montant_du = $element_a_inserer_dans_la_base_de_donnees->getMontant_du();
+
+            $chemin_du_fichier_genere = $element_a_inserer_dans_la_base_de_donnees->getChemin_du_fichier_genere();
+
+            $contrat_de_location = $element_a_inserer_dans_la_base_de_donnees->getId_du_contrat();
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Relance_loyer_impaye(date_du_jour, chemin_d_accee, montant_du, contrat) VALUES(:date_du_jour, :chemin_d_accee, :montant_du, :contrat_de_location)");
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base->bindParam(":date_du_jour", $date_du_jour);
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base->bindParam(":montant_du", $montant_du);
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base->bindParam(":chemin_d_accee", $chemin_du_fichier_genere);
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base->bindParam(":contrat_de_location", $contrat_de_location);
+
+            $requete_preparee_d_insertion_de_la_relance_loyer_impaye_dans_la_base->execute();
+
+        }
         else
         {
             throw new PDOException("L'élément passé en paramétre n'est pas une instance d'une des classes métiers");

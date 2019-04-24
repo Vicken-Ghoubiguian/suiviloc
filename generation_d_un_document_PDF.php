@@ -1006,6 +1006,9 @@
             $montant_du_loyer_impaye_pour_le_locataire = htmlspecialchars($_POST['montant_du_loyer_impaye']);
 
             //
+            $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
+
+            //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
             {
 
@@ -1024,34 +1027,54 @@
                     {
 
                         //
-                        setlocale(LC_TIME, "fr_FR");
+                        try {
 
-                        //
-                        $date_du_jour = strftime("%A %d %B %Y");
+                            //
+                            $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire_recupere,$id_du_studio_pour_le_locataire);
 
-                        //
-                        generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
+                            //
+                            setlocale(LC_TIME, "fr_FR");
 
-                            "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
+                            //
+                            $date_du_jour = strftime("%A %d %B %Y");
 
-                            "prenom_du_locataire" => $prenom_du_locataire,
+                            //
+                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
 
-                            "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
 
-                            "date_du_jour" => $date_du_jour,
+                                "prenom_du_locataire" => $prenom_du_locataire,
 
-                            "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
+                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
-                        ));
+                                "date_du_jour" => $date_du_jour,
 
-                        //
-                        $smarty = new Smarty();
+                                "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
 
-                        //
-                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Relance impayé"));
+                            ));
 
-                        //
-                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                            //
+                            $relance_courante_pour_le_loyer_impaye = new Relance_loyer_impaye($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, '2019-03-03', $montant_du_loyer_impaye_pour_le_locataire, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+
+                            //
+                            insertion_de_l_element_dans_la_base_de_donnees($relance_courante_pour_le_loyer_impaye);
+
+                            //
+                            $smarty = new Smarty();
+
+                            //
+                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Relance impayé"));
+
+                            //
+                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+                        }
+                        catch(Exception $exception)
+                        {
+
+
+
+                        }
 
                     }
                     //Sinon...
@@ -1403,7 +1426,7 @@
                                             catch(Exception $exception)
                                             {
 
-                                                
+
 
                                             }
                                         }

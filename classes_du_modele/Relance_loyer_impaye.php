@@ -26,7 +26,7 @@ class Relance_loyer_impaye
     private $chemin_du_fichier_genere;
 
     //
-    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $identifiant_du_studio, $date_du_jour, $montant_du, $id_du_contrat, $chemin_du_fichier_genere)
+    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $identifiant_du_studio, $date_du_jour, $montant_du, $chemin_du_fichier_genere, $id_du_contrat)
     {
 
         //
