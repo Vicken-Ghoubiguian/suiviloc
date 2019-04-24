@@ -3,6 +3,9 @@
     //
     require_once("classes_du_modele/connexion_a_la_base_de_donnees_via_PDO.php");
 
+    //
+    require_once("librairie_des_fonctions_importantes/fonctions_de_validation_des_donnees_du_formulaire.php");
+
     //Cette fonction permet de démarrer une session
     session_start();
 
@@ -392,10 +395,29 @@
                                                             <form action='consultation_d_un_document_PDF.php' method='get'>
                                                                 <input type='hidden' name='consultation_de_documents' value='relance_d_impaye'>
                                                                 <p>Bonjour,</p>
-                                                                <p>Choisissez la relance d'impayé à consulter <select name='relance_d_impaye_choisie' class='text-warning ui-corner-all' id='relance_d_impaye_choisie' required>
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                </select></p>
+                                                                <p>Choisissez la relance d'impayé à consulter <select name='relance_d_impaye_choisie' class='text-warning ui-corner-all' id='relance_d_impaye_choisie' required>";
+
+                                                                    //
+                                                                    $tableau_contenant_les_chemins_d_accee_des_differents_documents = recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF("Relance_loyer_impaye");
+
+                                                                    //
+                                                                    $nombre_total_de_documents_PDF_generes = sizeof($tableau_contenant_les_chemins_d_accee_des_differents_documents);
+
+                                                                    //
+                                                                    for($incrementeur = 0; $incrementeur < $nombre_total_de_documents_PDF_generes; $incrementeur++)
+                                                                    {
+
+                                                                        //
+                                                                        if($tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur] != 0)
+                                                                        {
+                                                                            //
+                                                                            $corps_de_la_page_html .= "<option value = '" . $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur] . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur], "Relance_loyer_impaye") . " </option>";
+
+                                                                        }
+
+                                                                    }
+
+            $corps_de_la_page_html .= "</select></p>
                                                                 <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
                                                                 <p>Bonne journée, </p>
                                                                 <p>Suiviloc</p>

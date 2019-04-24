@@ -10,8 +10,562 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF($type_du_document)
+    {
+
+        //
+        if($type_du_document == "Attestation")
+        {
+
+            //
+            $tableau_contenant_les_chemins_d_accee_des_differents_documents = array();
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT chemin_d_accee FROM Attestation");
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->execute();
+
+            //
+            $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->fetchAll(PDO::FETCH_ASSOC);
+
+            //
+            $nombre_de_resultats_dans_la_requete = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->rowCount();
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_de_resultats_dans_la_requete; $incrementeur++)
+            {
+
+                //
+                array_push($tableau_contenant_les_chemins_d_accee_des_differents_documents, $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF[$incrementeur]['chemin_d_accee']);
+
+            }
+
+            //
+            return $tableau_contenant_les_chemins_d_accee_des_differents_documents;
+
+        }
+        //
+        elseif($type_du_document == "Contrat")
+        {
+
+            //
+            $tableau_contenant_les_chemins_d_accee_des_differents_documents = array();
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT chemin_d_accee FROM Contrat");
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->execute();
+
+            //
+            $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->fetchAll(PDO::FETCH_ASSOC);
+
+            //
+            $nombre_de_resultats_dans_la_requete = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->rowCount();
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_de_resultats_dans_la_requete; $incrementeur++)
+            {
+
+                //
+                array_push($tableau_contenant_les_chemins_d_accee_des_differents_documents, $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF[$incrementeur]['chemin_d_accee']);
+
+            }
+
+            //
+            return $tableau_contenant_les_chemins_d_accee_des_differents_documents;
+
+        }
+        elseif($type_du_document == "Expiration_de_contrat_de_location")
+        {
+
+            //
+            $tableau_contenant_les_chemins_d_accee_des_differents_documents = array();
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT chemin_d_accee FROM Expiration_de_contrat_de_location");
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->execute();
+
+            //
+            $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->fetchAll(PDO::FETCH_ASSOC);
+
+            //
+            $nombre_de_resultats_dans_la_requete = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->rowCount();
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_de_resultats_dans_la_requete; $incrementeur++)
+            {
+
+                //
+                array_push($tableau_contenant_les_chemins_d_accee_des_differents_documents, $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF[$incrementeur]['chemin_d_accee']);
+
+            }
+
+            //
+            return $tableau_contenant_les_chemins_d_accee_des_differents_documents;
+
+        }
+        //
+        elseif($type_du_document == "Preavis")
+        {
+
+            //
+            $tableau_contenant_les_chemins_d_accee_des_differents_documents = array();
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT chemin_d_accee FROM Preavis");
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->execute();
+
+            //
+            $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->fetchAll(PDO::FETCH_ASSOC);
+
+            //
+            $nombre_de_resultats_dans_la_requete = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->rowCount();
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_de_resultats_dans_la_requete; $incrementeur++)
+            {
+
+                //
+                array_push($tableau_contenant_les_chemins_d_accee_des_differents_documents, $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF[$incrementeur]['chemin_d_accee']);
+
+            }
+
+            //
+            return $tableau_contenant_les_chemins_d_accee_des_differents_documents;
+
+        }
+        //
+        elseif($type_du_document == "Relance_loyer_impaye")
+        {
+
+            //
+            $tableau_contenant_les_chemins_d_accee_des_differents_documents = array();
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT chemin_d_accee FROM Relance_loyer_impaye");
+
+            //
+            $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->execute();
+
+            //
+            $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->fetchAll(PDO::FETCH_ASSOC);
+
+            //
+            $nombre_de_resultats_dans_la_requete = $requete_de_recuperation_du_chemin_d_accee_des_documents_PDF->rowCount();
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_de_resultats_dans_la_requete; $incrementeur++)
+            {
+
+                //
+                array_push($tableau_contenant_les_chemins_d_accee_des_differents_documents, $resultat_de_la_requete_de_recuperation_du_chemin_d_accee_des_documents_PDF[$incrementeur]['chemin_d_accee']);
+
+            }
+
+            //
+            return $tableau_contenant_les_chemins_d_accee_des_differents_documents;
+
+        }
+        //
+        else
+        {
+
+            //
+            return 0;
+
+        }
+
+    }
+
+    //
+    function renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document, $type_du_document)
+    {
+
+        //
+        if($chemin_du_document != "0")
+        {
+
+            //
+            if ($type_du_document == "Attestation") {
+
+                //
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT contrat FROM Attestation WHERE chemin_d_accee = :chemin_d_accee");
+
+                //
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->bindParam(":chemin_d_accee", $chemin_du_document);
+
+                //
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $contrat_de_location_relatif_au_document = $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                //
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire FROM Contrat WHERE id = :id_du_contrat");
+
+                //
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                //
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $id_du_locataire_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                //
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom FROM Locataire WHERE id = :id_du_locataire");
+
+                //
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                //
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id[0][0];
+
+                //
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT prenom FROM Locataire WHERE id = :id_du_locataire");
+
+                //
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                //
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id[0][0];
+
+                //
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE id = :id_du_contrat");
+
+                //
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                //
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $id_du_studio_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location[0][0];
+
+                //
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+                //
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->bindParam(":id_du_studio", $id_du_studio_relatif_au_contrat_de_location);
+
+                //
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->execute();
+
+                //
+                $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                //
+                $numero_du_studio = $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id[0][0];
+
+                //
+                return "Attestation du locataire " . $nom_de_famille_du_locataire . " " . $prenom_du_locataire . " occupant le n°" . $numero_du_studio;
+
+            }
+            //
+            elseif ($type_du_document == "Contrat")
+            {
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE chemin_d_accee = :chemin_d_accee");
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->bindParam(":chemin_d_accee", $chemin_du_document);
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+                $contrat_de_location_relatif_au_document = $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_locataire_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT prenom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_studio_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location[0][0];
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->bindParam(":id_du_studio", $id_du_studio_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $numero_du_studio = $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id[0][0];
+
+                return "Contrat_de_location du locataire " . $nom_de_famille_du_locataire . " " . $prenom_du_locataire . " occupant le n°" . $numero_du_studio;
+
+            } elseif ($type_du_document == "Expiration_de_contrat_de_location") {
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT contrat FROM Expiration_de_contrat_de_location WHERE chemin_d_accee = :chemin_d_accee");
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->bindParam(":chemin_d_accee", $chemin_du_document);
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+                $contrat_de_location_relatif_au_document = $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_locataire_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT prenom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_studio_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location[0][0];
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->bindParam(":id_du_studio", $id_du_studio_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $numero_du_studio = $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id[0][0];
+
+                return "Expiration_de_contrat_de_location " . $nom_de_famille_du_locataire . " " . $prenom_du_locataire . " occupant le n°" . $numero_du_studio;
+
+            } elseif ($type_du_document == "Preavis") {
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT contrat FROM Preavis WHERE chemin_d_accee = :chemin_d_accee");
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->bindParam(":chemin_d_accee", $chemin_du_document);
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+                $contrat_de_location_relatif_au_document = $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_locataire_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT prenom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_studio_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location[0][0];
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->bindParam(":id_du_studio", $id_du_studio_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $numero_du_studio = $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id[0][0];
+
+                return "Preavis " . $nom_de_famille_du_locataire . " " . $prenom_du_locataire . " occupant le n°" . $numero_du_studio;
+
+            } elseif ($type_du_document == "Relance_loyer_impaye") {
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT contrat FROM Relance_loyer_impaye WHERE chemin_d_accee = :chemin_d_accee");
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->bindParam(":chemin_d_accee", $chemin_du_document);
+
+                $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+                $contrat_de_location_relatif_au_document = $resultat_de_la_requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre = $requete_de_recuperation_de_l_id_du_locataire_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_locataire_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_en_fonction_du_chemin_passe_en_parametre[0][0];
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_du_nom_de_famille_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT prenom FROM Locataire WHERE id = :id_du_locataire");
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->bindParam(":id_du_locataire", $id_du_locataire_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id = $requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_du_prenom_du_locataire_a_partir_de_son_id[0][0];
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE id = :id_du_contrat");
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->bindParam(":id_du_contrat", $contrat_de_location_relatif_au_document);
+
+                $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->execute();
+
+                $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location = $requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location->fetchAll(PDO::FETCH_BOTH);
+
+                $id_du_studio_relatif_au_contrat_de_location = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_relatif_au_contrat_de_location[0][0];
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->bindParam(":id_du_studio", $id_du_studio_relatif_au_contrat_de_location);
+
+                $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->execute();
+
+                $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id = $requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+                $numero_du_studio = $resultat_de_la_requete_de_recuperation_du_numerç_du_studio_a_partir_de_son_id[0][0];
+
+                return "Relance loyer impayé " . $nom_de_famille_du_locataire . " " . $prenom_du_locataire . " occupant le n°" . $numero_du_studio;
+
+            }
+            else
+            {
+
+                return 0;
+            }
+
+        }
+        else
+        {
+
+            return 0;
+
+        }
+    }
+
+    //
     function recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio)
     {
+
         $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :id_du_studio");
 
         $requete_de_recuperation_de_l_id_du_contrat_de_location_en_fonction_de_l_id_du_locataire_et_de_l_id_du_studio->bindParam(":id_du_locataire", $id_du_locataire);
@@ -29,81 +583,110 @@
     function generation_d_un_document_sous_format_PDF($type_de_document_a_generer, $donnees_a_inserer_dans_le_futur_document_PDF)
     {
 
+        //
         $code_genere_pour_l_identification_du_document_PDF = 0;
 
+        //
         for ($incrementeur = 0; $incrementeur < 10; $incrementeur++) {
 
+            //
             $code_genere_pour_l_identification_du_document_PDF .= mt_rand(0, 9);
 
         }
 
+        //
         $heure_de_generation_du_document_PDF = time();
 
+        //
         $chemin_de_telechargement_du_document_PDF_genere = "documents_generes_en_PDF/" . $type_de_document_a_generer . "_" . $code_genere_pour_l_identification_du_document_PDF . "_" . $heure_de_generation_du_document_PDF . ".pdf";
 
+        //
         $smarty = new Smarty();
 
+        //
         $smarty->assign($donnees_a_inserer_dans_le_futur_document_PDF);
 
+        //
         if($type_de_document_a_generer == "relance_loyer_impaye")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/relance.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "expiration_de_contrat_de_location")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/expiration_de_contrat_de_location.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "attestation")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/attestation.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "contrat_0-3_mois")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/contrat_0-3_mois.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "contrat_12_mois")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/contrat_12_mois.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "etiquette")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/etiquette.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "etat_des_lieux_lors_de_sortie_anticipee")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/etat_des_lieux_lors_de_sortie_anticipee.html");
 
         }
+        //
         elseif($type_de_document_a_generer == "preavis")
         {
 
+            //
             $template_nouvellement_genere = $smarty->fetch("templates_des_documents_PDF/preavis.html");
 
         }
 
+        //
         $dompdf = new \Dompdf\Dompdf();
 
+        //
         $dompdf->loadHtml($template_nouvellement_genere);
 
+        //
         $dompdf->setPaper('a4', 'portrait');
 
+        //
         $dompdf->render();
 
+        //
         file_put_contents($chemin_de_telechargement_du_document_PDF_genere, $dompdf->output());
 
+        //
         return $chemin_de_telechargement_du_document_PDF_genere;
     }
 
@@ -111,16 +694,22 @@
     function contient_l_element_passe_en_parametre($chaine_de_caractere_dans_lequel_trouver_l_element, $element_a_trouver)
     {
 
+        //
         $variable_de_retour = False;
 
+        //
         for($incrementeur = 0; $incrementeur < strlen($chaine_de_caractere_dans_lequel_trouver_l_element); $incrementeur++)
         {
+
+            //
             if($chaine_de_caractere_dans_lequel_trouver_l_element[$incrementeur] == $element_a_trouver)
             {
+                //
                 $variable_de_retour = True;
             }
         }
 
+        //
         return $variable_de_retour;
 
     }
