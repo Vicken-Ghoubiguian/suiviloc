@@ -335,25 +335,24 @@
                                                                                                                                             if($incrementeur == 0)
                                                                                                                                             {
 
-                                                                                                                                                $indication_de_la_selection = "selected";
+                                                                                                                                                //
+                                                                                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "' select> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Attestation") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                                                                                             }
                                                                                                                                             //
                                                                                                                                             else
                                                                                                                                             {
 
-                                                                                                                                                $indication_de_la_selection = "";
+                                                                                                                                                //
+                                                                                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Attestation") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                                                                                             }
-
-                                                                                                                                            //
-                                                                                                                                            $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . " " . $indication_de_la_selection . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Attestation") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                                                                                         }
 
                                                                                                                                     }
 
-                                                                                                                                $corps_de_la_page_html .= "<p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                                                                                                $corps_de_la_page_html .= "</select></p><p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
                                                                                                                                 <p>Bonne journée, </p>
                                                                                                                                 <p>Suiviloc</p>
                                                                                                                             </form>
@@ -455,19 +454,18 @@
                                                                             if($incrementeur == 0)
                                                                             {
 
-                                                                                $indication_de_la_selection = "selected";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "' select> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Relance_loyer_impaye") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                             }
                                                                             //
                                                                             else
                                                                             {
 
-                                                                                $indication_de_la_selection = "";
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Relance_loyer_impaye") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                             }
-
-                                                                            //
-                                                                            $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . " " . $indication_de_la_selection . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Relance_loyer_impaye") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
 
                                                                         }
 
@@ -681,6 +679,56 @@
                                                                 <p>Bien à vous,</p>
                                                                 <p>Suiviloc</p>
                                                             </form>
+                                                        </div>
+                                                        <h3>Lire les préavis</h3>
+                                                        <div>
+                                                            <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                <input type='hidden' name='type_de_document' value='preavis'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Choisissez le préavis à consulter <select name='preavis_choisi' class='text-warning ui-corner-all' id='preavis_choisi' required></p>";
+
+                                                                    //
+                                                                    $tableau_contenant_les_chemins_d_accee_des_differents_documents = recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF("Preavis");
+
+                                                                    //
+                                                                    $nombre_total_de_documents_PDF_generes = sizeof($tableau_contenant_les_chemins_d_accee_des_differents_documents);
+
+                                                                    //
+                                                                    for($incrementeur = 0; $incrementeur < $nombre_total_de_documents_PDF_generes; $incrementeur++)
+                                                                    {
+
+                                                                        //
+                                                                        $chemin_du_document_PDF_courant = $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur];
+
+                                                                        //
+                                                                        if($chemin_du_document_PDF_courant != "0")
+                                                                        {
+
+                                                                            //
+                                                                            if($incrementeur == 0)
+                                                                            {
+
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "' selected> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Preavis") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Preavis") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                            }
+
+                                                                        }
+
+                                                                    }
+
+                $corps_de_la_page_html .= "</select></p>
+                                                            <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                            <p>Bonne journée,</p>
+                                                            <p>Suiviloc</p>
                                                         </div>
                                                     </div>
                                                 </div>

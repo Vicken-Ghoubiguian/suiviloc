@@ -17,7 +17,13 @@
         $premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = explode("_", $chemin_du_document);
 
         //
-        $seconde_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = explode(".", $premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp[7]);
+        $taille_de_la_premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = sizeof($premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp);
+
+        //
+        $index_du_dernier_element_de_la_premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = $taille_de_la_premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp - 1;
+
+        //
+        $seconde_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp = explode(".", $premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp[$index_du_dernier_element_de_la_premiere_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp]);
 
         //
         $date_et_heure_de_la_generation_du_document_PDF_sous_forme_de_timestamp = $seconde_casse_du_chemin_du_document_PDF_pour_extraction_du_timestamp[0];
