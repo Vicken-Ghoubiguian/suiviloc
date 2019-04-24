@@ -687,6 +687,9 @@
             $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_du_locataire']);
 
             //
+            $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
+
+            //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
             {
 
@@ -739,7 +742,7 @@
                             $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_timestamp);
 
                             //
-                            generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
+                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
 
                                 "prenom_du_locataire" => $prenom_du_locataire,
 
@@ -748,6 +751,12 @@
                                 "date_de_la_fin_du_contrat_du_locataire" => $date_de_la_fin_du_contrat_du_locataire_au_format_francophone
 
                             ));
+
+                            //
+                            $expiration_courante_de_contrat_de_location = new Expiration_de_contrat_de_location($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $id_du_studio_pour_le_locataire, $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_DateTime, $chemin_du_fichier_genere, '2019-03-03', $id_d_identification_du_locataire_renseigne);
+
+                            //
+                            insertion_de_l_element_dans_la_base_de_donnees($expiration_courante_de_contrat_de_location);
 
                             //
                             $smarty = new Smarty();
@@ -843,12 +852,6 @@
             $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
 
             //
-            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
-
-            //
-            $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio_pour_le_locataire);
-
-            //
             if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
             {
 
@@ -872,6 +875,12 @@
                         //
                         if(verification_de_la_pertinance_des_donnees_renseignees_pour_la_generation_de_l_attestation($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire, $numero_du_studio_pour_le_locataire, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_datetime_SQL))
                         {
+
+                            //
+                            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
+
+                            //
+                            $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio_pour_le_locataire);
 
                             //
                             try {

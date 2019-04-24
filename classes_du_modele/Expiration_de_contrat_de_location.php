@@ -20,13 +20,13 @@ class Expiration_de_contrat_de_location
     private $date_de_fin_du_contrat;
 
     //
-    private $id_du_contrat;
+    private $identifiant_du_contrat_de_location;
 
     //
     private $chemin_du_fichier_genere;
 
     //
-    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $identifiant_du_studio, $date_de_fin_du_contrat, $chemin_du_fichier_genere, $date_du_jour, $id_du_contrat)
+    public function __construct($nom_de_famille_du_locataire, $prenom_du_locataire, $identifiant_du_studio, $date_de_fin_du_contrat, $chemin_du_fichier_genere, $date_du_jour, $identifiant_du_contrat_de_location)
     {
 
         //
@@ -45,7 +45,7 @@ class Expiration_de_contrat_de_location
         $this->date_de_fin_du_contrat = $date_de_fin_du_contrat;
 
         //
-        $this->id_du_contrat = $id_du_contrat;
+        $this->identifiant_du_contrat_de_location = $identifiant_du_contrat_de_location;
 
         //
         $this->chemin_du_fichier_genere = $chemin_du_fichier_genere;
@@ -107,11 +107,11 @@ class Expiration_de_contrat_de_location
     }
 
     //
-    public function getId_du_contrat()
+    public function getIdentifiant_du_contrat_de_location()
     {
 
         //
-        return $this->id_du_contrat;
+        return $this->identifiant_du_contrat_de_location;
 
     }
 
@@ -161,11 +161,11 @@ class Expiration_de_contrat_de_location
     }
 
     //
-    public function setId_du_contrat($id_du_contrat)
+    public function setIdentifiant_du_contrat_de_location($identifiant_du_contrat_de_location)
     {
 
         //
-        $this->id_du_contrat = $id_du_contrat;
+        $this->identifiant_du_contrat_de_location = $identifiant_du_contrat_de_location;
 
     }
 
