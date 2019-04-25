@@ -10,6 +10,39 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function comptage_du_nombre_d_etiquettes_generees()
+    {
+        //
+        $requete_de_recuperation_du_nombre_d_etiquettes_generees = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nombre_d_etiquettes_generees FROM Etiquette");
+
+        //
+        $requete_de_recuperation_du_nombre_d_etiquettes_generees->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_du_nombre_d_etiquettes_generees = $requete_de_recuperation_du_nombre_d_etiquettes_generees->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $nombre_d_etiquettes_generees = $resultat_de_la_requete_de_recuperation_du_nombre_d_etiquettes_generees[0][0];
+
+        //
+        return $nombre_d_etiquettes_generees;
+    }
+
+    //
+    function mise_a_jour_du_nombre_d_etiquettes_generees($nombre_d_etiquettes_generees)
+    {
+
+        //
+        $requete_de_mise_a_jour_du_nombre_d_etiquettes_generees = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Etiquette SET nombre_d_etiquettes_generees = :nombre_d_etiquettes_generees");
+
+        //
+        $requete_de_mise_a_jour_du_nombre_d_etiquettes_generees->bindParam(":nombre_d_etiquettes_generees", $nombre_d_etiquettes_generees);
+
+        //
+        $requete_de_mise_a_jour_du_nombre_d_etiquettes_generees->execute();
+    }
+
+    //
     function renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document)
     {
 
@@ -707,21 +740,44 @@
     {
 
         //
-        $code_genere_pour_l_identification_du_document_PDF = 0;
-
-        //
-        for ($incrementeur = 0; $incrementeur < 10; $incrementeur++) {
+        if($type_de_document_a_generer == "etiquette")
+        {
 
             //
-            $code_genere_pour_l_identification_du_document_PDF .= mt_rand(0, 9);
+            $nombre_d_etiquettes_generees = comptage_du_nombre_d_etiquettes_generees();
+
+            //
+            $numero_de_l_etiquette = $nombre_d_etiquettes_generees + 1;
+
+            //
+            $chemin_de_telechargement_du_document_PDF_genere = "documents_generes_en_PDF/" . $type_de_document_a_generer . "_numero_" . $numero_de_l_etiquette . ".pdf";
+
+            //
+            mise_a_jour_du_nombre_d_etiquettes_generees($numero_de_l_etiquette);
 
         }
+        //Sinon...
+        else
+        {
 
-        //
-        $heure_de_generation_du_document_PDF = time();
+            //
+            $code_genere_pour_l_identification_du_document_PDF = 0;
 
-        //
-        $chemin_de_telechargement_du_document_PDF_genere = "documents_generes_en_PDF/" . $type_de_document_a_generer . "_" . $code_genere_pour_l_identification_du_document_PDF . "_" . $heure_de_generation_du_document_PDF . ".pdf";
+            //
+            for ($incrementeur = 0; $incrementeur < 10; $incrementeur++) {
+
+                //
+                $code_genere_pour_l_identification_du_document_PDF .= mt_rand(0, 9);
+
+            }
+
+            //
+            $heure_de_generation_du_document_PDF = time();
+
+            //
+            $chemin_de_telechargement_du_document_PDF_genere = "documents_generes_en_PDF/" . $type_de_document_a_generer . "_" . $code_genere_pour_l_identification_du_document_PDF . "_" . $heure_de_generation_du_document_PDF . ".pdf";
+
+        }
 
         //
         $smarty = new Smarty();
@@ -811,7 +867,7 @@
         {
 
             //
-            $dompdf->stream();
+            $dompdf->stream($chemin_de_telechargement_du_document_PDF_genere);
 
         }
         //

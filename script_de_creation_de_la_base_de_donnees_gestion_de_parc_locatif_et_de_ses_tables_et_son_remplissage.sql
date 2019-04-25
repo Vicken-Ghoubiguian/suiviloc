@@ -6,6 +6,11 @@ GRANT ALL PRIVILEGES ON gestion_de_parc_locatif.* TO 'residence_locative'@'local
 
 -- CREATION DE TOUTES LES TABLES NECESSAIRES DANS LE MODELE --
 
+-- TABLE Etiquette --
+CREATE TABLE IF NOT EXISTS Etiquette(
+    nombre_d_etiquettes_generees INTEGER NOT NULL
+);
+
 -- TABLE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif --
 CREATE TABLE IF NOT EXISTS Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(
 	id INTEGER NOT NULL AUTO_INCREMENT,
@@ -179,6 +184,9 @@ CREATE TABLE IF NOT EXISTS Etat_des_lieux(
     FOREIGN KEY (contrat) REFERENCES Contrat(id),
     PRIMARY KEY(id)
 );
+
+-- INITIALISATION DE LA TABLE Etiquette --
+INSERT INTO Etiquette(nombre_d_etiquettes_generees) VALUES(0);
 
 -- INSERTION DES UTTILISATEURS ET DE LEURS MOTS DE PASSE RESPECTIFS DANS LA TABLE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif --
 INSERT INTO Table_de_connexion_a_la_base_de_gestion_de_parc_locatif(username, password, nom, prenom, date_et_heure_de_derniere_connexion, est_connecte, adresse_mail) VALUES('elaravel', SHA1('123'), 'Laravel', 'Eric', NOW(), FALSE, 'elaravel@nom_de_domaine.com');
