@@ -729,7 +729,7 @@
                     {
 
                         //
-                        $resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire = verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_d_identification_du_locataire_renseigne, $numero_du_studio_pour_le_locataire);
+                        $resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire = verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_d_identification_du_locataire_renseigne, $id_du_studio_pour_le_locataire);
 
                         //
                         if($resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire == 1)
@@ -1041,7 +1041,7 @@
                 {
 
                     //
-                    $resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire = verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_du_locataire_recupere, $numero_du_studio_pour_le_locataire);
+                    $resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire = verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_du_locataire_recupere, $id_du_studio_pour_le_locataire);
 
                     //
                     if($resultat_de_la_fonction_de_verification_d_occupation_du_studio_par_le_locataire == 1)
