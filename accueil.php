@@ -288,6 +288,7 @@
                                                         <p>Suiviloc</p>
                                                         </form>
                                                      </div>
+                                                     </div>
                                                 </div>
                                                 <div id='attestation'>
                                                     <div class='menu_en_accordeon'>
