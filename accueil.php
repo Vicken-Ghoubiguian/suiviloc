@@ -163,7 +163,7 @@
                                                                                                                                 </form>
                                                                                                                             </p>
                                                                                                                         </div>
-                                                                                                                        <h3>Expiration de contrat de location</h3>
+                                                                                                                        <h3>Générer des expiration de contrat de location</h3>
                                                                                                                         <div>
                                                                                                                             <p>
                                                                                                                                 <form action='generation_d_un_document_PDF.php' method='post'>
@@ -223,12 +223,12 @@
                                                                 </form>
                                                             </p>
                                                         </div>
-                                                        <h3>Lire les contrats de location et les expirations de contrats de location</h3>
+                                                        <h3>Lire les contrats de location</h3>
                                                         <div>
                                                             <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
                                                                 <input type='hidden' name='type_de_document' value='contrat_de_location'>
                                                                 <p>Bonjour,</p>
-                                                                <p>Choisissez le contrat de location ou le document d'expiration à consulter <select name='contrat_de_location_ou_expiration_choisi' class='text-warning ui-corner-all' id='contrat_de_location_ou_expiration_choisi' required>
+                                                                <p>Choisissez le contrat de location à consulter <select name='contrat_de_location_choisi' class='text-warning ui-corner-all' id='contrat_de_location_choisi' required>
                                                                     <option>1</option>
                                                                     <option>2</option>
                                                                    </select></p>
@@ -237,6 +237,56 @@
                                                                 <p>Suiviloc</p>
                                                             </form>
                                                         </div>
+                                                        <h3>Lire les expirations de contrats de location</h3>
+                                                            <div>
+                                                                <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                    <input type='hidden' name='type_de_document' value='expiration_de_contrat_de_location'>
+                                                                    <p>Bonjour,</p>
+                                                                    <p>Choisissez l'expiration de contrat de location à consulter <select name='expiration_de_contrat_de_location_choisie' class='text-warning ui-corner-all' id='expiration_de_contrat_de_location_choisie' required>";
+
+                                                                        //
+                                                                        $tableau_contenant_les_chemins_d_accee_des_differents_documents = recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF("Expiration_de_contrat_de_location");
+
+                                                                        //
+                                                                        $nombre_total_de_documents_PDF_generes = sizeof($tableau_contenant_les_chemins_d_accee_des_differents_documents);
+
+                                                                        //
+                                                                        for($incrementeur = 0; $incrementeur < $nombre_total_de_documents_PDF_generes; $incrementeur++)
+                                                                        {
+
+                                                                            //
+                                                                            $chemin_du_document_PDF_courant = $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur];
+
+                                                                            //
+                                                                            if($chemin_du_document_PDF_courant != "0")
+                                                                            {
+
+                                                                                //
+                                                                                if($incrementeur == 0)
+                                                                                {
+
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "' select> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Expiration_de_contrat_de_location") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                                }
+                                                                                //
+                                                                                else
+                                                                                {
+
+                                                                                    //
+                                                                                    $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Expiration_de_contrat_de_location") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                                }
+
+                                                                            }
+
+                                                                        }
+
+             $corps_de_la_page_html .= "</select></p>
+                                                        <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='cliquez ici'></p>
+                                                        <p>Bonne journée,</p>
+                                                        <p>Suiviloc</p>
+                                                        </form>
                                                      </div>
                                                 </div>
                                                 <div id='attestation'>
@@ -789,7 +839,7 @@
                                                     Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le " . date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                                 </p>
                                                 <div class='pied_de_div_des_fonctionnalites'>
-                                                    &copy; 2019 Residis - 58 Avenue de Wagram 75017 Paris
+                                                   &copy; 2019 residence locative - adresse de la résidence locative
                                                 </div>
                                             </div>
                                             <div id='fenetre_de_deconnexion' title='Déconnexion'>
