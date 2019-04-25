@@ -807,10 +807,24 @@
         $dompdf->render();
 
         //
-        file_put_contents($chemin_de_telechargement_du_document_PDF_genere, $dompdf->output());
+        if($type_de_document_a_generer == "etiquette")
+        {
 
+            //
+            $dompdf->stream();
+
+        }
         //
-        return $chemin_de_telechargement_du_document_PDF_genere;
+        else
+        {
+
+            //
+            file_put_contents($chemin_de_telechargement_du_document_PDF_genere, $dompdf->output());
+
+            //
+            return $chemin_de_telechargement_du_document_PDF_genere;
+
+        }
     }
 
     //
