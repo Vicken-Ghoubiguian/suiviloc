@@ -61,7 +61,19 @@
                                                 </div>
                                             </div>
                                                 <div id='gestion_du_parc_locatif'>
-                                                    
+                                                    <table class='table text-warning'>
+                                                        <tr>
+                                                            <th>Nom du locataire</th>
+                                                            <th>Prenom du locataire</th>
+                                                            <th>Studio occupé</th>
+                                                            <th>Date deb. contrat</th>
+                                                            <th>Date fin du contrat</th>
+                                                            <th>Montant dû</th>
+                                                        </tr>";
+
+
+
+            $corps_de_la_page_html .= "</table>
                                                 </div>
                                                 <div id='contrat_de_location'>
                                                     <div class='menu_en_accordeon'>
