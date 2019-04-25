@@ -724,7 +724,7 @@
 
                                                                         }
 
-                $corps_de_la_page_html .= "</select> a communiqué son préavit de départ pour le <input type='text' name='date_de_depart_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.
+                $corps_de_la_page_html .= "</select> a communiqué son préavis de départ pour le <input type='text' name='date_de_depart_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.
                                                                 </p>
                                                                 <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                 <p>Bien à vous,</p>
