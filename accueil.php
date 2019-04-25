@@ -730,6 +730,58 @@
                                                             <p>Bonne journée,</p>
                                                             <p>Suiviloc</p>
                                                         </div>
+                                                        <h3>Lire des états des lieux</h3>
+                                                        <div>
+                                                            <form action='consultation_d_un_document_PDF.php' method='get' target='_blank'>
+                                                                <input type='hidden' name='type_de_document' value='etat_des_lieux'>
+                                                                <p>Bonjour,</p>
+                                                                <p>Choisissez l'état des lieux à consulter <select name='etat_des_lieux_choisi' class='text-warning ui-corner-all' id='etat_des_lieux_choisi' required>";
+
+                                                                    //
+                                                                    $tableau_contenant_les_chemins_d_accee_des_differents_documents = recuperation_du_chemin_d_accee_des_differents_documents_generes_sous_PDF("Etat_des_lieux");
+
+                                                                    //
+                                                                    $nombre_total_de_documents_PDF_generes = sizeof($tableau_contenant_les_chemins_d_accee_des_differents_documents);
+
+                                                                    //
+                                                                    for($incrementeur = 0; $incrementeur < $nombre_total_de_documents_PDF_generes; $incrementeur++)
+                                                                    {
+
+                                                                        //
+                                                                        $chemin_du_document_PDF_courant = $tableau_contenant_les_chemins_d_accee_des_differents_documents[$incrementeur];
+
+                                                                        //
+                                                                        if($chemin_du_document_PDF_courant != "0")
+                                                                        {
+
+                                                                            //
+                                                                            if($incrementeur == 0)
+                                                                            {
+
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "' selected> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Etat_des_lieux") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $corps_de_la_page_html .= "<option value = '" . $chemin_du_document_PDF_courant . "'> " . renvoi_du_nom_du_document_pour_l_inclure_dans_la_liste_deroulante_a_partir_de_son_chemin($chemin_du_document_PDF_courant, "Etat_des_lieux") . " - document généré le " .renvoi_de_la_date_et_de_l_heure_de_generation_du_document_PDF($chemin_du_document_PDF_courant) ."</option>";
+
+                                                                            }
+
+                                                                        }
+
+                                                                    }
+
+                $corps_de_la_page_html .= "</select>
+                                                                </p>
+                                                                <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_consultation_de_PDF' value='Cliquez ici'></p>
+                                                                <p>Bonne journée,</p>
+                                                                <p>Suiviloc</p>
+                                                            </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <p class='pied_de_div_des_informations_de_connexion'>
