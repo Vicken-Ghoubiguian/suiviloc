@@ -1163,6 +1163,9 @@
             $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
 
             //
+            $premiere_lettre_du_prenom_du_locataire = $prenom_du_locataire[0];
+
+            //
             $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
 
             //
@@ -1190,7 +1193,7 @@
 
                             "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire,
 
-                            "prenom_du_locataire" => $prenom_du_locataire,
+                            "lettre_prenom" => $prenom_du_locataire,
 
                             "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
