@@ -463,7 +463,49 @@
                                                                                                                     <div class='menu_en_accordeon'>
                                                                                                                         <h3>Gérer les relances impayées</h3>
                                                                                                                         <div>
-                                                                                                                            <p>ddd</p>
+                                                                                                                            <table class='table text-warning'>
+                                                                                                                                <tr>
+                                                                                                                                    <th>Nom du locataire</th>
+                                                                                                                                    <th>Prenom du locataire</th>
+                                                                                                                                    <th>Studio occupé</th>
+                                                                                                                                    <th>date de relance</th>
+                                                                                                                                    <th>montant dû</th>
+                                                                                                                                </tr>
+                                                                                                                                ";
+
+                                                                                                                                    //
+                                                                                                                                    $tableau_contenant_toutes_les_donnees_relatives_aux_relances_d_impaye = renvoi_des_donnees_relatives_a_la_gestion_des_relances_d_impayes();
+
+                                                                                                                                    //
+                                                                                                                                    $nombre_total_de_donnees_relatives_aux_relances_d_impaye = sizeof($tableau_contenant_toutes_les_donnees_relatives_aux_relances_d_impaye);
+
+                                                                                                                                    //
+                                                                                                                                    for($incrementeur = 0; $incrementeur < $nombre_total_de_donnees_relatives_aux_relances_d_impaye; $incrementeur++)
+                                                                                                                                    {
+
+                                                                                                                                        //
+                                                                                                                                        $chaine_de_caracteres_contenant_toutes_les_donnees_relatives_aux_relances_de_loyer_impaye = $tableau_contenant_toutes_les_donnees_relatives_aux_relances_d_impaye[$incrementeur];
+
+                                                                                                                                        //
+                                                                                                                                        $corps_de_la_page_html .= "<tr>";
+
+                                                                                                                                        //
+                                                                                                                                        $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante = explode("_", $chaine_de_caracteres_contenant_toutes_les_donnees_relatives_aux_relances_de_loyer_impaye);
+
+                                                                                                                                        //
+                                                                                                                                        $corps_de_la_page_html .= "<td>" .
+                                                                                                                                            $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante[0] . "</td><td>" .
+                                                                                                                                            $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante[1] . "</td><td>" .
+                                                                                                                                            $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante[2] . "</td><td>" .
+                                                                                                                                            $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante[3] . "</td><td>" .
+                                                                                                                                            $tableau_des_donnees_relatives_a_la_relance_de_loyer_impaye_courante[4] . " euros</td>";
+
+                                                                                                                                        //
+                                                                                                                                        $corps_de_la_page_html .= "</tr>";
+
+                                                                                                                                    }
+
+                                                                             $corps_de_la_page_html .= "</table>
                                                                                                                         </div>
                                                                                                                         <h3>Generer des relances impayées</h3>
                                                                                                                         <div>

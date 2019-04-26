@@ -10,6 +10,72 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat($id_du_contrat)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT locataire, studio FROM Contrat WHERE id = :id_du_contrat");
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat->bindParam(":id_du_contrat", $id_du_contrat);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat->execute();
+
+        //
+        $resultat_de_la_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat = $requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat->fetchAll(PDO::FETCH_ASSOC);
+
+        //
+        $tableau_contenant_le_resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio = array($resultat_de_la_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat[0]['locataire'], $resultat_de_la_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat[0]['studio']);
+
+        //
+        return $tableau_contenant_le_resultat_de_la_requete_de_recuperation_de_l_id_du_locataire_et_de_l_id_du_studio;
+    }
+
+    //
+    function renvoi_du_nom_et_du_prenom_du_locataire_a_partir_de_son_id($id_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_du_nom_de_famille_et_du_prenom_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom, prenom FROM Locataire WHERE id = :id_du_locataire");
+
+        //
+        $requete_de_recuperation_du_nom_de_famille_et_du_prenom_du_locataire->bindParam(":id_du_locataire",$id_du_locataire);
+
+        //
+        $requete_de_recuperation_du_nom_de_famille_et_du_prenom_du_locataire->execute();
+
+        //
+        $resultat_de_la_recuperation_du_nom_de_famille_et_du_prenom_du_locataire = $requete_de_recuperation_du_nom_de_famille_et_du_prenom_du_locataire->fetchAll(PDO::FETCH_ASSOC);
+
+        //
+        $tableau_contenant_le_resultat_de_la_requete_de_recuperation_du_nom_et_du_prenom_du_locataire = array($resultat_de_la_recuperation_du_nom_de_famille_et_du_prenom_du_locataire[0]['nom'], $resultat_de_la_recuperation_du_nom_de_famille_et_du_prenom_du_locataire[0]['prenom']);
+
+        //
+        return $tableau_contenant_le_resultat_de_la_requete_de_recuperation_du_nom_et_du_prenom_du_locataire;
+    }
+
+    //
+    function extraction_du_numero_du_studio_a_partir_de_son_id($id_du_studio)
+    {
+
+        //
+        $requete_de_recuperation_du_numero_de_studio = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+        //
+        $requete_de_recuperation_du_numero_de_studio->bindParam(":id_du_studio", $id_du_studio);
+
+        //
+        $requete_de_recuperation_du_numero_de_studio->execute();
+
+        //
+        $resultat_de_la_recuperation_du_numero_de_studio = $requete_de_recuperation_du_numero_de_studio->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        return $resultat_de_la_recuperation_du_numero_de_studio[0][0];
+    }
+
+    //
     function renvoi_du_libelle_de_la_surface_a_partir_de_son_id($id_de_la_surface)
     {
 
@@ -1492,6 +1558,81 @@ function renvoi_de_toutes_les_donnees_relatives_a_la_gestion_du_parc_locatif()
 
     //
     return $tableau_de_recuperation_des_differentes_donnees_relatives_au_parc_locatif;
+}
+
+//
+function renvoi_des_donnees_relatives_a_la_gestion_des_relances_d_impayes()
+{
+
+    //
+    $tableau_de_recuperation_des_donnees_relatives_aux_relances_d_impayes = array();
+
+    //
+    $requete_de_selection_de_toutes_les_relances_d_impayes = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_du_jour, montant_du, contrat FROM Relance_loyer_impaye");
+
+    //
+    $requete_de_selection_de_toutes_les_relances_d_impayes->execute();
+
+    //
+    $nombre_de_resultats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes = $requete_de_selection_de_toutes_les_relances_d_impayes->rowCount();
+
+    //
+    $resutats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes = $requete_de_selection_de_toutes_les_relances_d_impayes->fetchAll(PDO::FETCH_ASSOC);
+
+    //
+    for($incrementeur = 0; $incrementeur < $nombre_de_resultats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes; $incrementeur++)
+    {
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante = "";
+
+        //
+        $date_de_la_relance_sous_forme_de_DateTime = $resutats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes[$incrementeur]['date_du_jour'];
+
+        //
+        $date_de_la_relance_sous_forme_de_tableau = explode("-", $date_de_la_relance_sous_forme_de_DateTime);
+
+        //
+        $date_de_la_relance = $date_de_la_relance_sous_forme_de_tableau[2] . "/" . $date_de_la_relance_sous_forme_de_tableau[1] . "/" . $date_de_la_relance_sous_forme_de_tableau[0];
+
+        //
+        $montant_du = $resutats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes[$incrementeur]['montant_du'];
+
+        //
+        $id_du_contrat = $resutats_de_la_requete_de_selection_de_toutes_les_relances_d_impayes[$incrementeur]['contrat'];
+
+        //
+        $tableau_contenant_l_id_du_locataire_et_l_id_du_studio = renvoi_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat($id_du_contrat);
+
+        //
+        $id_du_locataire = $tableau_contenant_l_id_du_locataire_et_l_id_du_studio[0];
+
+        //
+        $id_du_studio = $tableau_contenant_l_id_du_locataire_et_l_id_du_studio[1];
+
+        //
+        $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id = renvoi_du_nom_et_du_prenom_du_locataire_a_partir_de_son_id($id_du_locataire);
+
+        //
+        $nom_de_famille_du_locataire = $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id[0];
+
+        //
+        $prenom_du_locataire = $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id[1];
+
+        //
+        $numero_du_studio_occupe_par_le_locataire = extraction_du_numero_du_studio_a_partir_de_son_id($id_du_studio);
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante = $nom_de_famille_du_locataire . "_" . $prenom_du_locataire . "_" .$numero_du_studio_occupe_par_le_locataire . "_" . $date_de_la_relance . "_" . $montant_du;
+
+        //
+        array_push($tableau_de_recuperation_des_donnees_relatives_aux_relances_d_impayes, $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante);
+
+    }
+
+    //
+    return $tableau_de_recuperation_des_donnees_relatives_aux_relances_d_impayes;
+
 }
 
     //
