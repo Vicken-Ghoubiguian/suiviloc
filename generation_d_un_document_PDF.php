@@ -742,9 +742,12 @@
                             $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_concernee__recuperee_depuis_la_base_de_donnees_sous_forme_de_timestamp);
 
                             //
+                            $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                            //
                             $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
 
-                                "prenom_du_locataire" => $prenom_du_locataire,
+                                "prenom_du_locataire" => $prenom_du_locataire_formate,
 
                                 "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
@@ -904,11 +907,14 @@
                                 $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
 
                                 //
+                                $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                                //
                                 $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("attestation", array(
 
                                     "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
 
-                                    "prenom_du_locataire" => $prenom_du_locataire,
+                                    "prenom_du_locataire" => $prenom_du_locataire_formate,
 
                                     "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
@@ -1066,11 +1072,14 @@
                             $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
 
                             //
+                            $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                            //
                             $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
 
                                 "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
 
-                                "prenom_du_locataire" => $prenom_du_locataire,
+                                "prenom_du_locataire" => $prenom_du_locataire_formate,
 
                                 "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
@@ -1435,11 +1444,14 @@
                                                 $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
 
                                                 //
+                                                $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                                                //
                                                 $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
 
                                                     "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
 
-                                                    "prenom_du_locataire" => $prenom_du_locataire,
+                                                    "prenom_du_locataire" => $prenom_du_locataire_formate,
 
                                                     "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 
@@ -1730,11 +1742,14 @@
                                     $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
 
                                     //
+                                    $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                                    //
                                     $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
 
                                         "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
 
-                                        "prenom_du_locataire" => $prenom_du_locataire,
+                                        "prenom_du_locataire" => $prenom_du_locataire_formate,
 
                                         "numero_du_studio" => $numero_du_studio_pour_le_locataire,
 

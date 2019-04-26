@@ -998,6 +998,160 @@
     }
 
     //
+    function formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire)
+    {
+
+        //
+        $prenom_du_locataire_formate = "";
+
+        //
+        if(contient_l_element_passe_en_parametre($prenom_du_locataire, " ") == True)
+        {
+
+            //
+            $tableau_de_traitement_du_prenom = explode(" ", $prenom_du_locataire);
+
+            //
+            $nombre_de_prenoms_composant_celui_du_locataire = count($tableau_de_traitement_du_prenom);
+
+            //
+            for($incrementeur_du_tableau = 0; $incrementeur_du_tableau < $nombre_de_prenoms_composant_celui_du_locataire; $incrementeur_du_tableau++)
+            {
+
+                //
+                if($incrementeur_du_tableau != 0)
+                {
+
+                    //
+                    $prenom_du_locataire_formate .= " ";
+
+                }
+
+                //
+                $prenom_courant_composant_celuis_du_locataire = $tableau_de_traitement_du_prenom[$incrementeur_du_tableau];
+
+                //
+                $taille_du_prenom_du_locataire = strlen($prenom_courant_composant_celuis_du_locataire);
+
+                //
+                for($incrementeur_du_prenom_composant = 0; $incrementeur_du_prenom_composant < $taille_du_prenom_du_locataire; $incrementeur_du_prenom_composant++)
+                {
+
+                    //
+                    if($incrementeur_du_prenom_composant == 0)
+                    {
+
+                        //
+                        $prenom_du_locataire_formate .= strtoupper($prenom_courant_composant_celuis_du_locataire[$incrementeur_du_prenom_composant]);
+
+                    }
+                    //Sinon...
+                    else
+                    {
+
+                        //
+                        $prenom_du_locataire_formate .= $prenom_courant_composant_celuis_du_locataire[$incrementeur_du_prenom_composant];
+
+                    }
+
+                }
+
+            }
+
+        }
+        //
+        elseif(contient_l_element_passe_en_parametre($prenom_du_locataire, "-") == True)
+        {
+
+            //
+            $tableau_de_traitement_du_prenom = explode("-", $prenom_du_locataire);
+
+            //
+            $nombre_de_prenoms_composant_celui_du_locataire = count($tableau_de_traitement_du_prenom);
+
+            //
+            for($incrementeur_du_tableau = 0; $incrementeur_du_tableau < $nombre_de_prenoms_composant_celui_du_locataire; $incrementeur_du_tableau++)
+            {
+
+                //
+                if($incrementeur_du_tableau != 0)
+                {
+
+                    //
+                    $prenom_du_locataire_formate .= "-";
+
+                }
+
+                //
+                $prenom_courant_composant_celuis_du_locataire = $tableau_de_traitement_du_prenom[$incrementeur_du_tableau];
+
+                //
+                $taille_du_prenom_du_locataire = strlen($prenom_courant_composant_celuis_du_locataire);
+
+                //
+                for($incrementeur_du_prenom_composant = 0; $incrementeur_du_prenom_composant < $taille_du_prenom_du_locataire; $incrementeur_du_prenom_composant++)
+                {
+
+                    //
+                    if($incrementeur_du_prenom_composant == 0)
+                    {
+
+                        //
+                        $prenom_du_locataire_formate .= strtoupper($prenom_courant_composant_celuis_du_locataire[$incrementeur_du_prenom_composant]);
+
+                    }
+                    //Sinon...
+                    else
+                    {
+
+                        //
+                        $prenom_du_locataire_formate .= $prenom_courant_composant_celuis_du_locataire[$incrementeur_du_prenom_composant];
+
+                    }
+
+                }
+
+            }
+
+        }
+        //Sinon...
+        else
+        {
+
+            //
+            $taille_du_prenom_du_locataire = strlen($prenom_du_locataire);
+
+            //
+            for($incrementeur = 0; $incrementeur < $taille_du_prenom_du_locataire; $incrementeur++)
+            {
+
+                //
+                if($incrementeur == 0)
+                {
+
+                    //
+                    $prenom_du_locataire_formate .= strtoupper($prenom_du_locataire[$incrementeur]);
+
+                }
+                //Sinon...
+                else
+                {
+
+                    //
+                    $prenom_du_locataire_formate .= $prenom_du_locataire[$incrementeur];
+
+                }
+
+            }
+
+        }
+
+        //
+        return $prenom_du_locataire_formate;
+
+    }
+
+    //
     function renvoi_de_l_id_du_garant_passe_en_parametre($garant_courant)
     {
 
