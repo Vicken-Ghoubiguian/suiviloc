@@ -63,23 +63,60 @@
                                                 <div id='gestion_du_parc_locatif'>
                                                     <table class='table text-warning'>
                                                         <tr>
-                                                            <th>Nom du locataire</th>
-                                                            <th>Prenom du locataire</th>
-                                                            <th>Studio occupé</th>
-                                                            <th>Date deb. contrat</th>
-                                                            <th>Date fin du contrat</th>
-                                                            <th>Montant dû</th>
+                                                            <th>Numéro du studio</th>
+                                                            <th>Etage</th>
+                                                            <th>Surface</th>
+                                                            <th>Occupé ?</th>
                                                         </tr>";
 
+            //
+            $tableau_contenant_toutes_les_donnees_relatives_au_parc_locatif = renvoi_de_toutes_les_donnees_relatives_a_la_gestion_du_parc_locatif();
 
+            //
+            $nombre_total_de_donnees_relatives_au_parc_locatif = sizeof($tableau_contenant_toutes_les_donnees_relatives_au_parc_locatif);
 
+            //
+            for($incrementeur = 0; $incrementeur < 25; $incrementeur ++)
+            {
+
+                //
+                $chaine_de_caractes_contenant_toutes_les_donnees_relatives_au_parc_locatif = $tableau_contenant_toutes_les_donnees_relatives_au_parc_locatif[$incrementeur];
+
+                //
+                $corps_de_la_page_html .= "<tr>";
+
+                //
+                $tableau_des_donnees_relatives_au_studio_courant = explode("_", $chaine_de_caractes_contenant_toutes_les_donnees_relatives_au_parc_locatif);
+
+                //
+                $corps_de_la_page_html .= "<td>" .
+                    $tableau_des_donnees_relatives_au_studio_courant[0] . "</td><td>" .
+                    $tableau_des_donnees_relatives_au_studio_courant[1] . "</td><td>" .
+                    $tableau_des_donnees_relatives_au_studio_courant[2] . "</td><td>" .
+                    $tableau_des_donnees_relatives_au_studio_courant[3] . "</td>";
+
+                //
+                $corps_de_la_page_html .= "</tr>";
+
+            }
+
+            //
             $corps_de_la_page_html .= "</table>
                                                 </div>
                                                 <div id='contrat_de_location'>
                                                     <div class='menu_en_accordeon'>
                                                         <h3>Gérer les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
-                                                            <p>ddd</p>
+                                                            <table class='table text-warning'>
+                                                                <tr>
+                                                                    <th>Nom du locataire</th>
+                                                                    <th>Prenom du locataire</th>
+                                                                    <th>Studio occupé</th>
+                                                                    <th>Date deb. contrat</th>
+                                                                    <th>Date fin du contrat</th>
+                                                                    <th>Montant dû</th>
+                                                                </tr>
+                                                            </table>
                                                         </div>
                                                         <h3>Générer des contrats de location</h3>
                                                         <div>

@@ -10,6 +10,30 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_du_libelle_de_la_surface_a_partir_de_son_id($id_de_la_surface)
+    {
+
+        //
+        $requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT libelle_de_la_surface FROM Surface WHERE id = :id_de_la_surface");
+
+        //
+        $requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id->bindParam(":id_de_la_surface", $id_de_la_surface);
+
+        //
+        $requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id = $requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $libelle_de_la_surface = $resultat_de_la_requete_de_recuperation_du_libelle_de_la_surface_a_partir_de_son_id[0][0];
+
+        //
+        return $libelle_de_la_surface;
+
+    }
+
+    //
     function comptage_du_nombre_d_etiquettes_generees()
     {
         //
@@ -1378,6 +1402,96 @@ function verification_que_le_studio_est_libre($id_du_studio_concerne)
     }
 
     return $variable_de_retour;
+}
+
+//
+function renvoi_de_toutes_les_donnees_relatives_a_la_gestion_du_parc_locatif()
+{
+
+    //
+    $tableau_de_recuperation_des_differentes_donnees_relatives_au_parc_locatif = array();
+
+    //
+    $requete_de_selection_de_tous_les_studios = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id, numero_du_studio, surface FROM Studio");
+
+    //
+    $requete_de_selection_de_tous_les_studios->execute();
+
+    //
+    $nombre_de_resultats_de_la_requete_de_selection_de_tous_les_studios = $requete_de_selection_de_tous_les_studios->rowCount();
+
+    //
+    $resultats_de_la_requete_de_selection_de_tous_les_studios = $requete_de_selection_de_tous_les_studios->fetchAll(PDO::FETCH_ASSOC);
+
+    //
+    for($incrementeur = 0; $incrementeur < $nombre_de_resultats_de_la_requete_de_selection_de_tous_les_studios; $incrementeur++)
+    {
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante = "";
+
+        //
+        $id_du_studio_concerne = $resultats_de_la_requete_de_selection_de_tous_les_studios[$incrementeur]['id'];
+
+        //
+        $numero_du_studio_courant = $resultats_de_la_requete_de_selection_de_tous_les_studios[$incrementeur]['numero_du_studio'];
+
+        //
+        $identifiant_de_la_surface_du_studio_courant = $resultats_de_la_requete_de_selection_de_tous_les_studios[$incrementeur]['surface'];
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= $numero_du_studio_courant;
+
+        //
+        if(strlen($numero_du_studio_courant) == 3)
+        {
+
+            //
+            $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= "_" . $numero_du_studio_courant[0];
+
+        }
+        //Sinon...
+        else
+        {
+
+            //
+            $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= "_" . "rez-de-chaussée";
+
+        }
+
+        //
+        $libelle_de_la_surface = renvoi_du_libelle_de_la_surface_a_partir_de_son_id($identifiant_de_la_surface_du_studio_courant);
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= "_" . $libelle_de_la_surface . "m²";
+
+        //
+        $variable_de_verification_que_le_studio_est_libre = verification_que_le_studio_est_libre($id_du_studio_concerne);
+
+        //
+        if($variable_de_verification_que_le_studio_est_libre == True)
+        {
+
+            //
+            $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= "_Non";
+
+        }
+        //Sinon...
+        else
+        {
+
+            //
+            $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante .= "_Oui";
+
+        }
+
+        //
+        array_push($tableau_de_recuperation_des_differentes_donnees_relatives_au_parc_locatif, $chaine_de_caracteres_contenant_les_donnees_de_la_ligne_courante);
+
+    }
+
+    //
+    return $tableau_de_recuperation_des_differentes_donnees_relatives_au_parc_locatif;
 }
 
     //
