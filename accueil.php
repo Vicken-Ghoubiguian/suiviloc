@@ -108,7 +108,7 @@
                                                 </div>
                                                 <div id='contrat_de_location'>
                                                     <div class='menu_en_accordeon'>
-                                                        <h3>Gérer les contrats de location et les expirations de contrats de location</h3>
+                                                        <h3>Gérer les contrats de location</h3>
                                                         <div>
                                                             <table class='table tableau_de_gestion text-warning'>
                                                                 <thead>
@@ -124,6 +124,53 @@
                                                                 <tbody>
                                                                 
                                                                 </tbody>
+                                                            </table>
+                                                        </div>
+                                                        <h3>Gérer les expirations de contrats de location</h3>
+                                                        <div>
+                                                            <table class='table tableau_de_gestion text-warning'>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Nom du locataire</th>
+                                                                        <th>Prenom du locataire</th>
+                                                                        <th>Studio occupé</th>
+                                                                        <th>Date d'expiration</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>";
+
+            //
+            $tableau_contenant_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location = renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location();
+
+            //
+            $nombre_total_de_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location = sizeof($tableau_contenant_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location);
+
+            //
+            for($incrementeur = 0; $incrementeur < $nombre_total_de_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location; $incrementeur ++)
+            {
+
+                //
+                $chaine_de_caractes_contenant_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location = $tableau_contenant_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location[$incrementeur];
+
+                //
+                $corps_de_la_page_html .= "<tr>";
+
+                //
+                $tableau_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location = explode("_", $chaine_de_caractes_contenant_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location);
+
+                //
+                $corps_de_la_page_html .= "<td>" .
+                    $tableau_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location[0] . "</td><td>" .
+                    $tableau_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location[1] . "</td><td>" .
+                    $tableau_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location[2] . "</td><td>" .
+                    $tableau_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location[3] . "</td>";
+
+                //
+                $corps_de_la_page_html .= "</tr>";
+
+            }
+
+            $corps_de_la_page_html .= "</tbody>
                                                             </table>
                                                         </div>
                                                         <h3>Générer des contrats de location</h3>

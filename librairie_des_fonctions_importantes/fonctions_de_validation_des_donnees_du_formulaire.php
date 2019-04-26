@@ -1635,6 +1635,77 @@ function renvoi_des_donnees_relatives_a_la_gestion_des_relances_d_impayes()
 
 }
 
+function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location()
+{
+
+    //
+    $tableau_de_recuperation_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location = array();
+
+    //
+    $requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_du_jour, contrat FROM Expiration_de_contrat_de_location");
+
+    //
+    $requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location->execute();
+
+    //
+    $nombre_de_resultats_de_la_requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location = $requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location->rowCount();
+
+    //
+    $resultats_de_la_requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location = $requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location->fetchAll(PDO::FETCH_ASSOC);
+
+    //
+    for($incrementeur = 0; $incrementeur < $nombre_de_resultats_de_la_requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location; $incrementeur++)
+    {
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_du_document_d_expiration_de_contrat_de_location_courant = "";
+
+        //
+        $id_du_contrat = $resultats_de_la_requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location[$incrementeur]['contrat'];
+
+        //
+        $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_DateTime = $resultats_de_la_requete_de_selection_de_tous_les_documents_d_expiration_de_contrat_de_location[$incrementeur]['date_du_jour'];
+
+        //
+        $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_tableau = explode("-", $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_DateTime);
+
+        //
+        $date_de_generation_de_document_d_expiration_de_contrat_de_location = $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_tableau[2] . "/" . $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_tableau[1] . "/" . $date_de_generation_de_document_d_expiration_de_contrat_de_location_sous_forme_de_tableau[0];
+
+        //
+        $tableau_contenant_l_id_du_locataire_et_l_id_du_studio = renvoi_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat($id_du_contrat);
+
+        //
+        $id_du_locataire = $tableau_contenant_l_id_du_locataire_et_l_id_du_studio[0];
+
+        //
+        $id_du_studio = $tableau_contenant_l_id_du_locataire_et_l_id_du_studio[1];
+
+        //
+        $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id = renvoi_du_nom_et_du_prenom_du_locataire_a_partir_de_son_id($id_du_locataire);
+
+        //
+        $nom_de_famille_du_locataire = $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id[0];
+
+        //
+        $prenom_du_locataire = $tableau_contenant_le_nom_et_le_prenom_du_locataire_a_partir_de_son_id[1];
+
+        //
+        $numero_du_studio_occupe_par_le_locataire = extraction_du_numero_du_studio_a_partir_de_son_id($id_du_studio);
+
+        //
+        $chaine_de_caracteres_contenant_les_donnees_du_document_d_expiration_de_contrat_de_location_courant .= $nom_de_famille_du_locataire . "_" . $prenom_du_locataire . "_" . $numero_du_studio_occupe_par_le_locataire . "_" . $date_de_generation_de_document_d_expiration_de_contrat_de_location;
+
+        //
+        array_push($tableau_de_recuperation_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location, $chaine_de_caracteres_contenant_les_donnees_du_document_d_expiration_de_contrat_de_location_courant);
+
+    }
+
+    //
+    return $tableau_de_recuperation_des_donnees_relatives_aux_documents_d_expiration_de_contrat_de_location;
+
+}
+
     //
     function recuperation_de_l_id_d_un_element_passe_en_parametre($element_dont_on_veut_trouver_son_id)
     {
