@@ -335,4 +335,11 @@ $(document).ready(function(){
     choix_du_type_de_contrat_de_location();
 
     choix_de_l_ensemble_des_conditions_du_contrat_de_location();
+
+    $('.tableau_de_gestion').DataTable( {
+        "searching": false,
+        "scrollY":        200,
+        "scrollCollapse": true,
+        "jQueryUI":       true
+    });
 });

@@ -61,13 +61,16 @@
                                                 </div>
                                             </div>
                                                 <div id='gestion_du_parc_locatif'>
-                                                    <table class='table text-warning'>
-                                                        <tr>
-                                                            <th>Numéro du studio</th>
-                                                            <th>Etage</th>
-                                                            <th>Surface</th>
-                                                            <th>Occupé ?</th>
-                                                        </tr>";
+                                                    <table class='table tableau_de_gestion text-warning'>
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Numéro du studio</th>
+                                                                <th>Etage</th>
+                                                                <th>Surface</th>
+                                                                <th>Occupé ?</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>";
 
             //
             $tableau_contenant_toutes_les_donnees_relatives_au_parc_locatif = renvoi_de_toutes_les_donnees_relatives_a_la_gestion_du_parc_locatif();
@@ -76,7 +79,7 @@
             $nombre_total_de_donnees_relatives_au_parc_locatif = sizeof($tableau_contenant_toutes_les_donnees_relatives_au_parc_locatif);
 
             //
-            for($incrementeur = 0; $incrementeur < 25; $incrementeur ++)
+            for($incrementeur = 0; $incrementeur < $nombre_total_de_donnees_relatives_au_parc_locatif; $incrementeur ++)
             {
 
                 //
@@ -101,13 +104,13 @@
             }
 
             //
-            $corps_de_la_page_html .= "</table>
+            $corps_de_la_page_html .= "</tbody></table>
                                                 </div>
                                                 <div id='contrat_de_location'>
                                                     <div class='menu_en_accordeon'>
                                                         <h3>Gérer les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
-                                                            <table class='table text-warning'>
+                                                            <table class='table tableau_de_gestion text-warning'>
                                                                 <tr>
                                                                     <th>Nom du locataire</th>
                                                                     <th>Prenom du locataire</th>
@@ -459,7 +462,7 @@
                                                                                                                     <div class='menu_en_accordeon'>
                                                                                                                         <h3>Gérer les relances impayées</h3>
                                                                                                                         <div>
-                                                                                                                            <table class='table text-warning'>
+                                                                                                                            <table class='table tableau_de_gestion text-warning'>
                                                                                                                                 <tr>
                                                                                                                                     <th>Nom du locataire</th>
                                                                                                                                     <th>Prenom du locataire</th>
