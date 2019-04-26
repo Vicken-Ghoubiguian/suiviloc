@@ -1186,7 +1186,21 @@
                     {
 
                         //
-                        $numero_de_l_etage_du_studio = $numero_du_studio_pour_le_locataire[0];
+                        if(strlen($numero_du_studio_pour_le_locataire) == 3)
+                        {
+
+                            //
+                            $numero_de_l_etage_du_studio = $numero_du_studio_pour_le_locataire[0];
+
+                        }
+                        //Sinon...
+                        else
+                        {
+
+                            //
+                            $numero_de_l_etage_du_studio = "rez-de-chaussée";
+
+                        }
 
                         //
                         generation_d_un_document_sous_format_PDF("etiquette", array(
