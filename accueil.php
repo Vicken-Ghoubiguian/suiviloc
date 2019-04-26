@@ -111,14 +111,19 @@
                                                         <h3>Gérer les contrats de location et les expirations de contrats de location</h3>
                                                         <div>
                                                             <table class='table tableau_de_gestion text-warning'>
-                                                                <tr>
-                                                                    <th>Nom du locataire</th>
-                                                                    <th>Prenom du locataire</th>
-                                                                    <th>Studio occupé</th>
-                                                                    <th>Date deb. contrat</th>
-                                                                    <th>Date fin du contrat</th>
-                                                                    <th>Montant dû</th>
-                                                                </tr>
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Nom du locataire</th>
+                                                                        <th>Prenom du locataire</th>
+                                                                        <th>Studio occupé</th>
+                                                                        <th>Date deb. contrat</th>
+                                                                        <th>Date fin du contrat</th>
+                                                                        <th>Montant dû</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                         <h3>Générer des contrats de location</h3>
@@ -463,13 +468,16 @@
                                                                                                                         <h3>Gérer les relances impayées</h3>
                                                                                                                         <div>
                                                                                                                             <table class='table tableau_de_gestion text-warning'>
-                                                                                                                                <tr>
-                                                                                                                                    <th>Nom du locataire</th>
-                                                                                                                                    <th>Prenom du locataire</th>
-                                                                                                                                    <th>Studio occupé</th>
-                                                                                                                                    <th>date de relance</th>
-                                                                                                                                    <th>montant dû</th>
-                                                                                                                                </tr>
+                                                                                                                                <thead>
+                                                                                                                                    <tr>
+                                                                                                                                        <th>Nom du locataire</th>
+                                                                                                                                        <th>Prenom du locataire</th>
+                                                                                                                                        <th>Studio occupé</th>
+                                                                                                                                        <th>date de relance</th>
+                                                                                                                                        <th>montant dû</th>
+                                                                                                                                    </tr>
+                                                                                                                                  </thead>
+                                                                                                                                  <tbody>
                                                                                                                                 ";
 
                                                                                                                                     //
@@ -504,7 +512,7 @@
 
                                                                                                                                     }
 
-                                                                             $corps_de_la_page_html .= "</table>
+                                                                             $corps_de_la_page_html .= "</tbody></table>
                                                                                                                         </div>
                                                                                                                         <h3>Generer des relances impayées</h3>
                                                                                                                         <div>
