@@ -341,10 +341,6 @@
                                                 </div>
                                                 <div id='attestation'>
                                                     <div class='menu_en_accordeon'>
-                                                        <h3>Gérer les attestations</h3>
-                                                        <div>
-                                                            <p>ddd</p>
-                                                        </div>
                                                         <h3>Generer des attestations</h3>
                                                         <div>
                                                             <p>
