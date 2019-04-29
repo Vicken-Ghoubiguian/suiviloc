@@ -769,7 +769,10 @@
             $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
 
             //
-            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_debut_du_contrat_du_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+            $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+            //
+            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
 
             //
             setlocale(LC_TIME, "fr_FR");
@@ -778,7 +781,10 @@
             $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
 
             //
-            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
+
+            //
+            $date_du_jour = date("Y-m-d");
 
             //
             $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("attestation", array(
@@ -797,12 +803,6 @@
 
             //
             $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
-
-            //
-            $date_du_jour = date("Y-m-d");
 
             //
             $attestation_courante = new Attestation($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
@@ -996,7 +996,8 @@
                     $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp = $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes['timestamp'];
 
                     //
-                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_debut_du_contrat_du_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+                    //
+                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
                     //
                     $date_de_depart_du_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
@@ -1005,7 +1006,7 @@
                     setlocale(LC_TIME, "fr_FR");
 
                     //
-                    $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+                    $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
 
                     //
                     $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_sous_forme_de_timestamp);

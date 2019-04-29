@@ -10,6 +10,39 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_d_arrivee FROM Locataire WHERE nom = :nom_de_famille_du_locataire AND prenom = :prenom_du_locataire");
+
+        //
+        $requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
+
+        //
+        $requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio->bindParam(":prenom_du_locataire", $prenom_du_locataire);
+
+        //
+        $requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio = $requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $date_d_arrivee_du_locataire_dans_son_studio = $resultat_de_la_requete_de_recuperation_de_la_date_d_arrivee_du_locataire_dans_son_studio[0][0];
+
+        //
+        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = new DateTime($date_d_arrivee_du_locataire_dans_son_studio);
+
+        //
+        $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->getTimestamp();
+
+        //
+        return $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp;
+
+    }
+
+    //
     function renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire)
     {
 
