@@ -10,6 +10,219 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE nom = :nom_de_famille AND prenom = :prenom");
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":nom_de_famille", $nom_de_famille_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":prenom", $prenom_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_de_recuperation_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_locataire = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire[0][0];
+
+        //
+        $requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.id FROM Contrat WHERE Contrat.locataire = :id_du_locataire_concerne");
+
+        //
+        $requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne->bindParam(":id_du_locataire_concerne", $id_du_locataire);
+
+        //
+        $requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne->execute();
+
+        //
+        $resultat_de_la_requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne = $requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_contrat_de_location = $resultat_de_la_requete_de_selection_de_l_id_du_contrat_de_location_pour_le_locataire_donne[0][0];
+
+        //
+        return $id_du_contrat_de_location;
+
+    }
+
+    //
+    function renvoi_de_la_date_de_debut_du_contrat_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE nom = :nom_de_famille AND prenom = :prenom");
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":nom_de_famille", $nom_de_famille_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":prenom", $prenom_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_de_recuperation_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_locataire = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire[0][0];
+
+        //
+        $requete_de_selection_de_la_date_de_debut_du_contrat_de_location_pour_le_locataire_donne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.date_de_debut_du_contrat FROM Contrat WHERE Contrat.locataire = :id_du_locataire_concerne");
+
+        //
+        $requete_de_selection_de_la_date_de_debut_du_contrat_de_location_pour_le_locataire_donne->bindParam(":id_du_locataire_concerne", $id_du_locataire);
+
+        //
+        $requete_de_selection_de_la_date_de_debut_du_contrat_de_location_pour_le_locataire_donne->execute();
+
+        //
+        $date_de_debut_du_contrat_pour_le_locataire_concernee = $requete_de_selection_de_la_date_de_debut_du_contrat_de_location_pour_le_locataire_donne->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $date_de_debut_du_contrat_pour_le_locataire_concernee_sous_forme_de_DateTime = new DateTime($date_de_debut_du_contrat_pour_le_locataire_concernee[0][0]);
+
+        //
+        $date_de_debut_du_contrat_pour_le_locataire_concernee_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_concernee_sous_forme_de_DateTime->getTimestamp();
+
+        //
+        return $date_de_debut_du_contrat_pour_le_locataire_concernee_sous_forme_de_timestamp;
+
+    }
+
+    //
+    function renvoi_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Studio WHERE numero_du_studio = :numero_du_studio");
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero->bindParam(":numero_du_studio", $numero_du_studio);
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero = $requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_studio = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_occuppe_par_le_locataire_a_partir_de_son_numero[0][0];
+
+        //
+        return $id_du_studio;
+
+    }
+
+    //
+    function renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE nom = :nom_de_famille AND prenom = :prenom");
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":nom_de_famille", $nom_de_famille_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":prenom", $prenom_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_de_recuperation_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_locataire = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire[0][0];
+
+        //
+        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT Contrat.date_de_fin_du_contrat FROM Contrat WHERE Contrat.locataire = :id_du_locataire_concerne");
+
+        //
+        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->bindParam(":id_du_locataire_concerne", $id_du_locataire);
+
+        //
+        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->execute();
+
+        //
+        $date_de_fin_du_contrat_pour_le_locataire_concernee = $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_donne->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $date_de_fin_du_contrat_pour_le_locataire_concernee_sous_forme_de_DateTime = new DateTime($date_de_fin_du_contrat_pour_le_locataire_concernee[0][0]);
+
+        //
+        $date_de_fin_du_contrat_pour_le_locataire_concernee_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_concernee_sous_forme_de_DateTime->getTimestamp();
+
+        //
+        return $date_de_fin_du_contrat_pour_le_locataire_concernee_sous_forme_de_timestamp;
+
+    }
+
+    //
+    function renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire)
+    {
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE nom = :nom_de_famille AND prenom = :prenom");
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":nom_de_famille", $nom_de_famille_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->bindParam(":prenom", $prenom_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire = $requete_de_recuperation_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_locataire = $resultat_de_la_requete_de_recuperation_de_l_id_du_locataire[0][0];
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT studio FROM Contrat WHERE locataire = :id_du_locataire");
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire->bindParam(":id_du_locataire", $id_du_locataire);
+
+        //
+        $requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire = $requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_du_studio = $resultat_de_la_requete_de_recuperation_de_l_id_du_studio_a_partir_de_l_id_du_locataire[0][0];
+
+        //
+        $requete_de_recuperation_du_numero_de_studio_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT numero_du_studio FROM Studio WHERE id = :id_du_studio");
+
+        //
+        $requete_de_recuperation_du_numero_de_studio_du_locataire->bindParam(":id_du_studio", $id_du_studio);
+
+        //
+        $requete_de_recuperation_du_numero_de_studio_du_locataire->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_du_numero_de_studio_du_locataire = $requete_de_recuperation_du_numero_de_studio_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $numero_du_studio_du_locataire = $resultat_de_la_requete_de_recuperation_du_numero_de_studio_du_locataire[0][0];
+
+        //
+        return $numero_du_studio_du_locataire;
+
+    }
+
+    //
     function renvoi_du_nom_et_du_prenom_de_tous_les_locataires_dans_un_tableau()
     {
 
