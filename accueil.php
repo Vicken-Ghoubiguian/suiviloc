@@ -41,7 +41,7 @@
                                             <div id='bienvenue'>
                                                 <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
                                                 <br>
-                                                <p class='sous-titre_de_bienvenue'>Logiciel de gestion du parc locatif</p>
+                                                <p class='sous-titre_de_bienvenue'>Logiciel de gestion de parc locatif</p>
                                                 <br>
                                                 <div class='enumeration_des_fonctionnalites'>
                                                     <ul>
@@ -178,14 +178,19 @@
                                                             <p>
                                                                 <form action='generation_d_un_document_PDF.php' method='post'>
                                                                     <input type='hidden' name='type_de_document' value='contrat_de_location'>
-                                                                    <p>Nom de famille du locataire: <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning' required>.</p> 
-                                                                    <p>Prénom du locataire: <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning' required>.</p>
-                                                                    <p>Date de naissance du locataire: <input type='text' name='date_de_naissance_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
-                                                                    <p>Adresse postale du locataire: <input type='text' name='adresse_postale_de_residence_du_locataire' class='ui-corner-all text-warning' size='73' required>.</p>
-                                                                    <p>Numéro de téléphone du locataire: <input type='text' maxlength='10' name='numero_de_telephone_du_locataire' class='ui-corner-all text-warning'>.</p>
-                                                                    <p>Adresse email du locataire: <input type='email' name='adresse_email_du_locataire' class='ui-corner-all text-warning'>.</p>
-                                                                    <p>Date d'arrivée du locataire: <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
-                                                                    <p>Numéro de studio du locataire: studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
+                                                                    <fieldset>
+                                                                        <legend>Le locataire</legend>
+                                                                        <p>Nom de famille du locataire: <input type='text' name='nom_de_famille_du_locataire' class='ui-corner-all text-warning' required>.</p> 
+                                                                        <p>Prénom du locataire: <input type='text' name='prenom_du_locataire' class='ui-corner-all text-warning' required>.</p>
+                                                                        <p>Date de naissance du locataire: <input type='text' name='date_de_naissance_du_locataire' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                        <p>Adresse postale du locataire: <input type='text' name='adresse_postale_de_residence_du_locataire' class='ui-corner-all text-warning' size='73' required>.</p>
+                                                                        <p>Numéro de téléphone du locataire: <input type='text' maxlength='10' name='numero_de_telephone_du_locataire' class='ui-corner-all text-warning'>.</p>
+                                                                        <p>Adresse email du locataire: <input type='email' name='adresse_email_du_locataire' class='ui-corner-all text-warning'>.</p>
+                                                                        <p>Date d'arrivée du locataire: <input type='text' name='date_d_arrivee_du_locataire_dans_son_studio' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                    </fieldset>
+                                                                    <fieldset>
+                                                                        <legend>Le contrat</legend>
+                                                                        <p>Numéro de studio du locataire: studio n°<select name='numero_du_studio_pour_a_choisir_pour_location' class='text-warning ui-corner-all' id='numero_du_studio_pour_a_choisir_pour_location' required>";
 
                                                                             //
                                                                             for ($incrementeur_des_surfaces = 1; $incrementeur_des_surfaces < 3; $incrementeur_des_surfaces++) {
@@ -230,42 +235,49 @@
                                                                             }
 
                                                                             $corps_de_la_page_html .= "</select>.</p>
-                                                                                                                                    <p>Type de public du locataire:
+                                                                                                                                        <p>Type de public du locataire:
                                                                                                                                         <select class='text-warning ui-corner-all' name='type_de_public_choisi' id='type_de_public_choisi' required>
-                                                                                                                                            <option value='1'>SOCIAL (337.00€)</option>
-                                                                                                                                            <option value='2'>MLJ (378.00€)</option>
-                                                                                                                                            <option value='3'>ETUDIANTS (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>
-                                                                                                                                            <option value='4'>AUTRES (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>    
+                                                                                                                                                <option value='1'>SOCIAL (337.00€)</option>
+                                                                                                                                                <option value='2'>MLJ (378.00€)</option>
+                                                                                                                                                <option value='3'>ETUDIANTS (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>
+                                                                                                                                                <option value='4'>AUTRES (395.00€ si plus de 3 mois, 449.00€ si moins de 3 mois)</option>    
                                                                                                                                         </select>.
-                                                                                                                                    </p>
-                                                                                                                                    <p>Date de début du contrat de location du locataire: <input type='text' name='date_de_debut_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> et se terminera le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
-                                                                                                                                     <p>Type de contrat de location choisi: 
+                                                                                                                                        </p>
+                                                                                                                                        <p>Date de début du contrat de location du locataire: <input type='text' name='date_de_debut_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required> et se terminera le <input type='text' name='date_de_fin_du_contrat_de_location' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all' required>.</p>
+                                                                                                                                        <p>Type de contrat de location choisi: 
                                                                                                                                         <select class='text-warning ui-corner-all' name='type_de_contrat_choisi' id='type_de_contrat_choisi' required>
                                                                                                                                             <option value='1' selected>contrat 0 - 3 mois</option>
                                                                                                                                             <option value='2'>contrat à l'année</option>
                                                                                                                                         </select>.
-                                                                                                                                    </p>
-                                                                                                                                    <p>Conditions du contrat de location:
-                                                                                                                                    <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' id='ensemble_des_conditions_du_contrat_de_location' required>
-                                                                                                                                        <option value='1' selected>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                                                                                        <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                                                                                        <option value='3'>Sans EDF et sans assurance locative inclus (+eau, internet, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                                                                                    </select>.</p>
-                                                                                                                                    <p>Montant de la location: <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
-                                                                                                                                    <p>Montant du dépot de garantie: <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros.</p>
-                                                                                                                                    <p>Sera-t'il encaissé ?
-                                                                                                                                        <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti' required>
-                                                                                                                                            <option value='1' selected>Oui</option>
-                                                                                                                                            <option value='0'>Non</option>
-                                                                                                                                        </select>.
-                                                                                                                                    </p>
-                                                                                                                                    <p>Nom de famille du garant: <input type='text' name='nom_de_famille_du_garant' class='ui-corner-all text-warning' id='nom_de_famille_du_garant'>.</p>
-                                                                                                                                    <p>Prénom du garant: <input type='text' name='prenom_du_garant' class='ui-corner-all text-warning' id='prenom_du_garant'>.</p>
-                                                                                                                                    <p>Date de naissance du naissance du garant: <input type='text' name='date_de_naissance_du_garant' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all'>.</p>
-                                                                                                                                    <p>Adresse postale du garant: <input type='text' name='adresse_postale_de_residence_du_garant' class='ui-corner-all text-warning' size='73' required>.</p>
-                                                                                                                                    <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
-                                                                                                                                    <p>Bonne journée,</p>
-                                                                                                                                    <p>Suiviloc</p>
+                                                                                                                                        </p>
+                                                                                                                                        <p>Conditions du contrat de location:
+                                                                                                                                        <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' id='ensemble_des_conditions_du_contrat_de_location' required>
+                                                                                                                                            <option value='1' selected>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                            <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                            <option value='3'>Sans EDF et sans assurance locative inclus (+eau, internet, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                        </select>.</p>
+                                                                                                                                        <p>Montant de la location: <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
+                                                                                                                                        <p>Montant du dépot de garantie: <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros.</p>
+                                                                                                                                        <p>Sera-t'il encaissé ?
+                                                                                                                                            <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti' required>
+                                                                                                                                                <option value='1' selected>Oui</option>
+                                                                                                                                                <option value='0'>Non</option>
+                                                                                                                                            </select>.
+                                                                                                                                        </p>
+                                                                                                                                    </fieldset>
+                                                                                                                                    <fieldset>
+                                                                                                                                        <legend>Le garant</legend>
+                                                                                                                                        <p>Nom de famille du garant: <input type='text' name='nom_de_famille_du_garant' class='ui-corner-all text-warning' id='nom_de_famille_du_garant'>.</p>
+                                                                                                                                        <p>Prénom du garant: <input type='text' name='prenom_du_garant' class='ui-corner-all text-warning' id='prenom_du_garant'>.</p>
+                                                                                                                                        <p>Date de naissance du naissance du garant: <input type='text' name='date_de_naissance_du_garant' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all'>.</p>
+                                                                                                                                        <p>Adresse postale du garant: <input type='text' name='adresse_postale_de_residence_du_garant' class='ui-corner-all text-warning' size='73'>.</p>
+                                                                                                                                    </fieldset>
+                                                                                                                                    <fieldset>
+                                                                                                                                        <legend>Le mot de la fin</legend>
+                                                                                                                                        <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
+                                                                                                                                        <p>Bonne journée,</p>
+                                                                                                                                        <p>Suiviloc</p>
+                                                                                                                                    </fieldset>
                                                                                                                                 </form>
                                                                                                                             </p>
                                                                                                                         </div>
@@ -821,7 +833,7 @@
                                                     Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le " . date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                                 </p>
                                                 <div class='pied_de_div_des_fonctionnalites'>
-                                                   &copy; 2019 residence locative - adresse de residence locative
+                                                    &copy; 2019 residence locative - adresse de residence locative
                                                 </div>
                                             </div>
                                             <div id='fenetre_de_deconnexion' title='Déconnexion'>
