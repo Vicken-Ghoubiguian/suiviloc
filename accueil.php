@@ -41,7 +41,7 @@
                                             <div id='bienvenue'>
                                                 <h1 class='titre_de_bienvenue'>Bienvenue sur Suiviloc</h1>
                                                 <br>
-                                                <p class='sous-titre_de_bienvenue'>Logiciel de gestion du parc locatif de l'agence Residis de Perpignan</p>
+                                                <p class='sous-titre_de_bienvenue'>Logiciel de gestion du parc locatif</p>
                                                 <br>
                                                 <div class='enumeration_des_fonctionnalites'>
                                                     <ul>
@@ -262,7 +262,7 @@
                                                                                                                                     <p>Nom de famille du garant: <input type='text' name='nom_de_famille_du_garant' class='ui-corner-all text-warning' id='nom_de_famille_du_garant'>.</p>
                                                                                                                                     <p>Prénom du garant: <input type='text' name='prenom_du_garant' class='ui-corner-all text-warning' id='prenom_du_garant'>.</p>
                                                                                                                                     <p>Date de naissance du naissance du garant: <input type='text' name='date_de_naissance_du_garant' class='text-warning calendrier_pour_faire_un_choix_de_date ui-corner-all'>.</p>
-                                                                                                                                    <p>Adresse postale du garant: <input type='text' name='adresse_postale_de_residence_du_garant' class='ui-corner-all text-warning' size='73'>.</p>
+                                                                                                                                    <p>Adresse postale du garant: <input type='text' name='adresse_postale_de_residence_du_garant' class='ui-corner-all text-warning' size='73' required>.</p>
                                                                                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                                                                                     <p>Bonne journée,</p>
                                                                                                                                     <p>Suiviloc</p>
@@ -821,7 +821,7 @@
                                                     Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le " . date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                                 </p>
                                                 <div class='pied_de_div_des_fonctionnalites'>
-                                                   &copy; 2019 Residis - 58 Avenue de Wagram 75017 Paris
+                                                   &copy; 2019 residence locative - adresse de residence locative
                                                 </div>
                                             </div>
                                             <div id='fenetre_de_deconnexion' title='Déconnexion'>
