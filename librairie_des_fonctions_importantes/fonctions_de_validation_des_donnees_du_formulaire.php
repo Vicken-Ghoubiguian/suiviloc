@@ -10,6 +10,35 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function survenance_d_une_erreur_de_generation_du_document_PDF($tableau_contenant_les_donnees_de_l_erreur)
+    {
+
+        $smarty = new Smarty();
+
+        //
+        $smarty->assign($tableau_contenant_les_donnees_de_l_erreur);
+
+        //
+        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+
+    }
+
+    //
+    function confirmation_de_reussite_de_generation_du_document_PDF($nature_du_document_a_generer)
+    {
+
+        //
+        $smarty = new Smarty();
+
+        //
+        $smarty->assign(array("nature_du_document_PDF_a_generer" => $nature_du_document_a_generer));
+
+        //
+        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
+    }
+
+    //
     function renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire)
     {
 

@@ -740,13 +740,7 @@
             insertion_de_l_element_dans_la_base_de_donnees($expiration_courante_de_contrat_de_location);
 
             //
-            $smarty = new Smarty();
-
-            //
-            $smarty->assign(array("nature_du_document_PDF_a_generer" => "L'expiration de contrat de location"));
-
-            //
-            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+            confirmation_de_reussite_de_generation_du_document_PDF("L'expiration de contrat de location");
 
         }
         //
@@ -811,13 +805,7 @@
             insertion_de_l_element_dans_la_base_de_donnees($attestation_courante);
 
             //
-            $smarty = new Smarty();
-
-            //
-            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Attestation"));
-
-            //
-            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+            confirmation_de_reussite_de_generation_du_document_PDF("Attestation");
 
         }
         //
@@ -879,13 +867,7 @@
             insertion_de_l_element_dans_la_base_de_donnees($relance_courante_pour_le_loyer_impaye);
 
             //
-            $smarty = new Smarty();
-
-            //
-            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Relance impayé"));
-
-            //
-            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+            confirmation_de_reussite_de_generation_du_document_PDF("Relance impayé");
 
         }
         //
@@ -942,15 +924,6 @@
                 "numero_de_l_etage_du_studio" => $numero_de_l_etage_du_studio
 
             ));
-
-            //
-            $smarty = new Smarty();
-
-            //
-            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Relance impayé"));
-
-            //
-            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
 
         }
         //
@@ -1062,13 +1035,7 @@
                     insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
 
                     //
-                    $smarty = new Smarty();
-
-                    //
-                    $smarty->assign(array("nature_du_document_PDF_a_generer" => "Etat des lieux lors d'une sortie anticipée"));
-
-                    //
-                    $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                    confirmation_de_reussite_de_generation_du_document_PDF("Etat des lieux lors d'une sortie anticipée");
 
                 }
                 //Sinon...
@@ -1076,14 +1043,8 @@
                 {
 
                     //
-                    $smarty = new Smarty();
-
-                    //
-                    $smarty->assign(array("intitule_de_l_erreur" => "Pour la date choisie pour l'état des lieux, ce n'est pas une date que vous avez entré",
+                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date choisie pour l'état des lieux, ce n'est pas une date que vous avez entré",
                         "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                    //
-                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                 }
 
@@ -1093,14 +1054,8 @@
             {
 
                 //
-                $smarty = new Smarty();
-
-                //
-                $smarty->assign(array("intitule_de_l_erreur" => "La date choisie pour l'état des lieux que vous avez entré n'est pas valide",
-                    "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                //
-                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date choisie pour l'état des lieux, ce n'est pas une date que vous avez entré",
+                    "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
             }
 
@@ -1163,13 +1118,7 @@
             insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
 
             //
-            $smarty = new Smarty();
-
-            //
-            $smarty->assign(array("nature_du_document_PDF_a_generer" => "préavis de départ"));
-
-            //
-            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+            confirmation_de_reussite_de_generation_du_document_PDF("préavis de départ");
 
         }
         //Sinon...
