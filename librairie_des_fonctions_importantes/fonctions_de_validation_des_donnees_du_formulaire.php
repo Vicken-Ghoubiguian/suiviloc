@@ -10,6 +10,48 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function renvoi_du_nom_et_du_prenom_de_tous_les_locataires_dans_un_tableau()
+    {
+
+        //
+        $tableau_de_tous_les_locataires = array();
+
+        //
+        $requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT nom, prenom FROM Locataire");
+
+        //
+        $requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires->execute();
+
+        //
+        $resultat_de_la_requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires = $requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires->fetchAll(PDO::FETCH_ASSOC);
+
+        //
+        $nombre_de_resultats_de_la_requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires = $requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires->rowCount();
+
+        //
+        for($incrementeur = 0; $incrementeur < $nombre_de_resultats_de_la_requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires; $incrementeur++)
+        {
+
+            //
+            $nom_de_famille_du_locataire = $resultat_de_la_requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires[$incrementeur]['nom'];
+
+            //
+            $prenom_du_locataire = $resultat_de_la_requete_de_recuperation_de_tous_les_noms_et_prenoms_des_locataires[$incrementeur]['prenom'];
+
+            //
+            $locataire_courant = $nom_de_famille_du_locataire . " " . $prenom_du_locataire;
+
+            //
+            array_push($tableau_de_tous_les_locataires, $locataire_courant);
+
+        }
+
+        //
+        return $tableau_de_tous_les_locataires;
+
+    }
+
+    //
     function mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connection_a_l_application($nom_de_l_uttilisateur_pour_connexion, $mot_de_passe_crypte_de_l_uttilisateur_pour_authentification)
     {
 
