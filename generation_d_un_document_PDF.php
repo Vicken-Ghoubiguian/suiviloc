@@ -251,26 +251,19 @@
                                                                         if(est_element_present_dans_la_base($locataire_courant) == False)
                                                                         {
 
+                                                                            //
                                                                             insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
 
                                                                         }
 
                                                                         //
-                                                                        //$contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, NULL);
-
-                                                                        $contrat_courant = new Contrat($id_du_type_de_contrat, 3, new DateTime("2019-04-01"), new DateTime("2019-04-30"), (new DateTime('now'))->format('Y-m-d'), True, True, True, True, True, True, '01222', $identifiant_du_locataire, '206', NULL);
+                                                                        $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $identifiant_du_locataire, $numero_du_studio_pour_le_locataire, NULL);
 
                                                                         //
                                                                         insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
 
                                                                         //
-                                                                        $smarty = new Smarty();
-
-                                                                        //
-                                                                        $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
-
-                                                                        //
-                                                                        $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                                                                        confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                     }
                                                                     elseif($type_de_contrat_choisi_pour_le_locataire == 2)
@@ -349,13 +342,7 @@
                                                                                             insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
 
                                                                                             //
-                                                                                            $smarty = new Smarty();
-
-                                                                                            //
-                                                                                            $smarty->assign(array("nature_du_document_PDF_a_generer" => "Le contrat de location"));
-
-                                                                                            //
-                                                                                            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+                                                                                            confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                                         }
                                                                                         //Sinon...
