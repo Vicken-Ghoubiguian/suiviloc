@@ -229,23 +229,8 @@
                                                                     $chemin_du_fichier_genere = "0";
 
                                                                     //
-                                                                    $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF = new Smarty();
-
-                                                                    //
-                                                                    $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array(
-
-                                                                    ));
-
-                                                                    //
                                                                     if($type_de_contrat_choisi_pour_le_locataire == 1)
                                                                     {
-                                                                        //
-                                                                        $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array(
-
-                                                                        ));
-
-                                                                        //
-                                                                        $template_remplie_avec_tous_les_elements_renseignes_dans_le_formulaire = $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->fetch('templates_des_documents_PDF/Contrat.html');
 
                                                                         //
                                                                         if(est_element_present_dans_la_base($locataire_courant) == False)
@@ -307,11 +292,6 @@
                                                                                         //
                                                                                         if($date_de_naissance_du_garant_sous_forme_de_timestamp < $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp)
                                                                                         {
-                                                                                            //
-                                                                                            $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->assign(array());
-
-                                                                                            //
-                                                                                            $template_remplie_avec_tous_les_elements_renseignes_dans_le_formulaire = $instance_smarty_pour_la_generation_du_contrat_de_location_sous_format_PDF->fetch('templates_des_documents_PDF/Contrat_12_mois.html');
 
                                                                                             //
                                                                                             if(est_element_present_dans_la_base($locataire_courant) == False)
@@ -547,256 +527,376 @@
         {
 
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+            try {
 
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+
+                //
+                $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+
+                //
+                $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                setlocale(LC_TIME, "fr_FR");
+
+                //
+                $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                //
+                $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
+
+                //
+                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
+
+                    "prenom_du_locataire" => $prenom_du_locataire_formate,
+
+                    "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                    "date_de_la_fin_du_contrat_du_locataire" => $date_de_la_fin_du_contrat_du_locataire_au_format_francophone
+
+                ));
+
+                //
+                $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $id_du_studio_occuppe_par_le_locataire = renvoi_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_occuppe_par_le_locataire);
+
+                //
+                $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime = new DateTime();
+
+                //
+                $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime->setTimestamp($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                //
+                $date_de_fin_du_contrat_du_locataire_sous_forme_de_DateTime = $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime->format("Y-m-d H:i:s");
+
+                //
+                $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                //
+                $date_du_jour = date("Y-m-d");
+
+                //
+                $expiration_courante_de_contrat_de_location = new Expiration_de_contrat_de_location($nom_de_famille_du_locataire, $prenom_du_locataire, $id_du_studio_occuppe_par_le_locataire, $date_de_fin_du_contrat_du_locataire_sous_forme_de_DateTime, $chemin_du_fichier_genere, $date_du_jour, $id_du_contrat_de_location);
+
+                //
+                insertion_de_l_element_dans_la_base_de_donnees($expiration_courante_de_contrat_de_location);
+
+                //
+                confirmation_de_reussite_de_generation_du_document_PDF("L'expiration de contrat de location");
+
+            }
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+            catch(PDOException $exception)
+            {
 
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                    "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
+
+            }
             //
-            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+            catch(Exception $exception)
+            {
 
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                    "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
+
+            }
             //
-            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+            catch(Error $error)
+            {
 
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                    "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
 
-            //
-            $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            setlocale(LC_TIME, "fr_FR");
-
-            //
-            $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
-
-            //
-            $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
-
-            //
-            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("expiration_de_contrat_de_location", array(
-
-                "prenom_du_locataire" => $prenom_du_locataire_formate,
-
-                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
-
-                "date_de_la_fin_du_contrat_du_locataire" => $date_de_la_fin_du_contrat_du_locataire_au_format_francophone
-
-            ));
-
-            //
-            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            $id_du_studio_occuppe_par_le_locataire = renvoi_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_occuppe_par_le_locataire);
-
-            //
-            $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime = new DateTime();
-
-            //
-            $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime->setTimestamp($date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
-
-            //
-            $date_de_fin_du_contrat_du_locataire_sous_forme_de_DateTime = $date_de_conversion_de_la_date_de_fin_de_contrat_de_Timestamp_a_DateTime->format("Y-m-d H:i:s");
-
-            //
-            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
-
-            //
-            $date_du_jour = date("Y-m-d");
-
-            //
-            $expiration_courante_de_contrat_de_location = new Expiration_de_contrat_de_location($nom_de_famille_du_locataire, $prenom_du_locataire, $id_du_studio_occuppe_par_le_locataire, $date_de_fin_du_contrat_du_locataire_sous_forme_de_DateTime, $chemin_du_fichier_genere, $date_du_jour, $id_du_contrat_de_location);
-
-            //
-            insertion_de_l_element_dans_la_base_de_donnees($expiration_courante_de_contrat_de_location);
-
-            //
-            confirmation_de_reussite_de_generation_du_document_PDF("L'expiration de contrat de location");
-
+            }
         }
         //
         elseif($_POST['type_de_document'] == 'attestation')
         {
 
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+            try {
 
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+
+                //
+                $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+
+                //
+                $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+
+                //
+                setlocale(LC_TIME, "fr_FR");
+
+                //
+                $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
+
+                //
+                $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
+
+                //
+                $date_du_jour = date("Y-m-d");
+
+                //
+                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("attestation", array(
+
+                    "nom_du_locataire" => $nom_de_famille_du_locataire,
+
+                    "prenom_du_locataire" => $prenom_du_locataire,
+
+                    "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                    "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
+
+                    "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
+
+                ));
+
+                //
+                $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $attestation_courante = new Attestation($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+
+                //
+                insertion_de_l_element_dans_la_base_de_donnees($attestation_courante);
+
+                //
+                confirmation_de_reussite_de_generation_du_document_PDF("Attestation");
+
+            }
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+            catch(PDOException $exception)
+            {
 
-            //
-            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                    "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
 
-            //
-            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+            }
+                //
+            catch(Exception $exception)
+            {
 
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                    "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
 
-            //
-            $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+            }
+                //
+            catch(Error $error)
+            {
 
-            //
-            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                    "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
 
-            //
-            setlocale(LC_TIME, "fr_FR");
-
-            //
-            $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
-
-            //
-            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
-
-            //
-            $date_du_jour = date("Y-m-d");
-
-            //
-            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("attestation", array(
-
-                "nom_du_locataire" => $nom_de_famille_du_locataire,
-
-                "prenom_du_locataire" => $prenom_du_locataire,
-
-                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
-
-                "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
-
-                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone
-
-            ));
-
-            //
-            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            $attestation_courante = new Attestation($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
-
-            //
-            insertion_de_l_element_dans_la_base_de_donnees($attestation_courante);
-
-            //
-            confirmation_de_reussite_de_generation_du_document_PDF("Attestation");
-
+            }
         }
         //
         elseif($_POST['type_de_document'] == 'relance_loyer_impaye')
         {
 
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+            try {
 
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+
+                //
+                $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+
+                //
+                $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $montant_du_loyer_impaye_pour_le_locataire = htmlspecialchars($_POST['montant_du_loyer_impaye']);
+
+                //
+                setlocale(LC_TIME, "fr_FR");
+
+                //
+                $date_du_jour = strftime("%A %d %B %Y");
+
+                //
+                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
+
+                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
+
+                    "prenom_du_locataire" => $prenom_du_locataire,
+
+                    "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                    "date_du_jour" => $date_du_jour,
+
+                    "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
+
+                ));
+
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $id_du_studio_occuppe_par_le_locataire = renvoi_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_occuppe_par_le_locataire);
+
+                //
+                $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $relance_courante_pour_le_loyer_impaye = new Relance_loyer_impaye($nom_de_famille_du_locataire, $prenom_du_locataire, $id_du_studio_occuppe_par_le_locataire, $date_du_jour, $montant_du_loyer_impaye_pour_le_locataire, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+
+                //
+                insertion_de_l_element_dans_la_base_de_donnees($relance_courante_pour_le_loyer_impaye);
+
+                //
+                confirmation_de_reussite_de_generation_du_document_PDF("Relance impayé");
+
+            }
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+            catch(PDOException $exception)
+            {
 
-            //
-            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                    "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
 
-            //
-            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+            }
+                //
+            catch(Exception $exception)
+            {
 
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                    "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
 
-            //
-            $montant_du_loyer_impaye_pour_le_locataire = htmlspecialchars($_POST['montant_du_loyer_impaye']);
+            }
+                //
+            catch(Error $error)
+            {
 
-            //
-            setlocale(LC_TIME, "fr_FR");
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                    "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
 
-            //
-            $date_du_jour = strftime("%A %d %B %Y");
-
-            //
-            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("relance_loyer_impaye", array(
-
-                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
-
-                "prenom_du_locataire" => $prenom_du_locataire,
-
-                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
-
-                "date_du_jour" => $date_du_jour,
-
-                "montant_a_debiter_pour_le_loyer" => $montant_du_loyer_impaye_pour_le_locataire
-
-            ));
-
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            $id_du_studio_occuppe_par_le_locataire = renvoi_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_occuppe_par_le_locataire);
-
-            //
-            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
-
-            //
-            $relance_courante_pour_le_loyer_impaye = new Relance_loyer_impaye($nom_de_famille_du_locataire, $prenom_du_locataire, $id_du_studio_occuppe_par_le_locataire, $date_du_jour, $montant_du_loyer_impaye_pour_le_locataire, $chemin_du_fichier_genere, $id_du_contrat_de_location);
-
-            //
-            insertion_de_l_element_dans_la_base_de_donnees($relance_courante_pour_le_loyer_impaye);
-
-            //
-            confirmation_de_reussite_de_generation_du_document_PDF("Relance impayé");
-
+            }
         }
         //
         elseif($_POST['type_de_document'] == 'etiquette')
         {
 
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+            try {
 
-            //
-            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
 
-            //
-            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
 
-            //
-            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+                //
+                $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
 
-            //
-            $premiere_lettre_du_prenom_du_locataire = $prenom_du_locataire[0];
+                //
+                $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
 
-            //
-            $premiere_lettre_du_prenom_du_locataire_en_majuscule = strtoupper($premiere_lettre_du_prenom_du_locataire);
+                //
+                $premiere_lettre_du_prenom_du_locataire = $prenom_du_locataire[0];
 
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                $premiere_lettre_du_prenom_du_locataire_en_majuscule = strtoupper($premiere_lettre_du_prenom_du_locataire);
 
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                if (strlen($numero_du_studio_occuppe_par_le_locataire) == 3) {
+
+                    //
+                    $numero_de_l_etage_du_studio = $numero_du_studio_occuppe_par_le_locataire[0];
+
+                } //Sinon...
+                else {
+
+                    //
+                    $numero_de_l_etage_du_studio = "rez-de-chaussée";
+
+                }
+
+                //
+                generation_d_un_document_sous_format_PDF("etiquette", array(
+
+                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
+
+                    "lettre_prenom" => $premiere_lettre_du_prenom_du_locataire_en_majuscule . ".",
+
+                    "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                    "numero_de_l_etage_du_studio" => $numero_de_l_etage_du_studio
+
+                ));
+            }
             //
-            if(strlen($numero_du_studio_occuppe_par_le_locataire) == 3)
+            catch(PDOException $exception)
             {
 
                 //
-                $numero_de_l_etage_du_studio = $numero_du_studio_occuppe_par_le_locataire[0];
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                    "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
 
             }
-            //Sinon...
-            else
+                //
+            catch(Exception $exception)
             {
 
                 //
-                $numero_de_l_etage_du_studio = "rez-de-chaussée";
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                    "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
 
             }
+                //
+            catch(Error $error)
+            {
 
-            //
-            generation_d_un_document_sous_format_PDF("etiquette", array(
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                    "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
 
-                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
-
-                "lettre_prenom" => $premiere_lettre_du_prenom_du_locataire_en_majuscule . ".",
-
-                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
-
-                "numero_de_l_etage_du_studio" => $numero_de_l_etage_du_studio
-
-            ));
-
+            }
         }
         //
         elseif($_POST['type_de_document'] == 'etat_des_lieux_lors_d_un_depart_anticipe')
@@ -834,81 +934,112 @@
                 if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_choisie_pour_l_etat_des_lieux))
                 {
 
-                    //
-                    $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
+                        //
+                        try {
 
-                    //
-                    $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp = $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes['timestamp'];
+                            //
+                            $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
 
-                    //
-                    //
-                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+                            //
+                            $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp = $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes['timestamp'];
 
-                    //
-                    $date_de_depart_du_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+                            //
+                            //
+                            $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = renvoi_de_la_date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
-                    //
-                    setlocale(LC_TIME, "fr_FR");
+                            //
+                            $date_de_depart_du_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
-                    //
-                    $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
+                            //
+                            setlocale(LC_TIME, "fr_FR");
 
-                    //
-                    $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_sous_forme_de_timestamp);
+                            //
+                            $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
 
-                    //
-                    $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
+                            //
+                            $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_sous_forme_de_timestamp);
 
-                    //
-                    $date_du_jour = strftime("%A %d %B %Y");
+                            //
+                            $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
 
-                    //
-                    $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
+                            //
+                            $date_du_jour = strftime("%A %d %B %Y");
 
-                        "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
+                            //
+                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
 
-                        "prenom_du_locataire" => $prenom_du_locataire,
+                                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
 
-                        "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+                                "prenom_du_locataire" => $prenom_du_locataire,
 
-                        "date_du_jour" => $date_du_jour,
+                                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
 
-                        "civilite_du_locataire" => "Monsieur/Madame",
+                                "date_du_jour" => $date_du_jour,
 
-                        "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
+                                "civilite_du_locataire" => "Monsieur/Madame",
 
-                        "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
+                                "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
 
-                        "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone,
+                                "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
 
-                        "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
+                                "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone,
 
-                    ));
+                                "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
 
-                    //
-                    $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
+                            ));
 
-                    //
-                    $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
+                            //
+                            $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
 
-                    //
-                    $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
+                            //
+                            $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
 
-                    //
-                    $date_et_heure_du_jour_sous_forme_de_timestamp = time();
+                            //
+                            $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
 
-                    //
-                    $date_du_jour = date("Y-m-d");
+                            //
+                            $date_et_heure_du_jour_sous_forme_de_timestamp = time();
 
-                    //
-                    $etat_des_lieux_courant = new Etat_des_lieux($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
+                            //
+                            $date_du_jour = date("Y-m-d");
 
-                    //
-                    insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
+                            //
+                            $etat_des_lieux_courant = new Etat_des_lieux($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
 
-                    //
-                    confirmation_de_reussite_de_generation_du_document_PDF("Etat des lieux lors d'une sortie anticipée");
+                            //
+                            insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
 
+                            //
+                            confirmation_de_reussite_de_generation_du_document_PDF("Etat des lieux lors d'une sortie anticipée");
+
+                        }
+                        //
+                        catch(PDOException $exception)
+                        {
+
+                            //
+                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                                "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
+
+                        }
+                            //
+                        catch(Exception $exception)
+                        {
+
+                            //
+                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                                "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
+
+                        }
+                            //
+                        catch(Error $error)
+                        {
+
+                            //
+                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                                "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
+
+                        }
                 }
                 //Sinon...
                 else
@@ -937,60 +1068,92 @@
         {
 
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+            try {
 
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+
+                //
+                $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+
+                //
+                $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+
+                //
+                $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+                //
+                $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+                //
+                setlocale(LC_TIME, "fr_FR");
+
+                //
+                $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
+
+                //
+                $date_de_depart_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
+
+                //
+                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
+
+                    "nom_du_locataire" => $nom_de_famille_du_locataire,
+
+                    "prenom_du_locataire" => $prenom_du_locataire,
+
+                    "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                    "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
+
+                    "civilite_du_locataire" => "Monsieur/Madame",
+
+                    "date_de_depart_du_locataire" => $date_de_depart_du_locataire_au_format_francophone
+
+                ));
+
+                //
+                $preavis_courant = new Preavis($date_du_jour_pour_insertion_dans_le_document_PDF, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+
+                //
+                insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
+
+                //
+                confirmation_de_reussite_de_generation_du_document_PDF("préavis de départ");
+
+            }
             //
-            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+            catch(PDOException $exception)
+            {
 
-            //
-            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur concernant les opérations sur la base de données",
+                    "description_de_l_erreur" => "Une erreur concernant les opérations sur la base de données est survenue, la voici: " . $exception->getMessage() ));
 
-            //
-            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+            }
+                //
+            catch(Exception $exception)
+            {
 
-            //
-            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Exception",
+                    "description_de_l_erreur" => "Une exception s'est produite, voici son message: " . $exception->getMessage() ));
 
-            //
-            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+            }
+                //
+            catch(Error $error)
+            {
 
-            //
-            $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+                //
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Erreur",
+                    "description_de_l_erreur" => "Une erreur s'est produite, voici son message: " . $error->getMessage() ));
 
-            //
-            setlocale(LC_TIME, "fr_FR");
-
-            //
-            $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
-
-            //
-            $date_de_depart_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
-
-            //
-            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
-
-                "nom_du_locataire" => $nom_de_famille_du_locataire,
-
-                "prenom_du_locataire" => $prenom_du_locataire,
-
-                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
-
-                "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
-
-                "civilite_du_locataire" => "Monsieur/Madame",
-
-                "date_de_depart_du_locataire" => $date_de_depart_du_locataire_au_format_francophone
-
-            ));
-
-            //
-            $preavis_courant = new Preavis($date_du_jour_pour_insertion_dans_le_document_PDF, $chemin_du_fichier_genere, $id_du_contrat_de_location);
-
-            //
-            insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
-
-            //
-            confirmation_de_reussite_de_generation_du_document_PDF("préavis de départ");
+            }
 
         }
         //Sinon...
