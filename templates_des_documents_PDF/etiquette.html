@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Etiquette</title>
 <style >
+
     @font-face {
         font-family: 'Lato';
         src : url("../dompdf/lib/fonts/Lato-Regular.ttf");
     }
-
     body, html{
         height:100%;
         width: 100%;
@@ -29,7 +29,7 @@
     .imageDroite{
         color: Black;
 
-        width: 110px;
+        width: 140px;
         height: 50px;
         display: table-cell;
 
@@ -43,28 +43,38 @@
         margin-top: 10px;
         vertical-align: bottom;
         text-align: center;
+        font-family: 'Lato', sans-serif;
     }
     .classeBasGauche{
         color: black;
         margin-top: 20px;
         vertical-align: bottom;
-       margin-left: 10px;
+        margin-left: 10px;
+
+        width: 140px;
+        font-family: 'Lato', sans-serif;
     }
     .classeBasDroite{
         color: black;
         margin-top: 20px;
         vertical-align: bottom;
-        margin-left: 60px;
+
+        margin-right: 20px;
+        text-align: right;
+
+        font-family: 'Lato', sans-serif;
     }
     .hautDroit{
-         color: black;
-        margin-left: 140px;
+        color: black;
+        margin-left: 90px;
+        font-family: 'Lato', sans-serif;
 
-     }
+
+    }
     img{
         vertical-align: bottom;
         margin-left: 10px;
-        height: 30px;width: 50px;
+        height: 40px;width: 120px;
 
         text-align: left;
 
@@ -75,7 +85,7 @@
         height: 85%;
     }
     mark{
-       background-color: red;
+        background-color: red;
     }
 </style>
 
@@ -89,27 +99,35 @@
 
 
 
+ 
     <div  style ="text-justify: auto ; margin-left:40px; margin-right: 30px" class="main2">
 
 
         <div class="imageDroite" style="background-color: white">
-            <table border="hidden">
+            <table style="vertical-align: top" border="hidden">
                 <tr>
-                    <td width="50%"> <img  src="images/logo_residence_locative.jpg" alt="" /></td>
-                    <td width="50%"><a class="hautDroit" style="font-size: 9pt" >Les Portes d'Espagne</a></td>
+                    <td width="30%"> <img  src="../images/logo_residence_locative.jpg" alt="" /></td>
+                    <td style="vertical-align: top" width="50%"><a class="hautDroit" style="font-size: 9pt" >Bâtiment C</a></td>
                 </tr>
             </table>
             <a class="classemilieu " style="font-size: 18pt ; font-weight: bold" >{$nom_de_famille_du_locataire} {$lettre_prenom}</a><br>
-            <p style="margin-top: 10px; font-size: 11pt">
-                <a class="classeBasGauche"  >ETAGE {$numero_de_l_etage_du_studio}</a>
-                <a class="classeBasDroite"  >LOGEMENT {$numero_du_studio}</a>
+            <table style="margin-top: 10px; font-size: 11pt">
+                <tr >
+                    <td width="90%">
+                        <a class="classeBasGauche"   >{$numero_de_l_etage_du_studio}</a>
+                    </td>
 
-            </p>
+                    <td width="33%">
+                        <a class="classeBasDroite "  >LOGEMENT {$numero_du_studio}</a>
+                    </td>
+                </tr>
+            </table>
 
-         </div>
+        </div>
 
 
-</div>
+    </div>
+
 </div>
 
 
