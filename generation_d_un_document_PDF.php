@@ -769,7 +769,7 @@
             $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
 
             //
-            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_debut_du_contrat_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+            $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_debut_du_contrat_du_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
             //
             setlocale(LC_TIME, "fr_FR");
@@ -958,16 +958,22 @@
         {
 
             //
-            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
+            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
 
             //
-            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
+            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
 
             //
-            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
+            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
 
             //
-            $date_de_depart_initial_du_locataire_entree_dans_le_formulaire = htmlspecialchars($_POST['date_de_depart_initial_du_locataire']);
+            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+            //
+            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+            //
+            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
 
             //
             $date_choisie_pour_l_etat_des_lieux = htmlspecialchars($_POST['date_choisie_pour_l_etat_des_lieux']);
@@ -976,297 +982,93 @@
             $heure_choisie_pour_l_etat_des_lieux = htmlspecialchars($_POST['heure_choisie_pour_l_etat_des_lieux']);
 
             //
-            if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
+            if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_choisie_pour_l_etat_des_lieux))
             {
 
                 //
-                $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
-
-                //
-                $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
-
-                //
-                $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
-
-                //
-                $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire,$id_du_studio_pour_le_locataire);
-
-                //
-                if($id_du_locataire != 0)
+                if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_choisie_pour_l_etat_des_lieux))
                 {
 
                     //
-                    if(verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_du_locataire, $id_du_studio_pour_le_locataire) == True)
-                    {
+                    $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
 
-                        //
-                        if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_depart_initial_du_locataire_entree_dans_le_formulaire))
-                        {
+                    //
+                    $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp = $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes['timestamp'];
 
-                            //
-                            if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_choisie_pour_l_etat_des_lieux))
-                            {
+                    //
+                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_debut_du_contrat_du_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
-                                //
-                                if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_depart_initial_du_locataire_entree_dans_le_formulaire))
-                                {
+                    //
+                    $date_de_depart_du_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
+                    //
+                    setlocale(LC_TIME, "fr_FR");
 
-                                    //
-                                    if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_choisie_pour_l_etat_des_lieux))
-                                    {
+                    //
+                    $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
 
-                                        //
-                                        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_de_fin_du_contrat FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :id_du_studio");
+                    //
+                    $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_sous_forme_de_timestamp);
 
-                                        //
-                                        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->bindParam(":id_du_locataire", $id_du_locataire);
+                    //
+                    $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
 
-                                        //
-                                        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->bindParam(":id_du_studio", $id_du_studio_pour_le_locataire);
+                    //
+                    $date_du_jour = strftime("%A %d %B %Y");
 
-                                        //
-                                        $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->execute();
+                    //
+                    $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
 
-                                        //
-                                        $resultat_de_la_requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire = $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->fetchAll(PDO::FETCH_BOTH);
+                        "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire,
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_depuis_la_BDD = $resultat_de_la_requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire[0][0];
+                        "prenom_du_locataire" => $prenom_du_locataire,
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_depuis_la_BDD_prete_a_etre_traitee = formatage_date_du_format_de_DateTime_SQL_a_celui_de_calendar_jQuery_Ui($date_de_depart_initial_du_locataire_depuis_la_BDD);
+                        "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_depuis_la_BDD_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_depart_initial_du_locataire_depuis_la_BDD_prete_a_etre_traitee);
+                        "date_du_jour" => $date_du_jour,
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_depuis_la_BDD_sous_forme_de_timestamp = $date_de_depart_initial_du_locataire_depuis_la_BDD_sous_toutes_ses_formes['timestamp'];
+                        "civilite_du_locataire" => "Monsieur/Madame",
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_depart_initial_du_locataire_entree_dans_le_formulaire);
+                        "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
 
-                                        //
-                                        $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_toutes_ses_formes['timestamp'];
+                        "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
 
-                                        //
-                                        $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
+                        "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone,
 
-                                        //
-                                        $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp = $date_choisie_pour_l_etat_des_lieux_sous_toutes_ses_formes['timestamp'];
+                        "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
 
-                                        //
-                                        $requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_d_arrivee FROM Locataire WHERE Locataire.id = :id_du_locataire");
+                    ));
 
-                                        //
-                                        $requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence->bindParam(":id_du_locataire", $id_du_locataire);
+                    //
+                    $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
 
-                                        //
-                                        $requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence->execute();
+                    //
+                    $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
 
-                                        //
-                                        $resultat_de_la_requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence = $requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence->fetchAll(PDO::FETCH_BOTH);
+                    //
+                    $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
 
-                                        //
-                                        $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD = $resultat_de_la_requete_de_selection_de_la_date_d_arrivee_du_locataire_dans_la_residence[0][0];
+                    //
+                    $date_et_heure_du_jour_sous_forme_de_timestamp = time();
 
-                                        //
-                                        $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_pour_etre_traitee = formatage_date_du_format_de_DateTime_SQL_a_celui_de_calendar_jQuery_Ui($date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD);
+                    //
+                    $date_du_jour = date("Y-m-d");
 
-                                        //
-                                        $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_pour_etre_traitee);
+                    //
+                    $etat_des_lieux_courant = new Etat_des_lieux($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
 
-                                        //
-                                        $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_toutes_ses_formes['timestamp'];
+                    //
+                    insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
 
-                                        //
-                                        if($date_de_depart_initial_du_locataire_depuis_la_BDD_sous_forme_de_timestamp == $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp)
-                                        {
+                    //
+                    $smarty = new Smarty();
 
-                                            //
-                                            try {
+                    //
+                    $smarty->assign(array("nature_du_document_PDF_a_generer" => "Etat des lieux lors d'une sortie anticipée"));
 
-                                                //
-                                                setlocale(LC_TIME, "fr_FR");
+                    //
+                    $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
 
-                                                //
-                                                $date_de_depart_initial_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_initial_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
-
-                                                //
-                                                $date_choisie_pour_l_etat_des_lieux_au_format_francophone = strftime("%A %d %B %Y", $date_choisie_pour_l_etat_des_lieux_sous_forme_de_timestamp);
-
-                                                //
-                                                $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_la_residence_depuis_la_BDD_sous_forme_de_timestamp);
-
-                                                //
-                                                $date_du_jour = strftime("%A %d %B %Y");
-
-                                                //
-                                                $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
-
-                                                //
-                                                $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
-
-                                                //
-                                                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("etat_des_lieux_lors_de_sortie_anticipee", array(
-
-                                                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
-
-                                                    "prenom_du_locataire" => $prenom_du_locataire_formate,
-
-                                                    "numero_du_studio" => $numero_du_studio_pour_le_locataire,
-
-                                                    "date_du_jour" => $date_du_jour,
-
-                                                    "civilite_du_locataire" => "Monsieur/Madame",
-
-                                                    "date_choisie_pour_l_etat_des_lieux" => $date_choisie_pour_l_etat_des_lieux_au_format_francophone,
-
-                                                    "heure_choisie_pour_l_etat_des_lieux" => $heure_choisie_pour_l_etat_des_lieux,
-
-                                                    "date_d_arrivee_dans_la_residence" => $date_d_arrivee_du_locataire_dans_la_residence_au_format_francophone,
-
-                                                    "date_de_fin" => $date_de_depart_initial_du_locataire_au_format_francophone
-
-                                                ));
-
-                                                //
-                                                $date_programee_sous_forme_de_chaine_de_caractere = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_choisie_pour_l_etat_des_lieux);
-
-                                                //
-                                                $date_et_heure_programees_sous_forme_de_timestamp = strtotime($date_programee_sous_forme_de_chaine_de_caractere['chaine_de_caracteres'] . " " . $heure_choisie_pour_l_etat_des_lieux);
-
-                                                //
-                                                $date_et_heure_programees = strftime("%G-%m-%d %H:%M:%S", $date_et_heure_programees_sous_forme_de_timestamp);
-
-                                                //
-                                                $date_et_heure_du_jour_sous_forme_de_timestamp = time();
-
-                                                //
-                                                $date_du_jour = date("Y-m-d");
-
-                                                //
-                                                $etat_des_lieux_courant = new Etat_des_lieux($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location, $date_et_heure_programees);
-
-                                                //
-                                                insertion_de_l_element_dans_la_base_de_donnees($etat_des_lieux_courant);
-
-                                                //
-                                                $smarty = new Smarty();
-
-                                                //
-                                                $smarty->assign(array("nature_du_document_PDF_a_generer" => "Etat des lieux lors d'une sortie anticipée"));
-
-                                                //
-                                                $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
-                                            }
-                                            //
-                                            catch(Exception $exception)
-                                            {
-
-
-
-                                            }
-                                        }
-                                        //Sinon...
-                                        else
-                                        {
-
-                                            //
-                                            $smarty = new Smarty();
-
-                                            //
-                                            $smarty->assign(array("intitule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
-                                                "description_de_l_erreur" => "La date initial de fin de contrat que vous avez entrée n'est pas la même que celle renseignée dans la base"));
-
-                                            //
-                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                                        }
-                                    }
-                                    //Sinon...
-                                    else
-                                    {
-
-                                        //
-                                        $smarty = new Smarty();
-
-                                        //
-                                        $smarty->assign(array("intitule_de_l_erreur" => "La date choisie pour l'état des lieux que vous avez entré n'est pas valide",
-                                            "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                        //
-                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                                    }
-
-                                }
-                                //Sinon...
-                                else
-                                {
-
-                                    //
-                                    $smarty = new Smarty();
-
-                                    //
-                                    $smarty->assign(array("intitule_de_l_erreur" => "La date de départ initial du locataire que vous avez entré n'est pas valide",
-                                        "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                    //
-                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                                }
-
-                            }
-                            //Sinon...
-                            else
-                            {
-
-                                //
-                                $smarty = new Smarty();
-
-                                //
-                                $smarty->assign(array("intitule_de_l_erreur" => "Pour la date choisie pour l'état des lieux, ce n'est pas une date que vous avez entré",
-                                    "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                                //
-                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                            }
-
-                        }
-                        //Sinon...
-                        else
-                        {
-
-                            //
-                            $smarty = new Smarty();
-
-                            //
-                            $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de départ initial du locataire, ce n'est pas une date que vous avez entré",
-                                "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                            //
-                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                        }
-
-                    }
-                    //Sinon...
-                    else
-                    {
-
-                        //
-                        $smarty = new Smarty();
-
-                        //
-                        $smarty->assign(array("intitule_de_l_erreur" => "Erreur dans la correspondance des données",
-                            "description_de_l_erreur" => "Le locataire renseigné n'occupe pas ce logement"));
-
-                        //
-                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                    }
                 }
                 //Sinon...
                 else
@@ -1276,237 +1078,14 @@
                     $smarty = new Smarty();
 
                     //
-                    $smarty->assign(array("intitule_de_l_erreur" => "Le locataire en question n'a pas été trouvé",
-                        "description_de_l_erreur" => "Le locataire en question n'a pas été trouvé, veuillez recommencer la saisie"));
+                    $smarty->assign(array("intitule_de_l_erreur" => "Pour la date choisie pour l'état des lieux, ce n'est pas une date que vous avez entré",
+                        "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
 
                     //
                     $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                 }
-            }
-            //Sinon..
-            else
-            {
 
-                //
-                $smarty = new Smarty();
-
-                //
-                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
-                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
-
-                //
-                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-            }
-        }
-        //
-        elseif($_POST['type_de_document'] == 'preavis')
-        {
-
-            //
-            $nom_de_famille_du_locataire_renseigne_dans_le_formulaire = htmlspecialchars($_POST['nom_de_famille_du_locataire']);
-
-            //
-            $prenom_du_locataire = htmlspecialchars($_POST['prenom_du_locataire']);
-
-            //
-            $numero_du_studio_pour_le_locataire = htmlspecialchars($_POST['numero_du_studio_pour_a_choisir_pour_location']);
-
-            //
-            $id_du_studio = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
-
-            //
-            $date_de_depart_du_locataire_entree_dans_le_formulaire = htmlspecialchars($_POST['date_de_depart_du_locataire']);
-
-            //
-            $id_du_studio_pour_le_locataire = extraction_de_l_id_du_studio_a_partir_de_son_numero($numero_du_studio_pour_le_locataire);
-
-            //
-            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire);
-
-            //
-            $id_du_contrat_de_location = recuperation_de_l_id_d_un_contrat_de_location_a_partir_de_l_id_du_locataire_et_de_l_id_du_studio($id_du_locataire, $id_du_studio_pour_le_locataire);
-
-            //
-            if(verification_de_la_validite_du_nom_et_du_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire, $prenom_du_locataire))
-            {
-
-                //
-                if(verification_que_le_locataire_occupe_bel_et_bien_le_studio($id_du_locataire, $id_du_studio_pour_le_locataire) == True)
-                {
-
-                    //
-                    if(verification_de_la_validite_de_la_date_sous_l_angle_de_ses_donnees($date_de_depart_du_locataire_entree_dans_le_formulaire))
-                    {
-
-                        //
-                        if(verification_de_la_validite_d_une_date_sous_l_angle_des_valeurs_renseignees_pour_le_mois_et_le_jour($date_de_depart_du_locataire_entree_dans_le_formulaire))
-                        {
-
-                            //
-                            $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT date_de_fin_du_contrat FROM Contrat WHERE Contrat.locataire = :id_du_locataire AND Contrat.studio = :id_du_studio");
-
-                            //
-                            $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->bindParam(":id_du_locataire", $id_du_locataire);
-
-                            //
-                            $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->bindParam(":id_du_studio", $id_du_studio_pour_le_locataire);
-
-                            //
-                            $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->execute();
-
-                            //
-                            $resultat_de_la_requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire = $requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire->fetchAll(PDO::FETCH_BOTH);
-
-                            //
-                            $date_de_depart_du_locataire_depuis_la_BDD = $resultat_de_la_requete_de_selection_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire[0][0];
-
-                            //
-                            $date_de_depart_du_locataire_depuis_la_BDD_prete_a_etre_traitee = formatage_date_du_format_de_DateTime_SQL_a_celui_de_calendar_jQuery_Ui($date_de_depart_du_locataire_depuis_la_BDD);
-
-                            //
-                            $date_de_depart_du_locataire_depuis_la_BDD_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_depart_du_locataire_depuis_la_BDD_prete_a_etre_traitee);
-
-                            //
-                            $date_de_depart_du_locataire_depuis_la_BDD_sous_forme_de_timestamp = $date_de_depart_du_locataire_depuis_la_BDD_sous_toutes_ses_formes['timestamp'];
-
-                            //
-                            $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_toutes_ses_formes = renvoi_d_une_date_passee_en_parametre_sous_forme_de_DateTime_et_de_Timestamp($date_de_depart_du_locataire_entree_dans_le_formulaire);
-
-                            //
-                            $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_toutes_ses_formes['timestamp'];
-
-                            //
-                            if($date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp == $date_de_depart_du_locataire_depuis_la_BDD_sous_forme_de_timestamp)
-                            {
-
-                                //
-                                try {
-
-                                    //
-                                    setlocale(LC_TIME, "fr_FR");
-
-                                    //
-                                    $date_de_depart_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
-
-                                    //
-                                    $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
-
-                                    //
-                                    $date_et_heure_du_jour_sous_forme_de_timestamp = time();
-
-                                    //
-                                    $date_du_jour = date("Y-m-d");
-
-                                    //
-                                    $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule = strtoupper($nom_de_famille_du_locataire_renseigne_dans_le_formulaire);
-
-                                    //
-                                    $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
-
-                                    //
-                                    $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
-
-                                        "nom_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_en_majuscule,
-
-                                        "prenom_du_locataire" => $prenom_du_locataire_formate,
-
-                                        "numero_du_studio" => $numero_du_studio_pour_le_locataire,
-
-                                        "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
-
-                                        "civilite_du_locataire" => "Monsieur/Madame",
-
-                                        "date_de_depart_du_locataire" => $date_de_depart_du_locataire_au_format_francophone
-
-                                    ));
-
-                                    //
-                                    $preavis_courant = new Preavis($date_du_jour, $chemin_du_fichier_genere, $id_du_contrat_de_location);
-
-                                    //
-                                    insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
-
-                                    //
-                                    $smarty = new Smarty();
-
-                                    //
-                                    $smarty->assign(array("nature_du_document_PDF_a_generer" => "préavis de départ"));
-
-                                    //
-                                    $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
-
-                                }
-                                catch(Exception $exception)
-                                {
-
-
-                                }
-                            }
-                            //Sinon...
-                            else
-                            {
-
-                                //
-                                $smarty = new Smarty();
-
-                                //
-                                $smarty->assign(array("intitule_de_l_erreur" => "La date de départ que vous avez renseigné n'est pas la bonne",
-                                    "description_de_l_erreur" => "La date initial de fin de contrat que vous avez entrée n'est pas la même que celle renseignée dans la base"));
-
-                                //
-                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                            }
-                        }
-                        //Sinon...
-                        else
-                        {
-
-                            //
-                            $smarty = new Smarty();
-
-                            //
-                            $smarty->assign(array("intitule_de_l_erreur" => "La date de départ du locataire que vous avez entré n'est pas valide",
-                                "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                            //
-                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                        }
-                    }
-                    //Sinon...
-                    else
-                    {
-
-                        //
-                        $smarty = new Smarty();
-
-                        //
-                        $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de départ du locataire, ce n'est pas une date que vous avez entré",
-                            "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                        //
-                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                    }
-                }
-                //Sinon...
-                else
-                {
-
-                    //
-                    $smarty = new Smarty();
-
-                    //
-                    $smarty->assign(array("intitule_de_l_erreur" => "Erreur dans la correspondance des données",
-                        "description_de_l_erreur" => "Soit le locataire renseigné n'occupe pas ce logement, soit celui-ci n'existe pas"));
-
-                    //
-                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
-
-                }
             }
             //Sinon...
             else
@@ -1516,13 +1095,81 @@
                 $smarty = new Smarty();
 
                 //
-                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
-                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
+                $smarty->assign(array("intitule_de_l_erreur" => "La date choisie pour l'état des lieux que vous avez entré n'est pas valide",
+                    "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
 
                 //
                 $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
             }
+
+        }
+        //
+        elseif($_POST['type_de_document'] == 'preavis')
+        {
+
+            //
+            $nom_et_prenom_du_locataire_sous_forme_de_valeur = htmlspecialchars($_POST['locataire_a_chosir']);
+
+            //
+            $nom_et_prenom_du_locataire_sous_forme_de_tableau = explode(" ", $nom_et_prenom_du_locataire_sous_forme_de_valeur);
+
+            //
+            $nom_de_famille_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[0];
+
+            //
+            $prenom_du_locataire = $nom_et_prenom_du_locataire_sous_forme_de_tableau[1];
+
+            //
+            $id_du_contrat_de_location = renvoi_de_l_id_du_contrat_de_location_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+            //
+            $numero_du_studio_occuppe_par_le_locataire = renvoi_du_numero_du_studio_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+            //
+            $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
+
+            //
+            setlocale(LC_TIME, "fr_FR");
+
+            //
+            $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
+
+            //
+            $date_de_depart_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp);
+
+            //
+            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF("preavis", array(
+
+                "nom_du_locataire" => $nom_de_famille_du_locataire,
+
+                "prenom_du_locataire" => $prenom_du_locataire,
+
+                "numero_du_studio" => $numero_du_studio_occuppe_par_le_locataire,
+
+                "date_du_jour" => $date_du_jour_pour_insertion_dans_le_document_PDF,
+
+                "civilite_du_locataire" => "Monsieur/Madame",
+
+                "date_de_depart_du_locataire" => $date_de_depart_du_locataire_au_format_francophone
+
+            ));
+
+            //
+            $preavis_courant = new Preavis($date_du_jour_pour_insertion_dans_le_document_PDF, $chemin_du_fichier_genere, $id_du_contrat_de_location);
+
+            //
+            insertion_de_l_element_dans_la_base_de_donnees($preavis_courant);
+
+            //
+            $smarty = new Smarty();
+
+            //
+            $smarty->assign(array("nature_du_document_PDF_a_generer" => "préavis de départ"));
+
+            //
+            $smarty->display("vues/page_de_confirmation_de_reussite_de_generation_de_document_PDF.html");
+
         }
         //Sinon...
         else

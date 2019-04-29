@@ -52,7 +52,7 @@
     }
 
     //
-    function renvoi_de_la_date_de_debut_du_contrat_du_locataire($nom_de_famille_du_locataire, $prenom_du_locataire)
+    function renvoi_de_la_date_de_debut_du_contrat_du_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire)
     {
 
         //
