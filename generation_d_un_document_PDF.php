@@ -225,8 +225,6 @@
                                                                 if((verification_que_le_locataire_occupe_bel_et_bien_le_studio($identifiant_du_locataire, $id_du_studio_selectionne) == True) || (verification_que_le_studio_est_libre($id_du_studio_selectionne) == True))
                                                                 {
 
-                                                                    //Processus de génération du fichier PDF
-
                                                                     //
                                                                     $chemin_du_fichier_genere = "0";
 
@@ -364,14 +362,8 @@
                                                                                         else
                                                                                         {
                                                                                             //
-                                                                                            $smarty = new Smarty();
-
-                                                                                            //
-                                                                                            $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez renseigné est incohérente",
+                                                                                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez renseigné est incohérente",
                                                                                                 "description_de_l_erreur" => "La date de naissance du garant du locataire est strictement inférieure à la date de début de son contrat de location."));
-
-                                                                                            //
-                                                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                                         }
                                                                                     }
@@ -379,14 +371,8 @@
                                                                                     else
                                                                                     {
                                                                                         //
-                                                                                        $smarty = new Smarty();
-
-                                                                                        //
-                                                                                        $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez entré n'est pas valide",
+                                                                                        survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date de naissance du garant du locataire que vous avez entré n'est pas valide",
                                                                                             "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                                                                        //
-                                                                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                                     }
                                                                                 }
@@ -395,14 +381,8 @@
                                                                                 {
 
                                                                                     //
-                                                                                    $smarty = new Smarty();
-
-                                                                                    //
-                                                                                    $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de naissance du garant du locataire, ce n'est pas une date que vous avez entré",
+                                                                                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date de naissance du garant du locataire, ce n'est pas une date que vous avez entré",
                                                                                         "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                                                                                    //
-                                                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                                 }
                                                                             }
@@ -410,14 +390,8 @@
                                                                             else
                                                                             {
                                                                                 //
-                                                                                $smarty = new Smarty();
-
-                                                                                //
-                                                                                $smarty->assign(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
+                                                                                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
                                                                                     "description_de_l_erreur" => "L'adresse d'habitation du garant du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
-
-                                                                                //
-                                                                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                             }
                                                                         }
@@ -425,14 +399,8 @@
                                                                         else
                                                                         {
                                                                             //
-                                                                            $smarty = new Smarty();
-
-                                                                            //
-                                                                            $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                                                                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
                                                                                 "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
-
-                                                                            //
-                                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                         }
                                                                     }
@@ -441,14 +409,8 @@
                                                                 else
                                                                 {
                                                                     //
-                                                                    $smarty = new Smarty();
-
-                                                                    //
-                                                                    $smarty->assign(array("intitule_de_l_erreur" => "La saisie du numéro de studio est incorrecte",
+                                                                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La saisie du numéro de studio est incorrecte",
                                                                         "description_de_l_erreur" => "Le numéro de studio renseigné n'est pas bon: Soit il n'est pas libre, soit il n'est pas occupé par le locataire"));
-
-                                                                    //
-                                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                                 }
 
@@ -457,13 +419,7 @@
                                                             catch(PDOException $exception_concernant_l_enregistrement_du_locataire_dans_la_base)
                                                             {
                                                                 //
-                                                                $smarty = new Smarty();
-
-                                                                //
-                                                                $smarty->assign(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_concernant_l_enregistrement_du_locataire_dans_la_base->getMessage()));
-
-                                                                //
-                                                                $smarty->display("vues/page_d_erreur_PDO_dans_l_application_suiviloc.html");
+                                                                survenance_d_une_erreur_de_generation_du_document_PDF(array("message_d_erreur_de_connexion_a_la_base_de_donnees" => $exception_concernant_l_enregistrement_du_locataire_dans_la_base->getMessage()));
 
                                                             }
 
@@ -473,14 +429,8 @@
                                                         {
 
                                                             //
-                                                            $smarty = new Smarty();
-
-                                                            //
-                                                            $smarty->assign(array("intitule_de_l_erreur" => "Le numéro de téléphone renseigné n'est pas valide",
+                                                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Le numéro de téléphone renseigné n'est pas valide",
                                                                 "description_de_l_erreur" => "Un numéro de téléphone est entiérement composé de 10 chiffres, commençant par 0 et sans espace"));
-
-                                                            //
-                                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                         }
 
@@ -490,16 +440,10 @@
                                                         {
 
                                                         //
-                                                        $smarty = new Smarty();
-
-                                                        //
-                                                        $smarty->assign(array("intitule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
+                                                        survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Les dates que vous avez renseignés sont incohérentes",
                                                             "description_de_l_erreur" => "La date de naissance du locataire est strictement inférieure à la date de début de son contrat de location.
                                                                                             Sa date d'arrivée dans la résidence est supérieur ou égal à la date de début de son contrat de location.
                                                                                             Et la date de début de son contrat de location est strictement inférieur à la date de début de son contrat de location"));
-
-                                                        //
-                                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                     }
 
@@ -509,14 +453,8 @@
                                                     {
 
                                                     //
-                                                    $smarty = new Smarty();
-
-                                                    //
-                                                    $smarty->assign(array("intitule_de_l_erreur" => "La date de fin du contrat du locataire que vous avez entré n'est pas valide",
+                                                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date de fin du contrat du locataire que vous avez entré n'est pas valide",
                                                         "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                                    //
-                                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                                 }
 
@@ -526,14 +464,8 @@
                                                 {
 
                                                 //
-                                                $smarty = new Smarty();
-
-                                                //
-                                                $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de fin du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date de fin du contrat du locataire, ce n'est pas une date que vous avez entré",
                                                     "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                                                //
-                                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                             }
 
@@ -543,14 +475,8 @@
                                         {
 
                                             //
-                                            $smarty = new Smarty();
-
-                                            //
-                                            $smarty->assign(array("intitule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
+                                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date d'arrivée du locataire que vous avez entré n'est pas valide",
                                                 "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                            //
-                                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                         }
 
@@ -560,14 +486,8 @@
                                     {
 
                                         //
-                                        $smarty = new Smarty();
-
-                                        //
-                                        $smarty->assign(array("intitule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
+                                        survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date d'arrivée du locataire dans son studio, ce n'est pas une date que vous avez entré",
                                             "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                                        //
-                                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                     }
 
@@ -577,14 +497,8 @@
                                 {
 
                                     //
-                                    $smarty = new Smarty();
-
-                                    //
-                                    $smarty->assign(array("intitule_de_l_erreur" => "La date de debut du contrat du locataire que vous avez entré n'est pas valide",
+                                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date de debut du contrat du locataire que vous avez entré n'est pas valide",
                                         "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                                    //
-                                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                                 }
 
@@ -594,14 +508,8 @@
                             {
 
                                 //
-                                $smarty = new Smarty();
-
-                                //
-                                $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de debut du contrat du locataire, ce n'est pas une date que vous avez entré",
+                                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date de debut du contrat du locataire, ce n'est pas une date que vous avez entré",
                                     "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                                //
-                                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                             }
 
@@ -611,14 +519,8 @@
                         {
 
                             //
-                            $smarty = new Smarty();
-
-                            //
-                            $smarty->assign(array("intitule_de_l_erreur" => "La date de naissance du locataire que vous avez entré n'est pas valide",
+                            survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "La date de naissance du locataire que vous avez entré n'est pas valide",
                                 "description_de_l_erreur" => "La date entrée doit être au format suivant: mois/jour/année"));
-
-                            //
-                            $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                         }
 
@@ -628,14 +530,8 @@
                     {
 
                         //
-                        $smarty = new Smarty();
-
-                        //
-                        $smarty->assign(array("intitule_de_l_erreur" => "Pour la date de naissance du locataire, ce n'est pas une date que vous avez entré",
+                        survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Pour la date de naissance du locataire, ce n'est pas une date que vous avez entré",
                             "description_de_l_erreur" => "Une date ne peut être autre chose que 3 nombres séparés les uns des autres par un slash"));
-
-                        //
-                        $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
 
                     }
 
@@ -644,14 +540,8 @@
                 else {
 
                     //
-                    $smarty = new Smarty();
-
-                    //
-                    $smarty->assign(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
-                                        "description_de_l_erreur" => "L'adresse d'habitation du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
-
-                    //
-                    $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
+                    survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "L'adresse postale entrée est invalide",
+                        "description_de_l_erreur" => "L'adresse d'habitation du locataire ne doit contenir que des lettres, des chiffres, des espaces ou des tirets"));
 
                 }
 
@@ -660,14 +550,9 @@
             else {
 
                 //
-                $smarty = new Smarty();
+                survenance_d_une_erreur_de_generation_du_document_PDF(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
+                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres sans accents, des espaces ou des tirets"));
 
-                //
-                $smarty->assign(array("intitule_de_l_erreur" => "Le nom et/ou le prenom renseignés sont invalides",
-                    "description_de_l_erreur" => "Le nom et le prenom ne doivent contenir que des lettres, des espaces ou des tirets"));
-
-                //
-                $smarty->display("vues/page_d_erreur_survenue_dans_la_soumission_des_donnees_renseignees_dans_les_formulaires.html");
             }
         }
         //
