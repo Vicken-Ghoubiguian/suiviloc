@@ -1667,7 +1667,12 @@
         else
         {
 
-            $variable_de_retour = False;
+            if(!empty($numero_de_telephone_passe_en_parametre))
+            {
+
+                $variable_de_retour = False;
+
+            }
 
         }
 
