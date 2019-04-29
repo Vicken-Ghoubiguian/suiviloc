@@ -10,6 +10,24 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connection_a_l_application($nom_de_l_uttilisateur_pour_connexion, $mot_de_passe_crypte_de_l_uttilisateur_pour_authentification)
+    {
+
+        //
+        $requete_de_mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connexion = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Table_de_connexion_a_la_base_de_gestion_de_parc_locatif SET est_connecte = 0 WHERE username = :login AND password = :mot_de_passe_crypte");
+
+        //
+        $requete_de_mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connexion->bindParam(":login", $nom_de_l_uttilisateur_pour_connexion);
+
+        //
+        $requete_de_mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connexion->bindParam(":password", $mot_de_passe_crypte_de_l_uttilisateur_pour_authentification);
+
+        //
+        $requete_de_mise_a_jour_d_urgence_de_la_table_de_connexion_a_l_application_suiviloc_pour_connexion->execute();
+
+    }
+
+    //
     function renvoi_de_l_id_du_locataire_et_de_l_id_du_studio_a_partir_de_l_id_du_contrat($id_du_contrat)
     {
 
