@@ -10,6 +10,153 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant)
+    {
+
+        //
+        $id_du_locataire = $contrat_courant->getIdentifiant_du_locataire();
+
+        //
+        $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT * FROM Contrat WHERE Contrat.locataire = :id_du_locataire");
+
+        //
+        $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat->bindParam(":id_du_locataire", $id_du_locataire);
+
+        //
+        $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat->execute();
+
+        //
+        $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat = $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat->fetchAll(PDO::FETCH_ASSOC);
+
+        //
+        $locataire = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['locataire'];
+
+        //
+        $studio = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['studio'];
+
+        //
+        $garant = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['garant'];
+
+        //
+        $type_de_contrat = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['type_de_contrat'];
+
+        //
+        $date_de_debut_du_contrat = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['date_de_debut_du_contrat'];
+
+        //
+        $date_de_fin_du_contrat = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['date_de_fin_du_contrat'];
+
+        //
+        $date_du_jour = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['date_du_jour'];
+
+        //
+        $montant_du_loyer = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['montant_du_loyer'];
+
+        //
+        $encaissement_du_depot_de_garantie= $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['encaissement_du_depot_de_garantie'];
+
+        //
+        $chemin_d_accee = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['chemin_d_accee'];
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Archive_des_anciens_contrats_de_location(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie, chemin_d_accee) VALUES(:locataire, :studio, :type_de_contrat, :date_de_debut_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":locataire", $locataire);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":studio", $studio);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":garant", $garant);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":type_de_contrat", $type_de_contrat);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":date_de_debut_du_contrat", $date_de_debut_du_contrat);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":date_de_fin_du_contrat", $date_de_fin_du_contrat);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":date_du_jour", $date_du_jour);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":chemin_d_accee", $chemin_d_accee);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":montant_du_loyer", $montant_du_loyer);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":encaissement_du_depot_de_garantie", $encaissement_du_depot_de_garantie);
+
+        //
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage->execute();
+
+        //
+        $studio = $contrat_courant->getIdentifiant_du_studio();
+
+        //
+        $garant = $contrat_courant->getIdentifiant_du_garant();
+
+        //
+        $type_de_contrat = $contrat_courant->getId_du_type_de_contrat();
+
+        //
+        $date_de_debut_du_contrat = $contrat_courant->getDate_de_debut();
+
+        //
+        $date_de_fin_du_contrat = $contrat_courant->getDate_de_fin();
+
+        //
+        $date_du_jour = $contrat_courant->getDate_du_jour();
+
+        //
+        $montant_du_loyer = $contrat_courant->getMontant_du_loyer();
+
+        //
+        $encaissement_du_depot_de_garantie= $contrat_courant->getEncaissement_du_depot_de_garantie();
+
+        //
+        $chemin_d_accee = $contrat_courant->getChemin_du_fichier_genere();
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("UPDATE Contrat SET studio = :studio AND garant = :garant AND type_de_contrat = :type_de_contrat AND date_de_debut_du_contrat = :date_de_debut_du_contrat AND date_de_fin_du_contrat = :date_de_fin_du_contrat AND date_du_jour = :date_du_jour AND montant_du_loyer = :montant_du_loyer AND chemin_d_accee = :chemin_d_accee AND encaissement_du_depot_de_garantie = :encaissement_du_depot_de_garantie WHERE locataire = :id_du_locataire");
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":studio", $studio);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":garant", $garant);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":type_de_contrat", $type_de_contrat);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":montant_du_loyer", $montant_du_loyer);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":chemin_d_accee", $chemin_d_accee);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":date_de_debut", $date_de_debut_du_contrat);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":date_de_fin", $date_de_fin_du_contrat);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":date_du_jour", $date_du_jour);
+
+        //
+        $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat->bindParam(":encaissement_du_depot_de_garantie", $encaissement_du_depot_de_garantie);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->execute();
+
+    }
+
+    //
     function survenance_d_une_erreur_de_generation_du_document_PDF($tableau_contenant_les_donnees_de_l_erreur)
     {
 
@@ -1753,7 +1900,7 @@
 
             }
         }
-        elseif($ensemble_des_conditions_choisies_pour_le_contrat_de_location == 2)
+        elseif($type_de_contrat_choisi_sous_forme_d_id == 2)
         {
             $libelle_du_type_de_contrat .= "A l'année";
 
@@ -1928,6 +2075,36 @@ function renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famil
     {
 
         $resultat_de_la_requete = $requete_de_renvoi_de_l_id_du_locataire->fetchAll(PDO::FETCH_BOTH);
+
+        return $resultat_de_la_requete[0][0];
+
+    }
+    else
+    {
+
+        return 0;
+
+    }
+}
+
+//
+function renvoi_de_l_id_du_garant_a_partir_de_son_nom_et_prenom($nom_de_famille_du_garant, $prenom_du_garant)
+{
+
+    $requete_de_renvoi_de_l_id_du_garant = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Garant WHERE Garant.prenom = :prenom_du_garant AND Garant.nom = :nom_de_famille_du_garant");
+
+    $requete_de_renvoi_de_l_id_du_garant->bindParam(":prenom_du_garant", $prenom_du_garant);
+
+    $requete_de_renvoi_de_l_id_du_garant->bindParam(":nom_de_famille_du_garant", $nom_de_famille_du_garant);
+
+    $requete_de_renvoi_de_l_id_du_garant->execute();
+
+    $nombre_de_resultats_de_la_requete = $requete_de_renvoi_de_l_id_du_garant->rowCount();
+
+    if($nombre_de_resultats_de_la_requete == 1)
+    {
+
+        $resultat_de_la_requete = $requete_de_renvoi_de_l_id_du_garant->fetchAll(PDO::FETCH_BOTH);
 
         return $resultat_de_la_requete[0][0];
 
@@ -2503,7 +2680,51 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Contrat"))
         {
 
+            $identifiant_du_locataire = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_locataire();
 
+            $identifiant_du_studio = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_studio();
+
+            $identifiant_du_garant = $element_a_inserer_dans_la_base_de_donnees->getIdentifiant_du_garant();
+
+            $identifiant_du_type_de_contrat = $element_a_inserer_dans_la_base_de_donnees->getId_du_type_de_contrat();
+
+            $date_du_jour_de_generation_du_contrat_de_location_PDF = $element_a_inserer_dans_la_base_de_donnees->getDate_du_jour();
+
+            $date_de_debut_du_contrat_de_location_PDF = $element_a_inserer_dans_la_base_de_donnees->getDate_de_debut();
+
+            $date_de_fin_du_contrat_de_location_PDF = $element_a_inserer_dans_la_base_de_donnees->getDate_de_fin();
+
+            $encaissement_du_depot_de_garantie = $element_a_inserer_dans_la_base_de_donnees->getEncaissement_du_depot_de_garantie();
+
+            $montant_du_loyer = $element_a_inserer_dans_la_base_de_donnees->getMontant_du_loyer();
+
+            $chemin_du_fichier_genere = $element_a_inserer_dans_la_base_de_donnees->getChemin_du_fichier_genere();
+
+            $date_de_debut = $date_de_debut_du_contrat_de_location_PDF->format("Y-m-d");
+
+            $date_de_fin = $date_de_fin_du_contrat_de_location_PDF->format("Y-m-d");
+
+            $date_du_jour = $date_du_jour_de_generation_du_contrat_de_location_PDF->format("Y-m-d");
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Contrat(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie) VALUES(:locataire, :studio, :garant, :type_de_contrat, :date_de_debut_de_contrat, :date_de_fin_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':locataire', $identifiant_du_locataire);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':studio', $identifiant_du_studio);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':garant', $identifiant_du_garant);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':type_de_contrat', $identifiant_du_type_de_contrat);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_debut_du_contrat', $date_de_debut);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_fin_du_contrat', $date_de_fin);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_du_jour', $date_du_jour);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':montant_du_loyer', $montant_du_loyer);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':chemin_d_accee', $chemin_du_fichier_genere);
 
         }
         elseif(is_a($element_a_inserer_dans_la_base_de_donnees, "Garant"))

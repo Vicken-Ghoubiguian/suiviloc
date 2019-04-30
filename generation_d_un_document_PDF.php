@@ -232,7 +232,10 @@
                                                                 {
 
                                                                     //
-                                                                    $chemin_du_fichier_genere = "0";
+                                                                    $chemin_du_fichier_genere = 0;
+
+                                                                    //
+                                                                    $chemin_du_fichier_genere = strval($chemin_du_fichier_genere);
 
                                                                     //
                                                                     if($type_de_contrat_choisi_pour_le_locataire == 1)
@@ -244,6 +247,9 @@
 
                                                                             //
                                                                             insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                            //
+                                                                            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
 
                                                                             //
                                                                             $date_du_jour = date('Y-m-d');
@@ -263,6 +269,9 @@
                                                                             $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
 
                                                                             //
+                                                                            $date_du_jour = date('Y-m-d');
+
+                                                                            //
                                                                             $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_du_jour, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, NULL);
 
                                                                             //
@@ -271,7 +280,7 @@
                                                                         }
 
                                                                         //
-                                                                        confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
+                                                                        //confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                     }
                                                                     elseif($type_de_contrat_choisi_pour_le_locataire == 2)
@@ -388,7 +397,7 @@
                                                                                             }
 
                                                                                             //
-                                                                                            confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
+                                                                                            //confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                                         }
                                                                                         //Sinon...
