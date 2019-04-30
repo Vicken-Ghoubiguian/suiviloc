@@ -256,8 +256,8 @@
                                                                                                                                             <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
                                                                                                                                             <option value='3'>Sans EDF et sans assurance locative inclus (+eau, internet, charges immeuble) TOM en sus (+5.00€)</option>
                                                                                                                                         </select>.</p>
-                                                                                                                                        <p>Montant de la location: <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
-                                                                                                                                        <p>Montant du dépot de garantie: <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros.</p>
+                                                                                                                                        <p>Montant de la location: <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='1' min='0' required> euros toutes charges comprises.</p>
+                                                                                                                                        <p>Montant du dépot de garantie: <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='1' min='0' required> euros.</p>
                                                                                                                                         <p>Sera-t'il encaissé ?
                                                                                                                                             <select class='text-warning ui-corner-all' name='choix_d_encaissement_du_depot_de_garanti' required>
                                                                                                                                                 <option value='1' selected>Oui</option>
@@ -545,7 +545,7 @@
 
                                                                         }
 
-            $corps_de_la_page_html .= "</select>, et présente un solde débiteur de <input type='number' name='montant_du_loyer_impaye' class='ui-corner-all text-warning' step='0.001' min='0' required> euros.</p>
+            $corps_de_la_page_html .= "</select>, et présente un solde débiteur de <input type='number' name='montant_du_loyer_impaye' class='ui-corner-all text-warning' step='1' min='0' required> euros.</p>
                                                                     <p>Si vous êtes d'accord, <input type='submit' class='text-warning ui-button ui-corner-all ui-widget' name='soumission_du_formulaire_de_generation_de_PDF' value='cliquez ici'></p>
                                                                     <p>Bonne journée,</p>
                                                                     <p>Suiviloc</p>
