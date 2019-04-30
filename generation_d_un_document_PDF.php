@@ -246,6 +246,82 @@
                                                                         {
 
                                                                             //
+                                                                            $surface_du_studio_pour_le_locataire = renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire);
+
+                                                                            //
+                                                                            $montant_du_loyer_en_lettres = conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_de_la_location_pour_le_locataire);
+
+                                                                            //
+                                                                            $montant_du_depot_de_garanti_pour_le_locataire_en_lettres = conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_du_depot_de_garanti_pour_le_locataire);
+
+                                                                            //
+                                                                            setlocale(LC_TIME, "fr_FR");
+
+                                                                            //
+                                                                            $date_du_jour = strftime("%A %d %B %Y", time());
+
+                                                                            //
+                                                                            $date_de_debut_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                            //
+                                                                            $date_de_fin_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                            //
+                                                                            if($choix_d_encaissement_du_depot_de_garanti_pour_le_locataire == true)
+                                                                            {
+
+                                                                                //
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Oui";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Non";
+
+                                                                            }
+
+                                                                            //
+                                                                            if($inclusion_EDF == 1)
+                                                                            {
+
+                                                                                //
+                                                                                $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF = "Oui";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF = "Non";
+
+                                                                            }
+
+                                                                            //
+                                                                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_0-3_mois', array(
+
+                                                                                "type_de_contrat" => "de 0 à 3 mois",
+                                                                                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                "prenom_du_locataire" => $prenom_du_locataire_formate,
+                                                                                "adresse_d_habitation_du_locataire" => $adresse_d_habitation_du_locataire,
+                                                                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                                                                "surface_du_studio" => $surface_du_studio_pour_le_locataire,
+                                                                                "date_de_debut_du_contrat_de_location" => $date_de_debut_du_contrat_de_location,
+                                                                                "date_de_fin_du_contrat_de_location" => $date_de_fin_du_contrat_de_location,
+                                                                                "date_du_jour" => $date_du_jour,
+                                                                                "montant_du_loyer_en_chiffres" => $montant_de_la_location_pour_le_locataire,
+                                                                                "montant_du_depot_de_garantie_en_chiffre" => $montant_du_depot_de_garanti_pour_le_locataire,
+                                                                                "montant_du_loyer_en_lettres" => $montant_du_loyer_en_lettres,
+                                                                                "montant_du_depot_de_garantie_en_lettres" => $montant_du_depot_de_garanti_pour_le_locataire_en_lettres,
+                                                                                "encaissement_du_depot_de_garantie" => $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF,
+                                                                                "inclusion_d_EDF_dans_le_contrat" => $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF
+
+                                                                            ));
+
+                                                                            //
                                                                             insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
 
                                                                             //

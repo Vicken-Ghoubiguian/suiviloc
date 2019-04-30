@@ -10,6 +10,60 @@
     require_once('smarty/libs/Smarty.class.php');
 
     //
+    function conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_passe_en_parametre)
+    {
+
+        //
+        $instance_de_la_classe_NumberFormatter = new NumberFormatter("fr", NumberFormatter::SPELLOUT);
+
+        //
+        $montant_en_lettres = $instance_de_la_classe_NumberFormatter->format($montant_passe_en_parametre);
+
+        //
+        return $montant_en_lettres;
+
+    }
+
+    //
+    function renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire)
+    {
+
+        //
+        $requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT surface FROM Studio WHERE numero_du_studio = :numero_du_studio");
+
+        //
+        $requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre->bindParam(":numero_du_studio", $numero_du_studio_pour_le_locataire);
+
+        //
+        $requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre->execute();
+
+        //
+        $resultat_de_la_requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre = $requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $id_de_la_surface_du_studio = $resultat_de_la_requete_de_renvoi_de_l_id_de_la_surface_du_studio_passe_en_parametre[0][0];
+
+        //
+        $requete_de_renvoi_du_libelle_de_la_surface_du_studio = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT libelle_de_la_surface FROM Surface WHERE id = :id_de_la_surface_du_studio");
+
+        //
+        $requete_de_renvoi_du_libelle_de_la_surface_du_studio->bindParam(":id_de_la_surface_du_studio", $id_de_la_surface_du_studio);
+
+        //
+        $requete_de_renvoi_du_libelle_de_la_surface_du_studio->execute();
+
+        //
+        $resultat_de_la_requete_de_renvoi_du_libelle_de_la_surface_du_studio = $requete_de_renvoi_du_libelle_de_la_surface_du_studio->fetchAll(PDO::FETCH_BOTH);
+
+        //
+        $libelle_de_la_surface_du_studio = $resultat_de_la_requete_de_renvoi_du_libelle_de_la_surface_du_studio[0][0];
+
+        //
+        return $libelle_de_la_surface_du_studio;
+
+    }
+
+    //
     function insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant)
     {
 
