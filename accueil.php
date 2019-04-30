@@ -252,9 +252,9 @@
                                                                                                                                         </p>
                                                                                                                                         <p>Conditions du contrat de location:
                                                                                                                                         <select class='text-warning ui-corner-all' name='ensemble_des_conditions_du_contrat_de_location' id='ensemble_des_conditions_du_contrat_de_location' required>
-                                                                                                                                            <option value='1' selected>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                            <option value='1'>Avec EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
                                                                                                                                             <option value='2'>Sans EDF inclus (+eau, internet, assurance locative, charges immeuble) TOM en sus (+5.00€)</option>
-                                                                                                                                            <option value='3'>Sans EDF et sans assurance locative inclus (+eau, internet, charges immeuble) TOM en sus (+5.00€)</option>
+                                                                                                                                            <option value='3' selected>Sans EDF et sans assurance locative inclus (+eau, internet, charges immeuble) TOM en sus (+5.00€)</option>
                                                                                                                                         </select>.</p>
                                                                                                                                         <p>Montant de la location: <input type='number' name='montant_de_la_location' class='text-warning ui-corner-all' step='0.001' min='0' required> euros toutes charges comprises.</p>
                                                                                                                                         <p>Montant du dépot de garantie: <input type='number' name='montant_du_depot_de_garanti' class='text-warning ui-corner-all' step='0.001' min='0' required> euros.</p>
@@ -833,7 +833,7 @@
                                                     Connecté en tant que " . $_SESSION['nom'] . " " . $_SESSION['prenom'] . " (" . $_SESSION['username'] . ") - connecté depuis le " . date('d/m/Y à H:i:s', $_SESSION['date_et_heure_de_creation_de_la_session']) . " - connecté jusqu'au " . date('d/m/Y à H:i:s', $_SESSION["date_et_heure_d_expiration_de_la_session"]) . " - derniére connexion le " . date('d/m/Y à H:i:s', $date_et_heure_de_derniere_connexion_sous_forme_de_timestamp) . ".
                                                 </p>
                                                 <div class='pied_de_div_des_fonctionnalites'>
-                                                    &copy; 2019 residence locative - adresse de residence locative
+                                                   &copy; 2019 Residis - 58 Avenue de Wagram 75017 Paris
                                                 </div>
                                             </div>
                                             <div id='fenetre_de_deconnexion' title='Déconnexion'>
