@@ -133,6 +133,26 @@ CREATE TABLE IF NOT EXISTS Contrat(
 	PRIMARY KEY(id)
 );
 
+-- TABLE Archive_des_anciens_contrats_de_location --
+CREATE TABLE IF NOT EXISTS Archive_des_anciens_contrats_de_location(
+        id INTEGER NOT NULL AUTO_INCREMENT,
+        locataire INTEGER NOT NULL,
+        studio INTEGER NOT NULL,
+        garant INTEGER,
+        type_de_contrat INTEGER NOT NULL,
+        date_de_debut_du_contrat DATE NOT NULL,
+        date_de_fin_du_contrat DATE NOT NULL,
+        date_du_jour DATE NOT NULL,
+        montant_du_loyer INTEGER NOT NULL,
+        encaissement_du_depot_de_garantie BOOLEAN NOT NULL,
+        chemin_d_accee VARCHAR(100) NOT NULL,
+        FOREIGN KEY (locataire) REFERENCES Locataire(id),
+        FOREIGN KEY (studio) REFERENCES Studio(id),
+        FOREIGN KEY (garant) REFERENCES Garant(id),
+	FOREIGN KEY (type_de_contrat) REFERENCES Type_de_contrat(id),
+	PRIMARY KEY(id)
+);
+
 -- TABLE Attestation --
 CREATE TABLE IF NOT EXISTS Attestation(
     id INTEGER NOT NULL AUTO_INCREMENT,
