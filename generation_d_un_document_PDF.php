@@ -255,7 +255,7 @@
                                                                             $montant_du_depot_de_garanti_pour_le_locataire_en_lettres = conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_du_depot_de_garanti_pour_le_locataire);
 
                                                                             //
-                                                                            setlocale(LC_TIME, "fr_FR");
+                                                                            setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                                                                             //
                                                                             $date_du_jour = strftime("%A %d %B %Y", time());
@@ -699,7 +699,7 @@
                 $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
                 //
-                setlocale(LC_TIME, "fr_FR");
+                setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                 //
                 $date_de_la_fin_du_contrat_du_locataire_au_format_francophone = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
@@ -806,7 +806,7 @@
                 $date_et_heure_du_jour_sous_forme_de_timestamp = time();
 
                 //
-                setlocale(LC_TIME, "fr_FR");
+                setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                 //
                 $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
@@ -899,7 +899,7 @@
                 $montant_du_loyer_impaye_pour_le_locataire = htmlspecialchars($_POST['montant_du_loyer_impaye']);
 
                 //
-                setlocale(LC_TIME, "fr_FR");
+                setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                 //
                 $date_du_jour = strftime("%A %d %B %Y");
@@ -1102,7 +1102,7 @@
                             $date_de_depart_du_locataire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
                             //
-                            setlocale(LC_TIME, "fr_FR");
+                            setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                             //
                             $date_d_arrivee_du_locataire_dans_son_studio_sous_format_francophone = strftime("%A %d %B %Y", $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp);
@@ -1243,7 +1243,7 @@
                 $date_de_depart_du_locataire_entree_dans_le_formulaire_sous_forme_de_timestamp = renvoi_de_la_date_de_fin_du_contrat_de_location_pour_le_locataire_sous_forme_de_timestamp($nom_de_famille_du_locataire, $prenom_du_locataire);
 
                 //
-                setlocale(LC_TIME, "fr_FR");
+                setlocale(LC_TIME, "fr_FR.utf8", "fra");
 
                 //
                 $date_du_jour_pour_insertion_dans_le_document_PDF = strftime("%A %d %B %Y");
