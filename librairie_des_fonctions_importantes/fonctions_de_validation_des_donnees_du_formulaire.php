@@ -2589,13 +2589,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
                 $variable_de_retour = True;
 
             }
-            else
-            {
-
-                print($nombre_de_resultats_compris_dans_la_requete);
-
-            }
-
+            
         }
         elseif(is_a($element_qu_on_cherche_dans_la_base, 'Contrat'))
         {
