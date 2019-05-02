@@ -315,11 +315,14 @@
                                                                             //
                                                                             $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_0-3_mois', array(
 
+                                                                                "type_de_contrat" => "de 0 à 3 mois",
                                                                                 "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
                                                                                 "prenom_du_locataire" => $prenom_du_locataire_formate,
                                                                                 "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                                                                "adresse_d_habitation_du_locataire" => $adresse_d_habitation_du_locataire,
                                                                                 "surface_du_studio" => $surface_du_studio_pour_le_locataire,
                                                                                 "date_de_debut_du_contrat_de_location" => $date_de_debut_du_contrat_de_location,
+                                                                                "date_de_fin_du_contrat_de_location" => $date_de_fin_du_contrat_de_location,
                                                                                 "date_du_jour" => $date_du_jour,
                                                                                 "montant_du_loyer_en_chiffres" => $montant_de_la_location_pour_le_locataire,
                                                                                 "montant_du_depot_de_garantie_en_chiffre" => $montant_du_depot_de_garanti_pour_le_locataire,
