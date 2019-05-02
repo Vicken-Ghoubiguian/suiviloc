@@ -670,7 +670,8 @@
                                                                                                 $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
 
                                                                                                 //
-                                                                                                insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant);
+                                                                                                //insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant);
+                                                                                                insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
 
                                                                                             }
 

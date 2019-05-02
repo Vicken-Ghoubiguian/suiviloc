@@ -1492,7 +1492,7 @@
         $dompdf->render();
 
         //
-        if($type_de_document_a_generer == "etiquette")
+        if($type_de_document_a_generer == "etiquette" || $type_de_document_a_generer == "contrat_0-3_mois" || $type_de_document_a_generer == "contrat_12_mois")
         {
 
             //
@@ -2589,7 +2589,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
                 $variable_de_retour = True;
 
             }
-            
+
         }
         elseif(is_a($element_qu_on_cherche_dans_la_base, 'Contrat'))
         {
