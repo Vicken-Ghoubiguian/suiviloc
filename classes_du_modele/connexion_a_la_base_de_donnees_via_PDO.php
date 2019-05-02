@@ -8,9 +8,9 @@ class connexion_a_la_base_de_donnees_via_PDO
     private static $cnxPDO = null;
 
     //Ici, toutes les constantes qui vont servir pour la connexion à la base de données sont définies
-    const USER = 'residis';
+    const USER = 'residence_locative';
     const HOST = 'localhost';
-    const PWD = 'Res*1007';
+    const PWD = 'mot_de_passe_de_l_uttilisateur_residence_locative';
     const DB_NAME = 'gestion_de_parc_locatif';
 
     //Définition du constructeur (privée) de la classe connexion_a_la_base_de_donnees_via_PDO
