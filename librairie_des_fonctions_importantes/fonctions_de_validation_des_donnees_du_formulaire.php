@@ -2457,10 +2457,6 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $numero_de_telephone_du_locataire = $element_dont_on_veut_trouver_son_id->getNumero_de_telephone();
 
-            $date_d_arriver_du_locataire_sous_forme_de_String = $date_d_arriver_du_locataire->format("Y-m-d");
-
-            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire->format("Y-m-d");
-
             $requete_preparee_pour_la_recuperation_du_locataire = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire AND Locataire.adresse_d_habitation = :adresse_d_habitation_du_locataire AND Locataire.type_de_public = :type_de_public_du_locataire AND Locataire.date_d_arrivee = :date_d_arrivee_du_locataire AND Locataire.date_de_naissance = :date_de_naissance_du_locataire AND Locataire.numero_de_telephone = :numero_de_telephone_du_locataire");
 
             $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
@@ -2471,9 +2467,9 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":type_de_public_du_locataire", $type_de_public_du_locataire);
 
-            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_d_arrivee_du_locataire", $date_d_arriver_du_locataire_sous_forme_de_String);
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_d_arrivee_du_locataire", $date_d_arriver_du_locataire);
 
-            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire_sous_forme_de_String);
+            $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire);
 
             $requete_preparee_pour_la_recuperation_du_locataire->bindParam(":numero_de_telephone_du_locataire", $numero_de_telephone_du_locataire);
 
@@ -2591,6 +2587,12 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
             {
 
                 $variable_de_retour = True;
+
+            }
+            else
+            {
+
+                print($nombre_de_resultats_compris_dans_la_requete);
 
             }
 
@@ -2758,13 +2760,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $chemin_du_fichier_genere = $element_a_inserer_dans_la_base_de_donnees->getChemin_du_fichier_genere();
 
-            $date_de_debut = $date_de_debut_du_contrat_de_location_PDF->format("Y-m-d");
-
-            $date_de_fin = $date_de_fin_du_contrat_de_location_PDF->format("Y-m-d");
-
-            //$date_du_jour = $date_du_jour_de_generation_du_contrat_de_location_PDF->format("Y-m-d");
-
-            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Contrat(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie) VALUES(:locataire, :studio, :garant, :type_de_contrat, :date_de_debut_de_contrat, :date_de_fin_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Contrat(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie, chemin_d_accee) VALUES(:locataire, :studio, :garant, :type_de_contrat, :date_de_debut_de_contrat, :date_de_fin_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':locataire', $identifiant_du_locataire);
 
@@ -2774,13 +2770,15 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':type_de_contrat', $identifiant_du_type_de_contrat);
 
-            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_debut_du_contrat', $date_de_debut);
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_debut_du_contrat', $date_de_debut_du_contrat_de_location_PDF);
 
-            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_fin_du_contrat', $date_de_fin);
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_fin_du_contrat', $date_de_fin_du_contrat_de_location_PDF);
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_du_jour', $date_du_jour_de_generation_du_contrat_de_location_PDF);
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':montant_du_loyer', $montant_du_loyer);
+
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':encaissement_du_depot_de_garantie', $encaissement_du_depot_de_garantie);
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':chemin_d_accee', $chemin_du_fichier_genere);
 

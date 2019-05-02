@@ -146,6 +146,9 @@
                                                     $date_de_naissance_du_locataire_sous_forme_de_DateTime = $date_de_naissance_du_locataire_sous_toutes_ses_formes['datetime'];
 
                                                     //
+                                                    $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire_sous_toutes_ses_formes['chaine_de_caracteres'];
+
+                                                    //
                                                     $date_de_naissance_du_locataire_sous_forme_de_timestamp = $date_de_naissance_du_locataire_sous_toutes_ses_formes['timestamp'];
 
                                                     //
@@ -165,6 +168,9 @@
 
                                                     //
                                                     $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['datetime'];
+
+                                                    //
+                                                    $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_String = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['chaine_de_caracteres'];
 
                                                     //
                                                     $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_timestamp = $date_d_arrivee_du_locataire_dans_son_studio_sous_toutes_ses_formes['timestamp'];
@@ -196,12 +202,6 @@
 
                                                             //
                                                             $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
-
-                                                            //
-                                                            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire_sous_forme_de_DateTime->format("Y-m-d");
-
-                                                            //
-                                                            $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_String = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->format("Y-m-d");
 
                                                             //
                                                             $locataire_courant = new Locataire($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_String, $adresse_email_du_locataire, $date_de_naissance_du_locataire_sous_forme_de_String, $adresse_d_habitation_du_locataire, $type_de_public_choisi_pour_le_locataire, $numero_de_telephone_du_locataire);
@@ -480,6 +480,9 @@
                                                                                         $date_de_naissance_du_garant_sous_forme_de_DateTime = $date_de_naissance_du_garant_sous_toutes_ses_formes['datetime'];
 
                                                                                         //
+                                                                                        $date_de_naissance_du_garant_sous_forme_de_String = $date_de_naissance_du_garant_sous_toutes_ses_formes['chaine_de_caracteres'];
+
+                                                                                        //
                                                                                         $date_de_naissance_du_garant_sous_forme_de_timestamp = $date_de_naissance_du_garant_sous_toutes_ses_formes['timestamp'];
 
                                                                                         //
@@ -491,9 +494,6 @@
 
                                                                                             //
                                                                                             $prenom_du_garant_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_garant);
-
-                                                                                            //
-                                                                                            $date_de_naissance_du_garant_sous_forme_de_String = $date_de_naissance_du_garant_sous_forme_de_DateTime->format("Y-m-d");
 
                                                                                             //
                                                                                             $garant_courant = new Garant($nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_garant_formate, $date_de_naissance_du_garant_sous_forme_de_String, $adresse_d_habitation_du_garant);
@@ -580,12 +580,6 @@
                                                                                                 $date_du_jour_pour_insertion_dans_le_contrat_courant = date('Y-m-d');
 
                                                                                                 //
-                                                                                                /*$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->format("Y-m-d");
-
-                                                                                                //
-                                                                                                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->format("Y-m-d");*/
-
-                                                                                                //
                                                                                                 $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
 
                                                                                                 //
@@ -598,10 +592,6 @@
 
                                                                                                 //
                                                                                                 $surface_du_studio_pour_le_locataire = renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire);
-
-
-                                                                                                //
-                                                                                                insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
 
                                                                                                 //
                                                                                                 if(est_element_present_dans_la_base($garant_courant) == False)
