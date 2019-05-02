@@ -113,7 +113,7 @@
         $chemin_d_accee = $resultats_de_la_requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat[0]['chemin_d_accee'];
 
         //
-        $requete_d_insertion_du_contrat_dans_la_table_d_archivage = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Archive_des_anciens_contrats_de_location(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie, chemin_d_accee) VALUES(:locataire, :studio, :type_de_contrat, :date_de_debut_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
+        $requete_d_insertion_du_contrat_dans_la_table_d_archivage = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Archive_des_anciens_contrats_de_location(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie, chemin_d_accee) VALUES(:locataire, :studio, :garant, :type_de_contrat, :date_de_debut_du_contrat, :date_de_fin_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
 
         //
         $requete_d_insertion_du_contrat_dans_la_table_d_archivage->bindParam(":locataire", $locataire);
@@ -201,6 +201,9 @@
 
         //
         $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":date_du_jour", $date_du_jour);
+
+        //
+        $requete_preparee_d_insertion_du_nouveau_contrat_de_location_du_locataire->bindParam(":id_du_locataire", $locataire);
 
         //
         $requete_preparee_de_recuperation_de_toutes_les_donnees_relatives_au_precedent_contrat->bindParam(":encaissement_du_depot_de_garantie", $encaissement_du_depot_de_garantie);
@@ -2570,35 +2573,15 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $prenom_du_locataire = $element_qu_on_cherche_dans_la_base->getPrenom_du_locataire();
 
-            $date_d_arriver_du_locataire = $element_qu_on_cherche_dans_la_base->getDate_d_arriver();
-
             $date_de_naissance_du_locataire = $element_qu_on_cherche_dans_la_base->getDate_de_naissance();
 
-            $adresse_d_habitation_du_locataire = $element_qu_on_cherche_dans_la_base->getAdresse_d_habitation();
-
-            $type_de_public_du_locataire = $element_qu_on_cherche_dans_la_base->getType_de_public();
-
-            $numero_de_telephone_du_locataire = $element_qu_on_cherche_dans_la_base->getNumero_de_telephone();
-
-            $date_d_arriver_du_locataire_sous_forme_de_String = $date_d_arriver_du_locataire->format("Y-m-d");
-
-            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire->format("Y-m-d");
-
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire AND Locataire.adresse_d_habitation = :adresse_d_habitation_du_locataire AND Locataire.type_de_public = :type_de_public_du_locataire AND Locataire.date_d_arrivee = :date_d_arrivee_du_locataire AND Locataire.date_de_naissance = :date_de_naissance_du_locataire AND Locataire.numero_de_telephone = :numero_de_telephone_du_locataire");
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Locataire WHERE Locataire.nom = :nom_de_famille_du_locataire AND Locataire.prenom = :prenom_du_locataire AND Locataire.date_de_naissance = :date_de_naissance_du_locataire");
 
             $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
 
             $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":prenom_du_locataire", $prenom_du_locataire);
 
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":adresse_d_habitation_du_locataire", $adresse_d_habitation_du_locataire);
-
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":type_de_public_du_locataire", $type_de_public_du_locataire);
-
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":date_d_arrivee_du_locataire", $date_d_arriver_du_locataire_sous_forme_de_String);
-
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire_sous_forme_de_String);
-
-            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":numero_de_telephone_du_locataire", $numero_de_telephone_du_locataire);
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire);
 
             $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->execute();
 
@@ -2668,6 +2651,31 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
         elseif(is_a($element_qu_on_cherche_dans_la_base,'Garant'))
         {
 
+            $nom_de_famille_du_garant = $element_qu_on_cherche_dans_la_base->getNom_du_garant();
+
+            $prenom_du_garant = $element_qu_on_cherche_dans_la_base->getPrenom_du_garant();
+
+            $date_de_naissance_du_garant = $element_qu_on_cherche_dans_la_base->getDate_de_naissance();
+
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("SELECT id FROM Garant WHERE Garant.nom = :nom_de_famille_du_garant AND Garant.prenom = :prenom_du_garant AND Garant.date_de_naissance = :date_de_naissance_du_garant");
+
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":nom_de_famille_du_garant", $nom_de_famille_du_garant);
+
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":prenom_du_garant", $prenom_du_garant);
+
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->bindParam(":date_de_naissance_du_garant", $date_de_naissance_du_garant);
+
+            $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->execute();
+
+            $nombre_de_resultats_compris_dans_la_requete = $requete_preparee_pour_la_verification_de_l_existence_du_locataire_dans_la_base->rowCount();
+
+            if($nombre_de_resultats_compris_dans_la_requete == 1)
+            {
+
+                $variable_de_retour = True;
+
+            }
+
         }
         elseif(is_a($element_qu_on_cherche_dans_la_base,'Studio'))
         {
@@ -2706,10 +2714,6 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $numero_de_telephone_du_locataire = $element_a_inserer_dans_la_base_de_donnees->getNumero_de_telephone();
 
-            $date_d_arriver_du_locataire_sous_forme_de_String = $date_d_arriver_du_locataire->format("Y-m-d");
-
-            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire->format("Y-m-d");
-
             $requete_preparee_d_insertion_du_locataire_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Locataire(nom, prenom, adresse_d_habitation, type_de_public, date_d_arrivee, adresse_mail, date_de_naissance, numero_de_telephone) VALUES(:nom_de_famille_du_locataire, :prenom_du_locataire, :adresse_d_habitation_du_locataire, :type_de_public_du_locataire, :date_d_arriver_du_locataire, :adresse_mail_du_locataire, :date_de_naissance_du_locataire, :numero_de_telephone_du_locataire)");
 
             $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":nom_de_famille_du_locataire", $nom_de_famille_du_locataire);
@@ -2722,9 +2726,9 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":adresse_mail_du_locataire", $adresse_mail_du_locataire);
 
-            $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire_sous_forme_de_String);
+            $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":date_de_naissance_du_locataire", $date_de_naissance_du_locataire);
 
-            $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":date_d_arriver_du_locataire", $date_d_arriver_du_locataire_sous_forme_de_String);
+            $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":date_d_arriver_du_locataire", $date_d_arriver_du_locataire);
 
             $requete_preparee_d_insertion_du_locataire_dans_la_base->bindParam(":numero_de_telephone_du_locataire", $numero_de_telephone_du_locataire);
 
@@ -2758,7 +2762,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $date_de_fin = $date_de_fin_du_contrat_de_location_PDF->format("Y-m-d");
 
-            $date_du_jour = $date_du_jour_de_generation_du_contrat_de_location_PDF->format("Y-m-d");
+            //$date_du_jour = $date_du_jour_de_generation_du_contrat_de_location_PDF->format("Y-m-d");
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Contrat(locataire, studio, garant, type_de_contrat, date_de_debut_du_contrat, date_de_fin_du_contrat, date_du_jour, montant_du_loyer, encaissement_du_depot_de_garantie) VALUES(:locataire, :studio, :garant, :type_de_contrat, :date_de_debut_de_contrat, :date_de_fin_du_contrat, :date_du_jour, :montant_du_loyer, :encaissement_du_depot_de_garantie, :chemin_d_accee)");
 
@@ -2774,7 +2778,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_de_fin_du_contrat', $date_de_fin);
 
-            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_du_jour', $date_du_jour);
+            $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':date_du_jour', $date_du_jour_de_generation_du_contrat_de_location_PDF);
 
             $requete_preparee_d_insertion_du_contrat_de_location_dans_la_base->bindParam(':montant_du_loyer', $montant_du_loyer);
 
@@ -2792,8 +2796,6 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $date_de_naissance_du_garant = $element_a_inserer_dans_la_base_de_donnees->getDate_de_naissance();
 
-            $date_de_naissance_du_garant_sous_forme_de_String = $date_de_naissance_du_garant->format("Y-m-d");
-
             $requete_preparee_d_insertion_du_garant_dans_la_base = connexion_a_la_base_de_donnees_via_PDO::getinstance()->prepare("INSERT INTO Garant(nom, prenom, date_de_naissance, adresse_d_habitation) VALUES(:nom_de_famille_du_garant, :prenom_du_garant, :date_de_naissance_du_garant, :adresse_d_habitation_du_garant)");
 
             $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":nom_de_famille_du_garant", $nom_de_famille_du_garant);
@@ -2802,7 +2804,7 @@ function renvoi_de_toutes_les_donnees_relatives_aux_documents_d_expiration_de_co
 
             $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":adresse_d_habitation_du_garant", $adresse_d_habitation_du_garant);
 
-            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":date_de_naissance_du_garant", $date_de_naissance_du_garant_sous_forme_de_String);
+            $requete_preparee_d_insertion_du_garant_dans_la_base->bindParam(":date_de_naissance_du_garant", $date_de_naissance_du_garant);
 
             $requete_preparee_d_insertion_du_garant_dans_la_base->execute();
 

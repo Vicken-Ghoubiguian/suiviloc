@@ -155,6 +155,9 @@
                                                     $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime = $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes['datetime'];
 
                                                     //
+                                                    $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes['chaine_de_caracteres'];
+
+                                                    //
                                                     $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_debut_du_contrat_pour_le_locataire_sous_toutes_ses_formes['timestamp'];
 
                                                     //
@@ -171,6 +174,9 @@
 
                                                     //
                                                     $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['datetime'];
+
+                                                    //
+                                                    $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['chaine_de_caracteres'];
 
                                                     //
                                                     $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp = $date_de_fin_du_contrat_pour_le_locataire_sous_toutes_ses_formes['timestamp'];
@@ -192,7 +198,13 @@
                                                             $prenom_du_locataire_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_locataire);
 
                                                             //
-                                                            $locataire_courant = new Locataire($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime, $adresse_email_du_locataire, $date_de_naissance_du_locataire_sous_forme_de_DateTime, $adresse_d_habitation_du_locataire, $type_de_public_choisi_pour_le_locataire, $numero_de_telephone_du_locataire);
+                                                            $date_de_naissance_du_locataire_sous_forme_de_String = $date_de_naissance_du_locataire_sous_forme_de_DateTime->format("Y-m-d");
+
+                                                            //
+                                                            $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_String = $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_DateTime->format("Y-m-d");
+
+                                                            //
+                                                            $locataire_courant = new Locataire($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate, $date_d_arrivee_du_locataire_dans_son_studio_sous_forme_de_String, $adresse_email_du_locataire, $date_de_naissance_du_locataire_sous_forme_de_String, $adresse_d_habitation_du_locataire, $type_de_public_choisi_pour_le_locataire, $numero_de_telephone_du_locataire);
 
                                                             //
                                                             try
@@ -303,6 +315,99 @@
                                                                             //
                                                                             $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_0-3_mois', array(
 
+                                                                                "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                "prenom_du_locataire" => $prenom_du_locataire_formate,
+                                                                                "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                                                                "surface_du_studio" => $surface_du_studio_pour_le_locataire,
+                                                                                "date_de_debut_du_contrat_de_location" => $date_de_debut_du_contrat_de_location,
+                                                                                "date_du_jour" => $date_du_jour,
+                                                                                "montant_du_loyer_en_chiffres" => $montant_de_la_location_pour_le_locataire,
+                                                                                "montant_du_depot_de_garantie_en_chiffre" => $montant_du_depot_de_garanti_pour_le_locataire,
+                                                                                "montant_du_loyer_en_lettres" => $montant_du_loyer_en_lettres,
+                                                                                "montant_du_depot_de_garantie_en_lettres" => $montant_du_depot_de_garanti_pour_le_locataire_en_lettres,
+                                                                                "encaissement_du_depot_de_garantie" => $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF,
+                                                                                "inclusion_d_EDF_dans_le_contrat" => $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF
+
+                                                                            ));
+
+                                                                            //
+                                                                            insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
+
+                                                                            //
+                                                                            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
+
+                                                                            //
+                                                                            $date_du_jour_pour_insertion_dans_le_contrat_courant = date('Y-m-d');
+
+                                                                            //
+                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, NULL);
+
+                                                                            //
+                                                                            insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
+
+                                                                        }
+                                                                        //Sinon...
+                                                                        else
+                                                                        {
+
+                                                                            //
+                                                                            $surface_du_studio_pour_le_locataire = renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire);
+
+                                                                            //
+                                                                            $montant_du_loyer_en_lettres = conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_de_la_location_pour_le_locataire);
+
+                                                                            //
+                                                                            $montant_du_depot_de_garanti_pour_le_locataire_en_lettres = conversion_de_chiffres_a_lettres_des_montants_passes_en_parametres($montant_du_depot_de_garanti_pour_le_locataire);
+
+                                                                            //
+                                                                            setlocale(LC_TIME, "fr_FR.utf8", "fra");
+
+                                                                            //
+                                                                            $date_du_jour = strftime("%A %d %B %Y", time());
+
+                                                                            //
+                                                                            $date_de_debut_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                            //
+                                                                            $date_de_fin_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                            //
+                                                                            if($choix_d_encaissement_du_depot_de_garanti_pour_le_locataire == true)
+                                                                            {
+
+                                                                                //
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Oui";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Non";
+
+                                                                            }
+
+                                                                            //
+                                                                            if($inclusion_EDF == 1)
+                                                                            {
+
+                                                                                //
+                                                                                $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF = "Oui";
+
+                                                                            }
+                                                                            //
+                                                                            else
+                                                                            {
+
+                                                                                //
+                                                                                $inclusion_EDF_formate_pour_inclusion_dans_le_contrat_PDF = "Non";
+
+                                                                            }
+
+                                                                            //
+                                                                            $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_0-3_mois', array(
+
                                                                                 "type_de_contrat" => "de 0 à 3 mois",
                                                                                 "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
                                                                                 "prenom_du_locataire" => $prenom_du_locataire_formate,
@@ -322,33 +427,13 @@
                                                                             ));
 
                                                                             //
-                                                                            insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
-
-                                                                            //
                                                                             $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
 
                                                                             //
-                                                                            $date_du_jour = date('Y-m-d');
+                                                                            $date_du_jour_pour_insertion_dans_le_contrat_courant = date('Y-m-d');
 
                                                                             //
-                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_du_jour, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, NULL);
-
-                                                                            //
-                                                                            insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
-
-                                                                        }
-                                                                        //Sinon...
-                                                                        else
-                                                                        {
-
-                                                                            //
-                                                                            $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
-
-                                                                            //
-                                                                            $date_du_jour = date('Y-m-d');
-
-                                                                            //
-                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_du_jour, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, NULL);
+                                                                            $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, NULL);
 
                                                                             //
                                                                             insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant, $locataire_courant);
@@ -356,7 +441,7 @@
                                                                         }
 
                                                                         //
-                                                                        //confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
+                                                                        confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                     }
                                                                     elseif($type_de_contrat_choisi_pour_le_locataire == 2)
@@ -408,11 +493,18 @@
                                                                                             $prenom_du_garant_formate = formatage_du_prenom_pour_ne_mettre_que_les_premieres_lettres_en_majuscule($prenom_du_garant);
 
                                                                                             //
-                                                                                            $garant_courant = new Garant($nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_garant_formate, $date_de_naissance_du_garant_sous_forme_de_DateTime, $adresse_d_habitation_du_garant);
+                                                                                            $date_de_naissance_du_garant_sous_forme_de_String = $date_de_naissance_du_garant_sous_forme_de_DateTime->format("Y-m-d");
+
+                                                                                            //
+                                                                                            $garant_courant = new Garant($nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_garant_formate, $date_de_naissance_du_garant_sous_forme_de_String, $adresse_d_habitation_du_garant);
 
                                                                                             //
                                                                                             if(est_element_present_dans_la_base($locataire_courant) == False)
                                                                                             {
+
+                                                                                                //
+                                                                                                $surface_du_studio_pour_le_locataire = renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire);
+
 
                                                                                                 //
                                                                                                 insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
@@ -427,16 +519,74 @@
                                                                                                 }
 
                                                                                                 //
+                                                                                                setlocale(LC_TIME, "fr_FR.utf8", "fra");
+
+                                                                                                //
+                                                                                                $date_du_jour = strftime("%A %d %B %Y", time());
+
+                                                                                                //
+                                                                                                $date_de_debut_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                $date_de_naissance_du_garant_a_inserer_dans_le_contrat = strftime("%A %d %B %Y", $date_de_naissance_du_garant_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                $date_de_naissance_du_locataire_a_inserer_dans_le_contrat = strftime("%A %d %B %Y", $date_de_naissance_du_locataire_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                if (strlen($numero_du_studio_pour_le_locataire) == 3) {
+
+                                                                                                    //
+                                                                                                    $numero_de_l_etage_du_studio = $numero_du_studio_pour_le_locataire[0];
+
+                                                                                                } //Sinon...
+                                                                                                else {
+
+                                                                                                    //
+                                                                                                    $numero_de_l_etage_du_studio = "rez-de-chaussée";
+
+                                                                                                }
+
+                                                                                                //
+                                                                                                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_12_mois', array(
+
+                                                                                                    "type_de_contrat" => "de 12 mois",
+                                                                                                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                                    "adresse_mail_du_locataire" => $adresse_email_du_locataire,
+                                                                                                    "prenom_du_locataire" => $prenom_du_locataire_formate,
+                                                                                                    "nom_de_famille_du_garant" => $nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                                    "prenom_du_garant" => $prenom_du_garant_formate,
+                                                                                                    "date_de_naissance_du_garant" => $date_de_naissance_du_garant_a_inserer_dans_le_contrat,
+                                                                                                    "date_de_naissance_du_locataire" => $date_de_naissance_du_locataire_a_inserer_dans_le_contrat,
+                                                                                                    "numero_de_l_etage" => $numero_de_l_etage_du_studio,
+                                                                                                    "adresse_du_garant" => $adresse_d_habitation_du_garant,
+                                                                                                    "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                                                                                    "surface_du_studio" => $surface_du_studio_pour_le_locataire,
+                                                                                                    "date_debut_de_contrat" => $date_de_debut_du_contrat_de_location,
+                                                                                                    "date_du_jour" => $date_du_jour,
+                                                                                                    "date_de_la_reception_des_documents" => $date_du_jour,
+                                                                                                    "montant_du_loyer" => $montant_de_la_location_pour_le_locataire,
+                                                                                                    "montant_du_depot_de_garanti" => $montant_du_depot_de_garanti_pour_le_locataire
+
+                                                                                                ));
+
+                                                                                                //
                                                                                                 $id_du_garant = renvoi_de_l_id_du_garant_a_partir_de_son_nom_et_prenom($nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_garant_formate);
 
                                                                                                 //
                                                                                                 $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
 
                                                                                                 //
-                                                                                                $date_du_jour = date('Y-m-d');
+                                                                                                $date_du_jour_pour_insertion_dans_le_contrat_courant = date('Y-m-d');
 
                                                                                                 //
-                                                                                                $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_du_jour, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
+                                                                                                /*$date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime->format("Y-m-d");
+
+                                                                                                //
+                                                                                                $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String = $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime->format("Y-m-d");*/
+
+                                                                                                //
+                                                                                                $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
 
                                                                                                 //
                                                                                                 insertion_de_l_element_dans_la_base_de_donnees($contrat_courant);
@@ -445,6 +595,13 @@
                                                                                             //Sinon...
                                                                                             else
                                                                                             {
+
+                                                                                                //
+                                                                                                $surface_du_studio_pour_le_locataire = renvoi_du_libelle_de_la_surface_d_un_studio($numero_du_studio_pour_le_locataire);
+
+
+                                                                                                //
+                                                                                                insertion_de_l_element_dans_la_base_de_donnees($locataire_courant);
 
                                                                                                 //
                                                                                                 if(est_element_present_dans_la_base($garant_courant) == False)
@@ -456,16 +613,68 @@
                                                                                                 }
 
                                                                                                 //
+                                                                                                setlocale(LC_TIME, "fr_FR.utf8", "fra");
+
+                                                                                                //
+                                                                                                $date_du_jour = strftime("%A %d %B %Y", time());
+
+                                                                                                //
+                                                                                                $date_de_debut_du_contrat_de_location = strftime("%A %d %B %Y", $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                $date_de_naissance_du_garant_a_inserer_dans_le_contrat = strftime("%A %d %B %Y", $date_de_naissance_du_garant_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                $date_de_naissance_du_locataire_a_inserer_dans_le_contrat = strftime("%A %d %B %Y", $date_de_naissance_du_locataire_sous_forme_de_timestamp);
+
+                                                                                                //
+                                                                                                if (strlen($numero_du_studio_pour_le_locataire) == 3) {
+
+                                                                                                    //
+                                                                                                    $numero_de_l_etage_du_studio = $numero_du_studio_pour_le_locataire[0];
+
+                                                                                                } //Sinon...
+                                                                                                else {
+
+                                                                                                    //
+                                                                                                    $numero_de_l_etage_du_studio = "rez-de-chaussée";
+
+                                                                                                }
+
+                                                                                                //
+                                                                                                $chemin_du_fichier_genere = generation_d_un_document_sous_format_PDF('contrat_12_mois', array(
+
+                                                                                                    "type_de_contrat" => "de 12 mois",
+                                                                                                    "nom_de_famille_du_locataire" => $nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                                    "adresse_mail_du_locataire" => $adresse_email_du_locataire,
+                                                                                                    "prenom_du_locataire" => $prenom_du_locataire_formate,
+                                                                                                    "nom_de_famille_du_garant" => $nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule,
+                                                                                                    "prenom_du_garant" => $prenom_du_garant_formate,
+                                                                                                    "date_de_naissance_du_garant" => $date_de_naissance_du_garant_a_inserer_dans_le_contrat,
+                                                                                                    "date_de_naissance_du_locataire" => $date_de_naissance_du_locataire_a_inserer_dans_le_contrat,
+                                                                                                    "numero_de_l_etage" => $numero_de_l_etage_du_studio,
+                                                                                                    "adresse_du_garant" => $adresse_d_habitation_du_garant,
+                                                                                                    "numero_du_studio" => $numero_du_studio_pour_le_locataire,
+                                                                                                    "surface_du_studio" => $surface_du_studio_pour_le_locataire,
+                                                                                                    "date_debut_de_contrat" => $date_de_debut_du_contrat_de_location,
+                                                                                                    "date_du_jour" => $date_du_jour,
+                                                                                                    "date_de_la_reception_des_documents" => $date_du_jour,
+                                                                                                    "montant_du_loyer" => $montant_de_la_location_pour_le_locataire,
+                                                                                                    "montant_du_depot_de_garanti" => $montant_du_depot_de_garanti_pour_le_locataire
+
+                                                                                                ));
+
+                                                                                                //
                                                                                                 $id_du_garant = renvoi_de_l_id_du_garant_a_partir_de_son_nom_et_prenom($nom_de_famille_du_garant_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_garant_formate);
 
                                                                                                 //
                                                                                                 $id_du_locataire = renvoi_de_l_id_du_locataire_a_partir_de_son_nom_et_prenom($nom_de_famille_du_locataire_renseigne_dans_le_formulaire_et_mis_en_majuscule, $prenom_du_locataire_formate);
 
                                                                                                 //
-                                                                                                $date_du_jour = date('Y-m-d');
+                                                                                                $date_du_jour_pour_insertion_dans_le_contrat_courant = date('Y-m-d');
 
                                                                                                 //
-                                                                                                $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_DateTime, $date_du_jour, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
+                                                                                                $contrat_courant = new Contrat($id_du_type_de_contrat, $libelle_du_type_de_contrat_choisi, $date_de_debut_du_contrat_pour_le_locataire_sous_forme_de_String, $date_de_fin_du_contrat_pour_le_locataire_sous_forme_de_String, $date_du_jour_pour_insertion_dans_le_contrat_courant, $montant_de_la_location_pour_le_locataire, $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire, $inclusion_EDF, $inclusion_eau, $inclusion_internet, $inclusion_assurance_locative, $inclusion_charges_immeuble, $chemin_du_fichier_genere, $id_du_locataire, $id_du_studio_selectionne, $id_du_garant);
 
                                                                                                 //
                                                                                                 insertion_du_contrat_de_location_avec_archivage_du_precedent_dans_la_base_de_donnees($contrat_courant);
@@ -473,7 +682,7 @@
                                                                                             }
 
                                                                                             //
-                                                                                            //confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
+                                                                                            confirmation_de_reussite_de_generation_du_document_PDF("Le contrat de location");
 
                                                                                         }
                                                                                         //Sinon...
