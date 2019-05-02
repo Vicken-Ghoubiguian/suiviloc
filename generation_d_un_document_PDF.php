@@ -379,7 +379,7 @@
                                                                             {
 
                                                                                 //
-                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Oui";
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "montant encaissé";
 
                                                                             }
                                                                             //
@@ -387,7 +387,7 @@
                                                                             {
 
                                                                                 //
-                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "Non";
+                                                                                $choix_d_encaissement_du_depot_de_garanti_pour_le_locataire_formate_pour_inclusion_dans_le_contrat_PDF = "montant non encaissé";
 
                                                                             }
 
