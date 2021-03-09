@@ -1,6 +1,6 @@
 # suiviloc
 
-Ceci est un projet consistant à développer une application web très complète pour la gestion de parc locatif pour des résidences locatives qu'elles soient petites ou grandes.
+Ceci est un projet consistant à développer une application web très complète pour la gestion de parcs immobiliers locatifs qu'ils soient petites ou grandes.
 
 ##### Table des matières
 
@@ -12,7 +12,7 @@ Ceci est un projet consistant à développer une application web très complète
 <a name="Presentation"></a>
 ## Présentation
 
-Application web de gestion de parc locatif pour des résidences locatives.
+Application web de gestion de parcs immobiliers locatifs.
 Cette application fut développée, sans framework, au cours d'un stage d'une durée de 1 mois et demi dans une résidence locative située à Perpignan, dans le quartier de Porte d'Espagne.
 Celle application posséde les fonctionnalités suivantes:
 
