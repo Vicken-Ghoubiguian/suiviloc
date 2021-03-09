@@ -1,6 +1,6 @@
 # suiviloc
 
-
+Ceci est un projet consistant à développer une application web très complète pour la gestion de parc locatif pour des résidences locatives qu'elles soient petites ou grandes.
 
 ##### Table des matières
 
