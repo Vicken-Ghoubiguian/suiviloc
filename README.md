@@ -27,3 +27,12 @@ Concernant cette étape, je me suis chargé de:
 
 * l'installation d'un serveur GitLab sur un Rapsberry Pi 3-modèle b+,
 * l'administration de ce même serveur GitLab durant toute la durée du projet.
+
+<a name="structure_du_projet"></a>
+## Structure du projet
+
+<a name="developpement_du_projet"></a>
+## Développement du projet
+
+<a name="deploiement_du_projet"></a>
+## Déploiement du projet
