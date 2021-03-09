@@ -5,6 +5,9 @@ Ceci est un projet consistant à développer une application web très complète
 ##### Table des matières
 
 1. [Présentation](#Presentation)
+2. [Structure du projet](#structure_du_projet)
+3. [Développement du projet](#developpement_du_projet)
+4. [Déploiement du projet](#deploiement_du_projet)
 
 <a name="Presentation"></a>
 ## Présentation
