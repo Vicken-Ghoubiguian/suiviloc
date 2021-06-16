@@ -12,7 +12,8 @@ Ceci est un projet consistant à développer une application web très complète
 6. [Installation de Suiviloc](#installation_de_suiviloc),
 7. [Développement de Suiviloc](#developpement_de_suiviloc),
 8. [Déploiement de Suiviloc](#deploiement_de_suiviloc),
-9. [Conclusion](#conclusion)
+9. [Génération de la documentation](#generation_de_la_documentation),
+10. [Conclusion](#conclusion)
 
 <a name="presentation"></a>
 ## Présentation
