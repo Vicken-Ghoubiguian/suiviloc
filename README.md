@@ -4,12 +4,17 @@ Ceci est un projet consistant à développer une application web très complète
 
 ##### Table des matières
 
-1. [Présentation](#Presentation),
-2. [Structure du projet](#structure_du_projet),
-3. [Développement du projet](#developpement_du_projet),
-4. [Déploiement du projet](#deploiement_du_projet)
+1. [Introduction](#introduction),
+2. [Présentation](#presentation),
+3. [Technologies utilisées](#technologies_utilisees),
+4. [Prérequis](#prerequis),
+5. [Structure du projet](#structure_du_projet),
+6. [Installation de Suiviloc](#installation_de_suiviloc),
+7. [Développement du projet](#developpement_du_projet),
+8. [Déploiement du projet](#deploiement_du_projet),
+9. [Conclusion](#conclusion)
 
-<a name="Presentation"></a>
+<a name="presentation"></a>
 ## Présentation
 
 Application web de gestion de parcs immobiliers locatifs.
