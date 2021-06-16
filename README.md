@@ -10,6 +10,8 @@ Ceci est un projet consistant à développer une application web très complète
 4. [Prérequis](#prerequis),
 5. [Structure du projet](#structure_du_projet),
 6. [Installation de Suiviloc](#installation_de_suiviloc),
+	* [Code source](#installation_de_suiviloc_par_code_source),
+	* [Docker](#installation_de_suiviloc_par_Docker)
 7. [Développement de Suiviloc](#developpement_de_suiviloc),
 8. [Déploiement de Suiviloc](#deploiement_de_suiviloc),
 9. [Génération de la documentation](#generation_de_la_documentation),
