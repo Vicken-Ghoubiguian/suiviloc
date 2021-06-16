@@ -10,8 +10,8 @@ Ceci est un projet consistant à développer une application web très complète
 4. [Prérequis](#prerequis),
 5. [Structure du projet](#structure_du_projet),
 6. [Installation de Suiviloc](#installation_de_suiviloc),
-7. [Développement de Suiviloc](#developpement_du_projet),
-8. [Déploiement de Suiviloc](#deploiement_du_projet),
+7. [Développement de Suiviloc](#developpement_de_suiviloc),
+8. [Déploiement de Suiviloc](#deploiement_de_suiviloc),
 9. [Conclusion](#conclusion)
 
 <a name="presentation"></a>
@@ -36,8 +36,11 @@ Concernant cette étape, je me suis chargé de:
 <a name="structure_du_projet"></a>
 ## Structure du projet
 
-<a name="developpement_du_projet"></a>
+<a name="installation_de_suiviloc"></a>
+## Installation de Suiviloc
+
+<a name="developpement_de_suiviloc"></a>
 ## Développement de Suiviloc
 
-<a name="deploiement_du_projet"></a>
+<a name="deploiement_de_suiviloc"></a>
 ## Déploiement de Suiviloc
