@@ -15,6 +15,9 @@ Ceci est un projet consistant à développer une application web très complète
 9. [Génération de la documentation](#generation_de_la_documentation),
 10. [Conclusion](#conclusion)
 
+<a name="introduction"></a>
+## Introduction
+
 <a name="presentation"></a>
 ## Présentation
 
@@ -34,6 +37,12 @@ Concernant cette étape, je me suis chargé de:
 * l'installation d'un serveur GitLab sur un Rapsberry Pi 3-modèle b+,
 * l'administration de ce même serveur GitLab durant toute la durée du projet.
 
+<a name="technologies_utilisees"></a>
+## Technologies utilisées
+
+<a name="prerequis"></a>
+## Prérequis
+
 <a name="structure_du_projet"></a>
 ## Structure du projet
 
@@ -45,3 +54,9 @@ Concernant cette étape, je me suis chargé de:
 
 <a name="deploiement_de_suiviloc"></a>
 ## Déploiement de Suiviloc
+
+<a name="generation_de_la_documentation"></a>
+## Génération de la documentation
+
+<a name="conclusion"></a>
+## Conclusion
